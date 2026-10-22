@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -2400,6 +2400,64 @@
             "verdict": "reported, with an important permission distinction",
             "explanation": "Axios says these are generally agents using customer permission and credentials contrary to bank rules. Some independent-of-instructions behavior is attributed to unnamed sources. Neither bank-policy violations nor attempted actions alone prove a customer-account breach or loss.",
             "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bind9-cve-2026-94300-gss-tsig",
+      "name": "BIND 9 high-severity GSS-TSIG memory corruption flaw (CVE-2026-94300)",
+      "subject": "BIND 9",
+      "summary": "ISC disclosed CVE-2026-94300, a high-severity (CVSS 8.1) memory corruption bug in BIND 9's named. Replaying a captured GSS-TSIG signed UDP message while its key is valid can corrupt memory and may potentially lead to remote code execution. ISC knows of no active exploits and lists no workaround. Patched releases are available.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-21",
+      "dateLabel": "Publicly disclosed 21 Oct 2026 (early notice 14 Oct)",
+      "disclosureDate": "2026-10-21",
+      "tags": [
+        "vulnerability",
+        "rce",
+        "open-source",
+        "network"
+      ],
+      "sources": [
+        {
+          "label": "ISC advisory: CVE-2026-94300, Concurrent GSS-TSIG messages corrupt memory",
+          "url": "https://kb.isc.org/docs/cve-2026-94300",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "verification": "body",
+          "provenance": "full-read"
+        },
+        {
+          "label": "AJ Stuyvenberg (@astuyve) post amplifying the ISC advisory",
+          "url": "https://x.com/astuyve/status/2113338192460238954",
+          "kind": "post",
+          "date": "2026-10-23",
+          "verification": "excerpt",
+          "provenance": "excerpt"
+        }
+      ],
+      "correction": "This is a vulnerability advisory, not a breach. ISC says it is not aware of active exploits. The flaw is rated Exploitable: Remotely, but ISC describes remote code execution as a potential outcome and the attack needs a captured GSS-TSIG signed UDP message replayed while its negotiated key is still valid, plus crafted queries to an attacker-controlled zone. Not every BIND or DNS deployment uses GSS-TSIG. The advisory was posted on 21 Oct, not 23 Oct.",
+      "detail": {
+        "whatHappened": "ISC's advisory says replaying GSS-TSIG signed UDP messages can corrupt memory in named, the BIND 9 server. An attacker who captured a previously signed message can replay it while the negotiated TSIG key is still valid. By also sending crafted queries to a zone the attacker controls, the attacker may potentially achieve remote code execution. ISC found the flaw in internal testing; Dave Aitel of OpenAI independently found and reported it. ISC gave early notice on 14 Oct and public disclosure on 21 Oct. A popular X post on 23 Oct brought wider attention.",
+        "exposure": "Affected: BIND 9.11.0 to 9.18.50, 9.20.0 to 9.20.29 and 9.21.0 to 9.21.26, plus Supported Preview Edition 9.11.3-S1 to 9.18.50-S1 and 9.20.9-S1 to 9.20.29-S1. ISC rates it High, CVSS 8.1 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H). Impact is program abort and potential remote code execution. High attack complexity reflects the replay and key-validity conditions.",
+        "fix": "Upgrade to the patched release closest to your version: 9.20.30 or 9.21.27, or 9.20.30-S1 for Supported Preview Edition. ISC lists no workarounds.",
+        "remaining": "ISC says it knows of no active exploits. The advisory does not give a count of exposed servers or say how many deployments use GSS-TSIG. It also does not name a patched release for the older 9.11 to 9.18 branches, so operators on those branches should check ISC's security matrix.",
+        "responses": [
+          {
+            "by": "ISC",
+            "summary": "Published the advisory with fixed versions 9.20.30, 9.21.27 and 9.20.30-S1, no workarounds, and no known active exploits.",
+            "url": "https://kb.isc.org/docs/cve-2026-94300",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "A high severity vulnerability in the most widely deployed DNS software just dropped",
+            "verdict": "supported, needs qualifier",
+            "explanation": "ISC rates CVE-2026-94300 High (CVSS 8.1) for BIND 9, but it was disclosed 21 Oct, needs GSS-TSIG plus a replayed signed message, and has no known active exploits.",
+            "url": "https://kb.isc.org/docs/cve-2026-94300"
           }
         ]
       }
