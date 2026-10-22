@@ -10,7 +10,7 @@ try{for(const width of [320,390,1440]){
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
  assert.ok(await page.evaluate(()=>document.fonts.check('16px Inter')));
  await page.screenshot({path:`test-results/live-home-${width}.png`});
- await page.locator('#search').fill('NGINX / five');assert.equal(await page.locator('.incident').count(),1);await page.locator('#search').fill('');
+ await page.locator('#search').fill('NGINX patches five');assert.equal(await page.locator('.incident').count(),1);await page.locator('#search').fill('');
  await page.locator('.incident .toggle').first().click();assert.ok(await page.locator('.incident .more').first().isVisible());
  await page.locator('#review').scrollIntoViewIfNeeded();await page.screenshot({path:`test-results/live-review-${width}.png`});
  assert.ok(!(await page.locator('#pr-list').innerText()).includes('test fixture'));
