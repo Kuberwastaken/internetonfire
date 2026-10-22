@@ -1,11 +1,12 @@
 import { timeMatch } from './time.js';
-import { STATUS, barsHTML, dayKey, dayLabel, esc, icon, listHTML, safeURL, sortIncidents } from './render.js';
+import { STATUS, barsHTML, dayKey, dayLabel, esc, headlineHTML, icon, listHTML, safeURL, sortIncidents } from './render.js';
 
 const REPO = 'Kuberwastaken/internetonfire';
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
-const state = { q: '', status: 'all', window: 'all', day: null };
+const DEFAULTS = { q: '', status: 'all', window: 'week', day: null, tag: null };
+const state = { ...DEFAULTS };
 const openIds = new Set();
 let incidents = [];
 
@@ -27,43 +28,54 @@ async function cachedJSON(key, url, ttl = 600000) {
   return v;
 }
 
-function visible() {
+// `skip` leaves one filter out, so a chip can count what you'd get by picking it.
+function visible(skip = null) {
   const q = state.q.toLowerCase().trim();
   return sortIncidents(incidents.filter((i) =>
-    (state.status === 'all' || i.status === state.status) &&
-    (!state.day || dayKey(i) === state.day) &&
-    ['within', 'possible'].includes(timeMatch(i, state.window)) &&
-    (!q || [i.name, i.summary, i.category, i.correction, i.detail?.whatHappened].join(' ').toLowerCase().includes(q))));
+    (skip === 'status' || state.status === 'all' || i.status === state.status) &&
+    (skip === 'tag' || !state.tag || (i.tags || []).includes(state.tag)) &&
+    // A picked day overrides the time window.
+    (state.day ? dayKey(i) === state.day : ['within', 'possible'].includes(timeMatch(i, state.window))) &&
+    (!q || [i.name, i.summary, ...(i.tags || []), i.category, i.correction, i.detail?.whatHappened].join(' ').toLowerCase().includes(q))));
 }
 
 function render() {
   const rows = visible();
-  $('#incident-list').innerHTML = listHTML(rows, openIds);
+  $('#incident-list').innerHTML = listHTML(rows, openIds, state.tag);
   fixIcons($('#incident-list'));
-  const filtered = state.q || state.status !== 'all' || state.window !== 'all' || state.day;
+  $('[data-headline]').innerHTML = headlineHTML(rows.length, state);
+  const filtered = Object.keys(DEFAULTS).some((k) => state[k] !== DEFAULTS[k]);
   $('#result-status').innerHTML = filtered
-    ? `${rows.length} of ${incidents.length}${state.day ? ` · ${esc(dayLabel(state.day))}` : ''} <button type="button" class="clear" data-clear>Clear</button>`
+    ? `${rows.length} of ${incidents.length} <button type="button" class="clear" data-clear>Reset filters</button>`
     : '';
   $('#bars').innerHTML = barsHTML(incidents, localToday(), 30, state.day);
-  $$('#window [data-window]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.window === state.window)));
-  $$('#status [data-status]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.status === state.status)));
+  $$('#window [data-window]').forEach((b) => b.setAttribute('aria-pressed', String(!state.day && b.dataset.window === state.window)));
+  renderChips();
 }
 
 function renderChips() {
-  const count = (s) => incidents.filter((i) => s === 'all' || i.status === s).length;
+  // Re-rendering the rows must not jump their horizontal scroll or drop keyboard focus.
+  const scroll = [$('#status').scrollLeft, $('#tagbar').scrollLeft];
+  const focused = document.activeElement?.closest?.('#status [data-status], #tagbar [data-tag]');
+  const refocus = focused && (focused.dataset.status ? `#status [data-status="${focused.dataset.status}"]` : `#tagbar [data-tag="${CSS.escape(focused.dataset.tag)}"]`);
+  const pool = visible('status');
   $('#status').innerHTML = ['all', ...Object.keys(STATUS)].map((s) => {
-    const n = count(s);
-    if (s !== 'all' && !n) return '';
+    const n = pool.filter((i) => s === 'all' || i.status === s).length;
     const st = STATUS[s];
-    return `<button type="button" data-status="${s}" class="chip${st ? ' st-' + s : ''}" title="${st ? esc(st.hint) : 'Everything'}" aria-pressed="false">${st ? st.icon() : ''}<span>${st ? st.label : 'All'}</span><span class="n">${n}</span></button>`;
+    return `<button type="button" data-status="${s}" class="chip${st ? ' st-' + s : ''}${n ? '' : ' none'}" title="${st ? esc(st.hint) : 'Everything'}" aria-pressed="${s === state.status}">${st ? st.icon() : ''}<span>${st ? st.label : 'All'}</span><span class="n">${n}</span></button>`;
   }).join('');
-  $('#legend').innerHTML = Object.entries(STATUS).map(([k, s]) => `<li><span class="st st-${k}">${s.icon()}</span><b>${s.label}</b> ${esc(s.hint)}.</li>`).join('');
+  // Tag order is fixed by overall use, so the row doesn't reshuffle under your finger.
+  const overall = new Map(), now = new Map();
+  for (const i of incidents) for (const t of i.tags || []) overall.set(t, (overall.get(t) || 0) + 1);
+  for (const i of visible('tag')) for (const t of i.tags || []) now.set(t, (now.get(t) || 0) + 1);
+  $('#tagbar').innerHTML = [...overall.keys()].sort((a, b) => overall.get(b) - overall.get(a) || a.localeCompare(b))
+    .map((t) => `<button type="button" class="tag${now.get(t) ? '' : ' none'}" data-tag="${esc(t)}" aria-pressed="${t === state.tag}">${esc(t)}<span class="n">${now.get(t) || 0}</span></button>`).join('');
+  [$('#status').scrollLeft, $('#tagbar').scrollLeft] = scroll;
+  if (refocus) $(refocus)?.focus();
 }
 
-function renderHeadline() {
-  const n = incidents.filter((i) => ['within', 'possible'].includes(timeMatch(i, 'week'))).length;
-  $('[data-week]').textContent = n || 'No';
-  $('[data-week-noun]').textContent = n === 1 ? 'incident' : 'incidents';
+function renderLegend() {
+  $('#legend').innerHTML = Object.entries(STATUS).map(([k, s]) => `<li><span class="st st-${k}">${s.icon()}</span><b>${s.label}</b> ${esc(s.hint)}.</li>`).join('');
 }
 
 // Missing favicons fall back to the domain's first letter.
@@ -85,7 +97,7 @@ function toggle(article, force) {
 function openFromHash() {
   const id = decodeURIComponent(location.hash.slice(1));
   if (!id || !incidents.some((i) => i.id === id)) return;
-  if (!document.getElementById(id)) { Object.assign(state, { q: '', status: 'all', window: 'all', day: null }); $('#search').value = ''; render(); }
+  if (!document.getElementById(id)) { Object.assign(state, DEFAULTS, { window: 'all' }); $('#search').value = ''; render(); }
   const a = document.getElementById(id);
   toggle(a, true);
   a.scrollIntoView({ block: 'start' });
@@ -98,7 +110,7 @@ async function load() {
     const data = await r.json();
     incidents = data.incidents;
     $('[data-updated]').textContent = 'Sources checked ' + dayLabel(data.updated);
-    renderChips(); renderHeadline(); render(); openFromHash();
+    renderLegend(); render(); openFromHash();
   } catch {
     $('#incident-list').innerHTML = '<p class="empty">Couldn’t load the log. <a href="./data/incidents.json">Raw data</a></p>';
   }
@@ -112,7 +124,7 @@ async function loadPRs() {
       .filter((i) => !i.draft);
     list.innerHTML = items.length ? items.map((i) => {
       const url = safeURL(i.html_url) || `https://github.com/${REPO}/pulls`;
-      return `<li><a class="pr-title" href="${esc(url)}" target="_blank" rel="noopener">${i.pull_request ? icon.pr() : icon.issue()}<span><span class="num">#${esc(i.number)}</span> ${esc(i.title)}</span></a><a class="votes" href="${esc(url)}" target="_blank" rel="noopener" title="Vote on GitHub">👍 ${Number(i.reactions?.['+1'] || 0)}<span>👎 ${Number(i.reactions?.['-1'] || 0)}</span></a></li>`;
+      return `<li><a class="pr-title" href="${esc(url)}" target="_blank" rel="noopener">${i.pull_request ? icon.pr() : icon.issue()}<span><span class="num">#${esc(i.number)}</span> ${esc(i.title)}</span></a>${(i.labels || []).length ? `<span class="tags">${i.labels.map((l) => `<span class="tag static">${esc(l.name)}</span>`).join('')}</span>` : ''}<a class="votes" href="${esc(url)}" target="_blank" rel="noopener" title="Vote on GitHub">👍 ${Number(i.reactions?.['+1'] || 0)}<span>👎 ${Number(i.reactions?.['-1'] || 0)}</span></a></li>`;
     }).join('') : '<li class="muted">Queue’s empty. <a href="#submit">Add one</a>.</li>';
   } catch {
     list.innerHTML = `<li class="muted">GitHub isn’t answering. <a href="https://github.com/${REPO}/pulls" target="_blank" rel="noopener">See PRs</a>.</li>`;
@@ -157,13 +169,14 @@ function setupTip() {
 document.addEventListener('click', (e) => {
   const t = e.target;
   const bar = t.closest('.bar');
-  if (bar && !bar.disabled) { state.day = state.day === bar.dataset.day ? null : bar.dataset.day; state.window = 'all'; render(); return; }
+  if (bar && !bar.disabled) { state.day = state.day === bar.dataset.day ? null : bar.dataset.day; render(); return; }
   const win = t.closest('[data-window]');
   if (win) { state.window = win.dataset.window; state.day = null; render(); return; }
   const chip = t.closest('[data-status]');
   if (chip?.closest('#status')) { state.status = chip.dataset.status === state.status && state.status !== 'all' ? 'all' : chip.dataset.status; render(); return; }
-  if (t.closest('[data-clear]')) { Object.assign(state, { q: '', status: 'all', window: 'all', day: null }); $('#search').value = ''; render(); return; }
-  if (t.closest('[data-week-link]')) { state.window = 'week'; state.day = null; render(); return; }
+  const tag = t.closest('[data-tag]');
+  if (tag) { state.tag = state.tag === tag.dataset.tag ? null : tag.dataset.tag; render(); if (tag.closest('.incident')) $('#log').scrollIntoView({ block: 'start' }); return; }
+  if (t.closest('[data-clear]')) { Object.assign(state, DEFAULTS); $('#search').value = ''; render(); return; }
   const clamped = t.closest('p.clamp');
   if (clamped && !getSelection().toString()) { clamped.classList.remove('clamp'); return; }
   const art = t.closest('.incident');

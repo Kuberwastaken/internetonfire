@@ -102,7 +102,13 @@ function moreHTML(item) {
   ].join('');
 }
 
-export function incidentHTML(item, open = false) {
+export function tagsHTML(item, active = null) {
+  // Entries submitted before tags existed fall back to their old free-text category.
+  if (!Array.isArray(item.tags)) return item.category ? `<span class="tags"><span class="legacy">${esc(item.category)}</span></span>` : '';
+  return `<span class="tags">${item.tags.map((t) => `<button type="button" class="tag${t === active ? ' on' : ''}" data-tag="${esc(t)}" aria-pressed="${t === active}">${esc(t)}</button>`).join('')}</span>`;
+}
+
+export function incidentHTML(item, open = false, activeTag = null) {
   const st = STATUS[item.status] || STATUS.unverified;
   const id = esc(item.id);
   const shown = item.sources.slice(0, 5).map((s) => ext(s.url, favicon(s.url), 'fav-link', s.label)).join('');
@@ -110,21 +116,34 @@ export function incidentHTML(item, open = false) {
   return `<article class="incident${open ? ' open' : ''}" id="${id}" data-status="${esc(item.status)}">
 <div class="head"><span class="st st-${esc(item.status)}" title="${st.label}: ${st.hint}">${st.icon()}<span class="sr">${st.label}</span></span><h3><button class="toggle" type="button" aria-expanded="${open}" aria-controls="${id}-more">${esc(item.name)}</button></h3><a class="perma" href="#${id}" title="Link to this">${icon.link()}<span class="sr">Link to ${esc(item.name)}</span></a></div>
 <p class="sum">${esc(item.summary)}</p>
-<div class="foot"><span class="favs">${shown}${extra}</span><span class="cat">${esc(item.category)}</span><button class="chev" type="button" aria-hidden="true" tabindex="-1">${icon.chevron()}</button></div>
+<div class="foot">${tagsHTML(item, activeTag)}<span class="favs">${shown}${extra}</span><button class="chev" type="button" aria-hidden="true" tabindex="-1">${icon.chevron()}</button></div>
 <div class="more" id="${id}-more">${moreHTML(item)}</div>
 </article>`;
 }
 
-export function listHTML(items, openIds = new Set()) {
+export function listHTML(items, openIds = new Set(), activeTag = null) {
   if (!items.length) return '<p class="empty">Nothing here. Suspiciously fine.</p>';
   const groups = new Map();
   for (const item of items) { const k = dayKey(item) || ''; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(item); }
   let html = '';
   for (const [k, rows] of groups) {
     html += `<h2 class="day"><span>${esc(dayLabel(k || null))}</span><span class="n">${rows.length}</span></h2>`;
-    html += rows.map((r) => incidentHTML(r, openIds.has(r.id))).join('');
+    html += rows.map((r) => incidentHTML(r, openIds.has(r.id), activeTag)).join('');
   }
   return html;
+}
+
+const WINDOW_PHRASE = { day: 'in the last 24 hours', week: 'in the last week', month: 'in the last 30 days', all: 'logged so far' };
+
+// The hero line mirrors whatever filters are active, e.g. "12 confirmed incidents tagged #ai in the last week".
+export function headlineHTML(count, { status = 'all', window = 'week', day = null, tag = null, q = '' } = {}) {
+  const adj = status !== 'all' && STATUS[status] ? STATUS[status].label.toLowerCase() + ' ' : '';
+  const noun = count === 1 ? 'incident' : 'incidents';
+  const parts = [`<b>${count || 'No'}</b> ${adj}${noun}`];
+  if (tag) parts.push(`tagged <span class="htag">#${esc(tag)}</span>`);
+  if (q.trim()) parts.push(`matching “${esc(q.trim())}”`);
+  parts.push(day ? `on ${esc(dayLabel(day))}` : WINDOW_PHRASE[window] || WINDOW_PHRASE.week);
+  return parts.join(' ') + '.';
 }
 
 export function sortIncidents(items) {
