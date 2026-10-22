@@ -1,0 +1,8 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {atomFeed, jsonLd, llmsTxt, sitemap} from '../scripts/seo.mjs';
+const data=JSON.parse(fs.readFileSync(new URL('../data/incidents.json',import.meta.url)));
+const tags=JSON.parse(fs.readFileSync(new URL('../data/tags.json',import.meta.url))).tags;
+test('llms.txt lists every incident with its share link',()=>{const t=llmsTxt(data,tags);assert.ok(t.startsWith('# internetonfire\n\n> '));for(const i of data.incidents)assert.ok(t.includes(`/i/${i.id}/`),i.id)});
+test('feed has one entry per incident',()=>assert.equal((atomFeed(data).match(/<entry>/g)||[]).length,Math.min(100,data.incidents.length)));
+test('JSON-LD parses and cannot break out of its script tag',()=>{const evil={updated:'2026-10-22',incidents:[{id:'x',name:'</script><script>alert(1)</script>',summary:'s',status:'reported',date:null,disclosureDate:'2026-10-22',tags:['ai'],sources:[]}]};const html=jsonLd(evil);assert.equal((html.match(/<\/script>/g)||[]).length,1);JSON.parse(html.replace(/^<script[^>]*>/,'').replace(/<\/script>$/,''))});
+test('sitemap points at the live site',()=>assert.ok(sitemap(data).includes('<loc>https://kuber.studio/internetonfire/</loc>')));

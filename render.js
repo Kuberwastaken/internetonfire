@@ -110,7 +110,8 @@ export const SITE = 'https://kuber.studio/internetonfire/';
 export const subjectOf = (item) => (item.subject || item.name.split(' / ')[0]).trim();
 
 // Static page behind each share link. Crawlers read its tags (they never see #fragments);
-// people are sent straight on to the entry. No meta refresh, so crawlers don't follow it home.
+// people are sent straight on to the entry. No meta refresh, so link-preview bots don't follow it home.
+// Canonical points at the main page, which carries the same content, so search engines index that.
 export function sharePageHTML(item) {
   const id = esc(item.id), title = esc(`${subjectOf(item)} is on fire.`);
   const desc = esc(item.summary.length > 200 ? item.summary.slice(0, 197).replace(/\s+\S*$/, '') + '…' : item.summary);
@@ -119,7 +120,7 @@ export function sharePageHTML(item) {
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title} · internetonfire</title>
 <meta name="description" content="${desc}">
-<link rel="canonical" href="${url}">
+<link rel="canonical" href="${SITE}">
 <meta property="og:type" content="article"><meta property="og:site_name" content="internetonfire">
 <meta property="og:url" content="${url}"><meta property="og:title" content="${title}"><meta property="og:description" content="${desc}">
 <meta property="og:image" content="${image}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${title} This is fine.">
@@ -127,7 +128,9 @@ export function sharePageHTML(item) {
 <meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${desc}"><meta name="twitter:image" content="${image}">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <script>location.replace('../../#${id}')</script>
-</head><body style="font:16px system-ui;padding:2rem"><a href="../../#${id}">${title}</a></body></html>
+</head><body style="font:16px/1.5 system-ui;max-width:40rem;margin:2rem auto;padding:0 1rem">
+<h1>${title}</h1><p><b>${esc(item.name)}</b> (${esc((STATUS[item.status] || STATUS.unverified).label)}). ${esc(item.summary)}</p>
+<p><a href="../../#${id}">Read it on internetonfire</a></p></body></html>
 `;
 }
 
