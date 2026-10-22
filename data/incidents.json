@@ -385,7 +385,7 @@
     {
       "id": "plex2shell",
       "name": "Plex Media Server flaws exploited (Plex2Shell)",
-      "summary": "Reporting describes attackers chaining recently patched Plex Media Server vulnerabilities in “Plex2Shell” attacks. CISA added related flaws to its known-exploited catalogue. Check the current vendor guidance for affected versions.",
+      "summary": "Plex confirms active exploitation of a chain of server vulnerabilities that can let an unauthenticated attacker run code. Update to 1.43.3.10861 or newer; Plex says an older internet-reachable server may already be compromised. CISA lists the four related CVEs as known exploited.",
       "status": "confirmed",
       "date": "2026-10-20",
       "dateLabel": "Exploit chain weaponized within hours of disclosure (~Oct 19); CISA KEV Oct 20, 2026",
@@ -426,10 +426,64 @@
           "url": "https://x.com/TheHackersNews/status/2112391529126101243",
           "kind": "post",
           "date": "2026-10-20"
+        },
+        {
+          "label": "Plex forum security notice",
+          "url": "https://forums.plex.tv/t/important-security-update-for-plex-media-server-v1-43-2-and-earlier/942319",
+          "kind": "primary",
+          "date": "2026-10-19",
+          "verification": "body"
+        },
+        {
+          "label": "CISA KEV data file",
+          "url": "https://raw.githubusercontent.com/cisagov/kev-data/main/known_exploited_vulnerabilities.csv",
+          "kind": "primary",
+          "date": "2026-10-22",
+          "verification": "body"
         }
       ],
       "correction": null,
-      "disclosureDate": "2026-10-20"
+      "disclosureDate": "2026-10-20",
+      "detail": {
+        "whatHappened": "Four Plex Media Server bugs (CVE-2026-96652, -96654, -96655, -96656) can be chained to steal an admin token and run code. Plex patched in 1.43.3 (the Sept 1 forum post). The researcher published details Oct 16 and a proof of concept three days later. Exploitation reports began Oct 17, first against honeypots to install a cryptominer. CISA added all four to KEV on Oct 20.",
+        "exposure": "Plex Media Server before 1.43.3.10861. Chaining the bugs can let an unauthenticated remote attacker run code with the privileges of the Plex server process. Individual flaw scores differ; a chain score is not each individual CVE's score.",
+        "fix": "Update Plex Media Server to 1.43.3.10861 or newer. NAS installs may need a manual package install. Plex says an older server reachable from the internet should be treated as potentially compromised: update and follow its incident-response steps, not only apply the patch.",
+        "remaining": "Servers not updated since August. How many real servers are compromised is unknown.",
+        "responses": [
+          {
+            "by": "Plex",
+            "summary": "Forum notice, update posted Oct 19 with CVE details and confirmation of active exploitation.",
+            "url": "https://forums.plex.tv/t/important-security-update-for-plex-media-server-v1-43-2-and-earlier/942319",
+            "date": "2026-10-19"
+          },
+          {
+            "by": "CISA",
+            "summary": "Added the four CVEs to KEV Oct 20.",
+            "url": "https://www.cisa.gov/news-events/alerts/2026/10/20/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+            "date": "2026-10-20"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "ACTIVELY EXPLOITED, cryptominers",
+            "verdict": "supported",
+            "explanation": "CISA KEV listing is based on evidence of active exploitation; BleepingComputer reports cryptominer deployment, first against honeypots.",
+            "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/"
+          },
+          {
+            "claim": "CISA KEV, deadline Oct 23",
+            "verdict": "partly",
+            "explanation": "KEV data shows due date 2026-10-23 for CVE-2026-96656 and -96654, but 2026-11-03 for -96652 and -96655. The deadline binds US federal civilian agencies only.",
+            "url": "https://raw.githubusercontent.com/cisagov/kev-data/main/known_exploited_vulnerabilities.csv"
+          },
+          {
+            "claim": "LIVE",
+            "verdict": "unverified wording",
+            "explanation": "No source says attacks are happening 'live' right now beyond the reported campaign since Oct 17.",
+            "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/"
+          }
+        ]
+      }
     },
     {
       "id": "safepay-ransomware",
@@ -623,10 +677,39 @@
           "url": "https://economictimes.indiatimes.com/industry/banking/finance/banking/sbi-probes-suspected-data-breach-after-3-75-lakh-records-surface-on-dark-web/articleshow/135083347.cms",
           "kind": "report",
           "date": "2026-10-21"
+        },
+        {
+          "label": "BusinessToday (Siriusim claim)",
+          "url": "https://www.businesstoday.in/india/story/rajasthan-police-allegedly-hacked-70000-identity-records-and-59460-mobile-numbers-claimed-to-be-up-for-sale-562889-2026-10-21",
+          "kind": "report",
+          "date": "2026-10-21",
+          "verification": "body"
         }
       ],
       "correction": "Reporting distinguishes more than 375,000 records from 3,897 containing personal information. Authenticity and scope remained under assessment; neither figure establishes that every record belongs to a different person.",
-      "disclosureDate": "2026-10-21"
+      "disclosureDate": "2026-10-21",
+      "detail": {
+        "whatHappened": "State Bank of India told stock exchanges on Oct 21, 2026 that about 375,000 records tied to it were found on the dark web, and that its preliminary analysis found 3,897 records with personal information. It learned of it on Oct 16 from its threat intelligence provider, the Defence Cyber Agency and CERT-In.",
+        "exposure": "For the 3,897: names, registered mobile numbers, dates of birth, gender, emails, addresses, branch and CIF identifiers, lead IDs and loan/lead metadata. The bank says authenticity and completeness still need a detailed investigation and that core operations are not affected.",
+        "fix": "SBI activated incident response and hired a CERT-In-empanelled agency. Customers have not been given specific steps in the checked sources.",
+        "remaining": "Source of the leak, authenticity and full scope are not established. The Internet Freedom Foundation says affected customers could get calls from people posing as SBI who can recite their details, and wants SBI to notify them (The Hindu). BusinessToday says a group called Siriusim had claimed the hack on BreachForums; that claim is not verified.",
+        "responses": [
+          {
+            "by": "SBI, as quoted by The Hindu",
+            "summary": "Exchange disclosure with 3,897 PII records, investigation under way, no material business impact.",
+            "url": "https://www.thehindu.com/business/Economy/state-bank-of-india-investigates-exposure-customer-records-dark-web-october-21/article71606599.ece",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "SBI CONFIRMED 3,897 customers' mobile, DOB, address + loan data on dark web",
+            "verdict": "mostly supported, qualify",
+            "explanation": "SBI itself disclosed 3,897 PII records among ~375,000 found, per preliminary analysis, including loan/lead metadata. 'Confirmed' overstates it: the bank says authenticity and completeness are still being established. Say 'SBI disclosed'.",
+            "url": "https://www.thehindu.com/business/Economy/state-bank-of-india-investigates-exposure-customer-records-dark-web-october-21/article71606599.ece"
+          }
+        ]
+      }
     },
     {
       "id": "siemens-software-center",
@@ -754,10 +837,109 @@
           "date": "2026-10-21",
           "provenance": "excerpt",
           "verification": "excerpt"
+        },
+        {
+          "label": "Mozilla Security Blog",
+          "url": "https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "verification": "body"
+        },
+        {
+          "label": "Google: Protecting Chrome and Android users",
+          "url": "https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "verification": "body"
+        },
+        {
+          "label": "Mozilla Bugzilla 2083449",
+          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449",
+          "kind": "primary",
+          "date": "2026-10-22",
+          "verification": "body"
+        },
+        {
+          "label": "Reporter's disclosure page (researcher-run, not eMudhra)",
+          "url": "https://emudhra.we-have-a-problem.com/",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "verification": "body"
+        },
+        {
+          "label": "The Register: eMudhra defends its keys",
+          "url": "https://www.theregister.com/security/2026/10/22/certification-authority-emudhra-defends-its-laughably-weak-private-keys/5304647",
+          "kind": "report",
+          "date": "2026-10-22",
+          "verification": "body"
         }
       ],
       "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report.",
-      "disclosureDate": "2026-10-20"
+      "disclosureDate": "2026-10-20",
+      "detail": {
+        "whatHappened": "In April 2025 eMudhra, an Indian certificate authority, ran a key ceremony that produced eight intermediate CA certificates with badly weak private keys. A researcher found they could be recovered from the public certificates (some keys were single or double digit numbers, one reportedly just 4). He reported it to Mozilla, Chrome, Apple and Microsoft on Oct 17, 2026. eMudhra revoked all eight on Oct 19.",
+        "exposure": "Anyone who worked out the keys could have forged a trusted certificate for any website, but only against software that does not check Certificate Transparency or revocation lists. Chrome and Google say no certificates chaining to these intermediates had been logged to CT, so CT-enforcing browsers could not have been attacked. No exploitation has been shown. The 'eight keys' were six TLS intermediates and two code-signing intermediates.",
+        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. The reporter also says Apple and Microsoft blocked the certificates; their exact update dates were not independently verified here. Cloudflare, Node.js and Tailscale shipped updates.",
+        "remaining": "Software that ships its own trust store or ignores revocation needs updates. eMudhra has not confirmed a root cause; it says a wrap/unwrap step created a second weak key set. It says seven of the eight were never used and the eighth issued no certificates. It says one US customer ecosystem needs replacement certificates. Investigation ongoing; MeitY has set up a probe panel.",
+        "responses": [
+          {
+            "by": "eMudhra",
+            "summary": "Says keys were revoked, no certificates issued from them, no data breached, signing/eSign services unaffected, key ceremony flaw not yet fully explained. Offers backup CA to enterprise TLS customers.",
+            "url": "https://emudhra.com/en/post/certificate-security-incident",
+            "date": "2026-10-21"
+          },
+          {
+            "by": "Mozilla",
+            "summary": "Received report Oct 17 20:06 UTC, blocked within hours, shipped Firefox and NSS updates.",
+            "url": "https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/",
+            "date": "2026-10-20"
+          },
+          {
+            "by": "Google Chrome and Android",
+            "summary": "Blocked by CRLSet Oct 17, removed the signing root from Chrome Root Store, says CT-enforcing clients were not exposed.",
+            "url": "https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/",
+            "date": "2026-10-20"
+          },
+          {
+            "by": "Cloudflare",
+            "summary": "Patched WARP, cloudflared, CDN and Zero Trust; found no active exploitation on its services; lists customer actions.",
+            "url": "https://blog.cloudflare.com/emudhra-certificate-compromise",
+            "date": "2026-10-20"
+          },
+          {
+            "by": "Cisco Talos",
+            "summary": "Lists the eight intermediates with hashes and notes eMudhra stopped issuing under its G3 root.",
+            "url": "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Private key was literally 4",
+            "verdict": "supported",
+            "explanation": "The Register says one was just the number 4 and others were two or three digit numbers. Talos says several keys evaluated to single or double digit integers. Mozilla's bug (2083449) is the underlying report.",
+            "url": "https://www.theregister.com/security/2026/10/20/indian-certification-authority-emudhras-private-keys-compromised-one-of-them-was-the-number-4/5304312"
+          },
+          {
+            "claim": "8 keys forged ANY website",
+            "verdict": "overstated",
+            "explanation": "Eight intermediates had recoverable keys, so forging any site was possible in principle. No forged certificate or attack has been shown. Google says no certificates were logged to CT, so CT-enforcing browsers were not exposed. Say 'could have', not 'forged'.",
+            "url": "https://blog.google/security/protecting-chrome-and-android-users-from-compromised-emudhra-intermediate-ca-certificates/"
+          },
+          {
+            "claim": "For 17 months",
+            "verdict": "mostly right as exposure window",
+            "explanation": "Intermediates created Apr 30, 2025, reported Oct 17, 2026, about 17.5 months of vulnerability. eMudhra says about 18 months. Window of weakness, not of known abuse.",
+            "url": "https://emudhra.com/en/post/certificate-security-incident"
+          },
+          {
+            "claim": "60M+ certs at risk",
+            "verdict": "not supported",
+            "explanation": "60 million is how many certificates eMudhra says it has issued overall (The Register's framing). The compromised intermediates reportedly issued none, and eMudhra says the impact is one US customer ecosystem. Do not state 60M at risk.",
+            "url": "https://emudhra.com/en/post/certificate-security-incident"
+          }
+        ]
+      }
     },
     {
       "id": "railway-env-vars-breach",
@@ -883,8 +1065,8 @@
     {
       "id": "php2shell-cve-2026-109618-109619",
       "name": "PHP / PHP2Shell",
-      "summary": "Security reporting describes two critical PHP core flaws, CVE-2026-109618 and CVE-2026-109619, rated 9.2. Fixed releases were published on 21 October. Exploitation reports require checking against the current advisory, not assuming every PHP installation was breached.",
-      "status": "reported",
+      "summary": "PHP fixed two critical core bugs, CVE-2026-109618 and CVE-2026-109619, that can allow unauthenticated remote code execution. The PHP team rates both 9.2 and urges immediate updates. All web-serving PHP installations need review, with the highest demonstrated risk in Apache mod_php.",
+      "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Disclosed / fixed 21 Oct 2026",
       "category": "vulnerability / RCE",
@@ -904,10 +1086,90 @@
           "date": "2026-10-21",
           "provenance": "excerpt",
           "verification": "excerpt"
+        },
+        {
+          "label": "PHP news archive: security advisory",
+          "url": "https://www.php.net/archive/2026.php",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "verification": "body"
+        },
+        {
+          "label": "CISA alert",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "verification": "body"
+        },
+        {
+          "label": "PHP Foundation blog",
+          "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "verification": "body"
+        },
+        {
+          "label": "Check Point blog",
+          "url": "https://blog.checkpoint.com/security/php2shell-what-we-know-about-the-leaked-critical-php-vulnerabilities-cve-2026-109618-cve-2026-109619/",
+          "kind": "report",
+          "date": "2026-10-21",
+          "verification": "body"
         }
       ],
-      "correction": "The 9.2 rating is attributed to the PHP security team in security reporting. Two CVEs are involved. This entry has not independently captured the PHP project’s own advisory.",
-      "disclosureDate": "2026-10-21"
+      "correction": "This is a vulnerability and patch advisory, not proof that every PHP installation was breached. CISA advises taking systems offline if they cannot be patched or run PHP 8.1 or older; it does not tell every patched site to go offline.",
+      "disclosureDate": "2026-10-21",
+      "detail": {
+        "whatHappened": "Two memory-handling bugs in PHP itself can allow unauthenticated remote code execution. One involves out-of-memory cleanup; the other leaves stale state for a later request in the same worker. PHP released fixes on Oct 21. The PHP project uses the CVE identifiers; php2shell is the researchers' name.",
+        "exposure": "PHP rates both CVSS v4.0 9.2 (the leaked post claimed 10.0). On Apache mod_php, an unauthenticated request can trigger the first bug before application code runs. Amazon Threat Intelligence (via Tenable) reports exploitation attempts from Oct 17, before disclosure. CISA's Oct 21 alert said it had not itself observed exploitation at publication.",
+        "fix": "Update to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35. CISA says take PHP systems offline if you cannot patch or you run PHP 8.1 or older, and that a WAF may give partial protection.",
+        "remaining": "PHP is embedded in many products, so inventory is hard. End-of-life branches have no official fix except source backports (per Tenable). The PHP Foundation admitted a fix for the underlying out-of-memory problem had stalled for months.",
+        "responses": [
+          {
+            "by": "CISA",
+            "summary": "Urges immediate patching; offline if unpatchable or PHP 8.1 and older.",
+            "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
+            "date": "2026-10-21"
+          },
+          {
+            "by": "PHP Foundation",
+            "summary": "Explains the bugs, credits finders, admits the fix was delayed by decision-making and resources.",
+            "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/",
+            "date": "2026-10-21"
+          },
+          {
+            "by": "Check Point",
+            "summary": "Timeline of the leak and IPS/WAF coverage.",
+            "url": "https://blog.checkpoint.com/security/php2shell-what-we-know-about-the-leaked-critical-php-vulnerabilities-cve-2026-109618-cve-2026-109619/",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "[9.2] Unauth RCE in PHP",
+            "verdict": "supported",
+            "explanation": "PHP and Check Point both give CVSS v4.0 9.2 and unauthenticated RCE.",
+            "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/"
+          },
+          {
+            "claim": "70% of the web",
+            "verdict": "roughly right, needs qualifier",
+            "explanation": "W3Techs on Oct 22 says PHP is used by 69.3% of sites whose server-side language is known. Not 70% of all websites.",
+            "url": "https://w3techs.com/technologies/details/pl-php"
+          },
+          {
+            "claim": "CISA: Patch or GO OFFLINE",
+            "verdict": "partly",
+            "explanation": "CISA says patch immediately; take systems offline only if you cannot update or run PHP 8.1 or earlier. WordPress, Drupal and Laravel are affected only if they run an unpatched PHP; CISA's alert does not name them.",
+            "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"
+          },
+          {
+            "claim": "Exploitation",
+            "verdict": "reported by Amazon, not CISA",
+            "explanation": "Amazon Threat Intelligence reports attempts from Oct 17 per Tenable; CISA had not observed any at its publication time. Not on the KEV list in the captured sources.",
+            "url": "https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote"
+          }
+        ]
+      }
     },
     {
       "id": "gitlab-cve-2026-110264-onigmo",
@@ -940,10 +1202,45 @@
           "date": "2026-10-21",
           "provenance": "excerpt",
           "verification": "excerpt"
+        },
+        {
+          "label": "BleepingComputer on the Oct 12 CVE-2026-97229",
+          "url": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-max-severity-rce-flaw-in-regex-compiler-engine/",
+          "kind": "report",
+          "date": "2026-10-12",
+          "verification": "body"
         }
       ],
       "correction": "Potential remote code execution is not proof of exploitation. The advisory concerns self-managed GitLab; hosted services and detailed supported release guidance are covered in GitLab’s own notice.",
-      "disclosureDate": "2026-10-21"
+      "disclosureDate": "2026-10-21",
+      "detail": {
+        "whatHappened": "On Oct 21, 2026 GitLab shipped a critical patch for CVE-2026-110264, an integer overflow in its regular expression compiler. Under certain conditions it could let an unauthenticated user run code on a self-managed server. GitLab rates it CVSS 10.0; the detailed exploitation conditions are not public.",
+        "exposure": "Self-managed GitLab CE and EE only. GitLab lists affected versions from 7.0 up to the fixed releases. An Oct 12 fix for a different bug does not resolve this Oct 21 vulnerability. GitLab.com already runs the fixed version. Same release also fixes high-severity LDAP auto-linking and OAuth/OIDC cache poisoning issues.",
+        "fix": "Upgrade to 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10 or 18.11.13.",
+        "remaining": "No reported exploitation and not on CISA KEV as of Oct 22 per The Hacker News. Exploitation conditions undisclosed.",
+        "responses": [
+          {
+            "by": "GitLab",
+            "summary": "Critical patch release; strongly recommends all self-managed installs upgrade immediately.",
+            "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "GitLab 10.0/10, unauthenticated RCE",
+            "verdict": "supported, with conditions",
+            "explanation": "GitLab's own current patch notice lists CVSS 10.0 and affected releases from 7.0, and says an unauthenticated user could execute code under certain conditions. That is not proof every server was exploited.",
+            "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/"
+          },
+          {
+            "claim": "Which CVE",
+            "verdict": "two separate ones",
+            "explanation": "CVE-2026-97229 (Oct 12) and CVE-2026-110264 (Oct 21) are different. Use the Oct 21 one for the current claim.",
+            "url": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-max-severity-rce-flaw-in-regex-compiler-engine/"
+          }
+        ]
+      }
     },
     {
       "id": "nginx-october-2026-advisories",
@@ -1052,7 +1349,7 @@
           "label": "Tailscale Security Bulletins - TS-2026-013",
           "url": "https://tailscale.com/security-bulletins",
           "kind": "primary",
-          "date": "2026-10-21",
+          "date": null,
           "provenance": "full-read"
         },
         {
@@ -1065,7 +1362,29 @@
         }
       ],
       "correction": "This is a follow-on to the eMudhra certificate incident, not an independent Tailscale compromise. See bulletin TS-2026-013 and the current changelog.",
-      "disclosureDate": "2026-10-21"
+      "disclosureDate": "2026-10-21",
+      "detail": {
+        "whatHappened": "Tailscale published bulletin TS-2026-013 on the eMudhra keys. Its client trusts whatever the operating system's certificate store trusts, so a forged eMudhra-signed certificate would have been accepted on devices that still trusted those intermediates.",
+        "exposure": "Only web PKI connections that rely on the system store. Tailscale says node-to-node WireGuard traffic does not use that store and is not affected. No exploitation reported in the bulletin.",
+        "fix": "Tailscale v1.104.2 or later (built with Go 1.27.3) explicitly distrusts the compromised certificates. Tailscale's own services were updated.",
+        "remaining": "Devices on older clients with OS stores that still contain the intermediates.",
+        "responses": [
+          {
+            "by": "Tailscale",
+            "summary": "Bulletin TS-2026-013: update to v1.104.2 or later. Listed by Oct 21-22; a per-bulletin publication date was not visible.",
+            "url": "https://tailscale.com/security-bulletins",
+            "date": null
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Tailscale incident",
+            "verdict": "clarify",
+            "explanation": "Tailscale was not breached. It published a bulletin and a client fix as a downstream user of the OS certificate store. The bulletin page lists it without a visible per-item date in what was fetched, so keep the Oct 21 date as 'listed by Oct 21-22'.",
+            "url": "https://tailscale.com/security-bulletins"
+          }
+        ]
+      }
     },
     {
       "id": "nodejs-october-2026-security-release",
@@ -1085,7 +1404,47 @@
         }
       ],
       "correction": "The same release includes both independent vulnerability fixes and an eMudhra certificate-trust update. They are not all caused by the certificate incident.",
-      "disclosureDate": "2026-10-21"
+      "disclosureDate": "2026-10-21",
+      "detail": {
+        "whatHappened": "On Oct 21, 2026 the Node.js project shipped security releases v22.23.4, v24.22.1 and v26.12.1 fixing ten CVEs and updating bundled c-ares, OpenSSL (24.x, 22.x), SQLite (22.x), Undici and the CA certificate list to drop the eMudhra intermediates.",
+        "exposure": "CVE-2026-111497, a Brotli decoder out-of-bounds write that can permit remote code execution, affects 26.x, 24.x and 22.x. The release also fixes TLS hostname bypasses (CVE-2026-105483, CVE-2026-106069), a dns.resolve NUL truncation (CVE-2026-105482) and others. Node rates the highest of them 'high', not critical.",
+        "fix": "Upgrade to 22.23.4, 24.22.1 or 26.12.1. End-of-life Node versions stay affected.",
+        "remaining": "Node's post does not say whether any of the ten CVEs was exploited. Treat that as unknown.",
+        "responses": [
+          {
+            "by": "Node.js project",
+            "summary": "Security release across three lines; also removes eMudhra intermediates from the bundled cert list.",
+            "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "CVE-2026-111497 Brotli decoder RCE",
+            "verdict": "supported",
+            "explanation": "Listed as 'Node.js Brotli decoder out-of-bounds write permits remote code execution', severity high.",
+            "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+          },
+          {
+            "claim": "TLS bypass",
+            "verdict": "supported with detail",
+            "explanation": "Two high-severity TLS hostname-validation bypasses (CVE-2026-105483, CVE-2026-106069), not one.",
+            "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+          },
+          {
+            "claim": "10 CVEs patched today",
+            "verdict": "supported",
+            "explanation": "Ten CVEs counted on the advisory; release date Oct 21, 2026 (not Oct 22).",
+            "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+          },
+          {
+            "claim": "Also blocked eMudhra",
+            "verdict": "supported",
+            "explanation": "Advisory lists 'ca-cert (eMudhra Intermediate CA Compromise)' as a dependency update.",
+            "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+          }
+        ]
+      }
     },
     {
       "id": "california-ets-student-data-breach",
@@ -1264,6 +1623,61 @@
       ],
       "correction": "This is a 2025 intrusion with 2026 notification and reporting. The affected contractor handled Medi-Cal claims. The underlying HHS portal entry was not independently captured here.",
       "disclosureDate": "2026-10-20"
+    },
+    {
+      "id": "rajasthan-police-allegation",
+      "name": "Rajasthan Police data breach (claimed)",
+      "summary": "A group calling itself Scarlettgroup claims to have breached Rajasthan Police and offered data for sale. Coverage repeats claims of about 70,000 identity records and 59,460 mobile numbers. These figures and the alleged breach are unverified.",
+      "date": "2026-10-21",
+      "dateLabel": "Claim reported Oct 21, 2026; unverified",
+      "category": "alleged breach",
+      "status": "unverified",
+      "disclosureDate": "2026-10-21",
+      "sources": [
+        {
+          "label": "BusinessToday",
+          "url": "https://www.businesstoday.in/india/story/rajasthan-police-allegedly-hacked-70000-identity-records-and-59460-mobile-numbers-claimed-to-be-up-for-sale-562889-2026-10-21",
+          "kind": "report",
+          "date": "2026-10-21",
+          "verification": "body"
+        },
+        {
+          "label": "India Today",
+          "url": "https://www.indiatoday.in/technology/news/story/rajasthan-govt-website-data-breach-reported-up-to-70000-identity-records-exposed-3022004-2026-10-21",
+          "kind": "report",
+          "date": "2026-10-21",
+          "verification": "body"
+        },
+        {
+          "label": "InfoSecBulletin",
+          "url": "https://infosecbulletin.com/hacker-claim-to-access-rajasthan-police-data-70000-records-allegedly-exposed/",
+          "kind": "report",
+          "date": "2026-10-21",
+          "verification": "body"
+        }
+      ],
+      "detail": {
+        "whatHappened": "On Oct 21, coverage attributed to an X monitoring account reported that a group calling itself Scarlettgroup claimed to have breached Rajasthan Police. The group claims about 70,000 identity records and 59,460 mobile numbers, plus documents and attachments. These are the group's claims, not independently verified counts.",
+        "exposure": "Unknown. Nobody independent has confirmed the data is genuine, or that it came from Rajasthan Police systems. If genuine it would be an identity theft and fraud risk.",
+        "fix": "None reported.",
+        "remaining": "Authenticity, source system and scope are all unconfirmed. Coverage reported no Rajasthan Police comment at publication. No leak forum or sample data was accessed for this index.",
+        "responses": [
+          {
+            "by": "Response status",
+            "summary": "BusinessToday reported no police comment at publication on Oct 21. This is absence of a response in that coverage, not a police statement.",
+            "url": "https://www.businesstoday.in/india/story/rajasthan-police-allegedly-hacked-70000-identity-records-and-59460-mobile-numbers-claimed-to-be-up-for-sale-562889-2026-10-21",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Group claims 70,000 identity records + 59,460 numbers for sale. Unverified.",
+            "verdict": "claim accurately reported, unverified",
+            "explanation": "The numbers match the group's own claim as reported. Keep status 'alleged'. No confirmation by police or independent researchers found.",
+            "url": "https://www.businesstoday.in/india/story/rajasthan-police-allegedly-hacked-70000-identity-records-and-59460-mobile-numbers-claimed-to-be-up-for-sale-562889-2026-10-21"
+          }
+        ]
+      }
     }
   ]
 }
