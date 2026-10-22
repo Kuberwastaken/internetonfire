@@ -349,9 +349,16 @@
           "url": "https://x.com/MsftSecIntel/status/2111358888125878426",
           "kind": "post",
           "date": "2026-10-17"
+        },
+        {
+          "label": "X - Microsoft Storm-0940 / ARTEX attribution, read directly",
+          "url": "https://x.com/MsftSecIntel/status/2113005667363573823",
+          "kind": "post",
+          "date": "2026-10-22",
+          "verification": "body"
         }
       ],
-      "correction": "Attribution and claims of AI use are context for this ConnectWise incident, not a separate incident. Sign-in activity does not establish that every tenant lost data.",
+      "correction": "Microsoft attributes this incident to the broader Storm-0940 / ARTEX campaign, indexed separately as a campaign report. It is the same ConnectWise compromise, not a second supply-chain incident. Sign-ins and targeting do not prove every tenant lost data.",
       "disclosureDate": "2026-10-16",
       "detail": {
         "whatHappened": "Attackers used compromised ConnectWise Cloud Backup application credentials to request Microsoft Graph tokens in customer Microsoft 365 tenants on Oct 15. Huntress observed automated sign-ins and, in two reviewed tenants, privilege escalation plus added client secrets that could maintain access. ConnectWise later attributed the attack to a China state-aligned group using an agentic AI framework, citing Microsoft intelligence. That attribution is not independent proof of every claim about the wider campaign.",
@@ -2043,6 +2050,68 @@
             "verdict": "claim accurately reported, unverified",
             "explanation": "The numbers match the group's own claim as reported. Keep status 'alleged'. No confirmation by police or independent researchers found.",
             "url": "https://www.businesstoday.in/india/story/rajasthan-police-allegedly-hacked-70000-identity-records-and-59460-mobile-numbers-claimed-to-be-up-for-sale-562889-2026-10-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "microsoft-artex-storm0940",
+      "name": "Microsoft report / Storm-0940 AI-assisted campaign",
+      "date": null,
+      "dateLabel": "Activity from at least September 2026; report Oct 21",
+      "disclosureDate": "2026-10-21",
+      "category": "AI-assisted intrusion campaign",
+      "status": "confirmed",
+      "summary": "Microsoft Threat Intelligence reports that China-state-aligned Storm-0940 used ARTEX agentic AI to automate attacks targeting hundreds of organizations. Some attacks gained privileged cloud access in under three hours. Microsoft attributes the ConnectWise supply-chain compromise to this campaign; that incident is also listed separately with its vendor response.",
+      "correction": "Microsoft is the reporting source, not a breached company in this report. Hundreds targeted does not mean hundreds compromised. This broader campaign includes the ConnectWise incident; do not add the two entries together as independent victim counts.",
+      "sources": [
+        {
+          "label": "Microsoft Threat Intelligence: ARTEX campaign report",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "verification": "body"
+        },
+        {
+          "label": "X - Microsoft Threat Intelligence campaign attribution, read directly",
+          "url": "https://x.com/MsftSecIntel/status/2113005667363573823",
+          "kind": "post",
+          "date": "2026-10-22",
+          "verification": "body"
+        },
+        {
+          "label": "X - Microsoft initial ConnectWise alert, edited Oct 17",
+          "url": "https://x.com/MsftSecIntel/status/2111358888125878426",
+          "kind": "post",
+          "date": "2026-10-17",
+          "verification": "body"
+        }
+      ],
+      "detail": {
+        "whatHappened": "Microsoft reports that Storm-0940, a China-state-aligned actor, used the ARTEX agentic AI framework from at least September 2026 to automate reconnaissance, password spraying and OAuth application abuse across hundreds of organizations. Microsoft assesses that the ConnectWise Cloud Backup compromise was part of this campaign. Its X followup explicitly makes that attribution and describes the hundreds-targeted scope.",
+        "exposure": "Microsoft observed privileged cloud access in several attacks, including cases under three hours from targeting to access. It also describes Graph reconnaissance, application credential changes and attempted privilege changes. Targeting and successful authentication do not by themselves prove customer-data theft. Microsoft says this did not result from a compromise or vulnerability in its corporate systems, products or services.",
+        "fix": "Microsoft recommends preserving relevant sign-in/audit evidence, investigating unexpected service-principal activity and application credential or privilege changes, and following ConnectWise containment guidance. Revoking the original vendor credentials alone may not remove separately planted credentials or other persistence. Use the primary report and vendor advisory for current steps.",
+        "remaining": "The campaign spans different attacks and populations. Microsoft says most targeting was unsuccessful, but privileged persistence was achieved at many organizations. A total of unique organizations compromised or records stolen is not established by the hundreds-targeted figure. ConnectWise remains the same included incident, not an extra duplicate compromise.",
+        "responses": [
+          {
+            "by": "Microsoft Threat Intelligence on X",
+            "summary": "Assesses Storm-0940 was responsible for the ConnectWise supply-chain compromise and says it used ARTEX to target hundreds of organizations. The post links the Microsoft report. Displayed Oct 22 at 02:03 in the reading session.",
+            "url": "https://x.com/MsftSecIntel/status/2113005667363573823",
+            "date": "2026-10-22"
+          },
+          {
+            "by": "Microsoft Security Research and Threat Intelligence",
+            "summary": "Published the Oct 21 campaign report, telemetry, detection and containment guidance. Explicitly says Microsoft systems/products/services were not the compromised source.",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+            "date": "2026-10-21"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Microsoft confirmed a China-state-aligned group used AI agents against hundreds of organizations, including ConnectWise",
+            "verdict": "supported as Microsoft assessment",
+            "explanation": "The actual Microsoft X followup and linked primary report support this. Keep targeting distinct from successful compromise and attribution as Microsoft assessment, not an independently audited conclusion.",
+            "url": "https://x.com/MsftSecIntel/status/2113005667363573823"
           }
         ]
       }
