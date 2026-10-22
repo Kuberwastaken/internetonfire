@@ -16,7 +16,7 @@ const html=fs.readFileSync('index.html','utf8')
   .replace('<!--BARS-->',()=>barsHTML(data.incidents,today));
 
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
-for(const file of ['style.css','app.js','render.js','time.js','assets','data'])fs.cpSync(file,'dist/'+file,{recursive:true});
+for(const file of ['style.css','app.js','render.js','contribute.js','time.js','assets','data'])fs.cpSync(file,'dist/'+file,{recursive:true});
 fs.writeFileSync('dist/index.html',html);
 fs.writeFileSync('dist/.nojekyll','');
 console.log('Static site built in dist/');

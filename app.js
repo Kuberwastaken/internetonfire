@@ -1,7 +1,6 @@
 import { timeMatch } from './time.js';
 import { STATUS, barsHTML, dayKey, dayLabel, esc, headlineHTML, icon, listHTML, safeURL, sortIncidents } from './render.js';
-
-const REPO = 'Kuberwastaken/internetonfire';
+import { REPO, applyVoteIntent, auth, loadMyVotes, setupContribute, votesHTML } from './contribute.js';
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
@@ -21,7 +20,8 @@ async function cachedJSON(key, url, ttl = 600000) {
     const hit = JSON.parse(sessionStorage.getItem(key) || 'null');
     if (hit && Date.now() - hit.t < ttl) return hit.v;
   } catch {}
-  const r = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+  // Signed-in visitors use their own (much larger) API quota.
+  const r = await fetch(url, { headers: { Accept: 'application/vnd.github+json', ...(auth.token ? { Authorization: `Bearer ${auth.token}` } : {}) } });
   if (!r.ok) throw Error(String(r.status));
   const v = await r.json();
   try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch {}
@@ -122,10 +122,11 @@ async function loadPRs() {
   try {
     const items = (await cachedJSON('iof-prs', `https://api.github.com/repos/${REPO}/issues?state=open&per_page=50`, btn.dataset.fresh ? 0 : 600000))
       .filter((i) => !i.draft);
+    await loadMyVotes(items);
     list.innerHTML = items.length ? items.map((i) => {
       const url = safeURL(i.html_url) || `https://github.com/${REPO}/pulls`;
-      return `<li><a class="pr-title" href="${esc(url)}" target="_blank" rel="noopener">${i.pull_request ? icon.pr() : icon.issue()}<span><span class="num">#${esc(i.number)}</span> ${esc(i.title)}</span></a>${(i.labels || []).length ? `<span class="tags">${i.labels.map((l) => `<span class="tag static">${esc(l.name)}</span>`).join('')}</span>` : ''}<a class="votes" href="${esc(url)}" target="_blank" rel="noopener" title="Vote on GitHub">👍 ${Number(i.reactions?.['+1'] || 0)}<span>👎 ${Number(i.reactions?.['-1'] || 0)}</span></a></li>`;
-    }).join('') : '<li class="muted">Queue’s empty. <a href="#submit">Add one</a>.</li>';
+      return `<li><a class="pr-title" href="${esc(url)}" target="_blank" rel="noopener">${i.pull_request ? icon.pr() : icon.issue()}<span><span class="num">#${esc(i.number)}</span> ${esc(i.title)}</span></a>${(i.labels || []).length ? `<span class="tags">${i.labels.map((l) => `<span class="tag static">${esc(l.name)}</span>`).join('')}</span>` : ''}<span class="votes">${votesHTML(i)}</span></li>`;
+    }).join('') : '<li class="muted">Queue’s empty. <a href="#submit" data-open-submit>Add one</a>.</li>';
   } catch {
     list.innerHTML = `<li class="muted">GitHub isn’t answering. <a href="https://github.com/${REPO}/pulls" target="_blank" rel="noopener">See PRs</a>.</li>`;
   } finally { btn.disabled = false; }
@@ -188,9 +189,15 @@ $('#search').addEventListener('input', (e) => { state.q = e.target.value; render
 $('#refresh-prs').addEventListener('click', (e) => { e.currentTarget.dataset.fresh = '1'; loadPRs(); });
 addEventListener('hashchange', openFromHash);
 
-fixIcons(document);
-setupDog();
-setupTip();
-load();
-loadPRs();
-loadStars();
+async function start() {
+  fixIcons(document);
+  setupDog();
+  setupTip();
+  load();
+  loadStars();
+  const tags = await fetch('./data/tags.json').then((r) => r.json()).then((d) => d.tags).catch(() => []);
+  const intent = await setupContribute({ tags, refresh: () => { $('#refresh-prs').dataset.fresh = '1'; loadPRs(); } });
+  await loadPRs();
+  applyVoteIntent(intent);
+}
+start();
