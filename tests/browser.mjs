@@ -4,7 +4,8 @@ const data=JSON.parse(fs.readFileSync('data/incidents.json','utf8'));const total
 fs.mkdirSync('test-results',{recursive:true});const server=spawn('python3',['-m','http.server','4184','--bind','127.0.0.1'],{stdio:'ignore'});
 const browser=await chromium.launch(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{});
 const issues=[{number:7,title:'Add example incident (test fixture)',html_url:'https://github.com/Kuberwastaken/internetonfire/pull/7',created_at:'2026-10-22T00:00:00Z',pull_request:{},draft:false,labels:[{name:'npm'}],reactions:{'+1':3,'-1':1}},{number:8,title:'Draft redesign (should be hidden)',html_url:'https://github.com/Kuberwastaken/internetonfire/pull/8',pull_request:{},draft:true,reactions:{}}];
-const mockGitHub=(page,status=200)=>page.route('https://api.github.com/**',r=>status!==200?r.fulfill({status,body:'rate limit'}):r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(r.request().url().includes('/issues')?issues:{stargazers_count:42})}));
+// Analytics stays out of tests.
+const mockGitHub=async(page,status=200)=>{await page.route('https://www.googletagmanager.com/**',r=>r.abort());return page.route('https://api.github.com/**',r=>status!==200?r.fulfill({status,body:'rate limit'}):r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(r.request().url().includes('/issues')?issues:{stargazers_count:42})}));};
 try{
  for(let n=0;n<30;n++){try{if((await fetch('http://127.0.0.1:4184')).ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
  for(const width of [320,390,1440]){
@@ -42,6 +43,10 @@ try{
   assert.equal(await first.locator('.toggle').getAttribute('aria-expanded'),'true');assert.ok(page.url().endsWith('#'+await first.getAttribute('id')));
   await page.screenshot({path:`test-results/open-${width}.png`});
   await first.locator('.toggle').click();assert.equal(await first.locator('.more').isVisible(),false);
+  // Copy button copies the share link (own preview card), not the #fragment
+  await page.context().grantPermissions(['clipboard-read','clipboard-write']);
+  await first.hover();await first.locator('.copy').click();await first.locator('.copy.done').waitFor();
+  assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),`http://127.0.0.1:4184/i/${await first.getAttribute('id')}/`);
   // Only https or in-page links inside incidents
   for(const href of await page.locator('.incident a').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))))assert.ok(href.startsWith('https://')||href.startsWith('#'),href);
   // GitHub: star count, PR queue (drafts hidden), vote counts
