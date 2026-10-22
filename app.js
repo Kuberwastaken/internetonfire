@@ -1,10 +1,10 @@
 import { timeMatch } from './time.js';
-import { STATUS, barsHTML, dayKey, dayLabel, esc, headlineHTML, icon, listHTML, safeURL, sortIncidents } from './render.js';
+import { SEVERITY, STATUS, barsHTML, dayKey, dayLabel, esc, headlineHTML, icon, listHTML, safeURL, sortIncidents } from './render.js';
 import { REPO, applyVoteIntent, auth, loadMyVotes, setupContribute, votesHTML } from './contribute.js';
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
-const DEFAULTS = { q: '', status: 'all', window: 'week', day: null, tag: null };
+const DEFAULTS = { q: '', status: 'all', severity: 'all', window: 'week', day: null, tag: null };
 const state = { ...DEFAULTS };
 const openIds = new Set();
 let incidents = [];
@@ -28,12 +28,13 @@ async function cachedJSON(key, url, ttl = 600000) {
   return v;
 }
 
-// `skip` leaves one filter out, so a chip can count what you'd get by picking it.
-function visible(skip = null) {
+// Each name in `skip` leaves that filter out, so a chip can count what you'd get by picking it.
+function visible(...skip) {
   const q = state.q.toLowerCase().trim();
   return sortIncidents(incidents.filter((i) =>
-    (skip === 'status' || state.status === 'all' || i.status === state.status) &&
-    (skip === 'tag' || !state.tag || (i.tags || []).includes(state.tag)) &&
+    (skip.includes('status') || state.status === 'all' || i.status === state.status) &&
+    (skip.includes('severity') || state.severity === 'all' || i.severity === state.severity) &&
+    (skip.includes('tag') || !state.tag || (i.tags || []).includes(state.tag)) &&
     // A picked day overrides the time window.
     (state.day ? dayKey(i) === state.day : ['within', 'possible'].includes(timeMatch(i, state.window))) &&
     (!q || [i.name, i.summary, ...(i.tags || []), i.category, i.correction, i.detail?.whatHappened].join(' ').toLowerCase().includes(q))));
@@ -56,14 +57,20 @@ function render() {
 function renderChips() {
   // Re-rendering the rows must not jump their horizontal scroll or drop keyboard focus.
   const scroll = [$('#status').scrollLeft, $('#tagbar').scrollLeft];
-  const focused = document.activeElement?.closest?.('#status [data-status], #tagbar [data-tag]');
-  const refocus = focused && (focused.dataset.status ? `#status [data-status="${focused.dataset.status}"]` : `#tagbar [data-tag="${CSS.escape(focused.dataset.tag)}"]`);
-  const pool = visible('status');
-  $('#status').innerHTML = ['all', ...Object.keys(STATUS)].map((s) => {
-    const n = pool.filter((i) => s === 'all' || i.status === s).length;
-    const st = STATUS[s];
-    return `<button type="button" data-status="${s}" class="chip${st ? ' st-' + s : ''}${n ? '' : ' none'}" title="${st ? esc(st.hint) : 'Everything'}" aria-pressed="${s === state.status}">${st ? st.icon() : ''}<span>${st ? st.label : 'All'}</span><span class="n">${n}</span></button>`;
+  const focused = document.activeElement?.closest?.('#status [data-status], #status [data-severity], #tagbar [data-tag]');
+  const refocus = focused && (focused.dataset.status ? `#status [data-status="${focused.dataset.status}"]` : focused.dataset.severity ? `#status [data-severity="${focused.dataset.severity}"]` : `#tagbar [data-tag="${CSS.escape(focused.dataset.tag)}"]`);
+  // One row: All, then severity (how bad), then evidence (how sure). Each chip counts what picking it would show.
+  const sevPool = visible('severity'), evPool = visible('status');
+  const allChip = `<button type="button" data-status="all" class="chip" title="Every severity and evidence level" aria-pressed="${state.status === 'all' && state.severity === 'all'}"><span>All</span><span class="n">${visible('status', 'severity').length}</span></button>`;
+  const sevChips = Object.entries(SEVERITY).map(([k, sv]) => {
+    const n = sevPool.filter((i) => i.severity === k).length;
+    return `<button type="button" data-severity="${k}" class="chip sev-chip sev-${k}${n ? '' : ' none'}" title="${esc(sv.label + ': ' + sv.hint)}" aria-pressed="${state.severity === k}"><span>${sv.label}</span><span class="n">${n}</span></button>`;
   }).join('');
+  const evChips = Object.entries(STATUS).map(([k, st]) => {
+    const n = evPool.filter((i) => i.status === k).length;
+    return `<button type="button" data-status="${k}" class="chip st-${k}${n ? '' : ' none'}" title="${esc(st.label + ': ' + st.hint)}" aria-pressed="${state.status === k}">${st.icon()}<span>${st.label}</span><span class="n">${n}</span></button>`;
+  }).join('');
+  $('#status').innerHTML = allChip + sevChips + '<span class="chip-sep" aria-hidden="true"></span>' + evChips;
   // Tag order is fixed by overall use, so the row doesn't reshuffle under your finger.
   const overall = new Map(), now = new Map();
   for (const i of incidents) for (const t of i.tags || []) overall.set(t, (overall.get(t) || 0) + 1);
@@ -75,7 +82,9 @@ function renderChips() {
 }
 
 function renderLegend() {
-  $('#legend').innerHTML = Object.entries(STATUS).map(([k, s]) => `<li><span class="st st-${k}">${s.icon()}</span><b>${s.label}</b> ${esc(s.hint)}.</li>`).join('');
+  $('#legend').innerHTML =
+    Object.entries(SEVERITY).map(([k, s]) => `<li><span class="sev sev-${k}">${s.label}</span>${esc(s.hint)}.</li>`).join('') +
+    Object.entries(STATUS).map(([k, s]) => `<li><span class="ev st-${k}">${s.icon()}${s.label}</span>${esc(s.hint)}.</li>`).join('');
 }
 
 // Missing favicons fall back to the domain's first letter.
@@ -174,7 +183,13 @@ document.addEventListener('click', (e) => {
   const win = t.closest('[data-window]');
   if (win) { state.window = win.dataset.window; state.day = null; render(); return; }
   const chip = t.closest('[data-status]');
-  if (chip?.closest('#status')) { state.status = chip.dataset.status === state.status && state.status !== 'all' ? 'all' : chip.dataset.status; render(); return; }
+  if (chip?.closest('#status')) {
+    if (chip.dataset.status === 'all') { state.status = 'all'; state.severity = 'all'; }
+    else state.status = chip.dataset.status === state.status ? 'all' : chip.dataset.status;
+    render(); return;
+  }
+  const sev = t.closest('[data-severity]');
+  if (sev?.closest('#status')) { state.severity = sev.dataset.severity === state.severity ? 'all' : sev.dataset.severity; render(); return; }
   const tag = t.closest('[data-tag]');
   if (tag) { state.tag = state.tag === tag.dataset.tag ? null : tag.dataset.tag; render(); if (tag.closest('.incident')) $('#log').scrollIntoView({ block: 'start' }); return; }
   if (t.closest('[data-clear]')) { Object.assign(state, DEFAULTS); $('#search').value = ''; render(); return; }

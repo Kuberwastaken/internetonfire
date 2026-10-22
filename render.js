@@ -14,6 +14,8 @@ export const icon = {
   star: (cls) => svg('<path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"/>', cls),
   plus: (cls) => svg('<path d="M12 5v14M5 12h14"/>', cls),
   search: (cls) => svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>', cls),
+  check2: (cls) => svg('<circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.7L16.5 9"/>', cls),
+  news: (cls) => svg('<path d="M4 21h15a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-8h4"/><path d="M10 7h7M10 11h7M10 15h4"/>', cls),
   help: (cls) => svg('<circle cx="12" cy="12" r="9.5"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>', cls),
   scale: (cls) => svg('<path d="M12 3v18M7 21h10M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1zM2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/>', cls),
   chevron: (cls) => svg('<path d="m6 9 6 6 6-6"/>', cls),
@@ -29,12 +31,29 @@ export const icon = {
   play: (cls) => svg('<path d="M7 4.5v15l12-7.5z"/>', cls),
 };
 
+// Evidence: how well-sourced an entry is. Deliberately calm colours; severity carries the heat.
 export const STATUS = {
-  confirmed: { label: 'Confirmed', icon: icon.flameSolid, hint: 'A primary source backs it' },
-  reported: { label: 'Reported', icon: icon.flame, hint: 'Credible reporting, no primary confirmation' },
+  confirmed: { label: 'Confirmed', icon: icon.check2, hint: 'A primary source backs it' },
+  reported: { label: 'Reported', icon: icon.news, hint: 'Credible reporting, no primary confirmation' },
   disputed: { label: 'Disputed', icon: icon.scale, hint: 'Sources disagree' },
   unverified: { label: 'Unverified', icon: icon.help, hint: 'A claim going around, not established' },
 };
+
+// Severity: how bad the incident is, judged on what happened (exploitation, scale, what leaked), not CVSS alone.
+export const SEVERITY = {
+  critical: { label: 'Critical', flames: 3, hint: 'Exploited or compromised at scale; secrets, data or code execution in attackers’ hands' },
+  high: { label: 'High', flames: 2, hint: 'Real compromise with bounded scope, or a severe flaw that needs urgent patching' },
+  medium: { label: 'Medium', flames: 1, hint: 'Patched with no known exploitation, contained, or limited impact' },
+  low: { label: 'Low', flames: 0, hint: 'Informational: a downstream response or an unsubstantiated claim' },
+};
+const SEV_RANK = { critical: 0, high: 1, medium: 2, low: 3 };
+
+export function severityHTML(item) {
+  const sv = SEVERITY[item.severity];
+  if (!sv) return '';
+  const flames = Array.from({ length: sv.flames }, () => icon.flameSolid()).join('');
+  return `<span class="sev sev-${esc(item.severity)}" title="${sv.label}: ${sv.hint}">${flames ? `<span class="flames" aria-hidden="true">${flames}</span>` : ''}${sv.label}</span>`;
+}
 
 export function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -143,12 +162,13 @@ export function tagsHTML(item, active = null) {
 export function incidentHTML(item, open = false, activeTag = null) {
   const st = STATUS[item.status] || STATUS.unverified;
   const id = esc(item.id);
-  const shown = item.sources.slice(0, 5).map((s) => ext(s.url, favicon(s.url), 'fav-link', s.label)).join('');
+  const shown = item.sources.slice(0, 5).map((s) => ext(s.url, favicon(s.url), 'fav-link', `${s.label} · ${host(s.url)}`)).join('');
   const extra = item.sources.length > 5 ? `<span class="more-n">+${item.sources.length - 5}</span>` : '';
   return `<article class="incident${open ? ' open' : ''}" id="${id}" data-status="${esc(item.status)}">
-<div class="head"><span class="st st-${esc(item.status)}" title="${st.label}: ${st.hint}">${st.icon()}<span class="sr">${st.label}</span></span><h3><button class="toggle" type="button" aria-expanded="${open}" aria-controls="${id}-more">${esc(item.name)}</button></h3><span class="share"><a class="perma" href="#${id}" title="Link to this">${icon.link()}<span class="sr">Link to ${esc(item.name)}</span></a><button type="button" class="copy" data-copy="${id}" title="Copy share link">${icon.copy()}<span class="sr">Copy share link</span></button></span></div>
+<div class="meta">${severityHTML(item)}<span class="ev st-${esc(item.status)}" title="${st.label}: ${st.hint}">${st.icon()}${st.label}</span></div>
+<div class="head"><h3><button class="toggle" type="button" aria-expanded="${open}" aria-controls="${id}-more">${esc(item.name)}</button></h3><span class="share"><a class="perma" href="#${id}" title="Link to this">${icon.link()}<span class="sr">Link to ${esc(item.name)}</span></a><button type="button" class="copy" data-copy="${id}" title="Copy share link">${icon.copy()}<span class="sr">Copy share link</span></button></span></div>
 <p class="sum">${esc(item.summary)}</p>
-<div class="foot">${tagsHTML(item, activeTag)}<span class="favs">${shown}${extra}</span><button class="chev" type="button" aria-hidden="true" tabindex="-1">${icon.chevron()}</button></div>
+<div class="foot">${tagsHTML(item, activeTag)}<span class="favs"><span class="favs-k">Sources</span>${shown}${extra}</span><button class="chev" type="button" aria-hidden="true" tabindex="-1">${icon.chevron()}</button></div>
 <div class="more" id="${id}-more">${moreHTML(item)}</div>
 </article>`;
 }
@@ -168,8 +188,8 @@ export function listHTML(items, openIds = new Set(), activeTag = null) {
 const WINDOW_PHRASE = { day: 'in the last 24 hours', week: 'in the last week', month: 'in the last 30 days', all: 'logged so far' };
 
 // The hero line mirrors whatever filters are active, e.g. "12 confirmed incidents tagged #ai in the last week".
-export function headlineHTML(count, { status = 'all', window = 'week', day = null, tag = null, q = '' } = {}) {
-  const adj = status !== 'all' && STATUS[status] ? STATUS[status].label.toLowerCase() + ' ' : '';
+export function headlineHTML(count, { status = 'all', severity = 'all', window = 'week', day = null, tag = null, q = '' } = {}) {
+  const adj = [SEVERITY[severity], STATUS[status]].filter(Boolean).map((x) => x.label.toLowerCase() + ' ').join('');
   const noun = count === 1 ? 'incident' : 'incidents';
   const parts = [`<b>${count || 'No'}</b> ${adj}${noun}`];
   if (tag) parts.push(`tagged <span class="htag">#${esc(tag)}</span>`);
@@ -179,7 +199,9 @@ export function headlineHTML(count, { status = 'all', window = 'week', day = nul
 }
 
 export function sortIncidents(items) {
-  return [...items].sort((a, b) => (dayKey(b) || '').localeCompare(dayKey(a) || '') || (b.date || '').localeCompare(a.date || '') || a.name.localeCompare(b.name));
+  // Newest day first; within a day, worst first.
+  const rank = (i) => SEV_RANK[i.severity] ?? 9;
+  return [...items].sort((a, b) => (dayKey(b) || '').localeCompare(dayKey(a) || '') || rank(a) - rank(b) || (b.date || '').localeCompare(a.date || '') || a.name.localeCompare(b.name));
 }
 
 // One bar per civil day ending on `today`. Count = incidents that went public that day.

@@ -29,6 +29,9 @@
   --unverified: #8a8882;
   --yes: #1f8a4c;
   --no: #c8341e;
+  --sev-critical: #d42a1c;
+  --sev-high: #e2560b;
+  --sev-medium: #b27a14;
   --font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: light;
 }
@@ -49,6 +52,9 @@
     --unverified: #8a8882;
     --yes: #4cc27d;
     --no: #ff6b52;
+    --sev-critical: #ff5c4d;
+    --sev-high: #ff8b3d;
+    --sev-medium: #e3ad4a;
     color-scheme: dark;
   }
 }
@@ -170,10 +176,27 @@ h1 {
 
 /* ---- status icons ---- */
 .st { display: inline-grid; place-items: center; }
-.st-confirmed, .chip.st-confirmed .i { color: var(--fire); }
-.st-reported, .chip.st-reported .i { color: var(--amber); }
+/* evidence (how sure) stays calm; severity (how bad) carries the fire */
+.st-confirmed, .chip.st-confirmed .i { color: var(--ink-2); }
+.st-reported, .chip.st-reported .i { color: var(--muted); }
 .st-disputed, .chip.st-disputed .i { color: var(--disputed); }
-.st-unverified, .chip.st-unverified .i { color: var(--unverified); }
+.st-unverified, .chip.st-unverified .i { color: var(--faint); }
+.sev { display: inline-flex; align-items: center; gap: .3rem; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.sev .flames { display: inline-flex; }
+.sev .flames .i { width: .8rem; height: .8rem; margin-right: -.18rem; }
+.sev-critical { color: var(--sev-critical); }
+.sev-high { color: var(--sev-high); }
+.sev-medium { color: var(--sev-medium); }
+.ev { display: inline-flex; align-items: center; gap: .25rem; font-size: .75rem; font-weight: 500; }
+.ev .i { width: .85rem; height: .85rem; }
+.ev.st-confirmed { color: var(--ink-2); }
+.meta { display: flex; align-items: center; gap: .75rem; min-height: 1.1rem; }
+.chip.sev-chip > span:first-child { font-weight: 600; }
+.chip.sev-critical > span:first-child { color: var(--sev-critical); }
+.chip.sev-high > span:first-child { color: var(--sev-high); }
+.chip.sev-medium > span:first-child { color: var(--sev-medium); }
+.chip[aria-pressed="true"] > span:first-child { color: inherit; }
+.chip-sep { flex: none; width: 1px; height: 1.2rem; align-self: center; background: var(--rule); margin: 0 .2rem; }
 
 /* ---- the log ---- */
 .day {
@@ -182,9 +205,7 @@ h1 {
 }
 .day .n { font-variant-numeric: tabular-nums; color: var(--faint); }
 .incident { position: relative; scroll-margin-top: 7rem; padding: 1.1rem 0 1rem; border-bottom: 1px solid var(--rule); }
-.head { display: flex; align-items: flex-start; gap: .55rem; }
-.head .st { height: 1.55rem; }
-.head .st .i { width: 1.05rem; height: 1.05rem; }
+.head { display: flex; align-items: flex-start; gap: .55rem; margin-top: .3rem; }
 .incident h3 { margin: 0; flex: 1; font-size: 1.05rem; line-height: 1.45; font-weight: 620; letter-spacing: -0.012em; }
 .toggle { all: unset; cursor: pointer; }
 .toggle:focus-visible { outline: 2px solid var(--fire); outline-offset: 3px; border-radius: 3px; }
@@ -195,9 +216,10 @@ h1 {
 .perma:hover, .copy:hover { color: var(--ink); }
 .copy.done { color: var(--yes); }
 .perma .i, .copy .i { width: .9rem; height: .9rem; }
-.sum { margin: .3rem 0 0 1.6rem; color: var(--ink-2); font-size: .95rem; max-width: 40rem; }
+.sum { margin: .3rem 0 0; color: var(--ink-2); font-size: .95rem; max-width: 40rem; }
 .js .sum { cursor: pointer; }
-.foot { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin: .65rem 0 0 1.6rem; }
+.foot { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin: .65rem 0 0; }
+.favs-k { font-size: .72rem; font-weight: 500; color: var(--faint); margin-right: .2rem; }
 .foot .favs { margin-left: auto; }
 .favs { display: inline-flex; align-items: center; gap: .3rem; }
 .fav-link { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 6px; border: 1px solid var(--rule); background: var(--bg); }
@@ -231,7 +253,7 @@ h1 {
 .no-js .chev, html:not(.js) .chev { display: none; }
 .incident.open .chev .i { transform: rotate(180deg); }
 
-.more { margin: .4rem 0 0 1.6rem; max-width: 40rem; }
+.more { margin: .4rem 0 0; max-width: 40rem; }
 .js .incident:not(.open) .more { display: none; }
 .blk { margin-top: 1rem; }
 .blk h4 { margin: 0 0 .25rem; font-size: .72rem; font-weight: 650; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
@@ -357,7 +379,8 @@ h2 { font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 680; margin: 0; }
 .legend summary { cursor: pointer; width: fit-content; }
 .legend summary:hover { color: var(--ink); }
 .legend ul { list-style: none; padding: 0; margin: .75rem 0 0; display: grid; gap: .4rem; }
-.legend li { display: flex; align-items: center; gap: .5rem; }
+.legend li { display: flex; align-items: baseline; gap: .6rem; }
+.legend li > span:first-child { flex: none; min-width: 6.5rem; }
 .legend b { color: var(--ink); font-weight: 600; }
 .legend p { margin: .75rem 0 0; }
 
