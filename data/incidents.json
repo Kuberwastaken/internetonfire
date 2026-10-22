@@ -1373,8 +1373,8 @@
       "detail": {
         "whatHappened": "On the morning of October 21, 2026, Railway detected anomalous activity in the systems that store customer environment variables. It disclosed that an unauthorized third party may have accessed those encrypted variables and, for some customers, obtained the decrypted contents. Railway says it believes the attack is part of a series targeting platform companies with the aim of compromising AI inference providers, and it asked those providers to revoke keys proactively. A Railway employee wrote on Hacker News that preliminary forensics point to AI credentials as the attacker's primary goal and called the attacker highly motivated, while cautioning that a formal postmortem is still pending and that the company balanced its duty to warn against the risk of messaging before exploit paths were closed. Railway has not said how the attacker got in.",
         "exposure": "Secrets customers stored as environment variables: API keys, database passwords and private registry credentials. Railway says its initial analysis suggests the impact may be limited to a subset of users, but it has not given a count of affected accounts. Separately, individuals reported on X and Hacker News that AI keys stored on Railway were drained in real time, and the founder of Postiz said he took that service offline after Anthropic and Stripe warned that its keys were compromised. Those are individual reports, not Railway findings. Railway has not said that consumers' personal data was taken.",
-        "fix": "Railway paused all deployments while it investigates, told every customer to immediately roll all environment variables, API keys and private registry credentials, and to review service logs for unusual activity. It reset the credentials it holds on customers' behalf: S3 access keys for every storage bucket and the GitHub tokens Railway held, which forced redeploys for bucket-using services and a manual GitHub reconnect. It published step-by-step follow-up guides covering the bucket and GitHub resets, database credential rotation, and how to check OpenAI, Anthropic, Grok, OpenRouter and Stripe accounts for misuse. It says it will email confirmed-affected customers directly.",
-        "remaining": "The entry point and affected-account count are undisclosed, and a formal postmortem was not yet in the checked disclosure. Railway had paused deployments during investigation; its live status page, rather than this snapshot, determines restoration status. Downstream access to customers' application databases has not been established.",
+        "fix": "Railway initially paused deployments and advised all users to rotate environment variables, API keys and private registry credentials and review logs. It reset bucket S3 credentials and its held GitHub account tokens; services need new bucket credentials and a redeploy, and GitHub account connections need reconnecting. Importantly, GitHub registry personal-access tokens removed from Railway may still work on GitHub: users must revoke and replace those at GitHub too. Its official recovery guide distinguishes these actions. As of the status update at Oct 22 14:50 UTC, Pro and Enterprise builds were available with slower deployments; Hobby, Free and Trial restoration was still pending. Check the status page before relying on that snapshot.",
+        "remaining": "The entry point and affected-account count are undisclosed, and a formal postmortem was not yet in the checked disclosure. The initial all-deployment pause is historical, not a statement that every plan is still blocked. Restoration remains staged; the live status page is authoritative. Downstream access to customers' application databases has not been established.",
         "responses": [
           {
             "by": "Railway (official disclosure)",
@@ -1399,6 +1399,12 @@
             "summary": "Tracks the deployment pause and build restoration during the investigation.",
             "url": "https://status.railway.com/incident/QH8L8B3E",
             "date": "2026-10-21"
+          },
+          {
+            "by": "Railway status page, Oct 22 14:50 UTC update",
+            "summary": "Pro and Enterprise deployments were available but slower than usual. Builds for Hobby, then Free and Trial, were still being enabled. This is a timestamped operational snapshot, not a final all-clear.",
+            "url": "https://status.railway.com/incident/QH8L8B3E",
+            "date": "2026-10-22"
           }
         ],
         "claimChecks": [
