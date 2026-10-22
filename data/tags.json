@@ -1,0 +1,124 @@
+{
+  "tags": [
+    {
+      "id": "breach",
+      "description": "Someone got into systems or data they shouldn't have"
+    },
+    {
+      "id": "supply-chain",
+      "description": "Compromised packages, updates, releases or build pipelines"
+    },
+    {
+      "id": "npm",
+      "description": "npm packages"
+    },
+    {
+      "id": "pypi",
+      "description": "PyPI packages"
+    },
+    {
+      "id": "ci-cd",
+      "description": "CI/CD pipelines, GitHub Actions, build secrets"
+    },
+    {
+      "id": "malware",
+      "description": "Malicious code shipped or deployed"
+    },
+    {
+      "id": "ransomware",
+      "description": "Ransomware groups and attacks"
+    },
+    {
+      "id": "vulnerability",
+      "description": "A security flaw disclosed or patched"
+    },
+    {
+      "id": "exploited",
+      "description": "Exploited in the wild"
+    },
+    {
+      "id": "rce",
+      "description": "Remote code execution"
+    },
+    {
+      "id": "credentials",
+      "description": "Keys, tokens, secrets or passwords exposed or stolen"
+    },
+    {
+      "id": "data-leak",
+      "description": "Personal or customer data exposed"
+    },
+    {
+      "id": "cloud",
+      "description": "Cloud, PaaS and hosting platforms"
+    },
+    {
+      "id": "ai",
+      "description": "AI platforms, models, agents and tooling"
+    },
+    {
+      "id": "ai-assisted",
+      "description": "Attackers using AI"
+    },
+    {
+      "id": "pki",
+      "description": "Certificates and certificate authorities"
+    },
+    {
+      "id": "outage",
+      "description": "Service disruption"
+    },
+    {
+      "id": "state-actor",
+      "description": "Attributed to a nation-state"
+    },
+    {
+      "id": "advisory",
+      "description": "Government or CERT advisory"
+    },
+    {
+      "id": "privacy",
+      "description": "Privacy impact"
+    },
+    {
+      "id": "protocol",
+      "description": "Protocol-level flaws"
+    },
+    {
+      "id": "network",
+      "description": "Network infrastructure"
+    },
+    {
+      "id": "open-source",
+      "description": "Open-source projects"
+    },
+    {
+      "id": "wordpress",
+      "description": "WordPress plugins and ecosystem"
+    },
+    {
+      "id": "healthcare",
+      "description": "Healthcare"
+    },
+    {
+      "id": "education",
+      "description": "Education"
+    },
+    {
+      "id": "retail",
+      "description": "Retail"
+    },
+    {
+      "id": "finance",
+      "description": "Banks and finance"
+    },
+    {
+      "id": "government",
+      "description": "Government and public sector"
+    },
+    {
+      "id": "india",
+      "description": "India"
+    }
+  ]
+}

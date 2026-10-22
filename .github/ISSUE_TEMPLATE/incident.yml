@@ -22,6 +22,45 @@ body:
       description: Link original advisories, reporting, X posts and vendor responses. HTTPS links only.
     validations:
       required: true
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Tags
+      description: Pick every tag that fits. Need a new one? Add it to data/tags.json in a PR.
+      multiple: true
+      options:
+        - breach
+        - supply-chain
+        - npm
+        - pypi
+        - ci-cd
+        - malware
+        - ransomware
+        - vulnerability
+        - exploited
+        - rce
+        - credentials
+        - data-leak
+        - cloud
+        - ai
+        - ai-assisted
+        - pki
+        - outage
+        - state-actor
+        - advisory
+        - privacy
+        - protocol
+        - network
+        - open-source
+        - wordpress
+        - healthcare
+        - education
+        - retail
+        - finance
+        - government
+        - india
+    validations:
+      required: true
   - type: input
     id: date
     attributes:

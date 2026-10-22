@@ -8,7 +8,7 @@
       "status": "confirmed",
       "date": "2026-10-14",
       "dateLabel": "Attack ran Oct 14-15, 2026 (UTC); status incident opened Oct 15; shutdown announced Oct 17; preliminary report Oct 19; full wind-down Dec 1-31, 2026",
-      "category": "cloud breach",
+      "tags": ["breach", "cloud", "credentials"],
       "sources": [
         {
           "label": "Zeabur status · Original source",
@@ -90,7 +90,7 @@
       "status": "confirmed",
       "date": "2026-10-19",
       "dateLabel": "Malicious binaries live Oct 19, 2026, 14:47-16:21 UTC+2",
-      "category": "supply chain",
+      "tags": ["supply-chain", "malware", "credentials", "cloud"],
       "sources": [
         {
           "label": "GitHub Advisory GHSA-862f-55f5-vmvw (OVHcloud)",
@@ -166,7 +166,7 @@
       "status": "confirmed",
       "date": "2026-10-15",
       "dateLabel": "Malicious download window Oct 15 20:02 UTC - Oct 16 07:12 UTC, 2026; vendor advisory Oct 16",
-      "category": "supply chain",
+      "tags": ["supply-chain", "malware", "wordpress"],
       "sources": [
         {
           "label": "Rank Math: PRO 3.0.123 Security Incident",
@@ -236,7 +236,7 @@
       "status": "confirmed",
       "date": "2026-10-17",
       "dateLabel": "Detected 17–18 Oct; disclosed 19 Oct 2026",
-      "category": "data breach + supply chain",
+      "tags": ["breach", "supply-chain", "data-leak", "wordpress"],
       "sources": [
         {
           "label": "TeamUpdraft: security incident - what customers need to know",
@@ -312,7 +312,7 @@
       "status": "confirmed",
       "date": "2026-10-14",
       "dateLabel": "Discovered Oct 14; disclosed Oct 16; identities disabled Oct 17, 2026",
-      "category": "cloud identity compromise",
+      "tags": ["breach", "credentials", "cloud"],
       "sources": [
         {
           "label": "ConnectWise Trust Center advisories",
@@ -401,7 +401,7 @@
       "status": "confirmed",
       "date": "2026-10-15",
       "dateLabel": "Research published 15 Oct 2026; attacks Apr–Jul",
-      "category": "supply chain",
+      "tags": ["supply-chain", "malware"],
       "sources": [
         {
           "label": "Google Cloud / GTIG · Original source",
@@ -444,7 +444,7 @@
       "status": "confirmed",
       "date": "2026-10-05",
       "dateLabel": "Malicious publish Oct 5, 2026 11:56 UTC; pulled within ~50 minutes",
-      "category": "supply chain / npm",
+      "tags": ["supply-chain", "npm", "malware", "credentials"],
       "sources": [
         {
           "label": "GitHub subquery/subql issue #3047 (malicious release report)",
@@ -508,7 +508,7 @@
       "status": "confirmed",
       "date": "2026-10-08",
       "dateLabel": "Malicious publish and vendor advisory Oct 8, 2026",
-      "category": "supply chain / npm",
+      "tags": ["supply-chain", "npm", "malware", "credentials", "ai"],
       "sources": [
         {
           "label": "GitHub Advisory GHSA-8g63-53c9-65j2 (Tensorlake)",
@@ -572,7 +572,7 @@
       "status": "confirmed",
       "date": "2026-10-08",
       "dateLabel": "Original wave Sept 2025; resurgence Aug 31-Sep 30, 2026; 30k+ repo burst Oct 8-12, 2026",
-      "category": "supply chain / CI secrets",
+      "tags": ["supply-chain", "ci-cd", "credentials"],
       "sources": [
         {
           "label": "GitGuardian: GhostAction Returns (772 repos, 30k more in Oct)",
@@ -642,7 +642,7 @@
       "status": "confirmed",
       "date": "2026-10-20",
       "dateLabel": "Exploit chain weaponized within hours of disclosure (~Oct 19); CISA KEV Oct 20, 2026",
-      "category": "vulnerability exploitation",
+      "tags": ["vulnerability", "exploited", "rce"],
       "sources": [
         {
           "label": "CISA: Adds Six Known Exploited Vulnerabilities to Catalog",
@@ -745,7 +745,7 @@
       "status": "confirmed",
       "date": "2026-10-20",
       "dateLabel": "Joint advisory published Oct 20-21, 2026; group active since Aug 2024",
-      "category": "ransomware",
+      "tags": ["ransomware", "advisory"],
       "sources": [
         {
           "label": "CISA: #StopRansomware - SafePay Ransomware (AA26-293a)",
@@ -782,7 +782,7 @@
       "status": "reported",
       "date": "2026-10-20",
       "dateLabel": "Reported 20 Oct 2026; exploitation since May–Jun",
-      "category": "vulnerability exploitation / ransomware",
+      "tags": ["ransomware", "exploited", "vulnerability"],
       "sources": [
         {
           "label": "The Register · Reporting",
@@ -819,7 +819,7 @@
       "status": "reported",
       "date": "2026-10-02",
       "dateLabel": "Exit-policy rewrites Oct 1-5; researcher scan Oct 2; removals and coverage Oct 20-22, 2026",
-      "category": "network infrastructure",
+      "tags": ["network", "privacy"],
       "sources": [
         {
           "label": "The Hacker News · Reporting",
@@ -862,7 +862,7 @@
       "status": "disputed",
       "date": "2026-10-19",
       "dateLabel": "Disclosed 19 Oct 2026; intrusion 9 Sep–7 Oct",
-      "category": "cloud breach",
+      "tags": ["breach", "cloud", "data-leak"],
       "sources": [
         {
           "label": "PingCAP · Original source",
@@ -905,7 +905,7 @@
       "status": "reported",
       "date": "2026-10-21",
       "dateLabel": "Bank alerted Oct 16; exchange filing and coverage Oct 21, 2026",
-      "category": "data breach",
+      "tags": ["data-leak", "finance", "india"],
       "sources": [
         {
           "label": "The Hindu: SBI admits exposure of customer data on the Dark Web",
@@ -971,7 +971,7 @@
       "status": "confirmed",
       "date": "2026-10-15",
       "dateLabel": "Advisory SSA-580366 Oct 15; Siemens validated active exploitation Oct 19; CISA KEV Oct 20, 2026",
-      "category": "vulnerability exploitation / malware",
+      "tags": ["vulnerability", "exploited", "malware"],
       "sources": [
         {
           "label": "Siemens ProductCERT · Original source",
@@ -1008,7 +1008,7 @@
       "status": "unverified",
       "date": null,
       "dateLabel": "Original claim not tied to a specific campaign",
-      "category": "state-sponsored",
+      "tags": ["state-actor"],
       "sources": [
         {
           "label": "Kaspersky via SOCtember · Reporting",
@@ -1051,7 +1051,7 @@
       "status": "confirmed",
       "date": "2026-10-17",
       "dateLabel": "Reported 17–18 Oct; revoked 19 Oct; public 20–21 Oct 2026",
-      "category": "PKI / certificate authority",
+      "tags": ["pki", "india"],
       "sources": [
         {
           "label": "eMudhra official statement (3 updates · Original source",
@@ -1201,7 +1201,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Disclosed 21 Oct 2026; investigation ongoing",
-      "category": "cloud platform breach",
+      "tags": ["breach", "cloud", "credentials"],
       "sources": [
         {
           "label": "Railway: Security Disclosure - Wednesday October 21st",
@@ -1298,7 +1298,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "21 Oct 2026; PyPI 11:39–13:23 UTC",
-      "category": "supply chain",
+      "tags": ["supply-chain", "pypi", "malware", "credentials", "ai"],
       "sources": [
         {
           "label": "LiteLLM · Original source",
@@ -1354,7 +1354,7 @@
       "status": "confirmed",
       "date": "2026-10-17",
       "dateLabel": "Exposure reported from 17 Oct 2026; press 19 Oct",
-      "category": "AI platform breach",
+      "tags": ["breach", "ai", "credentials"],
       "sources": [
         {
           "label": "BleepingComputer · Reporting",
@@ -1444,7 +1444,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Disclosed / fixed 21 Oct 2026",
-      "category": "vulnerability / RCE",
+      "tags": ["vulnerability", "rce", "open-source"],
       "sources": [
         {
           "label": "Tenable: PHP2Shell (CVE-2026-109618, CVE-2026-109619) - FAQ",
@@ -1553,7 +1553,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Fixed 21 Oct 2026",
-      "category": "vulnerability / RCE",
+      "tags": ["vulnerability", "rce"],
       "sources": [
         {
           "label": "GitLab Critical Patch Release · Original source",
@@ -1624,7 +1624,7 @@
       "status": "confirmed",
       "date": "2026-10-14",
       "dateLabel": "Released 14 Oct 2026",
-      "category": "vulnerability",
+      "tags": ["vulnerability", "open-source"],
       "sources": [
         {
           "label": "nginx security advisories",
@@ -1652,7 +1652,7 @@
       "status": "reported",
       "date": "2026-10-19",
       "dateLabel": "Research / reporting 17–20 Oct 2026",
-      "category": "AI-enabled attack campaign",
+      "tags": ["ai", "ai-assisted", "open-source"],
       "sources": [
         {
           "label": "Norforge · Original source",
@@ -1689,7 +1689,7 @@
       "status": "reported",
       "date": "2026-10-21",
       "dateLabel": "Reported 21 Oct 2026",
-      "category": "vulnerability / privacy",
+      "tags": ["vulnerability", "privacy"],
       "sources": [
         {
           "label": "The Register · Reporting",
@@ -1718,7 +1718,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Bulletin / release 21 Oct 2026",
-      "category": "vendor response / PKI",
+      "tags": ["pki"],
       "sources": [
         {
           "label": "Tailscale Security Bulletins - TS-2026-013",
@@ -1768,7 +1768,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Released 21 Oct 2026",
-      "category": "vulnerability",
+      "tags": ["vulnerability", "open-source"],
       "sources": [
         {
           "label": "Node.js blog: Wednesday, October 21, 2026 Security Releases",
@@ -1828,7 +1828,7 @@
       "status": "confirmed",
       "date": "2026-10-16",
       "dateLabel": "Disclosed 16 Oct 2026; copying May–Sep",
-      "category": "data breach / education",
+      "tags": ["data-leak", "education"],
       "sources": [
         {
           "label": "California Dept. of Education · Original source",
@@ -1880,7 +1880,7 @@
       "status": "confirmed",
       "date": "2026-10-20",
       "dateLabel": "Research published around 20 Oct 2026",
-      "category": "vulnerability / protocol",
+      "tags": ["vulnerability", "protocol"],
       "sources": [
         {
           "label": "Foxio · Original source",
@@ -1900,7 +1900,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026",
-      "category": "hosting provider compromise",
+      "tags": ["breach", "malware", "cloud"],
       "sources": [
         {
           "label": "Onamae.com official notice (Japanese)",
@@ -1928,7 +1928,7 @@
       "status": "reported",
       "date": "2026-10-12",
       "dateLabel": "Detected 12 Oct; recovery update 19 Oct 2026",
-      "category": "cyberattack / retail",
+      "tags": ["outage", "retail"],
       "sources": [
         {
           "label": "Ahold Delhaize newsroom · Original source",
@@ -1957,7 +1957,7 @@
       "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Separate events 17–22 Oct 2026",
-      "category": "platform outage / cyber incident",
+      "tags": ["outage"],
       "sources": [
         {
           "label": "Bullhorn Status - incident updates",
@@ -1977,7 +1977,7 @@
       "status": "reported",
       "date": "2025-10-13",
       "dateLabel": "Intrusion Oct 2025; notifications Sep 2026",
-      "category": "data breach / healthcare",
+      "tags": ["data-leak", "healthcare"],
       "sources": [
         {
           "label": "SecurityWeek · Reporting",
@@ -2005,7 +2005,7 @@
       "summary": "A group calling itself Scarlettgroup claims to have breached Rajasthan Police and offered data for sale. Coverage repeats claims of about 70,000 identity records and 59,460 mobile numbers. These figures and the alleged breach are unverified.",
       "date": "2026-10-21",
       "dateLabel": "Claim reported Oct 21, 2026; unverified",
-      "category": "alleged breach",
+      "tags": ["data-leak", "government", "india"],
       "status": "unverified",
       "disclosureDate": "2026-10-21",
       "sources": [
@@ -2060,7 +2060,7 @@
       "date": null,
       "dateLabel": "Activity from at least September 2026; report Oct 21",
       "disclosureDate": "2026-10-21",
-      "category": "AI-assisted intrusion campaign",
+      "tags": ["ai", "ai-assisted", "state-actor"],
       "status": "confirmed",
       "summary": "Microsoft Threat Intelligence reports that China-state-aligned Storm-0940 used ARTEX agentic AI to automate attacks targeting hundreds of organizations. Some attacks gained privileged cloud access in under three hours. Microsoft attributes the ConnectWise supply-chain compromise to this campaign; that incident is also listed separately with its vendor response.",
       "correction": "Microsoft is the reporting source, not a breached company in this report. Hundreds targeted does not mean hundreds compromised. This broader campaign includes the ConnectWise incident; do not add the two entries together as independent victim counts.",
