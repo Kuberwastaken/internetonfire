@@ -75,6 +75,7 @@ button { font: inherit; color: inherit; }
 .skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: .5rem .75rem; z-index: 10; }
 .wrap { width: 100%; max-width: 46rem; margin-inline: auto; padding-inline: 1.25rem; }
 .muted, .note { color: var(--muted); }
+.nw { white-space: nowrap; }
 
 /* ---- top bar ---- */
 .top { display: flex; align-items: center; justify-content: space-between; padding-block: 1.1rem; }
