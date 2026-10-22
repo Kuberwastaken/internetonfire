@@ -9,6 +9,7 @@ export function validate(data,tags=TAGS){
  // Tags come from data/tags.json. Older entries with only a legacy `category` still pass (see tagWarnings).
  if(i.tags!==undefined){if(!Array.isArray(i.tags)||!i.tags.length)errors.push(p+': tags must be a non-empty array');else{if(new Set(i.tags).size!==i.tags.length)errors.push(p+': duplicate tag');for(const t of i.tags)if(!tags.includes(t))errors.push(p+': unknown tag "'+t+'" (add it to data/tags.json)');}}
  else if(typeof i.category!=='string'||!i.category.trim())errors.push(p+': tags required');
+ if(i.subject!==undefined&&(typeof i.subject!=='string'||!i.subject.trim()||i.subject.length>40))errors.push(p+': subject must be a short name (max 40 chars)');
  if(!statuses.includes(i.status))errors.push(p+': invalid status');if(i.date!==null&&!date(i.date))errors.push(p+': invalid date');if(i.disclosureDate!==undefined&&i.disclosureDate!==null&&!date(i.disclosureDate))errors.push(p+': invalid disclosureDate');if(i.disclosedAt!==undefined&&(!/T.*(?:Z|[+-]\d{2}:\d{2})$/.test(i.disclosedAt)||!Number.isFinite(Date.parse(i.disclosedAt))))errors.push(p+': exact timestamp must include timezone');if(!Array.isArray(i.sources)){errors.push(p+': sources array required');continue;}
  if(i.status!=='unverified'&&!i.sources.length)errors.push(p+': sourced status needs evidence');
  if(i.status==='confirmed'&&!i.sources.some(s=>s.kind==='primary'))errors.push(p+': confirmed needs primary evidence');

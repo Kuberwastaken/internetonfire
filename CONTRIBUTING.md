@@ -14,6 +14,7 @@ No git setup? [Open an incident report](https://github.com/Kuberwastaken/interne
 {
   "id": "vendor-incident-2026",
   "name": "Vendor / incident name",
+  "subject": "Vendor",
   "summary": "A short description of what the source actually supports.",
   "status": "reported",
   "date": "2026-10-22",
@@ -32,6 +33,10 @@ No git setup? [Open an incident report](https://github.com/Kuberwastaken/interne
 ```
 
 Replace the example URL with an actual source. Use `null` for unknown dates. The top-level `updated` date is the last editorial source check, not a claim that every incident happened then.
+
+### Subject
+
+`subject` is the short name for the share card: "Vendor is on fire." Keep it to the product, company or thing that's burning (max 40 characters). Without it, the part of `name` before " / " is used.
 
 ### Tags
 
