@@ -1,31 +1,183 @@
-import {timeMatch} from './time.js';
-const $ = (selector) => document.querySelector(selector);
+import { timeMatch } from './time.js';
+import { STATUS, barsHTML, dayKey, dayLabel, esc, icon, listHTML, safeURL, sortIncidents } from './render.js';
+
 const REPO = 'Kuberwastaken/internetonfire';
-const labels = {confirmed:'Confirmed',reported:'Reported',disputed:'Disputed',unverified:'Needs evidence'};
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+
+const state = { q: '', status: 'all', window: 'all', day: null };
+const openIds = new Set();
 let incidents = [];
-function el(tag, text, className) { const n=document.createElement(tag); if(text!==undefined)n.textContent=text;if(className)n.className=className;return n; }
-export function safeURL(value){try{const u=new URL(value);return u.protocol==='https:' ? u.href : null;}catch{return null;}}
-function sourceLink(source) {const url=new URL(source.url);const a=el('a',undefined,'source-link');a.href=safeURL(source.url)||'#';a.title=source.label+(source.date?' · '+source.date:'')+(source.verification==='excerpt'?' · excerpt checked':'');a.setAttribute('aria-label',a.title);const img=el('img');img.src='./assets/source-icons/'+url.hostname.replace(/^www\./,'')+'.png';img.alt='';img.loading='lazy';img.addEventListener('error',()=>{img.remove();a.append(el('span',url.hostname==='x.com'?'𝕏':'↗','fallback'));});a.append(img);return a;}
 
-function row(item) {
- const article=el('article',undefined,'incident');article.id=item.id;
- const header=el('div',undefined,'incident-header'); const title=el('h3');title.append(el('span','>','marker'),document.createTextNode(item.name));header.append(title);
- const date=el(item.date?'time':'span',item.dateLabel || item.date || 'Date not established',item.date?'':'date');if(item.date)date.dateTime=item.date;header.append(date);article.append(header);if(item.disclosureDate)article.append(el('span','Source published '+item.disclosureDate+(item.disclosedAt?'':' · time not given'),'date'));if($('#time-window').value!=='all'&&timeMatch(item,$('#time-window').value)==='possible')article.append(el('p','Date-only source: may overlap this window; exact time is not established.','small'));
- const meta=el('div',undefined,'metadata');meta.append(el('span',labels[item.status],'evidence '+item.status),el('span',item.category));article.append(meta,el('p',item.summary));
- if(item.sources.length){const links=el('div',undefined,'links');item.sources.forEach(s=>links.append(sourceLink(s)));article.append(links);}
- else article.append(el('p','No substantiating source yet. Help verify this claim.','small'));
- const d=el('details');d.append(el('summary','sources & context'));const ul=el('ul',undefined,'receipts');for(const source of item.sources){const li=el('li');const a=el('a',source.label);a.href=safeURL(source.url)||'#';li.append(a,el('small',' · '+(source.date||'date unknown')+(source.verification==='excerpt'?' · excerpt only':'')));ul.append(li);}d.append(ul);if(item.correction)d.append(el('p',item.correction));article.append(d);
+const localToday = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
 
- return article;
+// Short-lived sessionStorage cache so reloads don't burn the unauthenticated GitHub API quota.
+async function cachedJSON(key, url, ttl = 600000) {
+  try {
+    const hit = JSON.parse(sessionStorage.getItem(key) || 'null');
+    if (hit && Date.now() - hit.t < ttl) return hit.v;
+  } catch {}
+  const r = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+  if (!r.ok) throw Error(String(r.status));
+  const v = await r.json();
+  try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch {}
+  return v;
 }
-function render(){const query=$('#search').value.toLowerCase().trim(),status=$('#status').value,window=$('#time-window').value;let rows=incidents.filter(i=>['within','possible'].includes(timeMatch(i,window))&&(status==='all'||i.status===status)&&[i.name,i.summary,i.category,i.correction].join(' ').toLowerCase().includes(query));rows.sort($('#sort').value==='name'?(a,b)=>a.name.localeCompare(b.name):(a,b)=>(b.date||'').localeCompare(a.date||'')||a.name.localeCompare(b.name));const fragment=document.createDocumentFragment();for(const item of rows)fragment.append(row(item));if(!rows.length)fragment.append(el('p',window==='hour'?'No incidents with a verified timestamp in the last hour. Date-only reports are not assigned an hour.':'Nothing matches. Try another time or evidence filter.','empty'));$('#incident-list').replaceChildren(fragment);$('#result-status').textContent=window==='hour'?'Only exact verified timestamps qualify. Date-only sources stay in all / longer windows.':query||status!=='all'?`${rows.length} matching ${rows.length===1?'entry':'entries'}`:'';}
-async function load(){try{const r=await fetch('./data/incidents.json');if(!r.ok)throw Error();const data=await r.json();incidents=data.incidents;$('#updated').textContent='Sources checked '+data.updated;render();}catch{$('#incident-list').replaceChildren(el('p','The log could not load. Try reloading, or read the source data linked below.','empty'));$('#updated').textContent='Source index unavailable';}}
-['search','status','sort','time-window'].forEach(id=>$('#'+id).addEventListener(id==='search'?'input':'change',render));
-const dog=document.querySelector('.dog-brand');if(dog&&matchMedia('(prefers-reduced-motion: reduce)').matches)dog.src='./assets/this-is-fine.png';const dialog=$('#submit-dialog');document.querySelectorAll('[data-submit]').forEach(n=>n.addEventListener('click',()=>dialog.showModal()));dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-let prLoading=false;
-async function loadPRs(){if(prLoading)return;prLoading=true;$('#refresh-prs').disabled=true;try{const response=await fetch(`https://api.github.com/repos/${REPO}/issues?state=open&per_page=100`,{headers:{Accept:'application/vnd.github+json'}});if(!response.ok)throw Error(response.status);const issues=await response.json();const prs=issues.filter(p=>p.pull_request);const frag=document.createDocumentFragment();if(!prs.length)frag.append(el('p','No open pull requests right now. Submissions are open.','small'));for(const pr of prs){const box=el('div',undefined,'pr');const left=el('div');const link=el('a',`#${pr.number} ${pr.title}`);link.href=safeURL(pr.html_url)||`https://github.com/${REPO}/pulls`;left.append(link,el('br'),el('small','Opened '+pr.created_at.slice(0,10)+' · review sources before merging'));const votes=el('a',`👍 ${pr.reactions?.['+1']||0}   👎 ${pr.reactions?.['-1']||0} · React on GitHub ↗`,'votes');votes.href=link.href;box.append(left,votes);frag.append(box);}$('#pr-list').replaceChildren(frag);}catch{$('#pr-list').replaceChildren(el('p','Live review list unavailable (GitHub may be rate-limiting). Use “View pull requests” above.','small'));}finally{prLoading=false;$('#refresh-prs').disabled=false;}}
-$('#refresh-prs').addEventListener('click',loadPRs);load();loadPRs();
 
-matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(dog)dog.src=e.matches?'./assets/this-is-fine.png':'./assets/this-is-fine.gif';});
+function visible() {
+  const q = state.q.toLowerCase().trim();
+  return sortIncidents(incidents.filter((i) =>
+    (state.status === 'all' || i.status === state.status) &&
+    (!state.day || dayKey(i) === state.day) &&
+    ['within', 'possible'].includes(timeMatch(i, state.window)) &&
+    (!q || [i.name, i.summary, i.category, i.correction, i.detail?.whatHappened].join(' ').toLowerCase().includes(q))));
+}
 
-const pauseGif=document.querySelector("#pause-gif");function syncGifButton(){if(pauseGif)pauseGif.textContent=dog.src.endsWith(".png")?"play GIF":"pause GIF";if(pauseGif)pauseGif.setAttribute("aria-label",dog.src.endsWith(".png")?"Play animation":"Pause animation");}syncGifButton();pauseGif?.addEventListener("click",()=>{dog.src=dog.src.endsWith(".png")?"./assets/this-is-fine.gif":"./assets/this-is-fine.png";syncGifButton();});matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change",syncGifButton);
+function render() {
+  const rows = visible();
+  $('#incident-list').innerHTML = listHTML(rows, openIds);
+  fixIcons($('#incident-list'));
+  const filtered = state.q || state.status !== 'all' || state.window !== 'all' || state.day;
+  $('#result-status').innerHTML = filtered
+    ? `${rows.length} of ${incidents.length}${state.day ? ` · ${esc(dayLabel(state.day))}` : ''} <button type="button" class="clear" data-clear>Clear</button>`
+    : '';
+  $('#bars').innerHTML = barsHTML(incidents, localToday(), 30, state.day);
+  $$('#window [data-window]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.window === state.window)));
+  $$('#status [data-status]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.status === state.status)));
+}
+
+function renderChips() {
+  const count = (s) => incidents.filter((i) => s === 'all' || i.status === s).length;
+  $('#status').innerHTML = ['all', ...Object.keys(STATUS)].map((s) => {
+    const n = count(s);
+    if (s !== 'all' && !n) return '';
+    const st = STATUS[s];
+    return `<button type="button" data-status="${s}" class="chip${st ? ' st-' + s : ''}" title="${st ? esc(st.hint) : 'Everything'}" aria-pressed="false">${st ? st.icon() : ''}<span>${st ? st.label : 'All'}</span><span class="n">${n}</span></button>`;
+  }).join('');
+  $('#legend').innerHTML = Object.entries(STATUS).map(([k, s]) => `<li><span class="st st-${k}">${s.icon()}</span><b>${s.label}</b> ${esc(s.hint)}.</li>`).join('');
+}
+
+function renderHeadline() {
+  const n = incidents.filter((i) => ['within', 'possible'].includes(timeMatch(i, 'week'))).length;
+  $('[data-week]').textContent = n || 'No';
+  $('[data-week-noun]').textContent = n === 1 ? 'incident' : 'incidents';
+}
+
+// Missing favicons fall back to the domain's first letter.
+function fixIcons(root) {
+  for (const img of root.querySelectorAll('img.fav')) {
+    const swap = () => { const s = document.createElement('span'); s.className = 'fav fav-letter'; s.textContent = img.dataset.letter || '•'; img.replaceWith(s); };
+    if (img.complete && img.naturalWidth === 0 && img.src) swap(); else img.addEventListener('error', swap, { once: true });
+  }
+}
+
+function toggle(article, force) {
+  const open = force ?? !article.classList.contains('open');
+  article.classList.toggle('open', open);
+  article.querySelector('.toggle').setAttribute('aria-expanded', String(open));
+  if (open) openIds.add(article.id); else openIds.delete(article.id);
+  history.replaceState(null, '', open ? '#' + article.id : location.pathname + location.search);
+}
+
+function openFromHash() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id || !incidents.some((i) => i.id === id)) return;
+  if (!document.getElementById(id)) { Object.assign(state, { q: '', status: 'all', window: 'all', day: null }); $('#search').value = ''; render(); }
+  const a = document.getElementById(id);
+  toggle(a, true);
+  a.scrollIntoView({ block: 'start' });
+}
+
+async function load() {
+  try {
+    const r = await fetch('./data/incidents.json', { cache: 'no-cache' });
+    if (!r.ok) throw Error(String(r.status));
+    const data = await r.json();
+    incidents = data.incidents;
+    $('[data-updated]').textContent = 'Sources checked ' + dayLabel(data.updated);
+    renderChips(); renderHeadline(); render(); openFromHash();
+  } catch {
+    $('#incident-list').innerHTML = '<p class="empty">Couldn’t load the log. <a href="./data/incidents.json">Raw data</a></p>';
+  }
+}
+
+async function loadPRs() {
+  const btn = $('#refresh-prs'); btn.disabled = true;
+  const list = $('#pr-list');
+  try {
+    const items = (await cachedJSON('iof-prs', `https://api.github.com/repos/${REPO}/issues?state=open&per_page=50`, btn.dataset.fresh ? 0 : 600000))
+      .filter((i) => !i.draft);
+    list.innerHTML = items.length ? items.map((i) => {
+      const url = safeURL(i.html_url) || `https://github.com/${REPO}/pulls`;
+      return `<li><a class="pr-title" href="${esc(url)}" target="_blank" rel="noopener">${i.pull_request ? icon.pr() : icon.issue()}<span><span class="num">#${esc(i.number)}</span> ${esc(i.title)}</span></a><a class="votes" href="${esc(url)}" target="_blank" rel="noopener" title="Vote on GitHub">👍 ${Number(i.reactions?.['+1'] || 0)}<span>👎 ${Number(i.reactions?.['-1'] || 0)}</span></a></li>`;
+    }).join('') : '<li class="muted">Queue’s empty. <a href="#submit">Add one</a>.</li>';
+  } catch {
+    list.innerHTML = `<li class="muted">GitHub isn’t answering. <a href="https://github.com/${REPO}/pulls" target="_blank" rel="noopener">See PRs</a>.</li>`;
+  } finally { btn.disabled = false; }
+}
+
+async function loadStars() {
+  try {
+    const repo = await cachedJSON('iof-repo', `https://api.github.com/repos/${REPO}`);
+    if (typeof repo.stargazers_count !== 'number') return;
+    const n = repo.stargazers_count;
+    for (const el of $$('[data-stars]')) { el.textContent = n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n); el.hidden = false; }
+  } catch {}
+}
+
+function setupDog() {
+  const video = $('.dog video'), btn = $('.dog-toggle');
+  if (!video) return;
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const sync = () => { btn.innerHTML = video.paused ? icon.play() : icon.pause(); btn.setAttribute('aria-label', video.paused ? 'Play animation' : 'Pause animation'); };
+  const flip = () => { if (video.paused) { video.preload = 'auto'; video.play().catch(() => {}); } else video.pause(); };
+  video.addEventListener('play', sync); video.addEventListener('pause', sync);
+  btn.addEventListener('click', flip); video.addEventListener('click', flip);
+  btn.hidden = false; sync();
+  if (!still.matches) { video.preload = 'auto'; video.play().catch(sync); }
+}
+
+function setupTip() {
+  const tip = $('.tip'), chart = $('#bars');
+  const show = (bar) => {
+    tip.textContent = bar.dataset.tip; tip.hidden = false;
+    const c = chart.getBoundingClientRect(), b = bar.getBoundingClientRect();
+    const x = Math.min(Math.max(b.left - c.left + b.width / 2, tip.offsetWidth / 2), c.width - tip.offsetWidth / 2);
+    tip.style.left = x + 'px';
+  };
+  chart.addEventListener('pointerover', (e) => { const b = e.target.closest('.bar'); if (b) show(b); });
+  chart.addEventListener('focusin', (e) => { const b = e.target.closest('.bar'); if (b) show(b); });
+  chart.addEventListener('pointerleave', () => { tip.hidden = true; });
+  chart.addEventListener('focusout', () => { tip.hidden = true; });
+}
+
+document.addEventListener('click', (e) => {
+  const t = e.target;
+  const bar = t.closest('.bar');
+  if (bar && !bar.disabled) { state.day = state.day === bar.dataset.day ? null : bar.dataset.day; state.window = 'all'; render(); return; }
+  const win = t.closest('[data-window]');
+  if (win) { state.window = win.dataset.window; state.day = null; render(); return; }
+  const chip = t.closest('[data-status]');
+  if (chip?.closest('#status')) { state.status = chip.dataset.status === state.status && state.status !== 'all' ? 'all' : chip.dataset.status; render(); return; }
+  if (t.closest('[data-clear]')) { Object.assign(state, { q: '', status: 'all', window: 'all', day: null }); $('#search').value = ''; render(); return; }
+  if (t.closest('[data-week-link]')) { state.window = 'week'; state.day = null; render(); return; }
+  const clamped = t.closest('p.clamp');
+  if (clamped && !getSelection().toString()) { clamped.classList.remove('clamp'); return; }
+  const art = t.closest('.incident');
+  if (art && (t.closest('.toggle') || t.closest('.chev') || (t.closest('.sum') && !getSelection().toString()))) toggle(art);
+  if (t.closest('.perma')) { e.preventDefault(); toggle(art, true); navigator.clipboard?.writeText(location.href).catch(() => {}); }
+});
+
+$('#search').addEventListener('input', (e) => { state.q = e.target.value; render(); });
+$('#refresh-prs').addEventListener('click', (e) => { e.currentTarget.dataset.fresh = '1'; loadPRs(); });
+addEventListener('hashchange', openFromHash);
+
+fixIcons(document);
+setupDog();
+setupTip();
+load();
+loadPRs();
+loadStars();

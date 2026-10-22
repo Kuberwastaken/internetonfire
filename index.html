@@ -1,1 +1,108 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>internetonfire - security incident index</title><meta name="description" content="Security incidents with dates, original sources and corrections."><meta name="theme-color" content="#ffffff"><link rel="icon" href="./assets/favicon-32.png"><link rel="stylesheet" href="./style.css"><script src="./app.js" type="module"></script></head><body><a class="skip" href="#incidents">Skip to incidents</a><main class="site"><header><nav aria-label="Main"><a href="https://github.com/Kuberwastaken/internetonfire">GitHub ↗</a><a href="#review-queue">PRs ↓</a><button id="submit" data-submit>+ contribute</button></nav><div class="site-title"><figure class="meme"><img class="dog-brand" src="./assets/this-is-fine.gif" alt="This is fine: the classic dog sitting in a burning room." width="500" height="278"><figcaption><button id="pause-gif" type="button" aria-label="Pause animation">pause GIF</button> · <a href="https://giphy.com/gifs/z9AUvhAEiXOqA">GIF</a> / K.C. Green comic</figcaption></figure><div><h1>internet on fire.</h1><p >security incidents, with sources.</p></div></div><p class="opening">Security incidents, outages & AI mishaps.<br>What happened, when, and the receipts.</p><p class="aside">give your dev, ops & security people a hug.</p></header><section id="incidents" aria-label="Incident log"><div class="section-heading"><h2>the incident log</h2><span id="updated">Loading sources…</span></div><p class="small">Dates and evidence labels matter. Source icons open the original; expand the source list for titles and context.</p><div class="time-tabs"><label for="time-window">published in</label><select id="time-window"><option value="all">all time / history</option><option value="hour">last hour</option><option value="day">last 24 hours</option><option value="week">last 7 days</option><option value="month">last 30 days</option></select></div><div class="tools"><label class="search"><span class="sr-only">Search incidents</span><input id="search" type="search" placeholder="find an incident…" autocomplete="off"></label><label><span class="sr-only">Evidence status</span><select id="status"><option value="all">all evidence</option><option value="confirmed">confirmed</option><option value="reported">reported</option><option value="disputed">disputed</option><option value="unverified">needs evidence</option></select></label><label><span class="sr-only">Sort incidents</span><select id="sort"><option value="latest">newest</option><option value="name">a–z</option></select></label></div><p id="result-status" role="status" class="small"></p><div id="incident-list"><p>Loading incidents…</p></div><noscript><a href="./data/incidents.json">Read the incident data</a></noscript></section><section id="review-queue" class="review-queue"><h2>open PRs & votes</h2><p class="small">👍 / 👎 on a PR to support it or flag a problem. Votes prioritise review, never auto-merge.</p><div id="pr-list" aria-live="polite"></div><button id="refresh-prs" class="text-button">refresh PRs ↻</button></section><details id="method" class="method"><summary>how this site works</summary><p>Confirmed: primary evidence supports the description. Reported: attributed reporting. Disputed: material disagreement. Needs evidence: not substantiated. Event dates and publication dates are different. An outage is not proof of a breach.</p><p>X posts preserve what was said, not proof that it happened. Corrections sit beside each entry and in git history. No private messages, leaked records, credentials or exploit payloads belong here. This is an incident index, not an emergency alert feed.</p></details><footer><span >internetonfire</span><a href="./data/incidents.json">data ↗</a><a href="https://github.com/Kuberwastaken/internetonfire">source ↗</a></footer></main><dialog id="submit-dialog" aria-labelledby="submit-title"><form method="dialog"><button class="close" aria-label="Close submission guide">×</button></form><h2 id="submit-title">contribute.</h2><div class="actions"><a href="https://github.com/Kuberwastaken/internetonfire/pulls">open PRs ↗</a><a href="https://github.com/Kuberwastaken/internetonfire/blob/main/CONTRIBUTING.md">the guide ↗</a></div><p class="small">👍 / 👎 on GitHub PRs helps prioritise review. Sources and checks still need human review. Votes never auto-merge.</p><ol><li>Find the original source and its date. Include a vendor response if available.</li><li>Open a report, or edit the JSON in your fork and send a PR.</li><li>Reviewers check sources, dates and privacy. Community reactions help prioritise review.</li></ol><div class="actions"><a class="button" href="https://github.com/Kuberwastaken/internetonfire/issues/new?template=incident.yml">open a report ↗</a><a class="button" href="https://github.com/Kuberwastaken/internetonfire/edit/main/data/incidents.json">edit / make a PR ↗</a></div><p class="small">A free GitHub account is needed to submit or vote. No private data.</p></dialog></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The internet is on fire</title>
+<meta name="description" content="A running log of security incidents: breaches, backdoored packages, exploited bugs. Every entry linked to its source.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://kuber.studio/internetonfire/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kuber.studio/internetonfire/">
+<meta property="og:title" content="The internet is on fire.">
+<meta property="og:description" content="Breaches, backdoors and live exploits, each linked to its source. This is fine.">
+<meta property="og:image" content="https://kuber.studio/internetonfire/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@kuberwastaken">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="./assets/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="./app.js" type="module"></script>
+</head>
+<body>
+<a class="skip" href="#log">Skip to incidents</a>
+
+<header class="top wrap">
+  <a class="brand" href="./" aria-label="internetonfire home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>internetonfire</a>
+  <nav>
+    <a class="icon-btn" href="#submit" title="Submit an incident" aria-label="Submit an incident"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></a>
+    <a class="star-btn" href="https://github.com/Kuberwastaken/internetonfire" target="_blank" rel="noopener" title="Star on GitHub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"/></svg><span>Star</span><span class="star-count" data-stars hidden></span></a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-text">
+      <h1>The internet is on&nbsp;fire.</h1>
+      <p class="fine"><a href="#log" data-week-link><b data-week>—</b> <span data-week-noun>incidents</span> in the last 7 days.</a> This is&nbsp;fine.</p>
+      <p class="lede">Breaches, backdoors and live exploits, each linked to its source. Triaged by AI, corrected by&nbsp;you.</p>
+    </div>
+    <figure class="dog">
+      <video muted loop playsinline preload="none" poster="./assets/this-is-fine.webp" width="500" height="278" aria-label="This is fine: a dog drinks coffee in a burning room.">
+        <source src="./assets/this-is-fine.mp4" type="video/mp4">
+      </video>
+      <button class="dog-toggle" type="button" aria-label="Play animation" hidden></button>
+      <figcaption><a href="https://knowyourmeme.com/memes/this-is-fine" target="_blank" rel="noopener">K.C. Green</a></figcaption>
+    </figure>
+  </section>
+
+  <section class="heat wrap" aria-label="Incidents per day, last 30 days">
+    <div class="heat-chart" id="bars"><!--BARS--></div>
+    <div class="tip" role="tooltip" hidden></div>
+  </section>
+
+  <section id="log" class="log wrap">
+    <div class="controls">
+      <label class="search">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="sr">Search incidents</span>
+        <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false">
+      </label>
+      <div class="seg" role="group" aria-label="Published within" id="window">
+        <button type="button" data-window="day">24h</button><button type="button" data-window="week">7d</button><button type="button" data-window="month">30d</button><button type="button" data-window="all" aria-pressed="true">All</button>
+      </div>
+      <div class="chips" role="group" aria-label="Evidence" id="status"></div>
+    </div>
+    <p id="result-status" class="result" role="status"></p>
+    <div id="incident-list"><!--LIST--></div>
+    <noscript><p class="empty"><a href="./data/incidents.json">Raw data (JSON)</a></p></noscript>
+  </section>
+
+  <section id="review" class="review wrap">
+    <div class="sec-head"><h2>In review</h2><button id="refresh-prs" class="icon-btn" type="button" title="Refresh" aria-label="Refresh submissions"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button></div>
+    <p class="note">Vote 👍 / 👎 on GitHub. Votes set review order, never merge.</p>
+    <ul id="pr-list" aria-live="polite"><li class="muted">Loading…</li></ul>
+  </section>
+
+  <section id="submit" class="submit wrap">
+    <h2>Saw something burn?</h2>
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/Kuberwastaken/internetonfire/issues/new?template=incident.yml" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Report it</a>
+      <a class="btn" href="https://github.com/Kuberwastaken/internetonfire/edit/main/data/incidents.json" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7M6 9v12"/></svg>Open a PR</a>
+      <a class="btn ghost" href="https://github.com/Kuberwastaken/internetonfire/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Guide</a>
+    </div>
+    <p class="note">Bring a source. No leaks, credentials or exploit code.</p>
+    <details class="legend">
+      <summary>Reading the labels</summary>
+      <ul id="legend"></ul>
+      <p>Grouped by the day it went public. An outage isn’t a breach; a CVE isn’t proof of exploitation.</p>
+    </details>
+  </section>
+</main>
+
+<footer class="foot-bar wrap">
+  <p>another dumb project by <a href="https://x.com/kuberwastaken" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>kuberwastaken</a></p>
+  <nav aria-label="Project">
+    <a class="icon-btn" href="https://github.com/Kuberwastaken/internetonfire" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+    <a class="icon-btn" href="./data/incidents.json" title="Raw data (JSON)" aria-label="Raw data (JSON)"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></svg></a>
+    <a class="star-btn" href="https://github.com/Kuberwastaken/internetonfire" target="_blank" rel="noopener" title="Star on GitHub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"/></svg><span>Star</span><span class="star-count" data-stars hidden></span></a>
+  </nav>
+  <p class="updated" data-updated></p>
+</footer>
+</body>
+</html>
