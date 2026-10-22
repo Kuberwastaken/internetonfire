@@ -850,9 +850,16 @@
           "date": "2026-10-22",
           "provenance": "excerpt",
           "verification": "excerpt"
+        },
+        {
+          "label": "X · @Railway",
+          "url": "https://x.com/Railway/status/2113025284148715845",
+          "kind": "post",
+          "date": "2026-10-22",
+          "provenance": "full-read"
         }
       ],
-      "correction": "Incident confirmed by Railway itself, but impact is 'may have accessed' - scope (which accounts, how many) is still under investigation. The outage is a deliberate pause, not attacker-caused downtime. No independent press coverage captured yet."
+      "correction": "Railway confirmed the investigation, not a final count of exposed accounts. The deployment pause was precautionary. Follow the current status page for restoration updates."
     },
     {
       "id": "litellm-supply-chain-v11070",
@@ -879,13 +886,13 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Only v1.107.0 affected. Keep distinct from the earlier 2026 LiteLLM 1.82.x incident - same project, separate compromise."
+      "correction": "This is the October 1.107.0 compromise, separate from the earlier 2026 1.82.x incident. The official advisory lists affected registry tags and the exposure windows."
     },
     {
       "id": "opencode-api-keys-distillation-attack",
       "name": "OpenCode / exposed provider keys",
-      "summary": "Reporting says an attack on an older OpenCode system exposed stored AI-provider API keys for some Console users who linked external providers. Users reported unauthorised charges. The charges and broader attribution are not independently audited here.",
-      "status": "reported",
+      "summary": "OpenCode confirmed a security breach affecting 1.4% of Console users during a large-scale attack. Reporting says stored keys for linked AI providers were exposed and some users saw unauthorised charges. The official post confirms the breach, not an audited total of financial losses.",
+      "status": "confirmed",
       "date": "2026-10-17",
       "dateLabel": "Exposure reported from 17 Oct 2026; press 19 Oct",
       "category": "AI platform breach",
@@ -905,9 +912,30 @@
           "date": "2026-10-19",
           "provenance": "excerpt",
           "verification": "excerpt"
+        },
+        {
+          "label": "X · @opencode · statement",
+          "url": "https://x.com/opencode/status/2111519637049319818",
+          "kind": "primary",
+          "date": "2026-10-17",
+          "provenance": "full-read"
+        },
+        {
+          "label": "X · @thdxr",
+          "url": "https://x.com/thdxr/status/2111790511409258796",
+          "kind": "post",
+          "date": "2026-10-18",
+          "provenance": "full-read"
+        },
+        {
+          "label": "X · @saranormous",
+          "url": "https://x.com/saranormous/status/2111572880450601016",
+          "kind": "post",
+          "date": "2026-10-17",
+          "provenance": "full-read"
         }
       ],
-      "correction": "Captured sources are press reports. Maintainer post text was seen through a mirror, but direct X permalinks remain unchecked and are omitted. Reported user losses are not audited figures."
+      "correction": "The official OpenCode statement is linked alongside reporting and maintainer commentary. The company described a distillation attack; user charges and wider attribution are not independently audited. Do not treat every linked comment as a confirmed technical finding."
     },
     {
       "id": "php2shell-cve-2026-109618-109619",
@@ -935,7 +963,7 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "User's '9.2/10' matches the PHP security team's final CVSSv4.0 score; an incorrect 10.0 circulated pre-release (per the PHP Foundation via Tenable). Two CVEs, not one. PHP's own primary advisory URL not yet captured - Tenable/JFrog are secondary (though they quote PHP directly)."
+      "correction": "The 9.2 rating is attributed to the PHP security team in security reporting. Two CVEs are involved. This entry has not independently captured the PHP project’s own advisory."
     },
     {
       "id": "gitlab-cve-2026-110264-onigmo",
@@ -970,7 +998,7 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "'Could allow' RCE under conditions GitLab has not specified - a potential, with no observed exploitation. Only self-managed instances need to act. The '12 years of releases' framing is accurate (7.0, 2014). Note for dedup: TrustList flags a second distinct fix (LDAP account takeover) in the same release if the site wants a separate entry."
+      "correction": "Potential remote code execution is not proof of exploitation. The advisory concerns self-managed GitLab; hosted services and detailed supported release guidance are covered in GitLab’s own notice."
     },
     {
       "id": "nginx-october-2026-advisories",
@@ -997,7 +1025,7 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The user's 'NGINX - 3 critical vulnerabilities' is inaccurate on count and severity: the current batch is 5 advisories, ALL rated medium by NGINX itself - none critical. One (CVE-2026-95101) is HTTP/3-related but distinct from the separate 'Header Accordions' research item."
+      "correction": "The circulating description of “three critical vulnerabilities” does not match this release: NGINX lists five medium-severity advisories. Its HTTP/3 issue is separate from Header Accordions."
     },
     {
       "id": "cairn-ai-agents-100-companies",
@@ -1061,13 +1089,13 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Coverage is press-only so far - the CVE record / RingRTC advisory itself was not captured. Audio continuation is the described impact; camera/video is 'potentially', unconfirmed. Requires a malicious call participant - not a passive exposure of all users."
+      "correction": "Press reports describe audio continuation with a malicious call participant. Camera continuation remains uncertain. The library fix and the first fixed mobile app versions should not be assumed to be identical."
     },
     {
       "id": "tailscale-ts-2026-013-emudhra",
       "name": "Tailscale / eMudhra response",
       "summary": "Tailscale published an emergency update to distrust the compromised eMudhra intermediate certificates. This is a downstream certificate-trust response, not a separate Tailscale breach. WireGuard mesh traffic does not rely on that public certificate trust.",
-      "status": "reported",
+      "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Bulletin / release 21 Oct 2026",
       "category": "vendor response / PKI",
@@ -1077,8 +1105,7 @@
           "url": "https://tailscale.com/security-bulletins",
           "kind": "primary",
           "date": "2026-10-21",
-          "provenance": "excerpt",
-          "verification": "excerpt"
+          "provenance": "full-read"
         },
         {
           "label": "Tailscale Changelog - v1.104.2",
@@ -1089,7 +1116,7 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "This is a downstream response to the eMudhra incident, not an independent Tailscale vulnerability - display as a linked follow-on to emudhra-ca-key-compromise, not a standalone Tailscale breach."
+      "correction": "This is a follow-on to the eMudhra certificate incident, not an independent Tailscale compromise. See bulletin TS-2026-013 and the current changelog."
     },
     {
       "id": "nodejs-october-2026-security-release",
@@ -1108,13 +1135,13 @@
           "provenance": "full-read"
         }
       ],
-      "correction": "'High-severity vulnerabilities patched' is accurate (4 high, 3 medium, 3 low per the project's own ratings). The release bundles the eMudhra ca-cert distrust - shared root cause, link to emudhra-ca-key-compromise rather than duplicating. No independent press coverage captured; primary-only but it is the canonical source."
+      "correction": "The same release includes both independent vulnerability fixes and an eMudhra certificate-trust update. They are not all caused by the certificate incident."
     },
     {
       "id": "california-ets-student-data-breach",
       "name": "California students / ETS data breach",
       "summary": "California’s education department notified families about files copied from testing contractor ETS. The records span three school years and include sensitive student information. The copying happened between May and September, not during this week’s reporting.",
-      "status": "reported",
+      "status": "confirmed",
       "date": "2026-10-16",
       "dateLabel": "Disclosed 16 Oct 2026; copying May–Sep",
       "category": "data breach / education",
@@ -1124,8 +1151,7 @@
           "url": "https://www.cde.ca.gov/nr/in/documents/etsdatabreach-english.pdf",
           "kind": "primary",
           "date": "2026-10-16",
-          "provenance": "excerpt",
-          "verification": "excerpt"
+          "provenance": "full-read"
         },
         {
           "label": "CDE ETS notification page",
@@ -1160,13 +1186,13 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Not an event of this week: copying ran May-Sep 2026, detection Sep 25, public notice Oct 16. 'Millions of students' is supported by CDE's own scope statement. A Reuters syndication previously listed here was removed per user preference; LA Times/EdWeek/The Record provide independent coverage."
+      "correction": "The intrusion occurred months before public disclosure. ETS was the affected contractor; California’s notification describes the student-data categories and three-school-year scope."
     },
     {
       "id": "http3-header-accordions-qpack",
       "name": "HTTP/3 / Header Accordions",
       "summary": "Foxio’s research describes QPACK header-decompression amplification that can exhaust server memory. Seven of ten tested implementations were affected, with patch status varying by implementation. This is a vulnerability report, not proof that all affected servers were attacked.",
-      "status": "reported",
+      "status": "confirmed",
       "date": "2026-10-20",
       "dateLabel": "Research published around 20 Oct 2026",
       "category": "vulnerability / protocol",
@@ -1176,17 +1202,16 @@
           "url": "https://foxio.io/blog/header-accordions-qpack-amplification-attacks-against-http-3-servers",
           "kind": "primary",
           "date": "2026-10-20",
-          "provenance": "title-verified",
-          "verification": "excerpt"
+          "provenance": "full-read"
         }
       ],
-      "correction": "'Vulnerabilities affecting multiple web servers' is accurate at the implementation level. Caveats: two CVEs are 2025-numbered (coordinated earlier), three implementations were still unpatched at disclosure, and only the primary research blog is captured - no independent press yet. Distinct from nginx's own HTTP/3 CVE-2026-95101."
+      "correction": "The affected implementation list and patch status were captured at disclosure. This is distinct from NGINX’s separately listed HTTP/3 issue. Consult the original research for current changes."
     },
     {
       "id": "onamae-desktop-cloud-malware",
       "name": "Onamae / Desktop Cloud compromise",
       "summary": "Onamae says malicious programs were placed in customer Desktop Cloud server environments. Up to 26,739 servers were potentially affected, and it began stopping servers to contain the incident. Data viewing was possible; data theft was not confirmed.",
-      "status": "reported",
+      "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026",
       "category": "hosting provider compromise",
@@ -1196,8 +1221,7 @@
           "url": "https://www.onamae.com/news/article/11584/",
           "kind": "primary",
           "date": "2026-10-21",
-          "provenance": "title-verified",
-          "verification": "excerpt"
+          "provenance": "full-read"
         },
         {
           "label": "BleepingComputer · Reporting",
@@ -1208,7 +1232,7 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "'Malware reportedly planted on thousands of servers' understates the company's own figure: 26,739 potentially affected. Scope is the Desktop Cloud product, not all Onamae/GMO services. 'Malware planted' is confirmed by the provider; data theft is only 'possibility of viewing', not confirmed."
+      "correction": "The provider’s potentially affected server count is not a confirmed count of servers with stolen data. The incident concerns the Desktop Cloud product, not every Onamae or GMO service."
     },
     {
       "id": "ahold-delhaize-cyberattack",
@@ -1236,13 +1260,13 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Began Oct 12 - the prior week, not this week. Much of the disruption is the company's own precautionary takedown plus recovery. 'No evidence data was taken' is as of Oct 19; investigation ongoing. No threat actor or attack type named publicly."
+      "correction": "The incident began on 12 October, before this week’s reporting. The company’s no-evidence-of-data-theft statement is time-bound and does not close the investigation."
     },
     {
       "id": "bullhorn-outages-october-2026",
       "name": "Bullhorn / outages and incident response",
       "summary": "Bullhorn’s status updates describe separate events: a contained 17 October cyber incident, precautionary PHP2Shell product shutdowns, and a 21 October login outage linked to database-replication lag. They should not be presented as one confirmed breach.",
-      "status": "reported",
+      "status": "confirmed",
       "date": "2026-10-21",
       "dateLabel": "Separate events 17–22 Oct 2026",
       "category": "platform outage / cyber incident",
@@ -1252,11 +1276,10 @@
           "url": "https://status.bullhorn.com/",
           "kind": "primary",
           "date": "2026-10-21",
-          "provenance": "title-verified",
-          "verification": "excerpt"
+          "provenance": "full-read"
         }
       ],
-      "correction": "The user's 'major platform outage' conflates three distinct events; the Oct 21 product takedown is a downstream effect of PHP2Shell (link to php2shell-cve-2026-109618-109619), the Oct 17 cyber incident is separate and stated contained, and the login outage was operational (replication lag), not the attack itself. Details of the Oct 17 cyber incident (nature, actor, data impact) are not public in the captured status text. Only the status page captured - no independent press."
+      "correction": "The PHP shutdown, the earlier cyber incident and login replication problems are separate. The status page is a changing source; this entry reflects the captured 21–22 October updates."
     },
     {
       "id": "medical-paradigm-breach",
@@ -1284,7 +1307,7 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Timing correction: the breach itself is from Oct 2025 - this week's news is the HHS disclosure and the ~11-month notification delay. 'Medi-Cal breach' is via a billing contractor, not California DHCS systems directly. Press-only coverage; the HHS breach portal entry itself not captured."
+      "correction": "This is a 2025 intrusion with 2026 notification and reporting. The affected contractor handled Medi-Cal claims. The underlying HHS portal entry was not independently captured here."
     }
   ]
 }
