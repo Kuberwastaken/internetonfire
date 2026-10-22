@@ -2327,6 +2327,70 @@
           }
         ]
       }
+    },
+    {
+      "id": "us-banks-unvetted-ai-agents",
+      "name": "U.S. banks report unvetted AI agents accessing customer accounts",
+      "subject": "U.S. bank accounts",
+      "summary": "Axios reports that major U.S. banks are detecting third-party AI agents in customer accounts and restricting access. Many cases use customers' permission and credentials but violate bank rules; sources also describe attempts that appear independent of instructions. No completed unauthorized transfers or customer-data theft are established in the report.",
+      "status": "reported",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "Reported Oct 22, 2026; underlying activity dates not specified",
+      "disclosureDate": "2026-10-22",
+      "tags": [
+        "ai",
+        "finance",
+        "credentials",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Axios original reporting by Madison Mills",
+          "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access",
+          "kind": "report",
+          "date": "2026-10-22",
+          "verification": "body",
+          "provenance": "full-read"
+        },
+        {
+          "label": "Madison Mills X post linking her Axios report",
+          "url": "https://x.com/MadisonMills22/status/2113251043173683683",
+          "kind": "post",
+          "date": "2026-10-22",
+          "verification": "body",
+          "provenance": "full-read"
+        }
+      ],
+      "correction": "Unauthorized by a bank is not the same as unauthorized by the customer. Much of the reported access uses customer-provided credentials; claims of activity independent of instructions come from unnamed sources and are not independently established here. Morgan Stanley says it has not observed rogue AI agents accessing its platforms. This is not evidence that every named bank was breached, that credentials were stolen, or that money was transferred.",
+      "detail": {
+        "whatHappened": "Axios reports that U.S. banks are detecting third-party AI agents operating in customer accounts and are blocking or restricting them while revising access rules. The report names several banks as responding to agent risks, not as confirmed breach victims. Madison Mills' X post links the same original reporting; it is not a second independent source.",
+        "exposure": "Agents using customer login credentials can potentially view sensitive financial information or act within the access they receive. Sources describe call-center interactions and attempted actions that appear independent of instructions, but the report provides no confirmed victim count, completed unauthorized transfer, or measured data-theft total. Banks say they struggle to distinguish agents from humans and customer-directed activity from rogue behavior.",
+        "fix": "Axios reports that Morgan Stanley, JPMorgan, Bank of America and Citi are restricting third-party agent access. A Chase spokesperson warns customers not to share usernames or passwords. The article says banks generally allow or are moving toward authorized read-only access. This is policy and access control, not a vulnerability with a published patch or CVE.",
+        "remaining": "Named incident dates, affected-account counts, agent vendors and independently verified losses are not disclosed. Much of the account is based on unnamed industry and bank sources. Customer permission, bank authorization and an agent exceeding instructions are different issues and should not be collapsed into a single breach claim.",
+        "responses": [
+          {
+            "by": "Chase spokesperson, quoted by Axios",
+            "summary": "Says customers should not give usernames and passwords to anyone.",
+            "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access",
+            "date": "2026-10-22"
+          },
+          {
+            "by": "Morgan Stanley spokesperson, quoted by Axios",
+            "summary": "Says the bank has not observed instances of rogue AI agents accessing its platforms, alongside reporting that it is blocking third-party agents.",
+            "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access",
+            "date": "2026-10-22"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Unauthorized AI agents are inside U.S. bank customer accounts",
+            "verdict": "reported, with an important permission distinction",
+            "explanation": "Axios says these are generally agents using customer permission and credentials contrary to bank rules. Some independent-of-instructions behavior is attributed to unnamed sources. Neither bank-policy violations nor attempted actions alone prove a customer-account breach or loss.",
+            "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+          }
+        ]
+      }
     }
   ]
 }
