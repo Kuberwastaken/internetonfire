@@ -10,7 +10,11 @@
       "severity": "critical",
       "date": "2026-10-14",
       "dateLabel": "Attack ran Oct 14-15, 2026 (UTC); status incident opened Oct 15; shutdown announced Oct 17; preliminary report Oct 19; full wind-down Dec 1-31, 2026",
-      "tags": ["breach", "cloud", "credentials"],
+      "tags": [
+        "breach",
+        "cloud",
+        "credentials"
+      ],
       "sources": [
         {
           "label": "Zeabur status · Original source",
@@ -94,7 +98,12 @@
       "severity": "high",
       "date": "2026-10-19",
       "dateLabel": "Malicious binaries live Oct 19, 2026, 14:47-16:21 UTC+2",
-      "tags": ["supply-chain", "malware", "credentials", "cloud"],
+      "tags": [
+        "supply-chain",
+        "malware",
+        "credentials",
+        "cloud"
+      ],
       "sources": [
         {
           "label": "GitHub Advisory GHSA-862f-55f5-vmvw (OVHcloud)",
@@ -172,7 +181,11 @@
       "severity": "high",
       "date": "2026-10-15",
       "dateLabel": "Malicious download window Oct 15 20:02 UTC - Oct 16 07:12 UTC, 2026; vendor advisory Oct 16",
-      "tags": ["supply-chain", "malware", "wordpress"],
+      "tags": [
+        "supply-chain",
+        "malware",
+        "wordpress"
+      ],
       "sources": [
         {
           "label": "Rank Math: PRO 3.0.123 Security Incident",
@@ -244,7 +257,12 @@
       "severity": "critical",
       "date": "2026-10-17",
       "dateLabel": "Detected 17–18 Oct; disclosed 19 Oct 2026",
-      "tags": ["breach", "supply-chain", "data-leak", "wordpress"],
+      "tags": [
+        "breach",
+        "supply-chain",
+        "data-leak",
+        "wordpress"
+      ],
       "sources": [
         {
           "label": "TeamUpdraft: security incident - what customers need to know",
@@ -322,7 +340,11 @@
       "severity": "critical",
       "date": "2026-10-14",
       "dateLabel": "Discovered Oct 14; disclosed Oct 16; identities disabled Oct 17, 2026",
-      "tags": ["breach", "credentials", "cloud"],
+      "tags": [
+        "breach",
+        "credentials",
+        "cloud"
+      ],
       "sources": [
         {
           "label": "ConnectWise Trust Center advisories",
@@ -413,7 +435,10 @@
       "severity": "medium",
       "date": "2026-10-15",
       "dateLabel": "Research published 15 Oct 2026; attacks Apr–Jul",
-      "tags": ["supply-chain", "malware"],
+      "tags": [
+        "supply-chain",
+        "malware"
+      ],
       "sources": [
         {
           "label": "Google Cloud / GTIG · Original source",
@@ -458,7 +483,12 @@
       "severity": "high",
       "date": "2026-10-05",
       "dateLabel": "Malicious publish Oct 5, 2026 11:56 UTC; pulled within ~50 minutes",
-      "tags": ["supply-chain", "npm", "malware", "credentials"],
+      "tags": [
+        "supply-chain",
+        "npm",
+        "malware",
+        "credentials"
+      ],
       "sources": [
         {
           "label": "GitHub subquery/subql issue #3047 (malicious release report)",
@@ -524,7 +554,13 @@
       "severity": "high",
       "date": "2026-10-08",
       "dateLabel": "Malicious publish and vendor advisory Oct 8, 2026",
-      "tags": ["supply-chain", "npm", "malware", "credentials", "ai"],
+      "tags": [
+        "supply-chain",
+        "npm",
+        "malware",
+        "credentials",
+        "ai"
+      ],
       "sources": [
         {
           "label": "GitHub Advisory GHSA-8g63-53c9-65j2 (Tensorlake)",
@@ -590,7 +626,11 @@
       "severity": "high",
       "date": "2026-10-08",
       "dateLabel": "Original wave Sept 2025; resurgence Aug 31-Sep 30, 2026; 30k+ repo burst Oct 8-12, 2026",
-      "tags": ["supply-chain", "ci-cd", "credentials"],
+      "tags": [
+        "supply-chain",
+        "ci-cd",
+        "credentials"
+      ],
       "sources": [
         {
           "label": "GitGuardian: GhostAction Returns (772 repos, 30k more in Oct)",
@@ -662,7 +702,11 @@
       "severity": "critical",
       "date": "2026-10-20",
       "dateLabel": "Exploit chain weaponized within hours of disclosure (~Oct 19); CISA KEV Oct 20, 2026",
-      "tags": ["vulnerability", "exploited", "rce"],
+      "tags": [
+        "vulnerability",
+        "exploited",
+        "rce"
+      ],
       "sources": [
         {
           "label": "CISA: Adds Six Known Exploited Vulnerabilities to Catalog",
@@ -767,7 +811,10 @@
       "severity": "high",
       "date": "2026-10-20",
       "dateLabel": "Joint advisory published Oct 20-21, 2026; group active since Aug 2024",
-      "tags": ["ransomware", "advisory"],
+      "tags": [
+        "ransomware",
+        "advisory"
+      ],
       "sources": [
         {
           "label": "CISA: #StopRansomware - SafePay Ransomware (AA26-293a)",
@@ -806,7 +853,11 @@
       "severity": "high",
       "date": "2026-10-20",
       "dateLabel": "Reported 20 Oct 2026; exploitation since May–Jun",
-      "tags": ["ransomware", "exploited", "vulnerability"],
+      "tags": [
+        "ransomware",
+        "exploited",
+        "vulnerability"
+      ],
       "sources": [
         {
           "label": "The Register · Reporting",
@@ -845,7 +896,10 @@
       "severity": "high",
       "date": "2026-10-02",
       "dateLabel": "Exit-policy rewrites Oct 1-5; researcher scan Oct 2; removals and coverage Oct 20-22, 2026",
-      "tags": ["network", "privacy"],
+      "tags": [
+        "network",
+        "privacy"
+      ],
       "sources": [
         {
           "label": "The Hacker News · Reporting",
@@ -890,7 +944,11 @@
       "severity": "high",
       "date": "2026-10-19",
       "dateLabel": "Disclosed 19 Oct 2026; intrusion 9 Sep–7 Oct",
-      "tags": ["breach", "cloud", "data-leak"],
+      "tags": [
+        "breach",
+        "cloud",
+        "data-leak"
+      ],
       "sources": [
         {
           "label": "PingCAP · Original source",
@@ -935,7 +993,11 @@
       "severity": "medium",
       "date": "2026-10-21",
       "dateLabel": "Bank alerted Oct 16; exchange filing and coverage Oct 21, 2026",
-      "tags": ["data-leak", "finance", "india"],
+      "tags": [
+        "data-leak",
+        "finance",
+        "india"
+      ],
       "sources": [
         {
           "label": "The Hindu: SBI admits exposure of customer data on the Dark Web",
@@ -1003,7 +1065,11 @@
       "severity": "high",
       "date": "2026-10-15",
       "dateLabel": "Advisory SSA-580366 Oct 15; Siemens validated active exploitation Oct 19; CISA KEV Oct 20, 2026",
-      "tags": ["vulnerability", "exploited", "malware"],
+      "tags": [
+        "vulnerability",
+        "exploited",
+        "malware"
+      ],
       "sources": [
         {
           "label": "Siemens ProductCERT · Original source",
@@ -1042,7 +1108,9 @@
       "severity": "low",
       "date": null,
       "dateLabel": "Original claim not tied to a specific campaign",
-      "tags": ["state-actor"],
+      "tags": [
+        "state-actor"
+      ],
       "sources": [
         {
           "label": "Kaspersky via SOCtember · Reporting",
@@ -1086,15 +1154,19 @@
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-17",
-      "dateLabel": "Reported 17–18 Oct; revoked 19 Oct; public 20–21 Oct 2026",
-      "tags": ["pki", "india"],
+      "dateLabel": "Reported Oct 17; vendor revised revocation date to Oct 18; public Oct 20-22, 2026",
+      "tags": [
+        "pki",
+        "india"
+      ],
       "sources": [
         {
-          "label": "eMudhra official statement (3 updates · Original source",
+          "label": "eMudhra official statement, updates 1-4 (updated Oct 22)",
           "url": "https://emudhra.com/en/post/certificate-security-incident",
           "kind": "primary",
-          "date": "2026-10-20",
-          "provenance": "full-read"
+          "date": "2026-10-22",
+          "provenance": "full-read",
+          "verification": "body"
         },
         {
           "label": "Cloudflare · Original source",
@@ -1163,12 +1235,12 @@
           "verification": "body"
         }
       ],
-      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report.",
+      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report. Timeline note: the official statement was revised by Oct 22 from report Oct 18 / revoke Oct 19 to report Oct 17 / revoke Oct 18. The earlier dates were accurately captured from its prior version; this index now attributes the new dates to the revised vendor account.",
       "disclosureDate": "2026-10-20",
       "detail": {
-        "whatHappened": "In April 2025 eMudhra, an Indian certificate authority, ran a key ceremony that produced eight intermediate CA certificates with badly weak private keys. A researcher found they could be recovered from the public certificates (some keys were single or double digit numbers, one reportedly just 4). He reported it to Mozilla, Chrome, Apple and Microsoft on Oct 17, 2026. eMudhra revoked all eight on Oct 19.",
+        "whatHappened": "In April 2025 eMudhra, an Indian certificate authority, ran a key ceremony that produced eight intermediate CA certificates with badly weak private keys. A researcher found they could be recovered from the public certificates (some keys were single or double digit numbers, one reportedly just 4). He reported it to Mozilla, Chrome, Apple and Microsoft on Oct 17, 2026. In its statement as revised on Oct 22, eMudhra dates revocation to Oct 18. An earlier version of the same statement dated revocation to Oct 19. Mozilla independently dates the initial report to Oct 17; the vendor revision, rather than an independently inspected revocation record, is the basis for the revised revocation day.",
         "exposure": "Anyone who worked out the keys could have forged a trusted certificate for any website, but only against software that does not check Certificate Transparency or revocation lists. Chrome and Google say no certificates chaining to these intermediates had been logged to CT, so CT-enforcing browsers could not have been attacked. No exploitation has been shown. The 'eight keys' were six TLS intermediates and two code-signing intermediates.",
-        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. The reporter also says Apple and Microsoft blocked the certificates; their exact update dates were not independently verified here. Cloudflare, Node.js and Tailscale shipped updates.",
+        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. The reporter also says Apple and Microsoft blocked the certificates; their exact update dates were not independently verified here. Cloudflare, Node.js and Tailscale shipped updates. In Update 4 on Oct 22, eMudhra offered Sectigo-issued certificates as an alternate option for all customers and said its G1 roots remain active and supported. CertiNext users can request this through their account; other customers should use the support route in the official statement.",
         "remaining": "Software that ships its own trust store or ignores revocation needs updates. eMudhra has not confirmed a root cause; it says a wrap/unwrap step created a second weak key set. It says seven of the eight were never used and the eighth issued no certificates. It says one US customer ecosystem needs replacement certificates. Investigation ongoing; MeitY has set up a probe panel.",
         "responses": [
           {
@@ -1200,6 +1272,12 @@
             "summary": "Lists the eight intermediates with hashes and notes eMudhra stopped issuing under its G3 root.",
             "url": "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
             "date": "2026-10-21"
+          },
+          {
+            "by": "eMudhra, Update 4",
+            "summary": "Offers Sectigo-issued certificates as an alternate option for all customers. Says G1 roots remain active and supported. Its updated statement also revises the report/revocation chronology; earlier captured dates are retained as a correction note.",
+            "url": "https://emudhra.com/en/post/certificate-security-incident",
+            "date": "2026-10-22"
           }
         ],
         "claimChecks": [
@@ -1239,7 +1317,11 @@
       "severity": "critical",
       "date": "2026-10-21",
       "dateLabel": "Disclosed 21 Oct 2026; investigation ongoing",
-      "tags": ["breach", "cloud", "credentials"],
+      "tags": [
+        "breach",
+        "cloud",
+        "credentials"
+      ],
       "sources": [
         {
           "label": "Railway: Security Disclosure - Wednesday October 21st",
@@ -1338,7 +1420,13 @@
       "severity": "critical",
       "date": "2026-10-21",
       "dateLabel": "21 Oct 2026; PyPI 11:39–13:23 UTC",
-      "tags": ["supply-chain", "pypi", "malware", "credentials", "ai"],
+      "tags": [
+        "supply-chain",
+        "pypi",
+        "malware",
+        "credentials",
+        "ai"
+      ],
       "sources": [
         {
           "label": "LiteLLM · Original source",
@@ -1396,7 +1484,11 @@
       "severity": "high",
       "date": "2026-10-17",
       "dateLabel": "Exposure reported from 17 Oct 2026; press 19 Oct",
-      "tags": ["breach", "ai", "credentials"],
+      "tags": [
+        "breach",
+        "ai",
+        "credentials"
+      ],
       "sources": [
         {
           "label": "BleepingComputer · Reporting",
@@ -1488,7 +1580,11 @@
       "severity": "critical",
       "date": "2026-10-21",
       "dateLabel": "Disclosed / fixed 21 Oct 2026",
-      "tags": ["vulnerability", "rce", "open-source"],
+      "tags": [
+        "vulnerability",
+        "rce",
+        "open-source"
+      ],
       "sources": [
         {
           "label": "Tenable: PHP2Shell (CVE-2026-109618, CVE-2026-109619) - FAQ",
@@ -1599,7 +1695,10 @@
       "severity": "high",
       "date": "2026-10-21",
       "dateLabel": "Fixed 21 Oct 2026",
-      "tags": ["vulnerability", "rce"],
+      "tags": [
+        "vulnerability",
+        "rce"
+      ],
       "sources": [
         {
           "label": "GitLab Critical Patch Release · Original source",
@@ -1672,7 +1771,10 @@
       "severity": "medium",
       "date": "2026-10-14",
       "dateLabel": "Released 14 Oct 2026",
-      "tags": ["vulnerability", "open-source"],
+      "tags": [
+        "vulnerability",
+        "open-source"
+      ],
       "sources": [
         {
           "label": "nginx security advisories",
@@ -1702,7 +1804,11 @@
       "severity": "high",
       "date": "2026-10-19",
       "dateLabel": "Research / reporting 17–20 Oct 2026",
-      "tags": ["ai", "ai-assisted", "open-source"],
+      "tags": [
+        "ai",
+        "ai-assisted",
+        "open-source"
+      ],
       "sources": [
         {
           "label": "Norforge · Original source",
@@ -1741,7 +1847,10 @@
       "severity": "medium",
       "date": "2026-10-21",
       "dateLabel": "Reported 21 Oct 2026",
-      "tags": ["vulnerability", "privacy"],
+      "tags": [
+        "vulnerability",
+        "privacy"
+      ],
       "sources": [
         {
           "label": "The Register · Reporting",
@@ -1772,7 +1881,9 @@
       "severity": "low",
       "date": "2026-10-21",
       "dateLabel": "Bulletin / release 21 Oct 2026",
-      "tags": ["pki"],
+      "tags": [
+        "pki"
+      ],
       "sources": [
         {
           "label": "Tailscale Security Bulletins - TS-2026-013",
@@ -1824,7 +1935,10 @@
       "severity": "medium",
       "date": "2026-10-21",
       "dateLabel": "Released 21 Oct 2026",
-      "tags": ["vulnerability", "open-source"],
+      "tags": [
+        "vulnerability",
+        "open-source"
+      ],
       "sources": [
         {
           "label": "Node.js blog: Wednesday, October 21, 2026 Security Releases",
@@ -1886,7 +2000,10 @@
       "severity": "high",
       "date": "2026-10-16",
       "dateLabel": "Disclosed 16 Oct 2026; copying May–Sep",
-      "tags": ["data-leak", "education"],
+      "tags": [
+        "data-leak",
+        "education"
+      ],
       "sources": [
         {
           "label": "California Dept. of Education · Original source",
@@ -1940,7 +2057,10 @@
       "severity": "medium",
       "date": "2026-10-20",
       "dateLabel": "Research published around 20 Oct 2026",
-      "tags": ["vulnerability", "protocol"],
+      "tags": [
+        "vulnerability",
+        "protocol"
+      ],
       "sources": [
         {
           "label": "Foxio · Original source",
@@ -1962,7 +2082,11 @@
       "severity": "critical",
       "date": "2026-10-21",
       "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026",
-      "tags": ["breach", "malware", "cloud"],
+      "tags": [
+        "breach",
+        "malware",
+        "cloud"
+      ],
       "sources": [
         {
           "label": "Onamae.com official notice (Japanese)",
@@ -1992,7 +2116,10 @@
       "severity": "high",
       "date": "2026-10-12",
       "dateLabel": "Detected 12 Oct; recovery update 19 Oct 2026",
-      "tags": ["outage", "retail"],
+      "tags": [
+        "outage",
+        "retail"
+      ],
       "sources": [
         {
           "label": "Ahold Delhaize newsroom · Original source",
@@ -2023,7 +2150,9 @@
       "severity": "medium",
       "date": "2026-10-21",
       "dateLabel": "Separate events 17–22 Oct 2026",
-      "tags": ["outage"],
+      "tags": [
+        "outage"
+      ],
       "sources": [
         {
           "label": "Bullhorn Status - incident updates",
@@ -2045,7 +2174,10 @@
       "severity": "high",
       "date": "2025-10-13",
       "dateLabel": "Intrusion Oct 2025; notifications Sep 2026",
-      "tags": ["data-leak", "healthcare"],
+      "tags": [
+        "data-leak",
+        "healthcare"
+      ],
       "sources": [
         {
           "label": "SecurityWeek · Reporting",
@@ -2074,7 +2206,11 @@
       "summary": "A group calling itself Scarlettgroup claims to have breached Rajasthan Police and offered data for sale. Coverage repeats claims of about 70,000 identity records and 59,460 mobile numbers. These figures and the alleged breach are unverified.",
       "date": "2026-10-21",
       "dateLabel": "Claim reported Oct 21, 2026; unverified",
-      "tags": ["data-leak", "government", "india"],
+      "tags": [
+        "data-leak",
+        "government",
+        "india"
+      ],
       "status": "unverified",
       "severity": "medium",
       "disclosureDate": "2026-10-21",
@@ -2131,7 +2267,11 @@
       "date": null,
       "dateLabel": "Activity from at least September 2026; report Oct 21",
       "disclosureDate": "2026-10-21",
-      "tags": ["ai", "ai-assisted", "state-actor"],
+      "tags": [
+        "ai",
+        "ai-assisted",
+        "state-actor"
+      ],
       "status": "confirmed",
       "severity": "critical",
       "summary": "Microsoft Threat Intelligence reports that China-state-aligned Storm-0940 used ARTEX agentic AI to automate attacks targeting hundreds of organizations. Some attacks gained privileged cloud access in under three hours. Microsoft attributes the ConnectWise supply-chain compromise to this campaign; that incident is also listed separately with its vendor response.",
