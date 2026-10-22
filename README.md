@@ -15,6 +15,8 @@ A running log of security incidents: breaches, backdoored packages, exploited bu
 | **Disputed** | Sources disagree. Both sides are linked. |
 | **Unverified** | A claim going around. Not an established incident. |
 
+Every entry has a copy button that gives a share link (`kuber.studio/internetonfire/i/<id>/`) with its own preview card, e.g. "Node.js is on fire." It opens the entry on the main page. The cards are rendered at build time from `tools/og/card.html`.
+
 Entries are grouped by the day they went public, not the day they happened. An outage isn't a breach; a CVE isn't proof of exploitation.
 
 ## Contributing and voting

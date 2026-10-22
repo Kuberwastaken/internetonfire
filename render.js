@@ -17,6 +17,8 @@ export const icon = {
   help: (cls) => svg('<circle cx="12" cy="12" r="9.5"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>', cls),
   scale: (cls) => svg('<path d="M12 3v18M7 21h10M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1zM2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/>', cls),
   chevron: (cls) => svg('<path d="m6 9 6 6 6-6"/>', cls),
+  copy: (cls) => svg('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>', cls),
+  check: (cls) => svg('<path d="M20 6 9 17l-5-5"/>', cls),
   link: (cls) => svg('<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>', cls),
   out: (cls) => svg('<path d="M7 17 17 7M8 7h9v9"/>', cls),
   pr: (cls) => svg('<circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7M6 9v12"/>', cls),
@@ -102,6 +104,33 @@ function moreHTML(item) {
   ].join('');
 }
 
+export const SITE = 'https://kuber.studio/internetonfire/';
+
+// "Node.js" in "Node.js is on fire." Falls back to the part of the name before " / ".
+export const subjectOf = (item) => (item.subject || item.name.split(' / ')[0]).trim();
+
+// Static page behind each share link. Crawlers read its tags (they never see #fragments);
+// people are sent straight on to the entry. No meta refresh, so crawlers don't follow it home.
+export function sharePageHTML(item) {
+  const id = esc(item.id), title = esc(`${subjectOf(item)} is on fire.`);
+  const desc = esc(item.summary.length > 200 ? item.summary.slice(0, 197).replace(/\s+\S*$/, '') + '…' : item.summary);
+  const url = `${SITE}i/${id}/`, image = `${SITE}assets/og/${id}.jpg`;
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${title} · internetonfire</title>
+<meta name="description" content="${desc}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="article"><meta property="og:site_name" content="internetonfire">
+<meta property="og:url" content="${url}"><meta property="og:title" content="${title}"><meta property="og:description" content="${desc}">
+<meta property="og:image" content="${image}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${title} This is fine.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kuberwastaken"><meta name="twitter:creator" content="@kuberwastaken">
+<meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${desc}"><meta name="twitter:image" content="${image}">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<script>location.replace('../../#${id}')</script>
+</head><body style="font:16px system-ui;padding:2rem"><a href="../../#${id}">${title}</a></body></html>
+`;
+}
+
 export function tagsHTML(item, active = null) {
   // Entries submitted before tags existed fall back to their old free-text category.
   if (!Array.isArray(item.tags)) return item.category ? `<span class="tags"><span class="legacy">${esc(item.category)}</span></span>` : '';
@@ -114,7 +143,7 @@ export function incidentHTML(item, open = false, activeTag = null) {
   const shown = item.sources.slice(0, 5).map((s) => ext(s.url, favicon(s.url), 'fav-link', s.label)).join('');
   const extra = item.sources.length > 5 ? `<span class="more-n">+${item.sources.length - 5}</span>` : '';
   return `<article class="incident${open ? ' open' : ''}" id="${id}" data-status="${esc(item.status)}">
-<div class="head"><span class="st st-${esc(item.status)}" title="${st.label}: ${st.hint}">${st.icon()}<span class="sr">${st.label}</span></span><h3><button class="toggle" type="button" aria-expanded="${open}" aria-controls="${id}-more">${esc(item.name)}</button></h3><a class="perma" href="#${id}" title="Link to this">${icon.link()}<span class="sr">Link to ${esc(item.name)}</span></a></div>
+<div class="head"><span class="st st-${esc(item.status)}" title="${st.label}: ${st.hint}">${st.icon()}<span class="sr">${st.label}</span></span><h3><button class="toggle" type="button" aria-expanded="${open}" aria-controls="${id}-more">${esc(item.name)}</button></h3><span class="share"><a class="perma" href="#${id}" title="Link to this">${icon.link()}<span class="sr">Link to ${esc(item.name)}</span></a><button type="button" class="copy" data-copy="${id}" title="Copy share link">${icon.copy()}<span class="sr">Copy share link</span></button></span></div>
 <p class="sum">${esc(item.summary)}</p>
 <div class="foot">${tagsHTML(item, activeTag)}<span class="favs">${shown}${extra}</span><button class="chev" type="button" aria-hidden="true" tabindex="-1">${icon.chevron()}</button></div>
 <div class="more" id="${id}-more">${moreHTML(item)}</div>

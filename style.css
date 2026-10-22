@@ -183,10 +183,12 @@ h1 {
 .toggle { all: unset; cursor: pointer; }
 .toggle:focus-visible { outline: 2px solid var(--fire); outline-offset: 3px; border-radius: 3px; }
 @media (hover: hover) { .toggle:hover { text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; } }
-.perma { color: var(--faint); opacity: 0; padding: .3rem; margin: -.1rem -.3rem 0 0; transition: opacity .15s; }
-.incident:hover .perma, .perma:focus-visible { opacity: 1; }
-.perma:hover { color: var(--ink); }
-.perma .i { width: .9rem; height: .9rem; }
+.share { display: inline-flex; margin: -.1rem -.3rem 0 0; opacity: 0; transition: opacity .15s; }
+.incident:hover .share, .share:focus-within { opacity: 1; }
+.perma, .copy { display: grid; place-items: center; color: var(--faint); padding: .3rem; border: 0; background: none; cursor: pointer; border-radius: 6px; }
+.perma:hover, .copy:hover { color: var(--ink); }
+.copy.done { color: var(--yes); }
+.perma .i, .copy .i { width: .9rem; height: .9rem; }
 .sum { margin: .3rem 0 0 1.6rem; color: var(--ink-2); font-size: .95rem; max-width: 40rem; }
 .js .sum { cursor: pointer; }
 .foot { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin: .65rem 0 0 1.6rem; }
@@ -387,7 +389,8 @@ h2 { font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 680; margin: 0; }
   .incident { padding: 1rem 0 .85rem; }
   .incident h3 { font-size: 1.02rem; }
   .sum { font-size: .94rem; }
-  .perma { opacity: 1; }
+  .share { opacity: 1; }
+  .perma, .copy { padding: .45rem; }
   .foot .tags { width: 100%; }
   .foot .favs { margin-left: 0; }
   .chev { margin-left: auto; width: 2.5rem; height: 2.25rem; margin-right: -.5rem; }

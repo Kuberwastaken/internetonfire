@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {validate} from './validate.mjs';
-import {barsHTML, headlineHTML, listHTML, sortIncidents} from '../render.js';
+import {barsHTML, headlineHTML, listHTML, sharePageHTML, sortIncidents} from '../render.js';
 import {timeMatch} from '../time.js';
 
 const data=JSON.parse(fs.readFileSync('data/incidents.json','utf8'));
@@ -18,5 +18,7 @@ const html=fs.readFileSync('index.html','utf8')
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');
 for(const file of ['style.css','app.js','render.js','contribute.js','time.js','assets','data'])fs.cpSync(file,'dist/'+file,{recursive:true});
 fs.writeFileSync('dist/index.html',html);
+// One share page per incident (dist/i/<id>/); scripts/og.mjs renders the images they point at.
+for(const item of data.incidents){fs.mkdirSync(`dist/i/${item.id}`,{recursive:true});fs.writeFileSync(`dist/i/${item.id}/index.html`,sharePageHTML(item));}
 fs.writeFileSync('dist/.nojekyll','');
 console.log('Static site built in dist/');

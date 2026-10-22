@@ -182,7 +182,16 @@ document.addEventListener('click', (e) => {
   if (clamped && !getSelection().toString()) { clamped.classList.remove('clamp'); return; }
   const art = t.closest('.incident');
   if (art && (t.closest('.toggle') || t.closest('.chev') || (t.closest('.sum') && !getSelection().toString()))) toggle(art);
-  if (t.closest('.perma')) { e.preventDefault(); toggle(art, true); navigator.clipboard?.writeText(location.href).catch(() => {}); }
+  if (t.closest('.perma')) { e.preventDefault(); toggle(art, true); }
+  const copy = t.closest('.copy');
+  if (copy) {
+    // The share link (not the #fragment) gets this incident's own preview card on X, LinkedIn, Slack…
+    const url = new URL(`./i/${copy.dataset.copy}/`, location.origin + location.pathname).href;
+    navigator.clipboard?.writeText(url).then(() => {
+      copy.innerHTML = icon.check() + '<span class="sr">Copied</span>'; copy.classList.add('done'); copy.title = 'Copied';
+      setTimeout(() => { copy.innerHTML = icon.copy() + '<span class="sr">Copy share link</span>'; copy.classList.remove('done'); copy.title = 'Copy share link'; }, 1600);
+    }).catch(() => { prompt('Copy this link', url); });
+  }
 });
 
 $('#search').addEventListener('input', (e) => { state.q = e.target.value; render(); });

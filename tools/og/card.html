@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Per-incident social card. scripts/og.mjs fills [data-subject] and screenshots it at 1200x630. -->
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;src:url('../../assets/fonts/inter-latin-opsz-normal.woff2') format('woff2');font-weight:100 900}
+html,body{margin:0}
+body{width:1200px;height:630px;position:relative;overflow:hidden;background:#f9f9f7;color:#111110;font-family:Inter,sans-serif;font-feature-settings:'cv11','ss03'}
+.art{position:absolute;left:580px;top:35px;width:620px;height:560px}
+.col{position:absolute;left:90px;top:0;width:500px;height:630px;display:flex;flex-direction:column;justify-content:center}
+.brand{display:flex;align-items:center;gap:10px;font-size:31px;font-weight:700;letter-spacing:-.02em;margin-bottom:34px}
+.brand svg{width:40px;height:40px;margin:-4px -4px -4px -6px;color:#e8470e}
+h1{margin:0;font-size:96px;line-height:.98;font-weight:800;letter-spacing:-.045em;overflow-wrap:break-word}
+.fine{margin:30px 0 0;font-size:42px;letter-spacing:-.015em;color:#3b3a37}
+.url{margin-top:62px;font-size:26px;color:#5f5d58}
+</style></head><body>
+<img class="art" src="art.png" alt="">
+<div class="col">
+  <div class="brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>internetonfire</div>
+  <h1><span data-subject>The internet</span><br>is on fire.</h1>
+  <p class="fine">This is fine.</p>
+  <div class="url">kuber.studio/internetonfire</div>
+</div>
+</body></html>
