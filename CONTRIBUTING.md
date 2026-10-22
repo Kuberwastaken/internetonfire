@@ -53,3 +53,7 @@ Do not submit credentials, private messages, leaked data, exploit payloads, inst
 Correct the existing entry rather than silently deleting inconvenient evidence. Explain material changes in `correction` and the PR description. Existing claims can be downgraded when sources fail. A date or confidence change needs evidence. Security-sensitive site bugs can be reported without publishing exploit details; never put tokens in an issue.
 
 The site is static. There is no submission database and no anonymous voting backend. GitHub is the source of truth for submissions, PRs, reactions and review. Its public API may rate-limit the in-page PR list; the direct GitHub link always remains available. No reaction threshold or automation grants permission to merge. Changes to workflows, dependencies or executable code need separate code review, not just editorial review.
+
+### Time filtering
+
+When adding new records, set `disclosureDate` to the source publication/disclosure date (ISO date or null), separate from the incident occurrence date. Add `disclosedAt` only if the original source provides an exact timestamp with a verified timezone, for example `2026-10-22T08:00:00Z`. Do not infer clock times from “hours ago” or turn date-only evidence into midnight. Date-only records are excluded from last-hour results and labelled when their possible timezone range overlaps longer windows.
