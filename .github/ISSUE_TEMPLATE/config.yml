@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contribution guide
+    url: https://github.com/Kuberwastaken/internetonfire/blob/main/CONTRIBUTING.md
+    about: Data format, evidence standards and PR review.

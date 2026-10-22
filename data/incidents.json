@@ -1,0 +1,1290 @@
+{
+  "updated": "2026-10-22",
+  "incidents": [
+    {
+      "id": "zeabur-breach",
+      "name": "Zeabur infrastructure breach",
+      "summary": "Zeabur says compromised internal credentials gave an attacker access to shared clusters, some dedicated servers and stored environment variables. It published an incident report and announced that the service is shutting down.",
+      "status": "confirmed",
+      "date": "2026-10-14",
+      "dateLabel": "Attack ran Oct 14-15, 2026 (UTC); status incident opened Oct 15; shutdown announced Oct 17; preliminary report Oct 19; full wind-down Dec 1-31, 2026",
+      "category": "cloud breach",
+      "sources": [
+        {
+          "label": "Zeabur status · Original source",
+          "url": "https://status.zeabur.com/incident/1091243",
+          "kind": "primary",
+          "date": "2026-10-15"
+        },
+        {
+          "label": "Zeabur: October 2026 security incident (preliminary report)",
+          "url": "https://zeabur.com/blogs/october-2026-security-incident",
+          "kind": "primary",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "Zeabur is shutting down: what happens next",
+          "url": "https://zeabur.com/blogs/zeabur-is-shutting-down",
+          "kind": "primary",
+          "date": "2026-10-17"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/zeabur-shutting-down-after-second-security-breach-in-two-months/",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Cyber Insider · Reporting",
+          "url": "https://cyberinsider.co.uk/zeabur-details-credential-failures-and-database-access-in-october-breach/",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "X · zeaburapp",
+          "url": "https://x.com/zeaburapp/status/2112383555326423418",
+          "kind": "post",
+          "date": "2026-10-20"
+        }
+      ],
+      "correction": "The October incident followed an earlier breach. See the vendor status page and shutdown announcement for the current service position."
+    },
+    {
+      "id": "ovhcloud-cli-backdoor",
+      "name": "OVHcloud CLI releases backdoored",
+      "summary": "OVHcloud says an attacker replaced official CLI release binaries with credential-stealing malware. Versions 0.11.0–0.15.0 were affected during a roughly 94-minute window on 19 October; 0.16.0 was not.",
+      "status": "confirmed",
+      "date": "2026-10-19",
+      "dateLabel": "Malicious binaries live Oct 19, 2026, 14:47-16:21 UTC+2",
+      "category": "supply chain",
+      "sources": [
+        {
+          "label": "GitHub Advisory GHSA-862f-55f5-vmvw (OVHcloud)",
+          "url": "https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw",
+          "kind": "primary",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/ovhcloud-cli-releases-backdoored-on-github-to-steal-developer-secrets/",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "The Hacker News: Hackers Hijack Five OVHcloud CLI Releases",
+          "url": "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Dark Reading · Reporting",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/ovhcloud-github-compromise-glassworm-threat-actors",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "X · olesovhcom",
+          "url": "https://x.com/olesovhcom/status/2112225308589834260",
+          "kind": "post",
+          "date": "2026-10-19"
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "rankmath-pro-malware",
+      "name": "Rank Math PRO 3.0.123 malware",
+      "summary": "The official Rank Math PRO 3.0.123 download contained malware during an 11-hour window on 15–16 October. The vendor released clean version 3.0.124 and published recovery guidance. The free WordPress plugin was not affected.",
+      "status": "confirmed",
+      "date": "2026-10-15",
+      "dateLabel": "Malicious download window Oct 15 20:02 UTC - Oct 16 07:12 UTC, 2026; vendor advisory Oct 16",
+      "category": "supply chain",
+      "sources": [
+        {
+          "label": "Rank Math: PRO 3.0.123 Security Incident",
+          "url": "https://rankmath.com/kb/pro-3-0-123-security-incident/",
+          "kind": "primary",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/wordpress-seo-plugin-rank-math-compromised-to-backdoor-websites/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "SecurityWeek: Rank Math PRO Compromised in Supply Chain Attack",
+          "url": "https://www.securityweek.com/rank-math-pro-wordpress-plugin-compromised-in-supply-chain-attack/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "The Hacker News: Rank Math PRO Hijacked",
+          "url": "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "X · TheHackersNews",
+          "url": "https://x.com/TheHackersNews/status/2112219875083186264",
+          "kind": "post",
+          "date": "2026-10-19"
+        }
+      ],
+      "correction": "Affects PRO 3.0.123 only, in an ~11 hour window; clean 3.0.124 already shipped."
+    },
+    {
+      "id": "teamupdraft-breach",
+      "name": "TeamUpdraft customer database compromised",
+      "summary": "TeamUpdraft confirmed unauthorised access over 17–18 October. It believes its customer database was accessed and says attackers abused UpdraftCentral connections to create admin accounts and install malicious plugins. The full extent is unknown. Connection keys were revoked; the plugin downloads themselves were not affected.",
+      "status": "confirmed",
+      "date": "2026-10-17",
+      "dateLabel": "Detected 17–18 Oct; disclosed 19 Oct 2026",
+      "category": "data breach + supply chain",
+      "sources": [
+        {
+          "label": "TeamUpdraft: security incident - what customers need to know",
+          "url": "https://teamupdraft.com/blog/security-incident-october-2026/",
+          "kind": "primary",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "Nethemba: UpdraftCentral backdoor analysis",
+          "url": "https://nethemba.com/updraftcentral-backdoor-analysis/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "The Hacker News · Reporting",
+          "url": "https://thehackernews.com/2026/10/attackers-abuse-updraftcentral-keys-to.html",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "CSO Online · Reporting",
+          "url": "https://www.csoonline.com/article/4238422/wordpress-sites-compromised-after-teamupdraft-credential-exposure.html",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "X · TheHackersNews",
+          "url": "https://x.com/TheHackersNews/status/2112831962281099387",
+          "kind": "post",
+          "date": "2026-10-21"
+        }
+      ],
+      "correction": "The vendor believes the customer database was accessed. It confirmed abuse of UpdraftCentral connections, but the extent of affected customer sites remained unknown. Its advisory was still being updated."
+    },
+    {
+      "id": "connectwise-cloud-backup",
+      "name": "ConnectWise Cloud Backup identities compromised",
+      "summary": "ConnectWise disclosed compromised application credentials used to attempt unauthorised access through Cloud Backup integrations. Microsoft later attributed the activity to Storm-0940 using ARTEX. Impact varies by tenant; a successful sign-in is not proof of data theft.",
+      "status": "confirmed",
+      "date": "2026-10-14",
+      "dateLabel": "Discovered Oct 14; disclosed Oct 16; identities disabled Oct 17, 2026",
+      "category": "cloud identity compromise",
+      "sources": [
+        {
+          "label": "ConnectWise Trust Center advisories",
+          "url": "https://www.connectwise.com/company/trust/advisories",
+          "kind": "primary",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Huntress · Reporting",
+          "url": "https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access",
+          "kind": "report",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Field Effect · Reporting",
+          "url": "https://fieldeffect.com/blog/connectwise-cloud-backup-identities",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "Sophos · Reporting",
+          "url": "https://www.sophos.com/en-us/blog/connectwise-cloud-backup-application-abused-in-token-sweep",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "The Hacker News: ConnectWise Suspends Cloud Backup",
+          "url": "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html",
+          "kind": "report",
+          "date": "2026-10-18"
+        },
+        {
+          "label": "X · MsftSecIntel",
+          "url": "https://x.com/MsftSecIntel/status/2111358888125878426",
+          "kind": "post",
+          "date": "2026-10-17"
+        }
+      ],
+      "correction": "Microsoft’s Storm-0940 / ARTEX report below describes attribution and AI use in this same attack, not a second incident."
+    },
+    {
+      "id": "aomei-update-hijack",
+      "name": "AOMEI update infrastructure hijacked",
+      "summary": "Google’s threat researchers found brief tampering with AOMEI Backupper update infrastructure that redirected selected users to malware. The attacks happened between April and July; the research was published in October.",
+      "status": "confirmed",
+      "date": "2026-10-15",
+      "dateLabel": "Research published 15 Oct 2026; attacks Apr–Jul",
+      "category": "supply chain",
+      "sources": [
+        {
+          "label": "Google Cloud / GTIG · Original source",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/investigating-ephemeral-supply-chain-tampering",
+          "kind": "primary",
+          "date": "2026-10-15"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-aomei-update-servers-to-secretly-spread-malware/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "The Record · Reporting",
+          "url": "https://therecord.media/aomei-yet-to-notify-customers-hijack-software",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "The Hacker News · Reporting",
+          "url": "https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html",
+          "kind": "report",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Malwarebytes · Reporting",
+          "url": "https://www.malwarebytes.com/blog/news/2026/10/aomei-backupper-update-servers-hijacked-to-push-malware-check-your-pc",
+          "kind": "report",
+          "date": "2026-10-19"
+        }
+      ],
+      "correction": "Framing fix: the hijacking happened April-July 2026; only the disclosure is new this month. Vendor had not proactively notified customers as of Oct 20."
+    },
+    {
+      "id": "subquery-npm-backdoor",
+      "name": "SubQuery npm package backdoored",
+      "summary": "The @subql/common 5.8.3 npm release contained a credential-stealing payload, according to a public security report and maintainer response. It was published through the project’s release pipeline with npm provenance; provenance alone did not make it safe.",
+      "status": "confirmed",
+      "date": "2026-10-05",
+      "dateLabel": "Malicious publish Oct 5, 2026 11:56 UTC; pulled within ~50 minutes",
+      "category": "supply chain / npm",
+      "sources": [
+        {
+          "label": "GitHub subquery/subql issue #3047 (malicious release report)",
+          "url": "https://github.com/subquery/subql/issues/3047",
+          "kind": "primary",
+          "date": "2026-10-05"
+        },
+        {
+          "label": "StepSecurity: SubQuery Ecosystem Compromise",
+          "url": "https://www.stepsecurity.io/blog/subql-ecosystem-compromised",
+          "kind": "report",
+          "date": "2026-10-05"
+        },
+        {
+          "label": "GMO Flatt Security: Supply Chain Attack on @subql/common",
+          "url": "https://flatt.tech/research/posts/subql-common-npm-supply-chain-attack/",
+          "kind": "report",
+          "date": "2026-10-06"
+        },
+        {
+          "label": "OSV MAL-2026-17571",
+          "url": "https://osv.dev/vulnerability/MAL-2026-17571",
+          "kind": "primary",
+          "date": "2026-10-05"
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "tensorlake-npm-worm",
+      "name": "Tensorlake npm credential-stealing worm",
+      "summary": "tensorlake@0.5.144 was published to npm on Oct 8, 2026 carrying a Shai-Hulud-style credential-stealing worm with a destructive dead-man's switch ('hostage token'). The Register framed it as the Shai-Hulud worm's jump into AI infrastructure.",
+      "status": "confirmed",
+      "date": "2026-10-08",
+      "dateLabel": "Malicious publish and vendor advisory Oct 8, 2026",
+      "category": "supply chain / npm",
+      "sources": [
+        {
+          "label": "GitHub Advisory GHSA-8g63-53c9-65j2 (Tensorlake)",
+          "url": "https://github.com/tensorlakeai/tensorlake/security/advisories/GHSA-8g63-53c9-65j2",
+          "kind": "primary",
+          "date": "2026-10-08"
+        },
+        {
+          "label": "StepSecurity · Reporting",
+          "url": "https://www.stepsecurity.io/blog/tensorlake-npm-compromised-hostage-token-worm",
+          "kind": "report",
+          "date": "2026-10-08"
+        },
+        {
+          "label": "The Register · Reporting",
+          "url": "https://www.theregister.com/security/2026/10/08/shai-hulud-worm-makes-jump-to-ai-infrastructure-with-tensorlake-compromise/5302054",
+          "kind": "report",
+          "date": "2026-10-08"
+        },
+        {
+          "label": "The Hacker News: Tensorlake npm Package Compromised",
+          "url": "https://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html",
+          "kind": "report",
+          "date": "2026-10-08"
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "ghostaction-github",
+      "name": "GhostAction GitHub workflow campaign",
+      "summary": "GitGuardian reports a renewed GhostAction campaign using malicious GitHub Actions workflows to steal secrets. The 2026 targeting followed an earlier 2025 wave; targeted repositories and successful compromises are different figures.",
+      "status": "confirmed",
+      "date": "2026-10-08",
+      "dateLabel": "Original wave Sept 2025; resurgence Aug 31-Sep 30, 2026; 30k+ repo burst Oct 8-12, 2026",
+      "category": "supply chain / CI secrets",
+      "sources": [
+        {
+          "label": "GitGuardian: GhostAction Returns (772 repos, 30k more in Oct)",
+          "url": "https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/",
+          "kind": "primary",
+          "date": "2026-10-07"
+        },
+        {
+          "label": "GitGuardian · Original source",
+          "url": "https://blog.gitguardian.com/ghostaction-campaign-3-325-secrets-stolen/",
+          "kind": "primary",
+          "date": "2025-09-05"
+        },
+        {
+          "label": "StepSecurity · Reporting",
+          "url": "https://www.stepsecurity.io/blog/ghostaction-returns",
+          "kind": "report",
+          "date": "2026-10-09"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-3-325-secrets-in-ghostaction-github-supply-chain-attack/",
+          "kind": "report",
+          "date": "2025-09-08"
+        }
+      ],
+      "correction": "The 2025 and 2026 reports describe waves of the same campaign. Repository targeting figures do not equal successful compromises. See GitGuardian’s report for the effect of GitHub’s workflow blocking."
+    },
+    {
+      "id": "plex2shell",
+      "name": "Plex Media Server flaws exploited (Plex2Shell)",
+      "summary": "Reporting describes attackers chaining recently patched Plex Media Server vulnerabilities in “Plex2Shell” attacks. CISA added related flaws to its known-exploited catalogue. Check the current vendor guidance for affected versions.",
+      "status": "confirmed",
+      "date": "2026-10-20",
+      "dateLabel": "Exploit chain weaponized within hours of disclosure (~Oct 19); CISA KEV Oct 20, 2026",
+      "category": "vulnerability exploitation",
+      "sources": [
+        {
+          "label": "CISA: Adds Six Known Exploited Vulnerabilities to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/20/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+          "kind": "primary",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Ars Technica · Reporting",
+          "url": "https://arstechnica.com/security/2026/10/recently-fixed-plex-media-vulnerabilities-are-being-exploited-to-install-malware/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "SecurityWeek · Reporting",
+          "url": "https://www.securityweek.com/plex2shell-exploit-chain-weaponized-against-plex-servers-hours-after-disclosure/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "X · zm_0x",
+          "url": "https://x.com/zm_0x/status/2111138023543108005",
+          "kind": "post",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "X · TheHackersNews",
+          "url": "https://x.com/TheHackersNews/status/2112391529126101243",
+          "kind": "post",
+          "date": "2026-10-20"
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "safepay-ransomware",
+      "name": "SafePay ransomware advisory",
+      "summary": "A new CISA/FBI advisory describes SafePay ransomware activity and at least 600 victims across critical infrastructure sectors. The advisory is new, not the group: SafePay has operated since 2024.",
+      "status": "confirmed",
+      "date": "2026-10-20",
+      "dateLabel": "Joint advisory published Oct 20-21, 2026; group active since Aug 2024",
+      "category": "ransomware",
+      "sources": [
+        {
+          "label": "CISA: #StopRansomware - SafePay Ransomware (AA26-293a)",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-293a",
+          "kind": "primary",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "CISA news release: CISA, FBI and partners warn of SafePay actors",
+          "url": "https://www.cisa.gov/news-events/news/cisa-fbi-and-partners-warn-organizations-safepay-ransomware-actors-targeting-multiple-critical",
+          "kind": "primary",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "IC3: #StopRansomware SafePay PDF",
+          "url": "https://www.ic3.gov/CSA/2026/261020.pdf",
+          "kind": "primary",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Bitdefender · Reporting",
+          "url": "https://www.bitdefender.com/en-us/blog/businessinsights/safepay-ransomware-attacks-ttps",
+          "kind": "report",
+          "date": "2025-09-04"
+        }
+      ],
+      "correction": "Not a new campaign: the advisory is new this week but SafePay has operated since Aug 2024. The advisory itself states the actors impacted at least 600 separate victims across multiple critical infrastructure sectors - the 'hundreds of organizations' framing is supported."
+    },
+    {
+      "id": "paloalto-ransomware-attacks",
+      "name": "Palo Alto firewalls targeted by ransomware groups",
+      "summary": "Reporting links multiple ransomware groups to exploitation of a patched PAN-OS GlobalProtect authentication bypass. The attacks began months before this week’s reporting; this is not a newly discovered October intrusion.",
+      "status": "reported",
+      "date": "2026-10-20",
+      "dateLabel": "Reported 20 Oct 2026; exploitation since May–Jun",
+      "category": "vulnerability exploitation / ransomware",
+      "sources": [
+        {
+          "label": "The Register · Reporting",
+          "url": "https://www.theregister.com/cyber-crime/2026/10/20/palo-altos-firewall-os-has-been-under-attack-from-multiple-ransomware-groups-since-june/5304226",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-now-exploited-in-ransomware-attacks/",
+          "kind": "report",
+          "date": "2026-07-21"
+        },
+        {
+          "label": "Cybersecurity Dive · Reporting",
+          "url": "https://www.cybersecuritydive.com/news/ransomware-targeting-palo-alto-networks-vulnerability/833474/",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Infosecurity Magazine · Reporting",
+          "url": "https://www.infosecurity-magazine.com/news/palo-alto-vpn-vulnerability-target/",
+          "kind": "report",
+          "date": "2026-10-12"
+        }
+      ],
+      "correction": "Framing fix: onset was May 2026, not this week; this month's news is expanded/continued ransomware exploitation of the same patched CVE."
+    },
+    {
+      "id": "meta-muse-privacy",
+      "name": "Meta Muse AI agent privacy flaws",
+      "summary": "Reporting describes two privacy issues in Meta’s Muse assistant: a patched September vulnerability and October share links that exposed conversations. These are separate issues, not one confirmed breach of all users.",
+      "status": "reported",
+      "date": "2026-10-20",
+      "dateLabel": "Sept 2026: 0-day disclosed and patched; Oct 20-21, 2026: share-link exposure reported, sharing suspended",
+      "category": "AI privacy",
+      "sources": [
+        {
+          "label": "WIRED · Reporting",
+          "url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Ars Technica · Reporting",
+          "url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Engadget: Meta suspends Muse chats sharing feature",
+          "url": "https://www.engadget.com/2292281/meta-suspends-muse-chats-sharing-feature-after-it-left-private-details-exposed/",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Ars Technica: Muse has a serious 0-day (Sept)",
+          "url": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+          "kind": "report",
+          "date": "2026-09-21"
+        }
+      ],
+      "correction": "Two distinct issues: a patched September vulnerability and October share-link exposure. These descriptions rely on attributed reporting; an incident-specific Meta statement has not been verified here."
+    },
+    {
+      "id": "tor-exit-relay-hijack",
+      "name": "Tor exit relays hijacked",
+      "summary": "A researcher found 333 Tor exit relays (~10% of the network's ~3,000 exits) redirecting SSH connections through 12 interception servers using the Ebury OpenSSH backdoor, harvesting passwords when users accepted forged host keys. Exit policies on hundreds of relays were rewritten Oct 1-5; Tor directory authorities removed the compromised relays around Oct 20-21.",
+      "status": "reported",
+      "date": "2026-10-02",
+      "dateLabel": "Exit-policy rewrites Oct 1-5; researcher scan Oct 2; removals and coverage Oct 20-22, 2026",
+      "category": "network infrastructure",
+      "sources": [
+        {
+          "label": "The Hacker News · Reporting",
+          "url": "https://thehackernews.com/2026/10/attackers-hijacked-over-300-tor-exit.html",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "CyberInsider · Reporting",
+          "url": "https://cyberinsider.com/tor-removes-hundreds-of-compromised-relays-used-to-hijack-ssh-logins/",
+          "kind": "report",
+          "date": "2026-10-22"
+        },
+        {
+          "label": "Researcher writeup (daily.dev) · Public post",
+          "url": "https://daily.dev/posts/how-i-got-over-300-tor-exit-nodes-removed-luas3vpcw",
+          "kind": "post",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "tor-relays mailing list · Original source",
+          "url": "https://archives.seul.org/tor/relays/Oct-2026/msg00020.html",
+          "kind": "primary",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "X · TheHackersNews",
+          "url": "https://x.com/TheHackersNews/status/2112854217362706554",
+          "kind": "post",
+          "date": "2026-10-21"
+        }
+      ],
+      "correction": "The figure of 333 exit relays comes from a researcher’s scan. It is a reported observation, not an independently verified count of distinct breached relay operators."
+    },
+    {
+      "id": "tidb-cloud-breach",
+      "name": "TiDB Cloud (PingCAP) breach",
+      "summary": "PingCAP confirms unauthorised access to internal cloud resources between 9 September and 7 October, including copied data and source code. The breach is confirmed, but claims about plaintext keys and the full customer impact are disputed or unresolved.",
+      "status": "disputed",
+      "date": "2026-10-19",
+      "dateLabel": "Disclosed 19 Oct 2026; intrusion 9 Sep–7 Oct",
+      "category": "cloud breach",
+      "sources": [
+        {
+          "label": "PingCAP · Original source",
+          "url": "https://www.pingcap.com/trust-hub/security/security-update-october-2026/",
+          "kind": "primary",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "PingCAP: Customer Actions - October 2026 Security Incident",
+          "url": "https://www.pingcap.com/trust-hub/security/customer-actions-october-2026/",
+          "kind": "primary",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Dark Reading · Reporting",
+          "url": "https://www.darkreading.com/cloud-security/tidb-breach-flawed-cloud-security",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "CryptoBriefing · Reporting",
+          "url": "https://cryptobriefing.com/bitget-no-user-data-tidb-cloud-breach/",
+          "kind": "report",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "X · PingCAP",
+          "url": "https://x.com/PingCAP/status/2112563244565176634",
+          "kind": "post",
+          "date": "2026-10-20"
+        }
+      ],
+      "correction": "Breach confirmed; scope disputed - attacker leak-site figures (10.6 TB, 115k plaintext keys) are unverified claims that conflict with PingCAP's statement that keys were encrypted and unused."
+    },
+    {
+      "id": "sbi-data-breach",
+      "name": "SBI customer data on dark web",
+      "summary": "SBI told stock exchanges that customer records had surfaced on the dark web, according to reporting. Reports distinguish more than 375,000 records from 3,897 containing personal information. The bank was still assessing authenticity and scope.",
+      "status": "reported",
+      "date": "2026-10-21",
+      "dateLabel": "Bank alerted Oct 16; exchange filing and coverage Oct 21, 2026",
+      "category": "data breach",
+      "sources": [
+        {
+          "label": "The Hindu: SBI admits exposure of customer data on the Dark Web",
+          "url": "https://www.thehindu.com/business/Economy/state-bank-of-india-investigates-exposure-customer-records-dark-web-october-21/article71606599.ece",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Moneycontrol: SBI flags data leak, says no material impact",
+          "url": "https://www.moneycontrol.com/banking/sbi-flags-incident-of-data-leak-says-no-material-impact-on-bank-s-business-operations-article-14056419.html",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Indian Express: SBI data leak explained",
+          "url": "https://indianexpress.com/article/explained/explained-economics/sbi-data-breach-customer-details-dark-web-exposure-10930302/",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Economic Times · Reporting",
+          "url": "https://economictimes.indiatimes.com/industry/banking/finance/banking/sbi-probes-suspected-data-breach-after-3-75-lakh-records-surface-on-dark-web/articleshow/135083347.cms",
+          "kind": "report",
+          "date": "2026-10-21"
+        }
+      ],
+      "correction": "Reporting distinguishes more than 375,000 records from 3,897 containing personal information. Authenticity and scope remained under assessment; neither figure establishes that every record belongs to a different person."
+    },
+    {
+      "id": "siemens-software-center",
+      "name": "Siemens Software Center flaw exploited",
+      "summary": "Attackers are abusing a DLL side-loading flaw in the signed Siemens Software Center client through ClickFix lures. Siemens says its systems and update channel were not breached.",
+      "status": "confirmed",
+      "date": "2026-10-15",
+      "dateLabel": "Advisory SSA-580366 Oct 15; Siemens validated active exploitation Oct 19; CISA KEV Oct 20, 2026",
+      "category": "vulnerability exploitation / malware",
+      "sources": [
+        {
+          "label": "Siemens ProductCERT · Original source",
+          "url": "https://cert-portal.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center/",
+          "kind": "primary",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "SecurityWeek · Reporting",
+          "url": "https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/",
+          "kind": "report",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "Canadian Centre for Cyber Security: Siemens advisory AV26-1063",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/siemens-security-advisory-av26-1063",
+          "kind": "primary",
+          "date": "2026-10-19"
+        },
+        {
+          "label": "The Hacker News · Reporting",
+          "url": "https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html",
+          "kind": "report",
+          "date": "2026-10-20"
+        }
+      ],
+      "correction": "Not a breach of Siemens infrastructure: attackers abuse the signed client via ClickFix lures. Siemens explicitly states no Siemens system or update channel was breached."
+    },
+    {
+      "id": "north-korea-campaign",
+      "name": "North Korea state-sponsored activity (multiple October items)",
+      "summary": "The original list does not identify which North Korea-linked campaign it means. Reporting on Operation FlashHole is one possible lead, not a confirmed match to that claim.",
+      "status": "unverified",
+      "date": null,
+      "dateLabel": "Original claim not tied to a specific campaign",
+      "category": "state-sponsored",
+      "sources": [
+        {
+          "label": "Kaspersky via SOCtember · Reporting",
+          "url": "https://www.soctember.com/threat-intel/kaspersky-lazarus-operation-flashhole-crossweb-ex-github-c2",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "VOA Korea · Reporting",
+          "url": "https://www.voakorea.com/a/8213679.html",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "DOJ · Original source",
+          "url": "https://www.justice.gov/opa/pr/justice-department-announces-coordinated-actions-combat-north-korean-remote-it-worker",
+          "kind": "primary",
+          "date": "2026-10-13"
+        },
+        {
+          "label": "IC3 PSA: North Korean IT Workers Expanding Use of Facilitators",
+          "url": "https://www.ic3.gov/PSA/2026/PSA261013",
+          "kind": "primary",
+          "date": "2026-10-13"
+        },
+        {
+          "label": "The Record: North Korean hackers target Ukrainian experts",
+          "url": "https://therecord.media/north-korea-hackers-russia-ukraine",
+          "kind": "report",
+          "date": "2026-10-13"
+        }
+      ],
+      "correction": "The unspecific North Korea claim cannot be assigned to one event. October reporting covers separate campaigns and enforcement actions. Linked reports are leads, not evidence that they are the same campaign."
+    },
+    {
+      "id": "microsoft-artex-storm0940",
+      "name": "Microsoft / Storm-0940 and ARTEX",
+      "summary": "Microsoft says China-state-aligned Storm-0940 used the ARTEX agentic penetration-testing framework to target hundreds of organisations from September 2026. It attributes the ConnectWise supply-chain compromise to the same actor. Attempts reached more than 2,250 tenants; authentication alone does not establish data theft.",
+      "status": "confirmed",
+      "date": "2026-10-21",
+      "dateLabel": "Microsoft Security Blog Oct 21, 2026; campaign activity as early as Sept 2026",
+      "category": "state-sponsored / AI-enabled attack",
+      "sources": [
+        {
+          "label": "Microsoft Security Blog · Original source",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+          "kind": "primary",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "CyberScoop · Reporting",
+          "url": "https://cyberscoop.com/microsoft-attributes-connectwise-supply-chain-attack-china-storm-0940/",
+          "kind": "report",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "The Hacker News · Reporting",
+          "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
+          "kind": "report",
+          "date": "2026-10-22"
+        },
+        {
+          "label": "India Today · Reporting",
+          "url": "https://www.indiatoday.in/technology/news/story/microsoft-says-chinese-hackers-used-ai-agents-to-attack-hundreds-of-organisations-worldwide-3022422-2026-10-22",
+          "kind": "report",
+          "date": "2026-10-22"
+        },
+        {
+          "label": "X · MsftSecIntel",
+          "url": "https://x.com/MsftSecIntel/status/2112975078266716390",
+          "kind": "post",
+          "date": "2026-10-21"
+        }
+      ],
+      "correction": "This is Microsoft’s attribution and AI-use assessment for the ConnectWise Cloud Backup incident, not a separate attack. Tenant sign-ins are not a count of independently breached organisations. ARTEX is an open-source framework misused by the actor."
+    },
+    {
+      "id": "emudhra-ca-key-compromise",
+      "name": "eMudhra / weak certificate keys",
+      "summary": "Eight eMudhra intermediate certificate-authority keys were weak enough to recover from public certificates, including one with the value 4. eMudhra revoked them. Its account says none issued end-entity certificates; this is not a confirmed breach of its infrastructure.",
+      "status": "confirmed",
+      "date": "2026-10-17",
+      "dateLabel": "Reported 17–18 Oct; revoked 19 Oct; public 20–21 Oct 2026",
+      "category": "PKI / certificate authority",
+      "sources": [
+        {
+          "label": "eMudhra official statement (3 updates · Original source",
+          "url": "https://emudhra.com/en/post/certificate-security-incident",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "provenance": "full-read"
+        },
+        {
+          "label": "Cloudflare · Original source",
+          "url": "https://blog.cloudflare.com/emudhra-certificate-compromise",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "provenance": "full-read"
+        },
+        {
+          "label": "Scott Helme · Original source",
+          "url": "https://scotthelme.ghost.io/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "provenance": "title-verified",
+          "verification": "excerpt"
+        },
+        {
+          "label": "The Register · Reporting",
+          "url": "https://www.theregister.com/security/2026/10/20/indian-certification-authority-emudhras-private-keys-compromised-one-of-them-was-the-number-4/5304312",
+          "kind": "report",
+          "date": "2026-10-20",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "CSO Online · Reporting",
+          "url": "https://www.csoonline.com/article/4238338/google-mozilla-revoke-emudhra-intermediates-after-private-key-compromise.html",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report."
+    },
+    {
+      "id": "railway-env-vars-breach",
+      "name": "Railway / possible secret exposure",
+      "summary": "Railway says an unauthorised party may have accessed encrypted customer environment variables and decrypted some of them. It paused deployments during its investigation and recommended credential rotation. The affected-account scope remained unresolved.",
+      "status": "confirmed",
+      "date": "2026-10-21",
+      "dateLabel": "Disclosed 21 Oct 2026; investigation ongoing",
+      "category": "cloud platform breach",
+      "sources": [
+        {
+          "label": "Railway: Security Disclosure - Wednesday October 21st",
+          "url": "https://blog.railway.com/p/security-disclosure-wednesday-october-21st",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "excerpt"
+        },
+        {
+          "label": "Railway Status: Platform Outage incident QH8L8B3E",
+          "url": "https://status.railway.com/incident/QH8L8B3E",
+          "kind": "primary",
+          "date": "2026-10-22",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "Railway · Original source",
+          "url": "https://blog.railway.com/p/security-disclosure-recommendation-redeploy-buckets-and-reconnect-github-after-the-credential-reset",
+          "kind": "primary",
+          "date": "2026-10-22",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Incident confirmed by Railway itself, but impact is 'may have accessed' - scope (which accounts, how many) is still under investigation. The outage is a deliberate pause, not attacker-caused downtime. No independent press coverage captured yet."
+    },
+    {
+      "id": "litellm-supply-chain-v11070",
+      "name": "LiteLLM / backdoored releases",
+      "summary": "LiteLLM confirms its release pipeline pushed malicious 1.107.0 packages to PyPI and container registries. The malware stole credentials and loaded remote-code tools. Affected artifacts were removed; private enterprise releases were not impacted.",
+      "status": "confirmed",
+      "date": "2026-10-21",
+      "dateLabel": "21 Oct 2026; PyPI 11:39–13:23 UTC",
+      "category": "supply chain",
+      "sources": [
+        {
+          "label": "LiteLLM · Original source",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "title-verified"
+        },
+        {
+          "label": "Datadog Security Labs · Reporting",
+          "url": "https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-docker/",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Only v1.107.0 affected. Keep distinct from the earlier 2026 LiteLLM 1.82.x incident - same project, separate compromise."
+    },
+    {
+      "id": "opencode-api-keys-distillation-attack",
+      "name": "OpenCode / exposed provider keys",
+      "summary": "Reporting says an attack on an older OpenCode system exposed stored AI-provider API keys for some Console users who linked external providers. Users reported unauthorised charges. The charges and broader attribution are not independently audited here.",
+      "status": "reported",
+      "date": "2026-10-17",
+      "dateLabel": "Exposure reported from 17 Oct 2026; press 19 Oct",
+      "category": "AI platform breach",
+      "sources": [
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/opencode-hack-exposes-api-keys-amid-ai-distillation-attacks/",
+          "kind": "report",
+          "date": "2026-10-19",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "TechCrunch · Reporting",
+          "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+          "kind": "report",
+          "date": "2026-10-19",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Captured sources are press reports. Maintainer post text was seen through a mirror, but direct X permalinks remain unchecked and are omitted. Reported user losses are not audited figures."
+    },
+    {
+      "id": "php2shell-cve-2026-109618-109619",
+      "name": "PHP / PHP2Shell",
+      "summary": "Security reporting describes two critical PHP core flaws, CVE-2026-109618 and CVE-2026-109619, rated 9.2. Fixed releases were published on 21 October. Exploitation reports require checking against the current advisory, not assuming every PHP installation was breached.",
+      "status": "reported",
+      "date": "2026-10-21",
+      "dateLabel": "Disclosed / fixed 21 Oct 2026",
+      "category": "vulnerability / RCE",
+      "sources": [
+        {
+          "label": "Tenable: PHP2Shell (CVE-2026-109618, CVE-2026-109619) - FAQ",
+          "url": "https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "JFrog Security Research: PHP2Shell - all you need to know",
+          "url": "https://research.jfrog.com/post/php2shell-all-you-need-to-know-about-cve-2026-109618-and-cve-2026-109619/",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "User's '9.2/10' matches the PHP security team's final CVSSv4.0 score; an incorrect 10.0 circulated pre-release (per the PHP Foundation via Tenable). Two CVEs, not one. PHP's own primary advisory URL not yet captured - Tenable/JFrog are secondary (though they quote PHP directly)."
+    },
+    {
+      "id": "gitlab-cve-2026-110264-onigmo",
+      "name": "GitLab / critical Onigmo flaw",
+      "summary": "GitLab released fixes for CVE-2026-110264, a CVSS 10.0 flaw in its bundled regular-expression compiler that could allow unauthenticated code execution under certain conditions. Older self-managed releases are affected; no exploitation was known in the captured reporting.",
+      "status": "confirmed",
+      "date": "2026-10-21",
+      "dateLabel": "Fixed 21 Oct 2026",
+      "category": "vulnerability / RCE",
+      "sources": [
+        {
+          "label": "GitLab Critical Patch Release · Original source",
+          "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "title-verified"
+        },
+        {
+          "label": "The Hacker News · Reporting",
+          "url": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "TrustList: GitLab ships another CVSS 10 regex fix",
+          "url": "https://trustlist.uk/security-advisories/gitlab-19-5-1-fixes-second-cvss-10-regex-flaw-cve-2026-110264-and-ldap-account-takeover",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "'Could allow' RCE under conditions GitLab has not specified - a potential, with no observed exploitation. Only self-managed instances need to act. The '12 years of releases' framing is accurate (7.0, 2014). Note for dedup: TrustList flags a second distinct fix (LDAP account takeover) in the same release if the site wants a separate entry."
+    },
+    {
+      "id": "nginx-october-2026-advisories",
+      "name": "NGINX / five medium-severity advisories",
+      "summary": "NGINX’s October release fixed five newly published security advisories. The vendor rates all five medium, not critical. One concerns HTTP/3; this is distinct from the separate Header Accordions research.",
+      "status": "confirmed",
+      "date": "2026-10-14",
+      "dateLabel": "Released 14 Oct 2026",
+      "category": "vulnerability",
+      "sources": [
+        {
+          "label": "nginx security advisories",
+          "url": "https://nginx.org/en/security_advisories.html",
+          "kind": "primary",
+          "date": null,
+          "provenance": "excerpt"
+        },
+        {
+          "label": "nginx CHANGES (1.31.7 released 14 Oct 2026, security fixes)",
+          "url": "https://nginx.org/en/CHANGES",
+          "kind": "primary",
+          "date": "2026-10-14",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "The user's 'NGINX - 3 critical vulnerabilities' is inaccurate on count and severity: the current batch is 5 advisories, ALL rated medium by NGINX itself - none critical. One (CVE-2026-95101) is HTTP/3-related but distinct from the separate 'Header Accordions' research item."
+    },
+    {
+      "id": "cairn-ai-agents-100-companies",
+      "name": "Cairn / AI-assisted intrusion research",
+      "summary": "Norforge reports exposed dashboards showing threat actors abusing the open-source Cairn agent platform for intrusion attempts. Its researcher told press that one actor breached more than 100 companies. This is a research assessment, not a verified victim-by-victim count.",
+      "status": "reported",
+      "date": "2026-10-19",
+      "dateLabel": "Research / reporting 17–20 Oct 2026",
+      "category": "AI-enabled attack campaign",
+      "sources": [
+        {
+          "label": "Norforge · Original source",
+          "url": "https://norforge.com/blog/inside_cairn",
+          "kind": "primary",
+          "date": "2026-10-19",
+          "provenance": "title-verified",
+          "verification": "excerpt"
+        },
+        {
+          "label": "The Next Web · Reporting",
+          "url": "https://thenextweb.com/news/ai-agents-hacker-cairn-100-sites-deere-norforge",
+          "kind": "report",
+          "date": "2026-10-17",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "Security.io · Reporting",
+          "url": "https://www.security.io/articles/2026/10/20/cairn-ai-agents-industrialise-web-intrusion",
+          "kind": "report",
+          "date": "2026-10-20",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Cairn is the tool being abused, not a breached vendor. The 100+ figure is attributed to the researcher. This entry omits victim names originating in excluded reporting. The separate Microsoft ARTEX campaign should not be assumed to be the same operation."
+    },
+    {
+      "id": "signal-ringrtc-hangup-cve-2026-113380",
+      "name": "Signal / call hang-up flaw",
+      "summary": "Reporting describes a RingRTC flaw that could let a malicious participant continue receiving audio after the other person hangs up. Camera continuation is not confirmed. The issue concerns call shutdown, not a general break of Signal encryption.",
+      "status": "reported",
+      "date": "2026-10-21",
+      "dateLabel": "Reported 21 Oct 2026",
+      "category": "vulnerability / privacy",
+      "sources": [
+        {
+          "label": "The Register · Reporting",
+          "url": "https://www.theregister.com/security/2026/10/21/signal-bug-could-keep-your-mic-and-camera-on-after-hangup/5304528",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "Malwarebytes · Reporting",
+          "url": "https://www.malwarebytes.com/blog/bugs/2026/10/signal-bug-could-let-someone-keep-listening-after-you-hang-up",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Coverage is press-only so far - the CVE record / RingRTC advisory itself was not captured. Audio continuation is the described impact; camera/video is 'potentially', unconfirmed. Requires a malicious call participant - not a passive exposure of all users."
+    },
+    {
+      "id": "tailscale-ts-2026-013-emudhra",
+      "name": "Tailscale / eMudhra response",
+      "summary": "Tailscale published an emergency update to distrust the compromised eMudhra intermediate certificates. This is a downstream certificate-trust response, not a separate Tailscale breach. WireGuard mesh traffic does not rely on that public certificate trust.",
+      "status": "reported",
+      "date": "2026-10-21",
+      "dateLabel": "Bulletin / release 21 Oct 2026",
+      "category": "vendor response / PKI",
+      "sources": [
+        {
+          "label": "Tailscale Security Bulletins - TS-2026-013",
+          "url": "https://tailscale.com/security-bulletins",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "Tailscale Changelog - v1.104.2",
+          "url": "https://tailscale.com/changelog",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "This is a downstream response to the eMudhra incident, not an independent Tailscale vulnerability - display as a linked follow-on to emudhra-ca-key-compromise, not a standalone Tailscale breach."
+    },
+    {
+      "id": "nodejs-october-2026-security-release",
+      "name": "Node.js / security releases",
+      "summary": "Node.js shipped October security releases covering four high-severity flaws alongside medium- and low-severity fixes. The release also updates certificate trust after eMudhra. Patched vulnerabilities do not by themselves establish an intrusion.",
+      "status": "confirmed",
+      "date": "2026-10-21",
+      "dateLabel": "Released 21 Oct 2026",
+      "category": "vulnerability",
+      "sources": [
+        {
+          "label": "Node.js blog: Wednesday, October 21, 2026 Security Releases",
+          "url": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "full-read"
+        }
+      ],
+      "correction": "'High-severity vulnerabilities patched' is accurate (4 high, 3 medium, 3 low per the project's own ratings). The release bundles the eMudhra ca-cert distrust - shared root cause, link to emudhra-ca-key-compromise rather than duplicating. No independent press coverage captured; primary-only but it is the canonical source."
+    },
+    {
+      "id": "california-ets-student-data-breach",
+      "name": "California students / ETS data breach",
+      "summary": "California’s education department notified families about files copied from testing contractor ETS. The records span three school years and include sensitive student information. The copying happened between May and September, not during this week’s reporting.",
+      "status": "reported",
+      "date": "2026-10-16",
+      "dateLabel": "Disclosed 16 Oct 2026; copying May–Sep",
+      "category": "data breach / education",
+      "sources": [
+        {
+          "label": "California Dept. of Education · Original source",
+          "url": "https://www.cde.ca.gov/nr/in/documents/etsdatabreach-english.pdf",
+          "kind": "primary",
+          "date": "2026-10-16",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "CDE ETS notification page",
+          "url": "https://www.cde.ca.gov/nr/in/ets-notification.asp",
+          "kind": "primary",
+          "date": "2026-10-16",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "LA Times · Reporting",
+          "url": "https://www.latimes.com/california/story/2026-10-16/state-testing-student-data-hack",
+          "kind": "report",
+          "date": "2026-10-16",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "EdWeek · Reporting",
+          "url": "https://www.edweek.org/technology/hackers-steal-personal-data-of-millions-of-california-students-in-massive-breach/2026/10",
+          "kind": "report",
+          "date": "2026-10-16",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "The Record (Recorded Future) · Reporting",
+          "url": "https://therecord.media/california-warns-all-public-school-students-of-data-breach",
+          "kind": "report",
+          "date": null,
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Not an event of this week: copying ran May-Sep 2026, detection Sep 25, public notice Oct 16. 'Millions of students' is supported by CDE's own scope statement. A Reuters syndication previously listed here was removed per user preference; LA Times/EdWeek/The Record provide independent coverage."
+    },
+    {
+      "id": "http3-header-accordions-qpack",
+      "name": "HTTP/3 / Header Accordions",
+      "summary": "Foxio’s research describes QPACK header-decompression amplification that can exhaust server memory. Seven of ten tested implementations were affected, with patch status varying by implementation. This is a vulnerability report, not proof that all affected servers were attacked.",
+      "status": "reported",
+      "date": "2026-10-20",
+      "dateLabel": "Research published around 20 Oct 2026",
+      "category": "vulnerability / protocol",
+      "sources": [
+        {
+          "label": "Foxio · Original source",
+          "url": "https://foxio.io/blog/header-accordions-qpack-amplification-attacks-against-http-3-servers",
+          "kind": "primary",
+          "date": "2026-10-20",
+          "provenance": "title-verified",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "'Vulnerabilities affecting multiple web servers' is accurate at the implementation level. Caveats: two CVEs are 2025-numbered (coordinated earlier), three implementations were still unpatched at disclosure, and only the primary research blog is captured - no independent press yet. Distinct from nginx's own HTTP/3 CVE-2026-95101."
+    },
+    {
+      "id": "onamae-desktop-cloud-malware",
+      "name": "Onamae / Desktop Cloud compromise",
+      "summary": "Onamae says malicious programs were placed in customer Desktop Cloud server environments. Up to 26,739 servers were potentially affected, and it began stopping servers to contain the incident. Data viewing was possible; data theft was not confirmed.",
+      "status": "reported",
+      "date": "2026-10-21",
+      "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026",
+      "category": "hosting provider compromise",
+      "sources": [
+        {
+          "label": "Onamae.com official notice (Japanese)",
+          "url": "https://www.onamae.com/news/article/11584/",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "title-verified",
+          "verification": "excerpt"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/japans-onamae-desktop-cloud-hacked-up-to-27-000-servers-affected/",
+          "kind": "report",
+          "date": "2026-10-21",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "'Malware reportedly planted on thousands of servers' understates the company's own figure: 26,739 potentially affected. Scope is the Desktop Cloud product, not all Onamae/GMO services. 'Malware planted' is confirmed by the provider; data theft is only 'possibility of viewing', not confirmed."
+    },
+    {
+      "id": "ahold-delhaize-cyberattack",
+      "name": "Ahold Delhaize / service disruption",
+      "summary": "Ahold Delhaize took systems offline after detecting malicious activity, disrupting websites, apps and deliveries. Stores remained open. Its 19 October update reported recovery progress and no evidence then of sensitive data theft.",
+      "status": "reported",
+      "date": "2026-10-12",
+      "dateLabel": "Detected 12 Oct; recovery update 19 Oct 2026",
+      "category": "cyberattack / retail",
+      "sources": [
+        {
+          "label": "Ahold Delhaize newsroom · Original source",
+          "url": "https://newsroom.aholddelhaize.com/ahold-delhaize-update-on-status-of-cybersecurity-incident/",
+          "kind": "primary",
+          "date": "2026-10-19",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/ahold-delhaize-cyberattack-affects-services-across-us-and-europe/",
+          "kind": "report",
+          "date": "2026-10-20",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Began Oct 12 - the prior week, not this week. Much of the disruption is the company's own precautionary takedown plus recovery. 'No evidence data was taken' is as of Oct 19; investigation ongoing. No threat actor or attack type named publicly."
+    },
+    {
+      "id": "bullhorn-outages-october-2026",
+      "name": "Bullhorn / outages and incident response",
+      "summary": "Bullhorn’s status updates describe separate events: a contained 17 October cyber incident, precautionary PHP2Shell product shutdowns, and a 21 October login outage linked to database-replication lag. They should not be presented as one confirmed breach.",
+      "status": "reported",
+      "date": "2026-10-21",
+      "dateLabel": "Separate events 17–22 Oct 2026",
+      "category": "platform outage / cyber incident",
+      "sources": [
+        {
+          "label": "Bullhorn Status - incident updates",
+          "url": "https://status.bullhorn.com/",
+          "kind": "primary",
+          "date": "2026-10-21",
+          "provenance": "title-verified",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "The user's 'major platform outage' conflates three distinct events; the Oct 21 product takedown is a downstream effect of PHP2Shell (link to php2shell-cve-2026-109618-109619), the Oct 17 cyber incident is separate and stated contained, and the login outage was operational (replication lag), not the attack itself. Details of the Oct 17 cyber incident (nature, actor, data impact) are not public in the captured status text. Only the status page captured - no independent press."
+    },
+    {
+      "id": "medical-paradigm-breach",
+      "name": "Medi-Cal / Paradigm contractor breach",
+      "summary": "Reporting says a Paradigm Healthcare Services breach affected more than 970,000 Medi-Cal members. The intrusion was detected in October 2025; notifications followed in September 2026. This is a contractor incident, not a confirmed breach of California’s own systems.",
+      "status": "reported",
+      "date": "2025-10-13",
+      "dateLabel": "Intrusion Oct 2025; notifications Sep 2026",
+      "category": "data breach / healthcare",
+      "sources": [
+        {
+          "label": "SecurityWeek · Reporting",
+          "url": "https://www.securityweek.com/970000-medi-cal-members-affected-by-paradigm-healthcare-data-breach/",
+          "kind": "report",
+          "date": "2026-10-20",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        },
+        {
+          "label": "MedRisk · Reporting",
+          "url": "https://medrisk.io/2026/10/20/paradigm-healthcare-medi-cal-970000-breach/",
+          "kind": "report",
+          "date": "2026-10-20",
+          "provenance": "excerpt",
+          "verification": "excerpt"
+        }
+      ],
+      "correction": "Timing correction: the breach itself is from Oct 2025 - this week's news is the HHS disclosure and the ~11-month notification delay. 'Medi-Cal breach' is via a billing contractor, not California DHCS systems directly. Press-only coverage; the HHS breach portal entry itself not captured."
+    }
+  ]
+}
