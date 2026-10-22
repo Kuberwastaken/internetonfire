@@ -46,8 +46,19 @@ try{
   for(const href of await page.locator('.incident a').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))))assert.ok(href.startsWith('https://')||href.startsWith('#'),href);
   // GitHub: star count, PR queue (drafts hidden), vote counts
   await page.locator('[data-stars]').first().waitFor();assert.equal(await page.locator('[data-stars]').first().innerText(),'42');
-  const queue=await page.locator('#pr-list').innerText();assert.ok(queue.includes('test fixture'));assert.ok(!queue.includes('should be hidden'));assert.ok(queue.includes('👍 3'));assert.ok(queue.includes('npm'));
+  const queue=await page.locator('#pr-list').innerText();assert.ok(queue.includes('test fixture'));assert.ok(!queue.includes('should be hidden'));assert.equal((await page.locator('.vote[data-content="+1"]').first().textContent()).replace(/\s+/g,' ').trim(),'👍 3');assert.ok(queue.includes('npm'));
   await page.locator('#review').scrollIntoViewIfNeeded();await page.screenshot({path:`test-results/review-${width}.png`});
+  // Signed out, no auth endpoint: votes and the submit dialog hand off to GitHub
+  await page.evaluate(()=>{window.open=(u)=>{window.__opened=u;};});const opened=()=>page.evaluate(()=>window.__opened);
+  await page.locator('.vote[data-content="+1"]').first().click();assert.ok((await opened()).endsWith('/issues/7'));
+  await page.locator('.top [data-open-submit]').click();assert.ok(await page.locator('#submit-dialog').evaluate(d=>d.open));
+  await page.locator('#submit-form [data-primary]').click();assert.ok((await page.locator('.form-msg').innerText()).includes('name'));
+  await page.locator('#submit-form [name=name]').fill('Example Corp breach');await page.locator('#submit-form [name=summary]').fill('Example summary.');await page.locator('#submit-form [name=sources]').fill('https://example.com/advisory');
+  await page.locator('#tag-pick .tag-opt').first().click();await page.locator('#submit-form .check').click();
+  await page.screenshot({path:`test-results/submit-${width}.png`});
+  await page.locator('#submit-form [data-primary]').click();
+  const prefill=new URL(await opened());assert.equal(prefill.searchParams.get('template'),'incident.yml');assert.equal(prefill.searchParams.get('name'),'Example Corp breach');assert.ok(prefill.searchParams.get('tags'));
+  await page.keyboard.press('Escape');assert.equal(await page.locator('#submit-dialog').evaluate(d=>d.open),false);
   // API failure fallback
   await page.unroute('https://api.github.com/**');await mockGitHub(page,403);await page.locator('#refresh-prs').click();await page.getByText('GitHub isn’t answering',{exact:false}).waitFor();
   // Deep link opens the entry
@@ -55,6 +66,30 @@ try{
   // Reduced motion keeps the dog still
   await page.emulateMedia({reducedMotion:'reduce'});await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('.dog video').evaluate(v=>v.paused),true);
   await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});await page.screenshot({path:`test-results/dark-${width}.png`});
-  assert.deepEqual(errors,[]);await page.close();console.log(`PASS ${width}: layout, font, search, chips, headline, bars, expand, links, stars, queue, fallback, deep link, motion, tags`);
+  // Signed in through the auth worker: vote toggles a real reaction, submit opens an issue
+  {
+   const calls=[];const auth=await browser.newPage({viewport:{width,height:1000}});auth.on('pageerror',e=>errors.push(e.message));
+   await auth.route('http://127.0.0.1:4184/',async r=>{const res=await r.fetch();r.fulfill({response:res,body:(await res.text()).replace('<meta name="iof-auth" content="">','<meta name="iof-auth" content="https://auth.test">')});});
+   await auth.route('https://avatars.test/**',r=>r.fulfill({status:200,contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg"/>'}));
+   await auth.route('https://api.github.com/**',r=>{const u=new URL(r.request().url()),m=r.request().method();calls.push(m+' '+u.pathname);const json=(b,st=200)=>r.fulfill({status:st,contentType:'application/json',body:JSON.stringify(b)});
+    if(u.pathname==='/user')return json({login:'tester',avatar_url:'https://avatars.test/u'});
+    if(u.pathname.endsWith('/reactions')&&m==='GET')return json([]);
+    if(u.pathname.endsWith('/reactions')&&m==='POST')return json({id:99,content:JSON.parse(r.request().postData()).content},201);
+    if(/\/reactions\/99$/.test(u.pathname)&&m==='DELETE')return r.fulfill({status:204});
+    if(u.pathname.endsWith('/issues')&&m==='POST'){const b=JSON.parse(r.request().postData());assert.ok(b.body.includes('### Tags'));assert.ok(b.title.startsWith('[Incident] '));return json({number:12,html_url:'https://github.com/Kuberwastaken/internetonfire/issues/12'},201);}
+    if(u.pathname.endsWith('/issues'))return json(issues);return json({stargazers_count:42});});
+   await auth.goto('http://127.0.0.1:4184/#iof_token=test-token',{waitUntil:'networkidle'});
+   assert.equal(new URL(auth.url()).hash,'','token stripped from the URL');assert.equal(await auth.evaluate(()=>JSON.parse(localStorage.getItem('iof-gh-token'))),'test-token');
+   assert.equal(await auth.locator('#account').isVisible(),true);
+   const up=auth.locator('.vote[data-content="+1"]').first();await up.click();await auth.waitForFunction(()=>document.querySelector('.vote[data-content="+1"]').getAttribute('aria-pressed')==='true');
+   assert.equal((await up.locator('.n').innerText()),'4');assert.ok(calls.includes('POST /repos/Kuberwastaken/internetonfire/issues/7/reactions'));
+   await up.click();await auth.waitForFunction(()=>document.querySelector('.vote[data-content="+1"]').getAttribute('aria-pressed')==='false');assert.ok(calls.some(c=>c.startsWith('DELETE ')));
+   await auth.locator('.top [data-open-submit]').click();assert.ok((await auth.locator('#submit-form [data-primary]').innerText()).includes('@tester'));
+   await auth.locator('#submit-form [name=name]').fill('Example');await auth.locator('#submit-form [name=summary]').fill('Summary.');await auth.locator('#submit-form [name=sources]').fill('https://example.com/a');await auth.locator('#tag-pick .tag-opt').first().click();await auth.locator('#submit-form .check').click();
+   await auth.locator('#submit-form [data-primary]').click();await auth.getByText('#12').waitFor();await auth.keyboard.press('Escape');assert.ok(calls.includes('POST /repos/Kuberwastaken/internetonfire/issues'));
+   await auth.locator('#account .avatar-btn').click();await auth.locator('[data-signout]').click();assert.equal(await auth.locator('#account').isVisible(),false);
+   await auth.close();
+  }
+  assert.deepEqual(errors,[]);await page.close();console.log(`PASS ${width}: layout, font, search, chips, headline, bars, expand, links, stars, queue, fallback, deep link, motion, tags, submit, voting`);
  }
 }finally{await browser.close();server.kill();}
