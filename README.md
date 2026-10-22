@@ -2,7 +2,7 @@
 
 **The internet is on fire. Keep the receipts.**
 
-A ruled-paper, source-linked notebook of security incidents, infrastructure failures and AI mishaps. Names, short descriptions, real dates, original reports, public posts and responses. No doom dashboard.
+A source-linked index of security incidents, infrastructure failures and AI mishaps. A minimal dark layout, Inter typography, and the “This is fine” dog. Brief descriptions, publication dates, evidence labels, original reports, and corrections.
 
 [Open the website](https://kuber.studio/internetonfire/) · [Submit an incident](https://github.com/Kuberwastaken/internetonfire/issues/new?template=incident.yml) · [Review PRs](https://github.com/Kuberwastaken/internetonfire/pulls) · [Contribute](CONTRIBUTING.md)
 
@@ -45,7 +45,7 @@ GitHub Actions tests and builds pull requests with read-only permissions. Pushes
 ```text
 data/incidents.json  dated source records
 app.js               safe DOM rendering, filters, PR list
-style.css            responsive paper / ink layout
+style.css            responsive dark layout
 scripts/             schema validation and static build
 tests/               data checks and browser checks
 .github/             PR/issue templates and CI/deployment
@@ -53,7 +53,7 @@ tests/               data checks and browser checks
 
 ## Type and assets
 
-Body text uses [Inter](https://github.com/rsms/inter), licensed under the SIL Open Font License in `assets/Inter-LICENSE.txt`. Handwritten accents use Kuber's published prototype from [Kuber Hand](https://kuber.studio/handwriting-font/), used here at his request. No handwriting samples, source documents or private correspondence are included. The prototype is an accent font, not a claim to simulate newly handwritten text.
+The interface uses self-hosted [Inter](https://github.com/rsms/inter), licensed under the SIL Open Font License in `assets/Inter-LICENSE.txt`. The dog illustration is credited to K.C. Green; provenance is in `assets/THIS-IS-FINE.md`. The illustration starts still and can be animated explicitly; reduced-motion preferences stop playback.
 
 Code is MIT licensed. The Kuber Hand font remains its owner's work and is excluded from that code licence; no broader font redistribution grant is implied. Incident summaries are brief editorial descriptions with attribution links, not copied articles.
 
@@ -61,4 +61,8 @@ Code is MIT licensed. The Kuber Hand font remains its owner's work and is exclud
 
 Time filters use source publication/disclosure time, not the original incident occurrence date. `disclosedAt` is an optional exact ISO timestamp with timezone. `disclosureDate` is date-only when a source gives no clock time. Date-only records never qualify for last-hour results. A date-only record can appear as a labelled possible overlap in longer rolling windows, using a conservative timezone envelope rather than inventing midnight. All/history retains unknown and older entries.
 
-The visual page uses genuine Inter headings, Kuber Hand notes, ruled paper and a dog/fire site drawing. Cached source favicons identify the source links; full titles, publication dates and verification notes remain in each entry’s receipts disclosure. The top-right contribution button opens the submission guide, with the PR queue and voting at the bottom plus a top shortcut.
+Newest sorts by publication/disclosure date. Undated publications sort last. Event dates remain in the context disclosure, alongside expanded reporting, affected systems, responses, claim checks, corrections and all source links. Search includes the expanded reporting. The refresh button fetches the latest deployed incident data without a cached response.
+
+All local URLs are relative, so the static build works at `https://kuber.studio/internetonfire/`. The top navigation links to GitHub for starring and opens the submission guide. The PR queue and GitHub reaction links remain at the bottom, with a shortcut above the log.
+
+To run browser checks with an installed Chrome rather than Playwright Chromium, use `PLAYWRIGHT_CHANNEL=chrome npm run test:browser`.
