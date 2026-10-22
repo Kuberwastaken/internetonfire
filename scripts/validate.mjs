@@ -10,11 +10,12 @@ export function validate(data,tags=TAGS){
  if(i.tags!==undefined){if(!Array.isArray(i.tags)||!i.tags.length)errors.push(p+': tags must be a non-empty array');else{if(new Set(i.tags).size!==i.tags.length)errors.push(p+': duplicate tag');for(const t of i.tags)if(!tags.includes(t))errors.push(p+': unknown tag "'+t+'" (add it to data/tags.json)');}}
  else if(typeof i.category!=='string'||!i.category.trim())errors.push(p+': tags required');
  if(i.subject!==undefined&&(typeof i.subject!=='string'||!i.subject.trim()||i.subject.length>40))errors.push(p+': subject must be a short name (max 40 chars)');
+ if(i.severity!==undefined&&!['critical','high','medium','low'].includes(i.severity))errors.push(p+': severity must be critical, high, medium or low');
  if(!statuses.includes(i.status))errors.push(p+': invalid status');if(i.date!==null&&!date(i.date))errors.push(p+': invalid date');if(i.disclosureDate!==undefined&&i.disclosureDate!==null&&!date(i.disclosureDate))errors.push(p+': invalid disclosureDate');if(i.disclosedAt!==undefined&&(!/T.*(?:Z|[+-]\d{2}:\d{2})$/.test(i.disclosedAt)||!Number.isFinite(Date.parse(i.disclosedAt))))errors.push(p+': exact timestamp must include timezone');if(!Array.isArray(i.sources)){errors.push(p+': sources array required');continue;}
  if(i.status!=='unverified'&&!i.sources.length)errors.push(p+': sourced status needs evidence');
  if(i.status==='confirmed'&&!i.sources.some(s=>s.kind==='primary'))errors.push(p+': confirmed needs primary evidence');
  for(const s of i.sources){let url;try{url=new URL(s.url)}catch{}if(url?.protocol!=='https:')errors.push(p+': HTTPS source required');if(!s.label||!['primary','report','post','response'].includes(s.kind))errors.push(p+': source label/kind required');if(s.date!==null&&!date(s.date))errors.push(p+': source date must be ISO or null');}
  }return errors;
 }
-export const tagWarnings=(data)=>data.incidents.filter(i=>!i.tags).map(i=>i.id+': no tags yet (legacy category "'+i.category+'")');
+export const tagWarnings=(data)=>[...data.incidents.filter(i=>!i.tags).map(i=>i.id+': no tags yet (legacy category "'+i.category+'")'),...data.incidents.filter(i=>!i.severity).map(i=>i.id+': no severity yet')];
 if(process.argv[1]?.endsWith('validate.mjs')){const errors=validate(JSON.parse(fs.readFileSync(new URL('../data/incidents.json',import.meta.url))));if(errors.length){console.error(errors.join('\n'));process.exit(1);}for(const w of tagWarnings(JSON.parse(fs.readFileSync(new URL('../data/incidents.json',import.meta.url)))))console.warn('warning: '+w);console.log('Incident schema valid');}
