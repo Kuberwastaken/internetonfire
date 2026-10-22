@@ -1,0 +1,9 @@
+name = "internetonfire-auth"
+main = "index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+# Public client id of the "internetonfire" GitHub App. The secret is set with:
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
+GITHUB_CLIENT_ID = ""
