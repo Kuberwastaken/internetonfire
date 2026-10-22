@@ -13,10 +13,11 @@ No git setup? [Open an incident report](https://github.com/Kuberwastaken/interne
 ```json
 {
   "id": "vendor-incident-2026",
-  "name": "Vendor / incident name",
+  "name": "Vendor: what happened, in one line",
   "subject": "Vendor",
   "summary": "A short description of what the source actually supports.",
   "status": "reported",
+  "severity": "high",
   "date": "2026-10-22",
   "dateLabel": "Disclosed 22 Oct 2026",
   "tags": ["supply-chain", "npm", "malware"],
@@ -33,6 +34,21 @@ No git setup? [Open an incident report](https://github.com/Kuberwastaken/interne
 ```
 
 Replace the example URL with an actual source. Use `null` for unknown dates. The top-level `updated` date is the last editorial source check, not a claim that every incident happened then.
+
+### Name
+
+`name` is the headline people skim. Say who and what happened, with the number that matters, and nothing the sources don't support: "LiteLLM 1.107.0 shipped a credential stealer via PyPI and Docker", not "LiteLLM / backdoored releases". Keep hedges ("possibly", "claims") when the evidence is soft. Aim for under 75 characters.
+
+### Severity
+
+`severity` is how bad the incident is, separate from how well it's sourced (`status`). Judge what actually happened, not the CVSS score alone.
+
+- `critical`: exploited or compromised at scale; secrets, data or code execution in attackers' hands. Act now.
+- `high`: a real compromise with bounded scope, or a severe flaw that needs urgent patching.
+- `medium`: patched with no known exploitation, contained, or limited impact.
+- `low`: informational, such as a downstream response or an unsubstantiated claim.
+
+A confirmed, patched bug with no exploitation is usually `medium`; a confirmed credential stealer in a popular package is `critical`. Change severity when the facts change, and say why in the PR.
 
 ### Subject
 

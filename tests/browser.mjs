@@ -29,6 +29,10 @@ try{
   for(const s of await page.locator('.incident').evaluateAll(ns=>ns.map(n=>n.dataset.status)))assert.equal(s,'unverified');
   assert.ok((await page.locator('[data-headline]').innerText()).includes('unverified'));
   await page.locator('[data-clear]').click();assert.equal(await page.locator('.incident').count(),week);
+  // Severity filter is separate from evidence
+  await page.locator('#status [data-severity="critical"]').click();
+  for(const c of await page.locator('.incident').evaluateAll(ns=>ns.map(n=>!!n.querySelector('.sev-critical'))))assert.ok(c);
+  assert.ok((await page.locator('[data-headline]').innerText()).includes('critical'));await page.locator('#status [data-severity="critical"]').click();assert.equal(await page.locator('.incident').count(),week);
   // Tags: bar filter and on-card tags
   const tag=await page.locator('#tagbar .tag').first().getAttribute('data-tag');await page.locator('#tagbar .tag').first().click();
   for(const tags of await page.locator('.incident').evaluateAll(ns=>ns.map(n=>[...n.querySelectorAll('.tag')].map(t=>t.dataset.tag))))assert.ok(tags.includes(tag));
@@ -95,6 +99,6 @@ try{
    await auth.locator('#account .avatar-btn').click();await auth.locator('[data-signout]').click();assert.equal(await auth.locator('#account').isVisible(),false);
    await auth.close();
   }
-  assert.deepEqual(errors,[]);await page.close();console.log(`PASS ${width}: layout, font, search, chips, headline, bars, expand, links, stars, queue, fallback, deep link, motion, tags, submit, voting`);
+  assert.deepEqual(errors,[]);await page.close();console.log(`PASS ${width}: layout, font, search, chips, headline, bars, expand, links, stars, queue, fallback, deep link, motion, tags, severity, submit, voting`);
  }
 }finally{await browser.close();server.kill();}

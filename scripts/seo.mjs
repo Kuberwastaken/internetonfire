@@ -1,6 +1,6 @@
 // Machine-readable companions to the page, generated at build time from data/incidents.json:
 // JSON-LD for search engines, an Atom feed, a sitemap and llms.txt.
-import {SITE, STATUS, dayKey, esc, sortIncidents, subjectOf} from '../render.js';
+import {SEVERITY, SITE, STATUS, dayKey, esc, sortIncidents, subjectOf} from '../render.js';
 
 const TITLE = 'The internet is on fire';
 const DESCRIPTION = 'A central, community-maintained tracker of recent cybersecurity and AI incidents: breaches, backdoored packages, exploited vulnerabilities and AI platform incidents, each linked to its original source and labelled by how solid the evidence is.';
@@ -35,7 +35,7 @@ export function atomFeed(data) {
     <title>${esc(i.name)}</title>
     <link href="${esc(shareURL(i))}"/>
     <updated>${esc(when(i))}</updated>
-    <summary>${esc(`${STATUS[i.status]?.label || i.status}. ${i.summary}`)}</summary>
+    <summary>${esc(`${SEVERITY[i.severity] ? SEVERITY[i.severity].label + ' severity · ' : ''}${STATUS[i.status]?.label || i.status}. ${i.summary}`)}</summary>
 ${(i.tags || []).map((t) => `    <category term="${esc(t)}"/>`).join('\n')}
   </entry>`).join('\n');
   return `<?xml version="1.0" encoding="utf-8"?>
@@ -69,16 +69,18 @@ ${urls.map(([loc, mod, freq, pri, extra]) => `  <url><loc>${loc}</loc><lastmod>$
 
 export function llmsTxt(data, tags) {
   const items = sortIncidents(data.incidents);
-  const line = (i) => `- [${i.name}](${shareURL(i)}): ${STATUS[i.status]?.label || i.status}, disclosed ${dayKey(i) || 'date unknown'}. ${i.summary}${(i.tags || []).length ? ` Tags: ${i.tags.join(', ')}.` : ''}`;
+  const line = (i) => `- [${i.name}](${shareURL(i)}): ${SEVERITY[i.severity] ? SEVERITY[i.severity].label + ' severity, ' : ''}${(STATUS[i.status]?.label || i.status).toLowerCase()}, disclosed ${dayKey(i) || 'date unknown'}. ${i.summary}${(i.tags || []).length ? ` Tags: ${i.tags.join(', ')}.` : ''}`;
   return `# internetonfire
 
 > ${DESCRIPTION} Maintained by Kuber Mehta (@kuberwastaken). Entries are triaged by an AI agent and corrected by the community through GitHub. Last source check: ${data.updated}.
 
-Evidence labels: ${Object.entries(STATUS).map(([k, s]) => `**${k}** (${s.hint.toLowerCase()})`).join('; ')}. Entries are grouped by the day they went public, not the day they happened. An outage is not proof of a breach; a CVE is not proof of exploitation. Quote the status label along with any claim.
+Severity (how bad it is, judged on what happened rather than CVSS alone): ${Object.entries(SEVERITY).map(([k, s]) => `**${k}** (${s.hint.charAt(0).toLowerCase() + s.hint.slice(1)})`).join('; ')}.
+
+Evidence (how well-sourced it is): ${Object.entries(STATUS).map(([k, s]) => `**${k}** (${s.hint.toLowerCase()})`).join('; ')}. Entries are grouped by the day they went public, not the day they happened. An outage is not proof of a breach; a CVE is not proof of exploitation. Quote the status label along with any claim.
 
 ## Data
 
-- [incidents.json](${SITE}data/incidents.json): the full log. Each incident has id, name, subject, summary, status, date, disclosureDate, tags, sources (label, url, kind: primary|report|post|response, date), an optional correction and an optional detail object (whatHappened, exposure, fix, remaining, responses, claimChecks).
+- [incidents.json](${SITE}data/incidents.json): the full log. Each incident has id, name, subject, summary, severity, status, date, disclosureDate, tags, sources (label, url, kind: primary|report|post|response, date), an optional correction and an optional detail object (whatHappened, exposure, fix, remaining, responses, claimChecks).
 - [tags.json](${SITE}data/tags.json): the tag vocabulary.
 - [Atom feed](${SITE}feed.xml): newest incidents.
 - Link to one incident with \`${SITE}#<id>\`, or \`${SITE}i/<id>/\` for a link with its own preview card.

@@ -1,5 +1,5 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-import {barsHTML, dayLabel, headlineHTML, incidentHTML, listHTML, sharePageHTML, sortIncidents, subjectOf} from '../render.js';
+import {barsHTML, dayLabel, headlineHTML, severityHTML, incidentHTML, listHTML, sharePageHTML, sortIncidents, subjectOf} from '../render.js';
 const base={id:'x',name:'<img src=x onerror=alert(1)>',summary:'"quoted" & <b>',status:'reported',date:'2026-10-20',disclosureDate:'2026-10-21',dateLabel:'Oct 20',category:'test',sources:[{label:'Bad',url:'javascript:alert(1)',kind:'report',date:null}]};
 test('data is escaped, never markup',()=>{const html=incidentHTML(base);assert.ok(!html.includes('<img src=x'));assert.ok(html.includes('&lt;img'));assert.ok(html.includes('&quot;quoted&quot; &amp; &lt;b&gt;'))});
 test('non-https source links are neutralised',()=>assert.ok(!incidentHTML(base).includes('javascript:')));
@@ -12,3 +12,6 @@ test('tags render as filter buttons; legacy category still shows',()=>{const htm
 test('share page: own card, escaped, no meta refresh for crawlers to follow',()=>{const html=sharePageHTML({...base,id:'node-x',subject:'Node.js'});assert.ok(html.includes('<meta property="og:title" content="Node.js is on fire.">'));assert.ok(html.includes('https://kuber.studio/internetonfire/assets/og/node-x.jpg'));assert.ok(html.includes('og:url" content="https://kuber.studio/internetonfire/i/node-x/"'));assert.ok(!/http-equiv/i.test(html));assert.ok(html.includes("location.replace('../../#node-x')"));assert.ok(sharePageHTML({...base,id:'y',name:'<b>x</b> / y'}).includes('&lt;b&gt;x&lt;/b&gt; is on fire.'))});
 test('subject falls back to the name before " / "',()=>{assert.equal(subjectOf({name:'GitLab / critical flaw'}),'GitLab');assert.equal(subjectOf({name:'Plain name',subject:'Thing'}),'Thing')});
 test('every incident has a copy-share button',()=>assert.ok(incidentHTML(base).includes('data-copy="x"')));
+test('worst first within a day',()=>{const rows=sortIncidents([{...base,id:'m',severity:'medium'},{...base,id:'c',severity:'critical'},{...base,id:'n'}]);assert.deepEqual(rows.map(r=>r.id),['c','m','n'])});
+test('severity shows flames and a label, separate from evidence',()=>{const html=incidentHTML({...base,severity:'critical'});assert.equal((severityHTML({severity:'critical'}).match(/<svg/g)||[]).length,3);assert.ok(html.includes('sev-critical'));assert.ok(html.includes('st-reported'));assert.equal(severityHTML({}),'')});
+test('headline names severity and evidence filters',()=>assert.equal(headlineHTML(2,{severity:'critical',status:'confirmed'}),'<b>2</b> critical confirmed incidents in the last week.'));
