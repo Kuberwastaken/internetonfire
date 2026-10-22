@@ -18,7 +18,7 @@ No git setup? [Open an incident report](https://github.com/Kuberwastaken/interne
   "status": "reported",
   "date": "2026-10-22",
   "dateLabel": "Disclosed 22 Oct 2026",
-  "category": "Supply chain",
+  "tags": ["supply-chain", "npm", "malware"],
   "sources": [
     {
       "label": "Incident report",
@@ -32,6 +32,10 @@ No git setup? [Open an incident report](https://github.com/Kuberwastaken/interne
 ```
 
 Replace the example URL with an actual source. Use `null` for unknown dates. The top-level `updated` date is the last editorial source check, not a claim that every incident happened then.
+
+### Tags
+
+`tags` is a list of ids from [`data/tags.json`](data/tags.json): what happened (`breach`, `malware`, `exploited`), where (`npm`, `cloud`, `ai`) and who (`healthcare`, `india`). Pick every one that fits; they become filters on the site. If nothing fits, add a new tag to `data/tags.json` in the same PR with a one-line description. Keep ids short, lowercase and hyphenated. Maintainers mirror tags as GitHub labels so issues and PRs can be tagged too. (`category` is the old free-text field; entries that still have it show it until someone tags them.)
 
 ### Evidence status
 

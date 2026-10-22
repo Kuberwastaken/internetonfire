@@ -12,6 +12,7 @@ Incident name and brief description:
 ## Review checklist
 
 - [ ] This is not a duplicate or a new name for an existing campaign.
+- [ ] Tags come from `data/tags.json` (new tags added there with a one-line description).
 - [ ] Dates and uncertainty are explicit. Outage is not presented as proof of breach.
 - [ ] No credentials, leaked records, private messages or exploit payloads.
 - [ ] `npm test` and `npm run build` pass.

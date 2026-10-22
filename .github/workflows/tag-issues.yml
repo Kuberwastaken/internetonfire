@@ -1,0 +1,26 @@
+name: Label issues from picked tags
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  contents: read
+  issues: write
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: data/tags.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            // The body is untrusted: it is only read as text, and only ids already in data/tags.json become labels.
+            const fs = require('fs');
+            const known = new Set(JSON.parse(fs.readFileSync('data/tags.json', 'utf8')).tags.map(t => t.id));
+            const section = (context.payload.issue.body || '').split(/^### Tags\s*$/m)[1];
+            if (!section) return;
+            const picked = section.split(/^### /m)[0].split(/[,\n]/).map(s => s.trim()).filter(t => known.has(t));
+            if (!picked.length) return;
+            await github.rest.issues.addLabels({ ...context.repo, issue_number: context.issue.number, labels: [...new Set(picked)] });
