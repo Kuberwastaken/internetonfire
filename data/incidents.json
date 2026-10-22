@@ -47,7 +47,8 @@
           "date": "2026-10-20"
         }
       ],
-      "correction": "The October incident followed an earlier breach. See the vendor status page and shutdown announcement for the current service position."
+      "correction": "The October incident followed an earlier breach. See the vendor status page and shutdown announcement for the current service position.",
+      "disclosureDate": "2026-10-15"
     },
     {
       "id": "ovhcloud-cli-backdoor",
@@ -89,7 +90,8 @@
           "date": "2026-10-19"
         }
       ],
-      "correction": null
+      "correction": null,
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "rankmath-pro-malware",
@@ -131,7 +133,8 @@
           "date": "2026-10-19"
         }
       ],
-      "correction": "Affects PRO 3.0.123 only, in an ~11 hour window; clean 3.0.124 already shipped."
+      "correction": "Affects PRO 3.0.123 only, in an ~11 hour window; clean 3.0.124 already shipped.",
+      "disclosureDate": "2026-10-16"
     },
     {
       "id": "teamupdraft-breach",
@@ -173,7 +176,8 @@
           "date": "2026-10-21"
         }
       ],
-      "correction": "The vendor believes the customer database was accessed. It confirmed abuse of UpdraftCentral connections, but the extent of affected customer sites remained unknown. Its advisory was still being updated."
+      "correction": "The vendor believes the customer database was accessed. It confirmed abuse of UpdraftCentral connections, but the extent of affected customer sites remained unknown. Its advisory was still being updated.",
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "connectwise-cloud-backup",
@@ -221,7 +225,8 @@
           "date": "2026-10-17"
         }
       ],
-      "correction": "Microsoft’s Storm-0940 / ARTEX report below describes attribution and AI use in this same attack, not a second incident."
+      "correction": "Microsoft’s Storm-0940 / ARTEX report below describes attribution and AI use in this same attack, not a second incident.",
+      "disclosureDate": "2026-10-16"
     },
     {
       "id": "aomei-update-hijack",
@@ -263,7 +268,8 @@
           "date": "2026-10-19"
         }
       ],
-      "correction": "Framing fix: the hijacking happened April-July 2026; only the disclosure is new this month. Vendor had not proactively notified customers as of Oct 20."
+      "correction": "Framing fix: the hijacking happened April-July 2026; only the disclosure is new this month. Vendor had not proactively notified customers as of Oct 20.",
+      "disclosureDate": "2026-10-15"
     },
     {
       "id": "subquery-npm-backdoor",
@@ -299,7 +305,8 @@
           "date": "2026-10-05"
         }
       ],
-      "correction": null
+      "correction": null,
+      "disclosureDate": "2026-10-05"
     },
     {
       "id": "tensorlake-npm-worm",
@@ -335,7 +342,8 @@
           "date": "2026-10-08"
         }
       ],
-      "correction": null
+      "correction": null,
+      "disclosureDate": "2026-10-08"
     },
     {
       "id": "ghostaction-github",
@@ -371,7 +379,8 @@
           "date": "2025-09-08"
         }
       ],
-      "correction": "The 2025 and 2026 reports describe waves of the same campaign. Repository targeting figures do not equal successful compromises. See GitGuardian’s report for the effect of GitHub’s workflow blocking."
+      "correction": "The 2025 and 2026 reports describe waves of the same campaign. Repository targeting figures do not equal successful compromises. See GitGuardian’s report for the effect of GitHub’s workflow blocking.",
+      "disclosureDate": "2026-10-07"
     },
     {
       "id": "plex2shell",
@@ -419,7 +428,8 @@
           "date": "2026-10-20"
         }
       ],
-      "correction": null
+      "correction": null,
+      "disclosureDate": "2026-10-20"
     },
     {
       "id": "safepay-ransomware",
@@ -455,7 +465,8 @@
           "date": "2025-09-04"
         }
       ],
-      "correction": "Not a new campaign: the advisory is new this week but SafePay has operated since Aug 2024. The advisory itself states the actors impacted at least 600 separate victims across multiple critical infrastructure sectors - the 'hundreds of organizations' framing is supported."
+      "correction": "Not a new campaign: the advisory is new this week but SafePay has operated since Aug 2024. The advisory itself states the actors impacted at least 600 separate victims across multiple critical infrastructure sectors - the 'hundreds of organizations' framing is supported.",
+      "disclosureDate": "2026-10-20"
     },
     {
       "id": "paloalto-ransomware-attacks",
@@ -491,7 +502,8 @@
           "date": "2026-10-12"
         }
       ],
-      "correction": "Framing fix: onset was May 2026, not this week; this month's news is expanded/continued ransomware exploitation of the same patched CVE."
+      "correction": "Framing fix: onset was May 2026, not this week; this month's news is expanded/continued ransomware exploitation of the same patched CVE.",
+      "disclosureDate": "2026-10-20"
     },
     {
       "id": "meta-muse-privacy",
@@ -527,7 +539,8 @@
           "date": "2026-09-21"
         }
       ],
-      "correction": "Two distinct issues: a patched September vulnerability and October share-link exposure. These descriptions rely on attributed reporting; an incident-specific Meta statement has not been verified here."
+      "correction": "Two distinct issues: a patched September vulnerability and October share-link exposure. These descriptions rely on attributed reporting; an incident-specific Meta statement has not been verified here.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "tor-exit-relay-hijack",
@@ -569,7 +582,8 @@
           "date": "2026-10-21"
         }
       ],
-      "correction": "The figure of 333 exit relays comes from a researcher’s scan. It is a reported observation, not an independently verified count of distinct breached relay operators."
+      "correction": "The figure of 333 exit relays comes from a researcher’s scan. It is a reported observation, not an independently verified count of distinct breached relay operators.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "tidb-cloud-breach",
@@ -611,7 +625,8 @@
           "date": "2026-10-20"
         }
       ],
-      "correction": "Breach confirmed; scope disputed - attacker leak-site figures (10.6 TB, 115k plaintext keys) are unverified claims that conflict with PingCAP's statement that keys were encrypted and unused."
+      "correction": "Breach confirmed; scope disputed - attacker leak-site figures (10.6 TB, 115k plaintext keys) are unverified claims that conflict with PingCAP's statement that keys were encrypted and unused.",
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "sbi-data-breach",
@@ -647,7 +662,8 @@
           "date": "2026-10-21"
         }
       ],
-      "correction": "Reporting distinguishes more than 375,000 records from 3,897 containing personal information. Authenticity and scope remained under assessment; neither figure establishes that every record belongs to a different person."
+      "correction": "Reporting distinguishes more than 375,000 records from 3,897 containing personal information. Authenticity and scope remained under assessment; neither figure establishes that every record belongs to a different person.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "siemens-software-center",
@@ -683,7 +699,8 @@
           "date": "2026-10-20"
         }
       ],
-      "correction": "Not a breach of Siemens infrastructure: attackers abuse the signed client via ClickFix lures. Siemens explicitly states no Siemens system or update channel was breached."
+      "correction": "Not a breach of Siemens infrastructure: attackers abuse the signed client via ClickFix lures. Siemens explicitly states no Siemens system or update channel was breached.",
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "north-korea-campaign",
@@ -725,7 +742,8 @@
           "date": "2026-10-13"
         }
       ],
-      "correction": "The unspecific North Korea claim cannot be assigned to one event. October reporting covers separate campaigns and enforcement actions. Linked reports are leads, not evidence that they are the same campaign."
+      "correction": "The unspecific North Korea claim cannot be assigned to one event. October reporting covers separate campaigns and enforcement actions. Linked reports are leads, not evidence that they are the same campaign.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "microsoft-artex-storm0940",
@@ -767,7 +785,8 @@
           "date": "2026-10-21"
         }
       ],
-      "correction": "This is Microsoft’s attribution and AI-use assessment for the ConnectWise Cloud Backup incident, not a separate attack. Tenant sign-ins are not a count of independently breached organisations. ARTEX is an open-source framework misused by the actor."
+      "correction": "This is Microsoft’s attribution and AI-use assessment for the ConnectWise Cloud Backup incident, not a separate attack. Tenant sign-ins are not a count of independently breached organisations. ARTEX is an open-source framework misused by the actor.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "emudhra-ca-key-compromise",
@@ -817,7 +836,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report."
+      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report.",
+      "disclosureDate": "2026-10-20"
     },
     {
       "id": "railway-env-vars-breach",
@@ -859,7 +879,8 @@
           "provenance": "full-read"
         }
       ],
-      "correction": "Railway confirmed the investigation, not a final count of exposed accounts. The deployment pause was precautionary. Follow the current status page for restoration updates."
+      "correction": "Railway confirmed the investigation, not a final count of exposed accounts. The deployment pause was precautionary. Follow the current status page for restoration updates.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "litellm-supply-chain-v11070",
@@ -886,7 +907,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "This is the October 1.107.0 compromise, separate from the earlier 2026 1.82.x incident. The official advisory lists affected registry tags and the exposure windows."
+      "correction": "This is the October 1.107.0 compromise, separate from the earlier 2026 1.82.x incident. The official advisory lists affected registry tags and the exposure windows.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "opencode-api-keys-distillation-attack",
@@ -935,7 +957,8 @@
           "provenance": "full-read"
         }
       ],
-      "correction": "The official OpenCode statement is linked alongside reporting and maintainer commentary. The company described a distillation attack; user charges and wider attribution are not independently audited. Do not treat every linked comment as a confirmed technical finding."
+      "correction": "The official OpenCode statement is linked alongside reporting and maintainer commentary. The company described a distillation attack; user charges and wider attribution are not independently audited. Do not treat every linked comment as a confirmed technical finding.",
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "php2shell-cve-2026-109618-109619",
@@ -963,7 +986,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The 9.2 rating is attributed to the PHP security team in security reporting. Two CVEs are involved. This entry has not independently captured the PHP project’s own advisory."
+      "correction": "The 9.2 rating is attributed to the PHP security team in security reporting. Two CVEs are involved. This entry has not independently captured the PHP project’s own advisory.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "gitlab-cve-2026-110264-onigmo",
@@ -998,7 +1022,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Potential remote code execution is not proof of exploitation. The advisory concerns self-managed GitLab; hosted services and detailed supported release guidance are covered in GitLab’s own notice."
+      "correction": "Potential remote code execution is not proof of exploitation. The advisory concerns self-managed GitLab; hosted services and detailed supported release guidance are covered in GitLab’s own notice.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "nginx-october-2026-advisories",
@@ -1025,7 +1050,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The circulating description of “three critical vulnerabilities” does not match this release: NGINX lists five medium-severity advisories. Its HTTP/3 issue is separate from Header Accordions."
+      "correction": "The circulating description of “three critical vulnerabilities” does not match this release: NGINX lists five medium-severity advisories. Its HTTP/3 issue is separate from Header Accordions.",
+      "disclosureDate": "2026-10-14"
     },
     {
       "id": "cairn-ai-agents-100-companies",
@@ -1061,7 +1087,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Cairn is the tool being abused, not a breached vendor. The 100+ figure is attributed to the researcher. This entry omits victim names originating in excluded reporting. The separate Microsoft ARTEX campaign should not be assumed to be the same operation."
+      "correction": "Cairn is the tool being abused, not a breached vendor. The 100+ figure is attributed to the researcher. This entry omits victim names originating in excluded reporting. The separate Microsoft ARTEX campaign should not be assumed to be the same operation.",
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "signal-ringrtc-hangup-cve-2026-113380",
@@ -1089,7 +1116,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "Press reports describe audio continuation with a malicious call participant. Camera continuation remains uncertain. The library fix and the first fixed mobile app versions should not be assumed to be identical."
+      "correction": "Press reports describe audio continuation with a malicious call participant. Camera continuation remains uncertain. The library fix and the first fixed mobile app versions should not be assumed to be identical.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "tailscale-ts-2026-013-emudhra",
@@ -1116,7 +1144,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "This is a follow-on to the eMudhra certificate incident, not an independent Tailscale compromise. See bulletin TS-2026-013 and the current changelog."
+      "correction": "This is a follow-on to the eMudhra certificate incident, not an independent Tailscale compromise. See bulletin TS-2026-013 and the current changelog.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "nodejs-october-2026-security-release",
@@ -1135,7 +1164,8 @@
           "provenance": "full-read"
         }
       ],
-      "correction": "The same release includes both independent vulnerability fixes and an eMudhra certificate-trust update. They are not all caused by the certificate incident."
+      "correction": "The same release includes both independent vulnerability fixes and an eMudhra certificate-trust update. They are not all caused by the certificate incident.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "california-ets-student-data-breach",
@@ -1151,15 +1181,15 @@
           "url": "https://www.cde.ca.gov/nr/in/documents/etsdatabreach-english.pdf",
           "kind": "primary",
           "date": "2026-10-16",
-          "provenance": "full-read"
+          "provenance": "excerpt",
+          "verification": "excerpt"
         },
         {
           "label": "CDE ETS notification page",
           "url": "https://www.cde.ca.gov/nr/in/ets-notification.asp",
           "kind": "primary",
           "date": "2026-10-16",
-          "provenance": "excerpt",
-          "verification": "excerpt"
+          "provenance": "full-read"
         },
         {
           "label": "LA Times · Reporting",
@@ -1186,7 +1216,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The intrusion occurred months before public disclosure. ETS was the affected contractor; California’s notification describes the student-data categories and three-school-year scope."
+      "correction": "The intrusion occurred months before public disclosure. ETS was the affected contractor; California’s notification describes the student-data categories and three-school-year scope.",
+      "disclosureDate": "2026-10-16"
     },
     {
       "id": "http3-header-accordions-qpack",
@@ -1205,7 +1236,8 @@
           "provenance": "full-read"
         }
       ],
-      "correction": "The affected implementation list and patch status were captured at disclosure. This is distinct from NGINX’s separately listed HTTP/3 issue. Consult the original research for current changes."
+      "correction": "The affected implementation list and patch status were captured at disclosure. This is distinct from NGINX’s separately listed HTTP/3 issue. Consult the original research for current changes.",
+      "disclosureDate": "2026-10-20"
     },
     {
       "id": "onamae-desktop-cloud-malware",
@@ -1232,7 +1264,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The provider’s potentially affected server count is not a confirmed count of servers with stolen data. The incident concerns the Desktop Cloud product, not every Onamae or GMO service."
+      "correction": "The provider’s potentially affected server count is not a confirmed count of servers with stolen data. The incident concerns the Desktop Cloud product, not every Onamae or GMO service.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "ahold-delhaize-cyberattack",
@@ -1260,7 +1293,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "The incident began on 12 October, before this week’s reporting. The company’s no-evidence-of-data-theft statement is time-bound and does not close the investigation."
+      "correction": "The incident began on 12 October, before this week’s reporting. The company’s no-evidence-of-data-theft statement is time-bound and does not close the investigation.",
+      "disclosureDate": "2026-10-19"
     },
     {
       "id": "bullhorn-outages-october-2026",
@@ -1279,7 +1313,8 @@
           "provenance": "full-read"
         }
       ],
-      "correction": "The PHP shutdown, the earlier cyber incident and login replication problems are separate. The status page is a changing source; this entry reflects the captured 21–22 October updates."
+      "correction": "The PHP shutdown, the earlier cyber incident and login replication problems are separate. The status page is a changing source; this entry reflects the captured 21–22 October updates.",
+      "disclosureDate": "2026-10-21"
     },
     {
       "id": "medical-paradigm-breach",
@@ -1307,7 +1342,8 @@
           "verification": "excerpt"
         }
       ],
-      "correction": "This is a 2025 intrusion with 2026 notification and reporting. The affected contractor handled Medi-Cal claims. The underlying HHS portal entry was not independently captured here."
+      "correction": "This is a 2025 intrusion with 2026 notification and reporting. The affected contractor handled Medi-Cal claims. The underlying HHS portal entry was not independently captured here.",
+      "disclosureDate": "2026-10-20"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 **The internet is on fire. Keep the receipts.**
 
-A plain, source-linked notebook of security incidents, infrastructure failures and AI mishaps. Names, short descriptions, real dates, original reports, public posts and responses. No doom dashboard.
+A ruled-paper, source-linked notebook of security incidents, infrastructure failures and AI mishaps. Names, short descriptions, real dates, original reports, public posts and responses. No doom dashboard.
 
 [Open the website](https://kuber.studio/internetonfire/) · [Submit an incident](https://github.com/Kuberwastaken/internetonfire/issues/new?template=incident.yml) · [Review PRs](https://github.com/Kuberwastaken/internetonfire/pulls) · [Contribute](CONTRIBUTING.md)
 
@@ -32,7 +32,7 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-The browser suite starts its own local server, checks mobile and desktop layouts, search, filters, sort, source links, submission dialog, keyboard close, and GitHub API failure handling. It writes local screenshots to `test-results/`, which is not committed.
+The browser suite starts its own local server, checks mobile and desktop layouts, search, filters, sort, source links, submission dialog, keyboard close, reduced-motion fallback and GitHub API failure handling. It writes local screenshots to `test-results/`, which is not committed.
 
 ## How updates work
 
@@ -56,3 +56,9 @@ tests/               data checks and browser checks
 Body text uses [Inter](https://github.com/rsms/inter), licensed under the SIL Open Font License in `assets/Inter-LICENSE.txt`. Handwritten accents use Kuber's published prototype from [Kuber Hand](https://kuber.studio/handwriting-font/), used here at his request. No handwriting samples, source documents or private correspondence are included. The prototype is an accent font, not a claim to simulate newly handwritten text.
 
 Code is MIT licensed. The Kuber Hand font remains its owner's work and is excluded from that code licence; no broader font redistribution grant is implied. Incident summaries are brief editorial descriptions with attribution links, not copied articles.
+
+## Notebook time windows
+
+Time filters use source publication/disclosure time, not the original incident occurrence date. `disclosedAt` is an optional exact ISO timestamp with timezone. `disclosureDate` is date-only when a source gives no clock time. Date-only records never qualify for last-hour results. A date-only record can appear as a labelled possible overlap in longer rolling windows, using a conservative timezone envelope rather than inventing midnight. All/history retains unknown and older entries.
+
+The visual page uses genuine Inter headings, Kuber Hand notes, ruled paper and a dog/fire site drawing. Cached source favicons identify the source links; full titles, publication dates and verification notes remain in each entry’s receipts disclosure. The top-right contribution button opens the submission guide, with the PR queue and voting at the bottom plus a top shortcut.
