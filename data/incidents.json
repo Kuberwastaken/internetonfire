@@ -506,43 +506,6 @@
       "disclosureDate": "2026-10-20"
     },
     {
-      "id": "meta-muse-privacy",
-      "name": "Meta Muse AI agent privacy flaws",
-      "summary": "Reporting describes two privacy issues in Meta’s Muse assistant: a patched September vulnerability and October share links that exposed conversations. These are separate issues, not one confirmed breach of all users.",
-      "status": "reported",
-      "date": "2026-10-20",
-      "dateLabel": "Sept 2026: 0-day disclosed and patched; Oct 20-21, 2026: share-link exposure reported, sharing suspended",
-      "category": "AI privacy",
-      "sources": [
-        {
-          "label": "WIRED · Reporting",
-          "url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
-          "kind": "report",
-          "date": "2026-10-21"
-        },
-        {
-          "label": "Ars Technica · Reporting",
-          "url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/",
-          "kind": "report",
-          "date": "2026-10-20"
-        },
-        {
-          "label": "Engadget: Meta suspends Muse chats sharing feature",
-          "url": "https://www.engadget.com/2292281/meta-suspends-muse-chats-sharing-feature-after-it-left-private-details-exposed/",
-          "kind": "report",
-          "date": "2026-10-20"
-        },
-        {
-          "label": "Ars Technica: Muse has a serious 0-day (Sept)",
-          "url": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
-          "kind": "report",
-          "date": "2026-09-21"
-        }
-      ],
-      "correction": "Two distinct issues: a patched September vulnerability and October share-link exposure. These descriptions rely on attributed reporting; an incident-specific Meta statement has not been verified here.",
-      "disclosureDate": "2026-10-21"
-    },
-    {
       "id": "tor-exit-relay-hijack",
       "name": "Tor exit relays hijacked",
       "summary": "A researcher found 333 Tor exit relays (~10% of the network's ~3,000 exits) redirecting SSH connections through 12 interception servers using the Ebury OpenSSH backdoor, harvesting passwords when users accepted forged host keys. Exit policies on hundreds of relays were rewritten Oct 1-5; Tor directory authorities removed the compromised relays around Oct 20-21.",
@@ -743,49 +706,6 @@
         }
       ],
       "correction": "The unspecific North Korea claim cannot be assigned to one event. October reporting covers separate campaigns and enforcement actions. Linked reports are leads, not evidence that they are the same campaign.",
-      "disclosureDate": "2026-10-21"
-    },
-    {
-      "id": "microsoft-artex-storm0940",
-      "name": "Microsoft / Storm-0940 and ARTEX",
-      "summary": "Microsoft says China-state-aligned Storm-0940 used the ARTEX agentic penetration-testing framework to target hundreds of organisations from September 2026. It attributes the ConnectWise supply-chain compromise to the same actor. Attempts reached more than 2,250 tenants; authentication alone does not establish data theft.",
-      "status": "confirmed",
-      "date": "2026-10-21",
-      "dateLabel": "Microsoft Security Blog Oct 21, 2026; campaign activity as early as Sept 2026",
-      "category": "state-sponsored / AI-enabled attack",
-      "sources": [
-        {
-          "label": "Microsoft Security Blog · Original source",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
-          "kind": "primary",
-          "date": "2026-10-21"
-        },
-        {
-          "label": "CyberScoop · Reporting",
-          "url": "https://cyberscoop.com/microsoft-attributes-connectwise-supply-chain-attack-china-storm-0940/",
-          "kind": "report",
-          "date": "2026-10-21"
-        },
-        {
-          "label": "The Hacker News · Reporting",
-          "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
-          "kind": "report",
-          "date": "2026-10-22"
-        },
-        {
-          "label": "India Today · Reporting",
-          "url": "https://www.indiatoday.in/technology/news/story/microsoft-says-chinese-hackers-used-ai-agents-to-attack-hundreds-of-organisations-worldwide-3022422-2026-10-22",
-          "kind": "report",
-          "date": "2026-10-22"
-        },
-        {
-          "label": "X · MsftSecIntel",
-          "url": "https://x.com/MsftSecIntel/status/2112975078266716390",
-          "kind": "post",
-          "date": "2026-10-21"
-        }
-      ],
-      "correction": "This is Microsoft’s attribution and AI-use assessment for the ConnectWise Cloud Backup incident, not a separate attack. Tenant sign-ins are not a count of independently breached organisations. ARTEX is an open-source framework misused by the actor.",
       "disclosureDate": "2026-10-21"
     },
     {
