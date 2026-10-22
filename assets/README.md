@@ -1,11 +1,7 @@
-# Type assets
+# Assets
 
-- `inter.ttf`: Inter regular from Google's hosted distribution of Inter, downloaded 2026-10-22. Source: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap . Licence: `Inter-LICENSE.txt`.
-- `kuber-hand.ttf`: Kuber Hand prototype, downloaded from the owner's public studio's Font link on 2026-10-22: https://kuber.studio/handwriting-font/ . Used on this website at the owner's explicit request for his handwriting font. This does not grant an open font licence to third parties. Private source handwriting is not included.
-- `favicon.svg`: original typographic asterisk mark for this project.
-
-## Site emblem
-
-`emblem.png`, `emblem.gif`, `favicon-32.png` and `favicon-64.png` are a new programmatically drawn site illustration made for Kuber Mehta, inspired by the familiar "this is fine" meme. They are not official Question Hound artwork and do not imply endorsement by KC Green. No third-party GIF was copied. Broader third-party rights or exclusive ownership are not asserted. The site animation uses a slower 260ms frame duration and plays three short cycles then stops (under five seconds total), and switches to a static image for reduced-motion preferences.
-
-`source-icons/*.png`: cached source-site favicons retrieved through Google’s favicon service for the exact source domains on 2026-10-22. These identify and link their respective sources; no endorsement or ownership of source trademarks is claimed. Unknown/unavailable icons fall back to a neutral outbound-link mark, not an invented logo. `paper-grain.svg` is an original procedural texture.
+- `fonts/inter-latin-opsz-*.woff2`: Inter variable (weight + optical size), Latin subset, from `@fontsource-variable/inter@5.2.5`. SIL Open Font License, see `Inter-LICENSE.txt`.
+- `this-is-fine.mp4` / `.webp`: see `THIS-IS-FINE.md`.
+- `favicon.svg`: flame mark drawn for this project.
+- `og.png`: social card, rendered from `tools/og/og.html` with `node tools/og/render.mjs`.
+- `source-icons/*.png`: favicons for source domains via Google's favicon service, cached by `node tools/fetch-source-icons.mjs`. They identify the linked source; no endorsement is implied. Missing icons fall back to the domain's first letter.

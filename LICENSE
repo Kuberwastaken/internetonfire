@@ -20,5 +20,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Exclusions: assets/kuber-hand.ttf is the owner's font and is not licensed by
-this MIT code licence. Inter is covered by assets/Inter-LICENSE.txt.
+Exclusions: Inter (assets/fonts) is covered by assets/Inter-LICENSE.txt. The
+"This is fine" artwork is K.C. Green's; see assets/THIS-IS-FINE.md.

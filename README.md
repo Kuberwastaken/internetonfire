@@ -1,64 +1,51 @@
 # internetonfire
 
-**The internet is on fire. Keep the receipts.**
+**The internet is on fire. This is fine.**
 
-A ruled-paper, source-linked notebook of security incidents, infrastructure failures and AI mishaps. Names, short descriptions, real dates, original reports, public posts and responses. No doom dashboard.
+A running log of security incidents: breaches, backdoored packages, exploited bugs. Every entry links to its source and carries an evidence label. An AI agent does the triage; anyone can correct it with a PR.
 
-[Open the website](https://kuber.studio/internetonfire/) · [Submit an incident](https://github.com/Kuberwastaken/internetonfire/issues/new?template=incident.yml) · [Review PRs](https://github.com/Kuberwastaken/internetonfire/pulls) · [Contribute](CONTRIBUTING.md)
+[kuber.studio/internetonfire](https://kuber.studio/internetonfire/) · [Report an incident](https://github.com/Kuberwastaken/internetonfire/issues/new?template=incident.yml) · [Open PRs](https://github.com/Kuberwastaken/internetonfire/pulls) · [Contributing](CONTRIBUTING.md)
 
-## Read it carefully
+## Evidence labels
 
-A viral list is not a dated incident report. Entries are marked **Confirmed**, **Reported**, **Disputed** or **Needs evidence**. Old incidents keep their real dates. Unknown dates stay unknown. Sources support the specific description, not every surrounding allegation. Corrections live beside the entry and in git history.
+| | |
+|---|---|
+| **Confirmed** | A primary source (vendor advisory, researcher write-up) backs the description. |
+| **Reported** | Credible reporting, no primary confirmation yet. |
+| **Disputed** | Sources disagree. Both sides are linked. |
+| **Unverified** | A claim going around. Not an established incident. |
 
-This is an open notebook, not an emergency alert service. Verify the advisory for your own systems before acting.
+Entries are grouped by the day they went public, not the day they happened. An outage isn't a breach; a CVE isn't proof of exploitation.
 
-## Run locally
+## Contributing and voting
 
-Requires Node.js 22+ and Python 3 for the local server.
+Edit `data/incidents.json` and open a PR, or file an issue with the template. React 👍 / 👎 on a PR to vote; the site shows the counts. Votes set review order and never merge anything. Details in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Run it
+
+Node 22+ and Python 3.
 
 ```sh
 npm ci
-npm test
-npm run build
-npm run dev
+npm test            # schema, time windows, renderer
+npm run build       # validates data, prerenders the log into dist/
+npm run dev         # http://localhost:4173
+npx playwright install chromium && npm run test:browser
 ```
 
-Open `http://localhost:4173`. `npm run build` copies the static site to `dist/`; no framework or runtime package is needed in production.
-
-For browser checks:
-
-```sh
-npx playwright install chromium
-npm run test:browser
-```
-
-The browser suite starts its own local server, checks mobile and desktop layouts, search, filters, sort, source links, submission dialog, keyboard close, reduced-motion fallback and GitHub API failure handling. It writes local screenshots to `test-results/`, which is not committed.
-
-## How updates work
-
-Edit `data/incidents.json` and send a PR. Schema checks reject missing dates, invalid statuses, unsafe source URLs, and unsourced confirmations. A maintainer reviews the actual evidence. Reactions on the PR body are visible on the site and are a review signal only. Nobody can vote an unsupported claim directly onto the page. [The contribution guide](CONTRIBUTING.md) has the format and review checklist.
-
-GitHub Actions tests and builds pull requests with read-only permissions. Pushes to `main` deploy the tested static build with the official GitHub Pages actions. PR code never receives deployment credentials. Deployments use a concurrency group to prevent stale publishes. The public PR list is fetched on page load and manual refresh, not continuously polled. API errors leave a direct link to the review queue.
-
-## Structure
+No framework, no runtime dependencies. Pushes to `main` are tested and deployed to GitHub Pages.
 
 ```text
-data/incidents.json  dated source records
-app.js               safe DOM rendering, filters, PR list
-style.css            responsive paper / ink layout
-scripts/             schema validation and static build
-tests/               data checks and browser checks
-.github/             PR/issue templates and CI/deployment
+data/incidents.json   the log
+render.js             HTML renderers shared by the browser and the build
+app.js                filters, bars, GitHub stars and PR queue
+time.js               time-window matching
+scripts/              validation and static build
+tools/                favicon fetcher, social card renderer
 ```
 
-## Type and assets
+Code is MIT. Inter is OFL (`assets/Inter-LICENSE.txt`). "This is fine" is by K.C. Green (`assets/THIS-IS-FINE.md`).
 
-Body text uses [Inter](https://github.com/rsms/inter), licensed under the SIL Open Font License in `assets/Inter-LICENSE.txt`. Handwritten accents use Kuber's published prototype from [Kuber Hand](https://kuber.studio/handwriting-font/), used here at his request. No handwriting samples, source documents or private correspondence are included. The prototype is an accent font, not a claim to simulate newly handwritten text.
+---
 
-Code is MIT licensed. The Kuber Hand font remains its owner's work and is excluded from that code licence; no broader font redistribution grant is implied. Incident summaries are brief editorial descriptions with attribution links, not copied articles.
-
-## Notebook time windows
-
-Time filters use source publication/disclosure time, not the original incident occurrence date. `disclosedAt` is an optional exact ISO timestamp with timezone. `disclosureDate` is date-only when a source gives no clock time. Date-only records never qualify for last-hour results. A date-only record can appear as a labelled possible overlap in longer rolling windows, using a conservative timezone envelope rather than inventing midnight. All/history retains unknown and older entries.
-
-The visual page uses genuine Inter headings, Kuber Hand notes, ruled paper and a dog/fire site drawing. Cached source favicons identify the source links; full titles, publication dates and verification notes remain in each entry’s receipts disclosure. The top-right contribution button opens the submission guide, with the PR queue and voting at the bottom plus a top shortcut.
+another dumb project by [@kuberwastaken](https://x.com/kuberwastaken)

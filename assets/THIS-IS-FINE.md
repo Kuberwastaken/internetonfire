@@ -1,7 +1,7 @@
-# This Is Fine GIF
+# This Is Fine
 
-Downloaded unchanged from the image URL exposed on https://giphy.com/gifs/z9AUvhAEiXOqA on 2026-10-22. GIPHY points to https://www.reddit.com/r/gifs/comments/4c8gio/this_is_fine_now_in_gif_form/ as its source.
+The comic is by K.C. Green (Gunshow). Background: https://knowyourmeme.com/memes/this-is-fine
 
-The comic is by K.C. Green. Background/origin: https://knowyourmeme.com/memes/this-is-fine . The animated adaptation's uploader is not asserted to own the original comic. Inclusion is a requested meme illustration, not an original asset or an endorsement. No exclusive rights or license clearance is claimed. The PNG is the first GIF frame for reduced-motion preference and pause control.
+`this-is-fine.mp4` is a re-encode of the animated GIF at https://giphy.com/gifs/z9AUvhAEiXOqA (downloaded 2026-10-22; GIPHY cites https://www.reddit.com/r/gifs/comments/4c8gio/this_is_fine_now_in_gif_form/). `this-is-fine.webp` is its first frame, used as the poster and for reduced-motion visitors.
 
-The separately generated emblem and its source remain in this repository for provenance, but are not the displayed meme.
+Used as a meme illustration with credit on the page. No ownership, licence or endorsement is claimed.
