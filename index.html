@@ -3,13 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The internet is on fire</title>
-<meta name="description" content="A central, community-maintained tracker of recent cybersecurity and AI incidents. Every entry linked to its source.">
+<title>The internet is on fire · Live cybersecurity and AI incident tracker</title>
+<meta name="description" content="A central, community-maintained tracker of recent cybersecurity and AI incidents: data breaches, backdoored npm and PyPI packages, exploited vulnerabilities. Every entry linked to its source and labelled by evidence.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Kuber Mehta">
+<link rel="alternate" type="application/atom+xml" title="internetonfire: new incidents" href="https://kuber.studio/internetonfire/feed.xml">
+<link rel="alternate" type="application/json" title="Incident data" href="https://kuber.studio/internetonfire/data/incidents.json">
+<link rel="alternate" type="text/plain" title="llms.txt" href="https://kuber.studio/internetonfire/llms.txt">
+<link rel="sitemap" type="application/xml" href="https://kuber.studio/internetonfire/sitemap.xml">
+<!--JSONLD-->
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://kuber.studio/internetonfire/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://kuber.studio/internetonfire/">
 <meta property="og:title" content="The internet is on fire.">
 <meta property="og:description" content="A central, community-maintained tracker of recent cybersecurity and AI incidents. This is fine.">
@@ -49,8 +57,8 @@
 <header class="top wrap">
   <a class="brand" href="./" aria-label="internetonfire home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>internetonfire</a>
   <nav>
-    <a class="icon-btn" href="#submit" data-open-submit title="Submit an incident" aria-label="Submit an incident"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></a>
     <a class="star-btn" href="https://github.com/Kuberwastaken/internetonfire" target="_blank" rel="noopener" title="Star on GitHub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span class="star-label">Star</span><span class="star-count" data-stars hidden></span></a>
+    <a class="contrib-btn" href="#submit" data-open-submit title="Submit an incident"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>Contribute</span></a>
     <div id="account" hidden><button type="button" class="avatar-btn" aria-label="Account" aria-haspopup="true"><img alt="" width="24" height="24"></button><div class="menu" hidden><span data-login></span><button type="button" data-signout>Sign out</button></div></div>
   </nav>
 </header>
@@ -99,12 +107,13 @@
     <p class="note">Tap 👍 / 👎 to vote. Votes set review order, never merge.</p>
     <ul id="pr-list" aria-live="polite"><li class="muted">Loading…</li></ul>
     <details class="cli">
-      <summary><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6M12 19h8"/></svg>From the terminal</summary>
+      <summary><svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6M12 19h8"/></svg>If you’re an LLM or terminal</summary>
       <pre><code># vote (👍 = +1, 👎 = -1)
 gh api -X POST repos/Kuberwastaken/internetonfire/issues/&lt;number&gt;/reactions -f content=+1
 
 # submit
 gh issue create -R Kuberwastaken/internetonfire --web</code></pre>
+      <p class="machine"><a href="./llms.txt">llms.txt</a> · <a href="./data/incidents.json">incidents.json</a> · <a href="./feed.xml">Atom feed</a></p>
     </details>
   </section>
 

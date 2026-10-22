@@ -94,6 +94,12 @@ button { font: inherit; color: inherit; }
   border: 1px solid var(--rule); border-radius: 999px; font-size: .875rem; font-weight: 550; text-decoration: none;
 }
 .star-btn:hover { border-color: var(--faint); }
+.contrib-btn {
+  display: inline-flex; align-items: center; gap: .35rem; height: 2.1rem; padding: 0 .8rem 0 .65rem; border-radius: 999px;
+  background: var(--ink); color: var(--bg); font-size: .875rem; font-weight: 550; text-decoration: none;
+}
+.contrib-btn:hover { opacity: .88; }
+.contrib-btn .i { width: 1rem; height: 1rem; }
 .star-count { color: var(--muted); font-variant-numeric: tabular-nums; padding-left: .45rem; border-left: 1px solid var(--rule); }
 
 /* ---- hero ---- */
@@ -286,6 +292,7 @@ h2 { font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 680; margin: 0; }
 .cli summary::-webkit-details-marker { display: none; }
 .cli summary:hover { color: var(--ink); }
 .cli pre { margin: .6rem 0 0; padding: .8rem 1rem; background: var(--soft); border-radius: 8px; overflow-x: auto; font-size: .78rem; line-height: 1.6; color: var(--ink-2); }
+.cli .machine { margin: .6rem 0 0; font-size: .82rem; }
 .cli code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
 
 /* ---- account ---- */
@@ -373,6 +380,7 @@ h2 { font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 680; margin: 0; }
   .incident { scroll-margin-top: 1rem; }
   .top { padding-block: .75rem; }
   .star-btn { padding: 0 .65rem; }
+  .contrib-btn { padding: 0 .7rem 0 .55rem; }
   .hero { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 1.5rem; padding-bottom: 1.75rem; }
   h1 { font-size: clamp(2.4rem, 11.5vw, 3rem); }
   .fine { font-size: 1.05rem; }
@@ -399,6 +407,19 @@ h2 { font-size: 1.25rem; letter-spacing: -0.02em; font-weight: 680; margin: 0; }
   .blk p { font-size: .9rem; }
   .sources li { flex-direction: column; gap: 0; }
   .bars { height: 3.5rem; gap: 1px; }
+}
+
+/* Small phones: tighter header; on the smallest the star keeps its icon and count, the label goes. */
+@media (max-width: 370px) {
+  .top .star-label { display: none; }
+  .top .star-count { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 420px) {
+  .top { padding-inline: 1rem; }
+  .top nav { gap: .3rem; }
+  .brand { font-size: .875rem; gap: .25rem; }
+  .top .star-btn { padding: 0 .55rem; gap: .3rem; font-size: .8rem; }
+  .contrib-btn { font-size: .8rem; padding: 0 .6rem 0 .45rem; gap: .25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
