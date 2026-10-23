@@ -5,6 +5,7 @@ import {SEVERITY, SITE, STATUS, dayKey, esc, sortIncidents, subjectOf} from '../
 const TITLE = 'The internet is on fire';
 const DESCRIPTION = 'A central, community-maintained tracker of recent cybersecurity and AI incidents: breaches, backdoored packages, exploited vulnerabilities and AI platform incidents, each linked to its original source and labelled by how solid the evidence is.';
 const REPO = 'https://github.com/Kuberwastaken/internetonfire';
+const LICENSE = `${REPO}/blob/main/LICENSE`;
 const AUTHOR = {'@type': 'Person', name: 'Kuber Mehta', alternateName: 'kuberwastaken', url: 'https://kuber.studio/', sameAs: ['https://x.com/kuberwastaken', 'https://github.com/Kuberwastaken']};
 const entryURL = (i) => `${SITE}#${i.id}`;
 const shareURL = (i) => `${SITE}i/${i.id}/`;
@@ -16,7 +17,7 @@ export function jsonLd(data) {
     {'@type': 'WebSite', '@id': `${SITE}#website`, url: SITE, name: TITLE, alternateName: 'internetonfire', description: DESCRIPTION, inLanguage: 'en', author: AUTHOR, publisher: AUTHOR},
     {'@type': 'WebPage', '@id': `${SITE}#webpage`, url: SITE, name: `${TITLE}: live cybersecurity and AI incident tracker`, isPartOf: {'@id': `${SITE}#website`},
       primaryImageOfPage: `${SITE}assets/og.jpg`, dateModified: data.updated, about: ['Cybersecurity incidents', 'Data breaches', 'Software supply chain attacks', 'AI security'], mainEntity: {'@id': `${SITE}#incidents`}},
-    {'@type': 'Dataset', '@id': `${SITE}#dataset`, name: 'internetonfire incident log', description: DESCRIPTION, url: SITE, sameAs: REPO, creator: AUTHOR,
+    {'@type': 'Dataset', '@id': `${SITE}#dataset`, name: 'internetonfire incident log', description: DESCRIPTION, url: SITE, sameAs: REPO, creator: AUTHOR, license: LICENSE,
       dateModified: data.updated, isAccessibleForFree: true, keywords: ['cybersecurity', 'data breach', 'supply chain attack', 'npm', 'PyPI', 'vulnerability', 'ransomware', 'AI security', 'incident tracker'],
       distribution: [{'@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${SITE}data/incidents.json`}],
       variableMeasured: ['status', 'tags', 'disclosureDate', 'sources']},
