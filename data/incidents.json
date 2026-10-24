@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -1486,6 +1486,13 @@
           "provenance": "title-verified"
         },
         {
+          "label": "LiteLLM · Canonical root-cause report",
+          "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain",
+          "kind": "primary",
+          "date": "2026-10-23",
+          "provenance": "title-verified"
+        },
+        {
           "label": "Datadog Security Labs · Reporting",
           "url": "https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-docker/",
           "kind": "report",
@@ -1497,10 +1504,10 @@
       "correction": "This is the October 1.107.0 compromise, separate from the earlier 2026 1.82.x incident. The official advisory lists affected registry tags and the exposure windows.",
       "disclosureDate": "2026-10-21",
       "detail": {
-        "whatHappened": "In the early morning of October 21, 2026, LiteLLM's release pipeline was compromised and pushed a malicious version 1.107.0 to PyPI and to Docker Hub and GHCR. The package contained compiled malware: a credential stealer that runs every time Python starts, plus a remote-code loader backdoor. According to LiteLLM's own incident write-up, the attacker held GitHub CLI OAuth tokens from three engineers, used an organization owner's token to disable branch protections, pointed the release workflow at a lookalike repository (Berri-AI/litellm instead of BerriAI/litellm), and let the normal signing pipeline publish the poisoned artifacts. LiteLLM believes the tokens were harvested from logs of an internal LiteLLM deployment that was exposed to the public internet, possibly through a recently patched vulnerability; it notes that Claude Code can embed a user's GitHub CLI OAuth token into response bodies, and those bodies may land in LiteLLM logs. This is LiteLLM's second supply chain compromise of 2026; Datadog linked the earlier March incident (versions 1.82.7 and 1.82.8) to TeamPCP and says no connection between the two has been established.",
+        "whatHappened": "In the early morning of October 21, 2026, LiteLLM's release pipeline was compromised and pushed a malicious version 1.107.0 to PyPI and to Docker Hub and GHCR. The package contained compiled malware: a credential stealer that runs every time Python starts, plus a remote-code loader backdoor. LiteLLM's canonical root-cause report (Oct 23, investigation complete) traces the chain: on May 27, 2026 a configuration file containing the master key of a LiteLLM Agent Platform deployment was committed to the public LiteLLM-Labs/lite-harness repository; the error was spotted and force-pushed over, but the master key was never revoked. On October 10 the attacker used that key against the Agent Platform API and retrieved an unscoped GitHub CLI OAuth token belonging to a GitHub organization owner, then pushed throwaway CI branches (ci-tmp-a351cc, ci-tmp-be33e9) whose workflows posted two more maintainers' GitHub CLI tokens (GH_TOKEN and RELEASE_PLEASE_TOKEN) to an attacker-controlled endpoint. On October 21 the attacker repointed the private project-releaser workflow at a lookalike repository (Berri-AI/litellm instead of BerriAI/litellm) - the push with a maintainer token was rejected by branch protection, so the owner's token was used to override it - triggered the release with one stolen token, approved the production gate with another (the release approval rule had been relaxed that week from a physical-device-locked account to any two engineers), and let the normal signing pipeline publish the poisoned artifacts. The attacker then deleted the workflow run records and force-pushed the releaser's main back to hide the change. This corrects LiteLLM's initial assumption, carried in its Oct 21 post, that the tokens were harvested from logs of an internal LiteLLM deployment exposed to the internet; the canonical report states the first token came from the Agent Platform API instead. This is LiteLLM's second supply chain compromise of 2026; Datadog linked the earlier March incident (versions 1.82.7 and 1.82.8) to TeamPCP and says no connection between the two has been established.",
         "exposure": "Anyone who ran pip install on litellm 1.107.0 between 11:39 and 13:23 UTC on October 21, or started the v1.107.0, latest, main-latest or main-stable Docker Hub images between 11:46 and 14:20 UTC (affected GHCR tags were unavailable by 13:51 UTC). The stealer collected cloud credentials (AWS, GCP, Azure, including instance metadata), Kubernetes, Docker, Vault and Terraform secrets, SSH, GPG and TLS keys, Git, npm and PyPI tokens, .env files, shell history, LLM provider API keys, AI coding tool sessions, browser saved passwords and cookies, and credentials stored in a LiteLLM proxy database. Data went encrypted to the lookalike domain www.litellm[.]dev/healthcheck. The backdoor polled a fixed GitHub-hosted file hourly for a new domain; Datadog says that file only ever held test values, so no second-stage payload was observed in the wild. Enterprise customers on LiteLLM's private registry were not affected, and the official 1.107.0 source tag on GitHub is clean.",
         "fix": "Affected artifacts were removed or repointed on Oct 21. LiteLLM recommends an explicit clean pin such as 1.106.2. On an affected host, follow the vendor's ordered cleanup before running Python or pip: startup hooks can re-execute the malware. Remove persistence, rebuild from trusted images, then rotate every credential the host or proxy database could reach. Do not treat uninstalling the package as complete cleanup.",
-        "remaining": "LiteLLM has not confirmed how the attacker first accessed its internal deployment. The investigation is ongoing and the company committed to rolling updates. The number of users who installed the malicious artifacts has not been published.",
+        "remaining": "The number of users who installed the malicious artifacts has not been published. The investigation into the attack chain is complete per LiteLLM's Oct 23 canonical report, which also says the attacker focused on upstream inference API tokens and that LiteLLM is revoking every token across its internal systems and vendor platforms; a process-improvements post is promised for the following week.",
         "responses": [
           {
             "by": "LiteLLM (CEO, CTO, Director of Security)",
@@ -1513,6 +1520,12 @@
             "summary": "Independently analyzed the payload: a Python-startup credential stealer exfiltrating to a lookalike domain plus an hourly remote-code loader whose second stage was never observed live; noted this is LiteLLM's second 2026 compromise with no established link to the March TeamPCP incident.",
             "url": "https://securitylabs.datadoghq.com/articles/litellm-compromised-pypi-docker/",
             "date": "2026-10-21"
+          },
+          {
+            "date": "2026-10-23",
+            "by": "LiteLLM (canonical attack-chain report, investigation complete)",
+            "summary": "LiteLLM published the canonical root-cause analysis, superseding assumptions in its Oct 21 post: the entry point was an unrevoked Agent Platform master key committed to the public LiteLLM-Labs/lite-harness repo on May 27, used on Oct 10 to pull the org owner's unscoped GitHub CLI OAuth token from the Agent Platform API - not token harvesting from internal deployment logs. Throwaway CI workflows exfiltrated two more maintainer tokens; the attacker repointed the release workflow at lookalike fork Berri-AI/litellm, overrode branch protection with the owner's token, triggered and approved the release with the two maintainer tokens, then deleted run records and force-pushed history to cover tracks. Indicators published: IPs 69.48.229.143 and 199.91.221.39, fork commit 20535d8f, releaser commits 9cf97e9 and 285fbdc5, branches ci-tmp-a351cc and ci-tmp-be33e9.",
+            "url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain"
           }
         ],
         "claimChecks": [
