@@ -939,7 +939,7 @@
       "id": "tidb-cloud-breach",
       "name": "PingCAP: attackers copied TiDB Cloud data and source code",
       "subject": "TiDB Cloud",
-      "summary": "PingCAP confirms unauthorised access to internal cloud resources between 9 September and 7 October, including copied data and source code. The breach is confirmed, but claims about plaintext keys and the full customer impact are disputed or unresolved.",
+      "summary": "PingCAP confirms an attacker used a compromised GitHub account and exposed credentials to access internal systems between 9 September and 7 October, copying source code and records from internal analytics, storage and support environments. Independent investigator NebuSec completed its review: it found no evidence of access to customer TiDB databases or attacker persistence in production, and exported TiDB Cloud API-key values were encrypted with the encryption key unexposed, though credentials shared in support materials were not covered. Customer-specific impact assessment is ongoing.",
       "status": "disputed",
       "severity": "high",
       "date": "2026-10-19",
@@ -979,9 +979,21 @@
           "url": "https://x.com/PingCAP/status/2112563244565176634",
           "kind": "post",
           "date": "2026-10-20"
+        },
+        {
+          "label": "PingCAP · CEO note",
+          "url": "https://www.pingcap.com/trust-hub/security/ceo-note-october-2026/",
+          "kind": "primary",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "NebuSec · Independent investigation",
+          "url": "https://nebusec.ai/research/pingcap-security-incident/",
+          "kind": "primary",
+          "date": "2026-10-21"
         }
       ],
-      "correction": "Breach confirmed; scope disputed - attacker leak-site figures (10.6 TB, 115k plaintext keys) are unverified claims that conflict with PingCAP's statement that keys were encrypted and unused.",
+      "correction": "Breach confirmed by PingCAP and independent investigator NebuSec (report completed Oct 21). Attacker leak-site figures (10.6 TB, 115k plaintext keys) remain unverified claims that conflict with the finding that exported API-key values were encrypted and unusable without the unexposed key. The no-evidence findings are bounded: they cover customer TiDB databases and production persistence, not the copied internal analytics, storage and support records.",
       "disclosureDate": "2026-10-19"
     },
     {
