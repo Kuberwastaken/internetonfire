@@ -1245,15 +1245,29 @@
           "kind": "report",
           "date": "2026-10-22",
           "verification": "body"
+        },
+        {
+          "label": "Go Security team: our response to the eMudhra key disclosure incident",
+          "url": "https://go.dev/blog/emudhra-incident",
+          "kind": "primary",
+          "date": "2026-10-26",
+          "verification": "body"
+        },
+        {
+          "label": "eMudhra press release: no impact across Middle East and Africa (Oct 26)",
+          "url": "https://emudhra.com/en/press-release/emudhra-confirms-no-impact-middle-east-africa-global-tls-incident",
+          "kind": "primary",
+          "date": "2026-10-26",
+          "verification": "body"
         }
       ],
-      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale and Node.js updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report. Timeline note: the official statement was revised by Oct 22 from report Oct 18 / revoke Oct 19 to report Oct 17 / revoke Oct 18. The earlier dates were accurately captured from its prior version; this index now attributes the new dates to the revised vendor account.",
+      "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale, Node.js and Go updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report. Timeline note: the official statement was revised by Oct 22 from report Oct 18 / revoke Oct 19 to report Oct 17 / revoke Oct 18. The earlier dates were accurately captured from its prior version; this index now attributes the new dates to the revised vendor account.",
       "disclosureDate": "2026-10-20",
       "detail": {
         "whatHappened": "In April 2025 eMudhra, an Indian certificate authority, ran a key ceremony that produced eight intermediate CA certificates with badly weak private keys. A researcher found they could be recovered from the public certificates (some keys were single or double digit numbers, one reportedly just 4). He reported it to Mozilla, Chrome, Apple and Microsoft on Oct 17, 2026. In its statement as revised on Oct 22, eMudhra dates revocation to Oct 18. An earlier version of the same statement dated revocation to Oct 19. Mozilla independently dates the initial report to Oct 17; the vendor revision, rather than an independently inspected revocation record, is the basis for the revised revocation day.",
         "exposure": "Anyone who worked out the keys could have forged a trusted certificate for any website, but only against software that does not check Certificate Transparency or revocation lists. Chrome and Google say no certificates chaining to these intermediates had been logged to CT, so CT-enforcing browsers could not have been attacked. No exploitation has been shown. The 'eight keys' were six TLS intermediates and two code-signing intermediates.",
-        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. The reporter also says Apple and Microsoft blocked the certificates; their exact update dates were not independently verified here. Cloudflare, Node.js and Tailscale shipped updates. In Update 4 on Oct 22, eMudhra offered Sectigo-issued certificates as an alternate option for all customers and said its G1 roots remain active and supported. CertiNext users can request this through their account; other customers should use the support route in the official statement.",
-        "remaining": "Software that ships its own trust store or ignores revocation needs updates. eMudhra has not confirmed a root cause; it says a wrap/unwrap step created a second weak key set. It says seven of the eight were never used and the eighth issued no certificates. It says one US customer ecosystem needs replacement certificates. Investigation ongoing; MeitY has set up a probe panel.",
+        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. The reporter also says Apple and Microsoft blocked the certificates; their exact update dates were not independently verified here. Cloudflare, Node.js and Tailscale shipped updates, and Go shipped 1.27.3 and 1.26.10 (Oct 19) to reject the intermediates. In Update 4 on Oct 22, eMudhra offered Sectigo-issued certificates as an alternate option for all customers and said its G1 roots remain active and supported. CertiNext users can request this through their account; other customers should use the support route in the official statement.",
+        "remaining": "Software that ships its own trust store or ignores revocation needs updates. eMudhra has not confirmed a root cause; it says a wrap/unwrap step created a second weak key set. It says seven of the eight were never used and the eighth issued no certificates. It says one US customer ecosystem needs replacement certificates. Investigation ongoing; MeitY has set up a probe panel. Go says Linux revocation-support work is planned but not delivered. eMudhra's Oct 26 regional press release says it will publish a root-cause analysis later.",
         "responses": [
           {
             "by": "eMudhra",
@@ -1290,6 +1304,18 @@
             "summary": "Offers Sectigo-issued certificates as an alternate option for all customers. Says G1 roots remain active and supported. Its updated statement also revises the report/revocation chronology; earlier captured dates are retained as a correction note.",
             "url": "https://emudhra.com/en/post/certificate-security-incident",
             "date": "2026-10-22"
+          },
+          {
+            "by": "Go Security team",
+            "summary": "Shipped Go 1.27.3 and 1.26.10 on Oct 19 (its first URGENT-track release), which reject certificates chaining to the eight intermediates. Go says Linux has no built-in revocation mechanism, so it blocked trust in the runtime; Linux revocation support is planned, not delivered. Rebuild binaries with the patched versions.",
+            "url": "https://go.dev/blog/emudhra-incident",
+            "date": "2026-10-26"
+          },
+          {
+            "by": "eMudhra, Middle East and Africa press release",
+            "summary": "Says no customer or service in the Middle East and Africa was affected, and that impact is confined to one US customer ecosystem. Sectigo certificates are offered at no cost as a redundancy option, not a required fix. Says its root-cause review of key generation and operational controls is ongoing and the RCA will be published later. This is a regional statement, not a global all-clear.",
+            "url": "https://emudhra.com/en/press-release/emudhra-confirms-no-impact-middle-east-africa-global-tls-incident",
+            "date": "2026-10-26"
           }
         ],
         "claimChecks": [
