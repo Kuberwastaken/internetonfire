@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25",
+  "updated": "2026-10-27",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -631,19 +631,27 @@
     },
     {
       "id": "ghostaction-github",
-      "name": "GhostAction: malicious GitHub workflows target 30,000+ repos for secrets",
+      "name": "GhostAction: GitHub campaign adds developer-machine credential stealer",
       "subject": "GitHub Actions",
-      "summary": "GhostAction injected credential-stealing GitHub Actions workflows through compromised accounts. The October wave targeted over 30,000 repositories and attempted to extract 3,174 secrets. Those target/attempt counts are not confirmed theft totals; the earlier August-September wave had 26 confirmed stolen secrets.",
+      "summary": "GitGuardian's Oct 27 follow-up counted 72,026 malicious commits across 22,964 public repositories in the Oct 13-21 wave, adding developer-machine, self-hosted runner and AWS OIDC payloads. It found no successful runs of those malicious workflows; the VS Code stealer is outside that protection. Repository and commit counts are not confirmed theft totals.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-08",
-      "dateLabel": "Original wave Sept 2025; resurgence Aug 31-Sep 30, 2026; 30k+ repo burst Oct 8-12, 2026",
+      "dateLabel": "Original wave Sept 2025; resurgence Aug 31-Sep 30, 2026; 30k+ repo burst Oct 8-12, 2026; follow-up covers Oct 13-21 and Oct 22-26 rewrites (reported Oct 27)",
       "tags": [
         "supply-chain",
         "ci-cd",
         "credentials"
       ],
       "sources": [
+        {
+          "label": "GitGuardian: October escalation and PolinRider overlap",
+          "url": "https://blog.gitguardian.com/ghostaction-x-polinrider/",
+          "kind": "primary",
+          "date": "2026-10-27",
+          "provenance": "full-read",
+          "verification": "body"
+        },
         {
           "label": "GitGuardian: GhostAction Returns (772 repos, 30k more in Oct)",
           "url": "https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/",
@@ -669,14 +677,20 @@
           "date": "2025-09-08"
         }
       ],
-      "correction": "The 2025 and 2026 reports describe waves of the same campaign. Repository targeting figures do not equal successful compromises. See GitGuardian’s report for the effect of GitHub’s workflow blocking.",
+      "correction": "The 2025 and 2026 reports describe waves of the same campaign. Repository targeting figures do not equal successful compromises. See GitGuardian’s report for the effect of GitHub’s workflow blocking. Oct 27 follow-up: the new commit/repository counts are observed lower bounds, not successful executions or stolen-secret counts. GitGuardian found no successful runs of the new malicious workflows. Its developer-machine payload does not use Actions; shared launcher code and co-infected repositories do not establish a shared actor with PolinRider.",
       "disclosureDate": "2026-10-07",
       "detail": {
-        "whatHappened": "GhostAction is a supply chain campaign that injects malicious GitHub Actions workflows into repositories using the victims' own compromised credentials, then harvests the secrets those workflows can reach. GitGuardian first revealed it in September 2025 (817 public repositories across 327 users, at least 3,325 secrets exfiltrated) and now says the campaign never stopped: it tracked activity through late 2025 and into 2026 with shifting exfiltration endpoints. A new wave ran from August 31 to September 30, 2026, pushing the workflow to 772 public repositories belonging to 373 users and organizations and targeting 2,577 secrets; GitHub held most runs for approval, so only 499 of 3,669 collected runs executed, exfiltrating 26 confirmed secrets from 13 repositories. Then between October 8 and 12 the campaign accelerated: more than 30,000 repositories across about 3,000 users and orgs were targeted through roughly 1,900 compromised GitHub accounts, attempting to extract 3,174 secrets. This time the workflows actually ran, and Socket confirmed successful exfiltration on October 8, before GitHub began blocking the malicious workflow from running on October 9, so the October 10 and 12 waves extracted nothing.",
-        "exposure": "Targeted secrets in the 2026 waves include SSH private keys and deployment credentials (446), Azure credentials (218, with one organization exposing an Azure PAT and SSH key across 92 repositories), container registry credentials (142), database credentials (112), AWS access keys (106), FTP credentials (92), Google Cloud and Firebase credentials (80), GitHub tokens (66), and bot tokens plus Cloudflare, npm, PyPI and AI provider keys. The October payload versions also grep the working tree and full git history, with special context capture around AWS key IDs, pointing at intent to hit private repositories too. Confirmed theft counts are much lower than target counts: 26 secrets confirmed exfiltrated in the August-September wave; the October wave's confirmed exfiltration is established by Socket's analysis but without a public total. Victims from earlier waves were hit again, suggesting reliance on unrotated secrets stolen months or years ago.",
-        "fix": "GitHub began preventing the malicious workflow from running starting October 9, which neutralized the later October waves. Cleanup is visible but incomplete: only 124 of 772 repositories in the August-September wave (16%) had removed the workflow in public history by October 5, and in 92 cases the attacker simply re-pointed old, never-removed workflows at the new endpoint. Affected users need to remove the injected workflow (names include github_actions_security.yml and security-audit.yml), rotate every secret referenced in their CI, and check for runs of the injected workflows. GitGuardian and StepSecurity published the exfiltration indicators, including the IP 193.32.204.199 and earlier endpoints.",
-        "remaining": "Attribution is unknown. The full count of secrets stolen in the October wave has no public total. How the roughly 1,900 GitHub accounts were originally compromised is not established, though reuse of previously stolen credentials is the documented pattern. GitGuardian also found a cryptominer injected into kuafuai/DevOpsGPT by the same compromised account days before the new wave, but its analysis concludes the miner is probably a different actor exploiting the same stolen account - an illustration that stolen credentials do not have a single owner.",
+        "whatHappened": "GhostAction is a supply chain campaign that injects malicious GitHub Actions workflows into repositories using the victims' own compromised credentials, then harvests the secrets those workflows can reach. GitGuardian first revealed it in September 2025 (817 public repositories across 327 users, at least 3,325 secrets exfiltrated) and now says the campaign never stopped: it tracked activity through late 2025 and into 2026 with shifting exfiltration endpoints. A new wave ran from August 31 to September 30, 2026, pushing the workflow to 772 public repositories belonging to 373 users and organizations and targeting 2,577 secrets; GitHub held most runs for approval, so only 499 of 3,669 collected runs executed, exfiltrating 26 confirmed secrets from 13 repositories. Then between October 8 and 12 the campaign accelerated: more than 30,000 repositories across about 3,000 users and orgs were targeted through roughly 1,900 compromised GitHub accounts, attempting to extract 3,174 secrets. This time the workflows actually ran, and Socket confirmed successful exfiltration on October 8, before GitHub began blocking the malicious workflow from running on October 9, so the October 10 and 12 waves extracted nothing. In its Oct 27 follow-up, GitGuardian counted 72,026 operator commits across 22,964 public repositories, 2,875 owners and 1,792 pushing accounts for the Oct 13-21 wave. Of those accounts, 1,382 had already pushed the Oct 8 payload, consistent with reuse of stolen tokens. These are feed-observed lower bounds. The campaign now has five payload families: re-pointed security-audit workflows, seven new workflow names, self-hosted runner workflows, a Node.js stealer disguised as a font with a VS Code folder-open task, and legacy workflows attempting AWS role access via OIDC. The last GhostAction commit the researchers observed was Oct 21 at 04:37 UTC. Separately, Oct 22-26 rewrites added PolinRider loaders to some GhostAction commits; that is not evidence the GhostAction operator continued pushing after Oct 21.",
+        "exposure": "Targeted secrets in the 2026 waves include SSH private keys and deployment credentials (446), Azure credentials (218, with one organization exposing an Azure PAT and SSH key across 92 repositories), container registry credentials (142), database credentials (112), AWS access keys (106), FTP credentials (92), Google Cloud and Firebase credentials (80), GitHub tokens (66), and bot tokens plus Cloudflare, npm, PyPI and AI provider keys. The October payload versions also grep the working tree and full git history, with special context capture around AWS key IDs, pointing at intent to hit private repositories too. Confirmed theft counts are much lower than target counts: 26 secrets confirmed exfiltrated in the August-September wave; the October wave's confirmed exfiltration is established by Socket's analysis but without a public total. Victims from earlier waves were hit again, suggesting reliance on unrotated secrets stolen months or years ago. The Oct 27 report describes payloads aimed at local cloud, registry, AI-tool, SSH and Kubernetes credentials on developer machines and self-hosted runners, plus AWS roles reachable through OIDC. The fake-font task runs when the affected folder is opened in VS Code and the workspace is trusted; 17,667 repositories carried that file pair. GitGuardian found no successful runs of the new malicious workflows, and says the self-hosted family originally had a YAML error. The endpoint stealer does not use Actions, so GitHub's workflow blocking does not protect developer machines from it. The report does not establish an endpoint infection count or a new stolen-secret total.",
+        "fix": "GitHub began preventing the malicious workflow from running starting October 9, which blocked later malicious workflow runs, not every subsequent payload or developer-machine attack. Cleanup is visible but incomplete: only 124 of 772 repositories in the August-September wave (16%) had removed the workflow in public history by October 5, and in 92 cases the attacker simply re-pointed old, never-removed workflows at the new endpoint. Affected users need to remove the injected workflow (names include github_actions_security.yml and security-audit.yml), rotate every secret referenced in their CI, and check for runs of the injected workflows. GitGuardian and StepSecurity published the exfiltration indicators, including the IP 193.32.204.199 and earlier endpoints. For the newer wave, GitGuardian advises removing all injected files on every branch rather than reverting update commits that restore an older malicious version; revoking compromised account access and rotating repository, history, Actions and wiki secrets; checking private gists named build cache containing c.dat; and inspecting affected developer machines and self-hosted runners for persistence. Three payload families attempt a crontab entry marked #ghc2 that fetches code every five minutes; repository cleanup alone does not remove host persistence if a payload ran. Audit AWS CloudTrail for unexpected AssumeRoleWithWebIdentity activity and restrict OIDC trust to intended repositories and branches. Inspect VS Code folderOpen tasks and font files that are actually scripts.",
+        "remaining": "Attribution is unknown. The full count of secrets stolen in the October wave has no public total. How the roughly 1,900 GitHub accounts were originally compromised is not established, though reuse of previously stolen credentials is the documented pattern. GitGuardian also found a cryptominer injected into kuafuai/DevOpsGPT by the same compromised account days before the new wave, but its analysis concludes the miner is probably a different actor exploiting the same stolen account - an illustration that stolen credentials do not have a single owner. The Oct 27 report does not establish a common operator for GhostAction and PolinRider: copied launchers, overlapping repositories and 188 rewritten GhostAction commits are evidence of overlap, not shared attribution. GitGuardian's working hypothesis is copied public launcher code and overlapping stolen tokens. Its feed cannot establish total scope, and endpoint execution, host persistence and AWS role access are not confirmed simply by finding these payloads in repositories.",
         "responses": [
+          {
+            "by": "GitGuardian (Oct 27 follow-up)",
+            "summary": "Reported 72,026 commits across 22,964 public repositories in the Oct 13-21 wave, five payload families and later PolinRider-loader rewrites. Found no successful new malicious workflow runs, distinguished developer-endpoint exposure from Actions blocking, and published host, token and OIDC cleanup guidance without claiming a shared actor.",
+            "url": "https://blog.gitguardian.com/ghostaction-x-polinrider/",
+            "date": "2026-10-27"
+          },
           {
             "by": "GitGuardian",
             "summary": "Published the campaign history and the 2026 waves: 772 repositories and 2,577 targeted secrets in August-September, the October 8-12 burst targeting 30,000-plus repositories through about 1,900 compromised accounts, payload evolution toward git-history scanning, execution statistics, cleanup rates, and the DevOpsGPT cryptominer caveat.",
@@ -702,7 +716,20 @@
             "date": "2025-09-08"
           }
         ],
-        "claimChecks": []
+        "claimChecks": [
+          {
+            "claim": "72,026 commits and 22,964 repositories mean that many successful infections or thefts",
+            "verdict": "not supported",
+            "explanation": "GitGuardian labels its observed counts lower bounds and found no successful runs of the new malicious workflows. The separate endpoint payload bypasses workflow holds, but an endpoint execution or theft count is not established.",
+            "url": "https://blog.gitguardian.com/ghostaction-x-polinrider/"
+          },
+          {
+            "claim": "GhostAction and PolinRider are the same actor",
+            "verdict": "not established",
+            "explanation": "GitGuardian reports copied launcher code, overlapping repositories and rewritten commits, but says there are no clear indicators the threat actors are related.",
+            "url": "https://blog.gitguardian.com/ghostaction-x-polinrider/"
+          }
+        ]
       }
     },
     {
