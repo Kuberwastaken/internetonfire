@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -1300,10 +1300,10 @@
           "verification": "body"
         },
         {
-          "label": "Microsoft MSRC: response to compromised eMudhra CA keys",
+          "label": "Microsoft MSRC: response to compromised eMudhra CA keys (updated Oct 27)",
           "url": "https://www.microsoft.com/en-us/msrc/blog/2026/10/microsoft-response-to-compromised-emudhra-certificate-authority-keys",
           "kind": "primary",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "verification": "body"
         }
       ],
@@ -1312,8 +1312,8 @@
       "detail": {
         "whatHappened": "In April 2025 eMudhra, an Indian certificate authority, ran a key ceremony that produced eight intermediate CA certificates with badly weak private keys. A researcher found they could be recovered from the public certificates (some keys were single or double digit numbers, one reportedly just 4). He reported it to Mozilla, Chrome, Apple and Microsoft on Oct 17, 2026. In its statement as revised on Oct 22, eMudhra dates revocation to Oct 18. An earlier version of the same statement dated revocation to Oct 19. Mozilla independently dates the initial report to Oct 17; the vendor revision, rather than an independently inspected revocation record, is the basis for the revised revocation day.",
         "exposure": "Anyone who worked out the keys could have forged a trusted certificate for any website, but only against software that does not check Certificate Transparency or revocation lists. Chrome and Google say no certificates chaining to these intermediates had been logged to CT, so CT-enforcing browsers could not have been attacked. No exploitation has been shown. The 'eight keys' were six TLS intermediates and two code-signing intermediates.",
-        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. Microsoft blocked the affected intermediates through a Windows Disallowed Certificate Trust List update (Oct 20) and a separate Edge and WebView2 CRLSet update, and on Oct 26 released an out-of-band Windows update removing six eMudhra G3 roots and an AAA Certificate Services cross-sign from the Windows trust list, with Edge trust-list removal of the same seven planned for Oct 27. The reporter also says Apple blocked the certificates; its exact update date was not independently verified here. Cloudflare, Node.js and Tailscale shipped updates, and Go shipped 1.27.3 and 1.26.10 (Oct 19) to reject the intermediates. In Update 4 on Oct 22, eMudhra offered Sectigo-issued certificates as an alternate option for all customers and said its G1 roots remain active and supported. CertiNext users can request this through their account; other customers should use the support route in the official statement.",
-        "remaining": "Software that ships its own trust store or ignores revocation needs updates. eMudhra has not confirmed a root cause; it says a wrap/unwrap step created a second weak key set. It says seven of the eight were never used and the eighth issued no certificates. It says one US customer ecosystem needs replacement certificates. Investigation ongoing; MeitY has set up a probe panel. Go says Linux revocation-support work is planned but not delivered. eMudhra's Oct 26 regional press release says it will publish a root-cause analysis later. Microsoft's trust-list root removals are a broader trust decision than the intermediate revocations; the Edge removal was planned, not confirmed complete at index time, and Microsoft is evaluating the remaining eMudhra roots separately.",
+        "fix": "Mozilla blocked them via OneCRL on Oct 17 (done for standard Firefox users by 22:59 UTC) and shipped Firefox 158.0.1, ESR 115.43.1 and 153.5.1, plus NSS 3.131.1 removing the signing root. Chrome blocked them by CRLSet the same day, and removed the emSign ECC Root CA - G3 from its root store. Microsoft blocked the affected intermediates through a Windows Disallowed Certificate Trust List update (Oct 20) and a separate Edge and WebView2 CRLSet update, and on Oct 26 released an out-of-band Windows update removing six eMudhra G3 roots and an AAA Certificate Services cross-sign from the Windows trust list, and on Oct 27 removed the same seven from the Microsoft Edge trust list (confirmed in an Oct 27 MSRC update; the changes reach devices as updates propagate). The reporter also says Apple blocked the certificates; its exact update date was not independently verified here. Cloudflare, Node.js and Tailscale shipped updates, and Go shipped 1.27.3 and 1.26.10 (Oct 19) to reject the intermediates. In Update 4 on Oct 22, eMudhra offered Sectigo-issued certificates as an alternate option for all customers and said its G1 roots remain active and supported. CertiNext users can request this through their account; other customers should use the support route in the official statement.",
+        "remaining": "Software that ships its own trust store or ignores revocation needs updates. eMudhra has not confirmed a root cause; it says a wrap/unwrap step created a second weak key set. It says seven of the eight were never used and the eighth issued no certificates. It says one US customer ecosystem needs replacement certificates. Investigation ongoing; MeitY has set up a probe panel. Go says Linux revocation-support work is planned but not delivered. eMudhra's Oct 26 regional press release says it will publish a root-cause analysis later. Microsoft's trust-list root removals are a broader trust decision than the intermediate revocations; the Edge trust-list removal is confirmed complete as of Oct 27, and Microsoft is evaluating the remaining eMudhra roots separately.",
         "responses": [
           {
             "by": "eMudhra",
@@ -1365,9 +1365,9 @@
           },
           {
             "by": "Microsoft (MSRC)",
-            "summary": "Blocked the eight affected intermediates via a Windows Disallowed Certificate Trust List update (Oct 20) and a separate Edge/WebView2 CRLSet update delivered as an automatic component update. On Oct 26 released an out-of-band Windows update removing six eMudhra G3 roots and an AAA Certificate Services cross-sign from the Windows trust list; the same seven are planned for removal from the Edge trust list on Oct 27. Stresses root removal is a separate, broader trust decision than revoking the compromised intermediates, and that remaining eMudhra roots are under separate evaluation. Advises keeping automatic updates flowing and replacing dependent certificates.",
+            "summary": "Blocked the eight affected intermediates via a Windows Disallowed Certificate Trust List update (Oct 20) and a separate Edge/WebView2 CRLSet update delivered as an automatic component update. On Oct 26 released an out-of-band Windows update removing six eMudhra G3 roots and an AAA Certificate Services cross-sign from the Windows trust list; on Oct 27 it removed the same seven from the Edge trust list (confirmed in an Oct 27 update to the post). Stresses root removal is a separate, broader trust decision than revoking the compromised intermediates, and that remaining eMudhra roots are under separate evaluation. Advises keeping automatic updates flowing and replacing dependent certificates.",
             "url": "https://www.microsoft.com/en-us/msrc/blog/2026/10/microsoft-response-to-compromised-emudhra-certificate-authority-keys",
-            "date": "2026-10-26"
+            "date": "2026-10-27"
           }
         ],
         "claimChecks": [
