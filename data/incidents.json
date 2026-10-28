@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -1311,6 +1311,13 @@
           "kind": "primary",
           "date": "2026-10-27",
           "verification": "body"
+        },
+        {
+          "label": "AWS Security Bulletin 2026-150-AWS (updated Oct 28)",
+          "url": "https://aws.amazon.com/security/security-bulletins/2026-150-aws/",
+          "kind": "primary",
+          "date": "2026-10-28",
+          "verification": "body"
         }
       ],
       "correction": "The vendor describes weak-key revocation rather than an infrastructure breach. Tailscale, Node.js and Go updates are downstream responses, not additional breaches. Detailed timing and scope are in the vendor statement and Cloudflare report. Timeline note: the official statement was revised by Oct 22 from report Oct 18 / revoke Oct 19 to report Oct 17 / revoke Oct 18. The earlier dates were accurately captured from its prior version; this index now attributes the new dates to the revised vendor account.",
@@ -1374,6 +1381,12 @@
             "summary": "Blocked the eight affected intermediates via a Windows Disallowed Certificate Trust List update (Oct 20) and a separate Edge/WebView2 CRLSet update delivered as an automatic component update. On Oct 26 released an out-of-band Windows update removing six eMudhra G3 roots and an AAA Certificate Services cross-sign from the Windows trust list; on Oct 27 it removed the same seven from the Edge trust list (confirmed in an Oct 27 update to the post). Stresses root removal is a separate, broader trust decision than revoking the compromised intermediates, and that remaining eMudhra roots are under separate evaluation. Advises keeping automatic updates flowing and replacing dependent certificates.",
             "url": "https://www.microsoft.com/en-us/msrc/blog/2026/10/microsoft-response-to-compromised-emudhra-certificate-authority-keys",
             "date": "2026-10-27"
+          },
+          {
+            "by": "AWS",
+            "summary": "Bulletin 2026-150-AWS (updated Oct 28): trust-store root-removal changes were released to AWS service owners from Oct 21, and boto3/botocore 1.43.117 shipped. Amazon Linux 2/2023 ca-certificates updates are available (ALAS CVE-2026-113470 and CVE-2026-111943, plus CVE-2026-91403 and CVE-2026-114406 covering removal of remaining CA certificates associated with the same operators), with golang-based packages rebuilt as defense-in-depth; Corretto released updated JDKs. Lambda patched images reach Amazon ECR Public Gallery by Oct 28, ZIP-package managed runtimes auto-update in all regions by Oct 31, and Amplify auto-updates Node 22/24 apps by Oct 31; STS and Cognito trust-store updates are complete. CloudFront edge CA bundle root removal is targeted for Oct 28, not confirmed complete. EC2 Windows Server customers should verify instances received Microsoft's updated certificate trust lists, particularly with restricted internet access, disabled automatic certificate updates, or customized certificate stores.",
+            "url": "https://aws.amazon.com/security/security-bulletins/2026-150-aws/",
+            "date": "2026-10-28"
           }
         ],
         "claimChecks": [
