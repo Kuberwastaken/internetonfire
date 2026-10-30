@@ -2255,11 +2255,11 @@
       "id": "onamae-desktop-cloud-malware",
       "name": "Onamae: malware planted on up to 26,739 Desktop Cloud servers",
       "subject": "Onamae",
-      "summary": "Onamae says malicious programs were placed in customer Desktop Cloud server environments. Up to 26,739 servers were potentially affected, and it began stopping servers to contain the incident. Data viewing was possible; data theft was not confirmed.",
+      "summary": "Onamae says malicious programs were placed in customer Desktop Cloud server environments. Up to 26,739 servers were potentially affected. Oct 24 update: GMO confirmed its environment was accessed without authorization and customer information was taken out, and some customers reported unrecognized trades. The attackers demanded a ransom (GMO reports say $50M; the Japan Times reported about $1M), GMO refused, went to the police and says it will never pay; the group began leaking customer data Oct 27. GMO is keeping the platform offline, will migrate customers to a separate cloud free for six months, and on Oct 28 offered a bounty of up to $1M for information identifying the attackers.",
       "status": "confirmed",
       "severity": "critical",
       "date": "2026-10-21",
-      "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026",
+      "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026; data theft confirmed 24 Oct; first leak 27 Oct after ransom refused; platform kept offline, up to $1M bounty 28 Oct",
       "tags": [
         "breach",
         "malware",
@@ -2280,9 +2280,27 @@
           "date": "2026-10-21",
           "provenance": "excerpt",
           "verification": "excerpt"
+        },
+        {
+          "label": "GMO Internet incident report no. 12 (English) · Original source",
+          "url": "https://internet.gmo/en/news/article/258/",
+          "kind": "primary",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "The Japan Times · First data leak / ransom standoff",
+          "url": "https://www.japantimes.co.jp/news/2026/10/27/japan/crime-legal/gmo-computer-shutdown/",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "webhosting.today · Ransom refused, $1M bounty, platform offline",
+          "url": "https://webhosting.today/2026/10/28/japans-gmo-refuses-ransom-after-vps-breach-and-offers-1-million-bounty/",
+          "kind": "report",
+          "date": "2026-10-28"
         }
       ],
-      "correction": "The provider’s potentially affected server count is not a confirmed count of servers with stolen data. The incident concerns the Desktop Cloud product, not every Onamae or GMO service.",
+      "correction": "The provider's potentially affected server count is not a confirmed count of servers with stolen data. The incident concerns the Desktop Cloud product, not every Onamae or GMO service. Reported ransom figures differ: GMO incident reports describe a $50M extortion demand (Oct 21 email), while the Japan Times reported a demand of about $1M; the $1M bounty GMO announced Oct 28 is a separate figure.",
       "disclosureDate": "2026-10-21"
     },
     {
@@ -2818,6 +2836,608 @@
             "url": "https://cursor.com/blog/claude-code-extension-security-notice"
           }
         ]
+      }
+    },
+    {
+      "id": "sonet-plala-breach",
+      "name": "So-net/Plala: 2.58M subscriber records stolen from Sony's Japanese ISP, incl. 54k email passwords",
+      "subject": "So-net (Sony Network Communications)",
+      "summary": "Sony Network Communications says attackers were in the So-net member database from Oct 19 until detection on Oct 23. Roughly 2.58 million current and former So-net and Plala subscriber records were taken, plus about 54,000 email addresses with their passwords from four mail services, and 16 bank account records. Forced password resets began Oct 27. How they got in is undisclosed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-27",
+      "dateLabel": "Intrusion Oct 19, detected Oct 23; disclosed Oct 27, 2026 with forced password resets the same day",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials"
+      ],
+      "sources": [
+        {
+          "label": "So-net official notice (Japanese) · Original source",
+          "url": "https://www.so-net.ne.jp/info/2026/20261027_0001.html",
+          "kind": "primary",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "NTT Docomo notice for Plala S Course customers (Japanese)",
+          "url": "https://www.docomo.ne.jp/info/notice/page/261027_05_m.html",
+          "kind": "primary",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "SecurityWeek · Reporting",
+          "url": "https://www.securityweek.com/hackers-steal-2-6-million-records-from-sonys-japanese-isp-so-net/",
+          "kind": "report",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "Nikkei · Reporting (Japanese)",
+          "url": "https://www.nikkei.com/article/DGXZQOUC277HE0X21C26A0000000/",
+          "kind": "report",
+          "date": "2026-10-27"
+        }
+      ],
+      "correction": "The 2.58M figure counts exposed subscriber records; the email-password leak is a smaller subset of about 54,000 accounts from four specific mail services, not every subscriber. So-net says it does not store credit card data.",
+      "disclosureDate": "2026-10-27",
+      "detail": {
+        "whatHappened": "Attackers broke into the So-net member database on October 19, 2026. Sony Network Communications first spotted the intrusion on October 23, took the targeted server offline and cut traffic from the attackers, and by the next day had confirmed personal data was taken. It announced the breach on October 27. Of the roughly 2.6 million exposed records, 2.14 million belong to So-net subscribers and 443,000 to Plala (S Course) subscribers; about 293,000 relate to people who left the services in March 2026 or later, whose details are retained for final billing and support. The attackers also obtained approximately 54,000 email addresses together with their passwords from four mail services (Mail Service (G), A-Box, So-net VAIO Mail and PostPet mail), and 16 records containing bank account details (bank, branch, account type, account number, holder name - not PINs).",
+        "exposure": "Stolen subscriber data includes names, dates of birth, gender, phone numbers, email addresses, user IDs and the IDs customers use to connect to the internet. The email-password leak is the sharpest piece: So-net's FAQ says a third party holding those credentials was in a position to read, send and receive mail through email software and So-net Webmail until the resets. Credit card data is not involved because So-net does not store it, and the NURO service and other offerings do not appear affected.",
+        "fix": "The company took the targeted server offline and blocked the attackers' traffic on October 23, began forcing password resets for the impacted email accounts on October 27 (users must set a new password before resuming service), and reported the incident to Japan's Personal Information Protection Commission. NTT Docomo posted its own notice for affected Plala (S Course) customers.",
+        "remaining": "How the attackers got in has not been disclosed; the company lists the cause only as unauthorized access by a third party and says the investigation continues. Whether the stolen data has been misused or published is not addressed in the notices.",
+        "responses": [
+          {
+            "by": "Sony Network Communications / So-net",
+            "summary": "Disclosed the breach October 27 with per-service counts, an FAQ, and forced password resets for the ~54,000 leaked email accounts; reported to the Personal Information Protection Commission.",
+            "url": "https://www.so-net.ne.jp/info/2026/20261027_0001.html",
+            "date": "2026-10-27"
+          },
+          {
+            "by": "NTT Docomo",
+            "summary": "Posted a parallel apology and notice for Plala (S Course) customers whose information flowed out via the So-net systems.",
+            "url": "https://www.docomo.ne.jp/info/notice/page/261027_05_m.html",
+            "date": "2026-10-27"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "2.6 million So-net customers had their passwords stolen",
+            "verdict": "overstated",
+            "explanation": "The 2.58M figure is subscriber records (names, contact details, IDs). Email passwords leaked for about 54,000 accounts across four named mail services; So-net says no password leaked for the free basic mailbox.",
+            "url": "https://www.securityweek.com/hackers-steal-2-6-million-records-from-sonys-japanese-isp-so-net/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dhs-personnel-records-leak",
+      "name": "DHS: 40k+ employee records stolen and published, incl. CBP, ICE and CISA staff",
+      "subject": "U.S. Department of Homeland Security",
+      "summary": "A hacker using the handle 'Department of Peace' stole and published personnel records for more than 40,000 DHS employees - about a fifth of the department - including names, job titles, work contact details and which internal systems each person can access. TechCrunch verified part of the dataset as authentic; DHS says it is aware of a potential breach; Okta says it has no evidence its systems were compromised.",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-10-28",
+      "dateLabel": "Records appear exfiltrated around mid-Aug 2026 per timestamps; published and reported Oct 28, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "government"
+      ],
+      "sources": [
+        {
+          "label": "TechCrunch · Original reporting",
+          "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
+          "kind": "report",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "BBC · Reporting",
+          "url": "https://www.bbc.com/news/articles/cq8jzkpjr28vo",
+          "kind": "report",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "WIRED · Reporting",
+          "url": "https://www.wired.com/story/massive-leak-exposes-41000-homeland-security-workers-including-undercover-ice-agents/",
+          "kind": "report",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "The Verge · Reporting",
+          "url": "https://www.theverge.com/tech/1021528/ice-cbp-data-leak",
+          "kind": "report",
+          "date": "2026-10-28"
+        }
+      ],
+      "correction": "The hacker claims the data came from a DHS Okta single sign-on system. That vector is a claim, not established fact: Okta says it is secure and has no evidence its data or systems were compromised, and DHS has not confirmed any entry point.",
+      "disclosureDate": "2026-10-28",
+      "detail": {
+        "whatHappened": "TechCrunch reported on October 28, 2026 that a hacker going by 'Department of Peace' stole reams of personnel data in a previously undisclosed breach at the U.S. Department of Homeland Security and published it online. The dataset covers more than 40,000 employees: about 21,000 at Customs and Border Protection, 10,000 at Immigration and Customs Enforcement and its Homeland Security Investigations unit, just under 1,000 at CISA, and thousands more at headquarters, U.S. Citizenship and Immigration Services and the Federal Protective Service. Record timestamps suggest exfiltration around mid-August. The data was provided to journalist and hacker maia arson crimew and shared with DDoSecrets, which hosts leaked datasets. TechCrunch verified a portion as authentic by matching named employees against an offline copy. The same hacker earlier this year claimed a separate theft of thousands of DHS contracts with private-sector vendors.",
+        "exposure": "The records include names, job titles, work email addresses, cell phone numbers and office locations, plus IT and login records showing which systems and internal apps each employee may access. Wired reports the leak includes undercover ICE agents. Beyond identities, the Active Directory group memberships map parts of the department's tooling: Microsoft 365, a 'Headspace_users' group of about 4,500 including ICE deportation officers (Headspace says its ICE contract ended in 2023), Penlink web-surveillance groups of up to 2,000+ across ICE's HSI unit, a 200+ user CBP group tied to the Mobile Fortify facial-recognition app, ChatGPT access groups including senior officials, and groups referencing investigations into Salt Typhoon and Volt Typhoon.",
+        "fix": "A DHS spokesperson told TechCrunch after publication that the department 'is aware of a potential breach and is actively working to address the situation,' saying it takes threats against employees seriously and will update the public. No technical remediation or containment detail has been published. Okta said it was aware of the report, that 'Okta is secure,' and that it has no evidence its data or systems were compromised.",
+        "remaining": "How the breach was carried out is unknown - the hacker did not respond to TechCrunch's questions, the Okta-vector claim is unverified and disputed by Okta, and it is unclear whether the vulnerability has been fixed or when DHS became aware. The full dataset is larger than the verified sample, so the authentic portion establishes the leak is real without confirming every record in it.",
+        "responses": [
+          {
+            "by": "DHS spokesperson (to TechCrunch, after publication)",
+            "summary": "Said DHS is aware of a potential breach, is working to address it, takes all security threats against employees and officers seriously, and will update the public when more information is available.",
+            "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
+            "date": "2026-10-28"
+          },
+          {
+            "by": "Okta spokesperson",
+            "summary": "Said Okta is aware of the report, that Okta is secure, and that it has no evidence its data or systems were compromised.",
+            "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
+            "date": "2026-10-28"
+          },
+          {
+            "by": "DDoSecrets",
+            "summary": "Received the dataset via maia arson crimew and hosts it; co-founder Emma Best called it a catalyst for investigations and public-records requests.",
+            "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
+            "date": "2026-10-28"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Okta was breached",
+            "verdict": "not established",
+            "explanation": "The hacker claims the data came from DHS's Okta single sign-on system. Okta says it is secure with no evidence of compromise, and DHS has not confirmed any vector. The data may have been taken from a DHS-side system that Okta fronts.",
+            "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amadeus-pss-airline-breach",
+      "name": "Amadeus booking-system breach cascades across airlines: Korean Air, Asiana, JAL, ANA, Star Flyer confirm passenger data exposure",
+      "subject": "Amadeus",
+      "summary": "A vulnerability in Amadeus's travel booking display environment - disclosed Oct 1 as unexploited - turns out to have been abused: Korean Air and Asiana confirmed customer leaks Oct 23, JAL says unauthorized access ran from Aug 2023 to Sep 2026 and exposed ~92,000 customers' booking data (passport numbers for ~2,000), and ANA and Star Flyer posted their own notices. Amadeus serves 400+ airlines; the full scope is unconfirmed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-23",
+      "dateLabel": "Amadeus disclosed the vulnerability Oct 1, 2026 (then said unexploited); Korean Air + Asiana confirmed leaks Oct 23; JAL notified Oct 23, disclosed Oct 28; ANA + Star Flyer notices Oct 29-30; JAL says access ran Aug 10, 2023 - Sep 23, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "supply-chain"
+      ],
+      "sources": [
+        {
+          "label": "JAL official notice (English) · Original source",
+          "url": "https://www.jal.co.jp/en-jp/news/general/2026/other/261028.html",
+          "kind": "primary",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "ANA official notice (English) · Original source",
+          "url": "https://www.ana.co.jp/en/us/special-notice/001615.html",
+          "kind": "primary",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Star Flyer official notice (English) · Original source",
+          "url": "https://www.starflyer.jp/en/news/2026/news_20261029_info.html",
+          "kind": "primary",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "Seoul Economic Daily · Korean Air + Asiana confirmation",
+          "url": "https://en.sedaily.com/finance/2026/10/23/korean-air-says-customer-data-leaked-at-booking-system",
+          "kind": "report",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/",
+          "kind": "report",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "heise online · Earlier vulnerability coverage",
+          "url": "https://www.heise.de/en/news/Security-vulnerability-in-flight-booking-system-11485328.html",
+          "kind": "report",
+          "date": "2026-10-13"
+        }
+      ],
+      "correction": "Amadeus's Oct 1 statement said the vulnerability had not been exploited by ransomware actors; subsequent airline confirmations show the flaw was maliciously exploited. JAL's ~90,000 + ~2,000 figures are JAL's customers only, not a total. Cathay Pacific posted a third-party incident notice, but its link to Amadeus is unconfirmed in the sources checked.",
+      "disclosureDate": "2026-10-23",
+      "detail": {
+        "whatHappened": "Amadeus, whose Passenger Service System handles reservations, ticketing and check-in for more than 400 airlines, published a statement on October 1, 2026 saying it had found a vulnerability in its travel booking display environment that could expose traveler data - and at that time said ransomware actors had not exploited it and no payment data was involved. On October 23, Korean Air and Asiana confirmed customer information had leaked through the booking-system operator. JAL says Amadeus notified it the same day that unauthorized access to the system occurred between August 10, 2023 and September 23, 2026; JAL disclosed on October 28 that reservation codes (PNRs), names, flight dates, routes and travel classes for about 90,000 customers were exposed, with roughly 2,000 more customers also losing email addresses, phone numbers, passport numbers, nationalities, frequent-flyer numbers and ticket/seat numbers. ANA and Star Flyer posted their own breach notices on October 29-30, and Cathay Pacific posted a third-party security notice whose connection is unconfirmed.",
+        "exposure": "Per JAL: booking data (PNRs, names, dates, routes, classes) for ~90,000 customers, plus contact details, passport numbers and loyalty identifiers for ~2,000. JAL says credit card numbers and passwords were not compromised and that it has no evidence of misuse so far. The exposed PNR data is enough to view or social-engineer bookings, and the three-year access window means the airline-confirmed counts are likely a floor, not a ceiling: Amadeus also serves 210 airport operators, 34 cruise and ferry lines and 2 million hotels, and has not given a total.",
+        "fix": "Amadeus says it has implemented the necessary security measures, and JAL says flight operations are unaffected. Each affected airline is notifying its own customers under local rules. (ANA separately suspended some web and app services from October 21, but that action appears tied to the PHP2Shell threat, not this incident.)",
+        "remaining": "The total number of affected airlines and passengers is unconfirmed - BleepingComputer asked Amadeus whether more airlines and markets were hit and got no answer. Whether exploitation really began in August 2023 or earlier is unverified, and Amadeus has not explained the gap between its Oct 1 'not exploited' statement and the airline confirmations three weeks later.",
+        "responses": [
+          {
+            "by": "JAL",
+            "summary": "Disclosed the Amadeus-sourced breach with per-category counts (~90k booking records, ~2k with passport and contact data), stated card data and passwords were not involved, and said operations are unaffected.",
+            "url": "https://www.jal.co.jp/en-jp/news/general/2026/other/261028.html",
+            "date": "2026-10-28"
+          },
+          {
+            "by": "ANA / Star Flyer",
+            "summary": "Posted their own notices confirming customer impact from unauthorized access to the Amadeus-provided Passenger Service System.",
+            "url": "https://www.ana.co.jp/en/us/special-notice/001615.html",
+            "date": "2026-10-30"
+          },
+          {
+            "by": "Korean Air / Asiana (via Seoul Economic Daily)",
+            "summary": "First carriers to confirm customer data leaked through the booking-system operator, on October 23.",
+            "url": "https://en.sedaily.com/finance/2026/10/23/korean-air-says-customer-data-leaked-at-booking-system",
+            "date": "2026-10-23"
+          },
+          {
+            "by": "Amadeus",
+            "summary": "Published a vulnerability statement October 1 saying the flaw could expose traveler data but had not been exploited by ransomware actors; has not answered questions on total scope since airline confirmations began.",
+            "url": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/",
+            "date": "2026-10-01"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Amadeus said on Oct 1 that the flaw was not exploited",
+            "verdict": "accurate at the time, since superseded",
+            "explanation": "The Oct 1 statement said ransomware actors had not exploited it. Korean Air, Asiana, JAL, ANA and Star Flyer have since confirmed malicious exploitation, with JAL citing an access window back to August 2023.",
+            "url": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warp-vendor-breach",
+      "name": "Warp: vendor exploit exposes AI agent traces and telemetry for roughly 1% of users",
+      "subject": "Warp",
+      "summary": "Warp's CEO says attackers ran an 'active and narrow-banded exploitation' of a third-party vendor in Warp's infrastructure, reaching agent decision traces and user telemetry for roughly 1% of users. The company detected it within hours, engaged CrowdStrike and law enforcement, and notified affected users. Whether source code, prompts or credentials were in the exposed data is undisclosed; analysis attributes the attack to an agent swarm.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-26",
+      "dateLabel": "Active exploitation detected and contained Oct 23, 2026 (within hours); CEO statement Oct 26; reported Oct 27",
+      "tags": [
+        "breach",
+        "ai",
+        "supply-chain"
+      ],
+      "sources": [
+        {
+          "label": "Zach Lloyd (Warp CEO) statement · Original source",
+          "url": "https://www.linkedin.com/posts/zachlloyd_on-friday-we-became-aware-of-what-we-believe-activity-7520566943272140802-0B7N",
+          "kind": "primary",
+          "date": "2026-10-26"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "BreachNews · Reporting",
+          "url": "https://breachnews.com/breaches/warp-confirms-vendor-breach-exposed-ai-agent-trace-and-telemetry-data/",
+          "kind": "report",
+          "date": "2026-10-27"
+        }
+      ],
+      "correction": "The roughly 1% figure is the CEO's estimate of impacted users, not a confirmed count. 'Agent swarm' attribution comes from analysis of the incident, not from a named threat actor.",
+      "disclosureDate": "2026-10-26",
+      "detail": {
+        "whatHappened": "On Friday, October 23, 2026, Warp became aware of what CEO Zach Lloyd describes as an active, narrow-banded exploitation of a vendor in Warp's infrastructure. The company says it detected the operation within hours and remediated. Agent traces - the decision logs of Warp's AI coding agents - and user telemetry were identified as potentially affected. Lloyd estimates roughly 1% of Warp's users (the platform claims at least 800,000) may have been impacted, and says affected users have been notified. Analysis of the incident suggests the attack was powered by an agent swarm using what Lloyd called a very sophisticated penetration and escalation technique.",
+        "exposure": "Identified as potentially affected: agent decision traces and telemetry. The company has not clarified whether the exposed data included source code, prompts, credentials or other sensitive content - agent traces for a coding tool can contain all three, so the practical exposure is wider than 'telemetry' suggests until Warp says otherwise.",
+        "fix": "Warp says it remediated and mitigated within hours of detection, contacted the vendor about the vulnerability, engaged CrowdStrike for the investigation, informed law enforcement, and notified impacted users. Users are advised to monitor account activity and treat unsolicited communications cautiously.",
+        "remaining": "The vendor is unnamed, the vulnerability undescribed, and the data categories actually taken (vs potentially affected) are not published. No group has claimed the attack. This lands one week after the OpenCode breach (stored API keys, unauthorized charges), making it the second AI coding platform hit in October.",
+        "responses": [
+          {
+            "by": "Zach Lloyd, Warp CEO",
+            "summary": "Disclosed the vendor exploitation publicly, gave the ~1% impact estimate, described hours-level detection and remediation, and said CrowdStrike and law enforcement are engaged.",
+            "url": "https://www.linkedin.com/posts/zachlloyd_on-friday-we-became-aware-of-what-we-believe-activity-7520566943272140802-0B7N",
+            "date": "2026-10-26"
+          }
+        ],
+        "claimChecks": []
+      }
+    },
+    {
+      "id": "anthropic-cathedral-intrusion",
+      "name": "Cathedral says its AI agents got inside Anthropic in under 12 hours; Anthropic disputes the scope",
+      "subject": "Anthropic",
+      "summary": "Cathedral, a startup founded by former DOGE staffers, told the Washington Post its AI agents entered Anthropic internal systems via weaknesses in third-party business software, reaching meeting transcripts, salary and offer data, and Slack discussions about its most advanced models. Anthropic, which received the findings through its bug bounty program, says only a limited set of sales, HR and IT systems was reached, Claude conversations, source code and model weights were not affected, and Cathedral broke bounty rules by withholding activity.",
+      "status": "disputed",
+      "severity": "high",
+      "date": "2026-10-26",
+      "dateLabel": "Reported Oct 26, 2026 (Washington Post, draft Cathedral report); Anthropic cut access the same day it received the findings",
+      "tags": [
+        "ai",
+        "breach"
+      ],
+      "sources": [
+        {
+          "label": "The Washington Post · Original reporting (paywalled)",
+          "url": "https://www.washingtonpost.com/technology/2026/10/26/researchers-cybersecurity-start-up-cathedral-got-inside-anthropic/",
+          "kind": "report",
+          "date": "2026-10-26"
+        },
+        {
+          "label": "Fast Company · Reporting",
+          "url": "https://www.fastcompany.com/91630974/former-doge-staffers-say-they-just-hacked-anthropic-in-less-than-12-hours",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "Quartz · Reporting",
+          "url": "https://qz.com/cathedral-ai-agents-anthropic-systems-breach-102726",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "The Decoder · Reporting",
+          "url": "https://the-decoder.com/ai-agents-hacked-anthropic-maker-of-arguably-the-most-capable-ai-models-for-cyberdefense/",
+          "kind": "report",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "SecurityWeek · Roundup",
+          "url": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+          "kind": "report",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "The headline claim is Cathedral's, from a draft report the Washington Post reviewed; Anthropic confirms an intrusion path existed but disputes how far it went, and says the startup violated bug-bounty rules by not disclosing everything it did. Neither side has published the report itself.",
+      "disclosureDate": "2026-10-26",
+      "detail": {
+        "whatHappened": "Cathedral, a cybersecurity startup founded by former DOGE staffers, ran AI agents against Anthropic and says they found a way into internal systems in less than 12 hours by abusing weaknesses in third-party business software. Its draft report, reviewed by the Washington Post, claims access to meeting transcripts, salary and job-offer data, and Slack discussions about Anthropic's most advanced models. The findings reached Anthropic through its bug bounty program. Anthropic says only a limited set of sales, HR and IT systems was reached, that it cut off the startup's access the same day, and that Claude conversations, source code and model weights were not affected. It also accuses Cathedral of breaking the bounty program's rules by not disclosing all of its activity.",
+        "exposure": "Disputed. Cathedral's claimed reach: meeting transcripts, compensation data, and model-related Slack discussions. Anthropic's confirmed reach: a limited set of sales, HR and IT systems; explicitly not Claude conversations, source code or model weights. The truth matters beyond Anthropic: the entry path was third-party business software, the same class of weakness behind this month's Warp and OpenCode incidents.",
+        "fix": "Anthropic says it cut off the startup's access the same day it received the findings. No customer action is indicated by either side.",
+        "remaining": "The draft report is unpublished, so Cathedral's claims are unverified beyond what Anthropic confirms. Whether Cathedral's activity stayed within bug-bounty scope is contested. The episode undercuts both easy narratives: autonomous agents reached a leading AI lab's business systems in hours, and the loudest version of the claim comes from the people selling the capability.",
+        "responses": [
+          {
+            "by": "Anthropic",
+            "summary": "Confirmed receiving the findings via bug bounty, says reach was limited to sales, HR and IT systems, denies impact to Claude conversations, source code and model weights, cut access same-day, and accuses Cathedral of violating bounty rules by withholding activity.",
+            "url": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+            "date": "2026-10-26"
+          },
+          {
+            "by": "Cathedral (via Washington Post)",
+            "summary": "Claims its AI agents reached meeting transcripts, salary and offer data, and Slack discussions about advanced models within 12 hours by abusing third-party business software weaknesses.",
+            "url": "https://www.washingtonpost.com/technology/2026/10/26/researchers-cybersecurity-start-up-cathedral-got-inside-anthropic/",
+            "date": "2026-10-26"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "AI agents hacked Anthropic in under 12 hours",
+            "verdict": "partly",
+            "explanation": "Anthropic confirms an intrusion path into some business systems existed and was closed the same day. The claimed depth (transcripts, salaries, model Slack) is Cathedral's and disputed by Anthropic; core systems (conversations, code, weights) were not affected per Anthropic.",
+            "url": "https://www.washingtonpost.com/technology/2026/10/26/researchers-cybersecurity-start-up-cathedral-got-inside-anthropic/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uefi-edk2-cve-2026-97631",
+      "name": "CVE-2026-97631: 16-year-old pre-boot RCE in TianoCore EDK II threatens most servers via PXE boot",
+      "subject": "TianoCore EDK II (UEFI firmware)",
+      "summary": "A buffer overflow in the PXE boot driver of TianoCore EDK II - the open-source UEFI code underneath most server firmware from AMI, Insyde and Phoenix - lets an attacker on the local network hang the boot or, with knowledge of the firmware build, execute code at the highest privilege before Secure Boot applies. Found by Anthropic and Google researchers, it went public months early after AMI published a fix, breaking the planned January disclosure embargo.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-27",
+      "dateLabel": "Fix PR public Oct 14, 2026 (embargo broken; planned disclosure was January); Ars Technica Oct 27, oss-security Oct 28",
+      "tags": [
+        "vulnerability",
+        "rce"
+      ],
+      "sources": [
+        {
+          "label": "Ars Technica · Reporting",
+          "url": "https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "oss-security: CVE-2026-97631 pre-boot RCE in EDK II PXE driver",
+          "url": "https://www.openwall.com/lists/oss-security/2026/10/28/4",
+          "kind": "primary",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "tianocore/edk2 PR #13302 (fix)",
+          "url": "https://github.com/tianocore/edk2/pull/13302",
+          "kind": "primary",
+          "date": "2026-10-14"
+        },
+        {
+          "label": "SecurityWeek · Roundup",
+          "url": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+          "kind": "report",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "Only machines that boot over the network (PXE) are exposed, and code execution needs knowledge of the target's firmware build; an attacker otherwise gets a boot hang. This is not remote-from-the-internet: it needs local network access during boot.",
+      "disclosureDate": "2026-10-27",
+      "detail": {
+        "whatHappened": "A 16-year-old buffer overflow (CVE-2026-97631) sits in the NetworkPkg UefiPxeBcDxe driver of TianoCore EDK II, the open-source UEFI implementation that most server vendors ship through firmware suppliers such as AMI, Insyde and Phoenix. An attacker with local network access can send an oversized ICMP error message to a machine while it boots over the network (PXE), hanging the boot process or - if the target's firmware build is known - running code at the highest privilege level, before Secure Boot and the OS's defenses exist. The flaw was found by Anthropic and Google researchers. It became public months ahead of a planned January disclosure when AMI published a code fix, forcing organizations to chase firmware updates from their individual vendors.",
+        "exposure": "Most servers worldwide carry EDK II-derived firmware, but the exploitable surface is narrower: only machines configured for network boot, and only from the local network during the boot window. Data centers using PXE provisioning at scale are the real risk population.",
+        "fix": "The upstream fix is tianocore/edk2 PR #13302 (public since Oct 14). Because EDK II reaches machines through firmware suppliers, remediation means firmware updates from each server vendor; there is no OS-level patch. Where firmware updates are pending, disabling unused PXE boot removes the exposure.",
+        "remaining": "Which vendors have shipped patched firmware, and for which models, is untracked centrally. Whether the broken embargo leaves a usable exploit window is unquantified - no in-the-wild exploitation has been reported.",
+        "responses": [
+          {
+            "by": "TianoCore / AMI",
+            "summary": "Fix merged upstream as PR #13302; AMI's early publication of its code fix broke the coordinated January embargo and made the flaw public.",
+            "url": "https://github.com/tianocore/edk2/pull/13302",
+            "date": "2026-10-14"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "The flaw threatens most servers on the planet",
+            "verdict": "supported, needs qualifier",
+            "explanation": "EDK II-derived firmware ships in most servers, but exploitation requires local network access and PXE network boot, and reliable code execution needs the target's firmware build. The at-risk set is PXE-booted machines, not every server.",
+            "url": "https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cloudflare-sglang-kv-cache-leak",
+      "name": "Cloudflare Workers AI cross-tenant leak: 155 GLM-5.3 responses carried other customers' data",
+      "subject": "Cloudflare",
+      "summary": "A configuration mismatch (KV cache smaller than the advertised context window) plus an SGLang bug let over-length requests to GLM-5.3 on Workers AI read cache data left by other customers' sessions. Cloudflare says 155 responses between Aug 27 and Sep 9 were affected, all with prompts over 681,280 tokens; it found no evidence of deliberate exploitation, fixed the issue after a HackerOne report, and SGLang shipped the fix in 0.5.22.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-26",
+      "dateLabel": "Leak window Aug 27 - Sep 9, 2026; reported via HackerOne (Knostic's Gadi Evron); Cloudflare disclosure and fix Oct 26; SGLang fix in 0.5.22",
+      "tags": [
+        "ai",
+        "data-leak",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "Cloudflare blog · Original source",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "kind": "primary",
+          "date": "2026-10-26"
+        },
+        {
+          "label": "Knostic research write-up",
+          "url": "https://www.knostic.ai/blog/hallucination-or-cross-tenant-when-an-llm-answers-with-another-users-context",
+          "kind": "primary",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "SecurityWeek · Roundup",
+          "url": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+          "kind": "report",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "155 affected responses over a two-week window, all tied to prompts longer than 681,280 tokens on one model - not a general Workers AI leak. Cloudflare reports no evidence of deliberate exploitation.",
+      "disclosureDate": "2026-10-26",
+      "detail": {
+        "whatHappened": "Between August 27 and September 9, 2026, 155 responses from the GLM-5.3 model on Cloudflare's Workers AI platform contained data from other customers' recent requests to the same model. The cause was a configuration mismatch that left the model's KV cache smaller than its advertised context window, combined with a bug in the SGLang inference engine that allowed over-length requests (longer than 681,280 tokens) to read cache data left behind by earlier sessions. Knostic researcher Gadi Evron reported the issue through HackerOne; Cloudflare fixed it and disclosed on October 26.",
+        "exposure": "Fragments of other tenants' prompts and context returned inside model responses - a cross-tenant data leak inside a hosted AI inference service. Cloudflare counts 155 affected responses, all on GLM-5.3 and all involving very long prompts, and says it found no evidence anyone exploited the condition deliberately.",
+        "fix": "Cloudflare corrected the configuration and patched its deployment; the upstream SGLang fix shipped in version 0.5.22, and Cloudflare recommends SGLang operators update. The disclosure credits the HackerOne report and coordinates with SGLang.",
+        "remaining": "What data actually appeared in the 155 responses is not enumerated, and affected customers' notification status is not described in the public posts. Other hosted SGLang deployments may have the same bug until they update.",
+        "responses": [
+          {
+            "by": "Cloudflare",
+            "summary": "Published a full root-cause and remediation post: configuration mismatch plus SGLang bug, 155 affected responses, no evidence of deliberate exploitation, fix deployed, coordinated with SGLang on the 0.5.22 upstream fix.",
+            "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+            "date": "2026-10-26"
+          },
+          {
+            "by": "Knostic (Gadi Evron)",
+            "summary": "Reported the cross-tenant exposure via HackerOne and published a research write-up on the KV-cache reuse condition.",
+            "url": "https://www.knostic.ai/blog/hallucination-or-cross-tenant-when-an-llm-answers-with-another-users-context",
+            "date": "2026-10-27"
+          }
+        ],
+        "claimChecks": []
+      }
+    },
+    {
+      "id": "copenhagen-university-breach",
+      "name": "University of Copenhagen breach: data of ~525,000 people, incl. national ID numbers and 20k card PINs",
+      "subject": "University of Copenhagen",
+      "summary": "Hackers reached one of the university's test environments and took personal data on about 525,000 current and former members - names, phone numbers, personal emails, and CPR national identity numbers for many - plus the PIN codes for roughly 20,000 staff and student ID cards, since reissued. Detected and contained Oct 20; attacker and motive unknown.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-23",
+      "dateLabel": "Attack detected and contained Oct 20, 2026; disclosed Oct 23; card PINs reissued after disclosure",
+      "tags": [
+        "breach",
+        "data-leak",
+        "education"
+      ],
+      "sources": [
+        {
+          "label": "University of Copenhagen news · Original source",
+          "url": "https://news.ku.dk/all_news/2026/10/university-of-copenhagen-hit-by-cyber-attack/",
+          "kind": "primary",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "UCPH security breach notification page",
+          "url": "https://informationssikkerhed.ku.dk/english/protection-of-information-privacy/information-about-security-breach/",
+          "kind": "primary",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/",
+          "kind": "report",
+          "date": "2026-10-26"
+        },
+        {
+          "label": "DR · Reporting (Danish)",
+          "url": "https://www.dr.dk/nyheder/indland/koebenhavns-universitet-har-vaeret-udsat-cyberangreb",
+          "kind": "report",
+          "date": "2026-10-23"
+        }
+      ],
+      "correction": "The 525,000 figure covers current and former members of the university community whose data sat in the compromised test environment; CPR numbers were included for many, not all, and the 20,000 PINs are for university ID cards, not payment cards.",
+      "disclosureDate": "2026-10-23",
+      "detail": {
+        "whatHappened": "The University of Copenhagen says attackers gained access to one of its test environments and obtained personal data on about 525,000 current and former members of the university community. The attack was detected on October 20, 2026 and contained. The university disclosed the breach on October 23.",
+        "exposure": "Names, phone numbers and personal email addresses, along with Danish national identity (CPR) numbers for many of those affected - CPR numbers are the sensitive core, since they enable identity fraud. The PIN codes for the ID cards of roughly 20,000 staff and students were also compromised and have been reissued.",
+        "fix": "The university contained the incident on detection, reissued the compromised card PINs, and published a breach notification page with guidance for affected people.",
+        "remaining": "The university says it does not know who is behind the attack or the motive. Why a test environment held live personal data at this scale, and whether the data has been used or published, is unaddressed publicly.",
+        "responses": [
+          {
+            "by": "University of Copenhagen",
+            "summary": "Disclosed the breach with counts and data categories, confirmed containment, reissued ~20,000 ID-card PINs, and published a notification page for affected people.",
+            "url": "https://news.ku.dk/all_news/2026/10/university-of-copenhagen-hit-by-cyber-attack/",
+            "date": "2026-10-23"
+          }
+        ],
+        "claimChecks": []
+      }
+    },
+    {
+      "id": "fec-efiling-outage",
+      "name": "FEC takes campaign-finance filing system offline after attempted breach, a week before US midterms",
+      "subject": "US Federal Election Commission",
+      "summary": "The FEC shut down parts of its electronic filing system after cybersecurity staff noticed attempted intrusions, a person familiar with the situation told POLITICO - in the final week before the November 3 midterms, blocking the 24/48-hour campaign-finance reports. Past filings stayed searchable and the FEC initially declined to explain the outage. The system was restored Oct 28. An attempted intrusion and an availability hit; no data theft is confirmed.",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-10-27",
+      "dateLabel": "Attempted breach and shutdown reported Oct 27, 2026; system restored Oct 28; midterms Nov 3",
+      "tags": [
+        "government",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "POLITICO · Reporting (independent sourcing)",
+          "url": "https://www.politico.com/news/2026/10/27/national-campaign-finance-systems-attempted-hack-01137820",
+          "kind": "report",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "The Washington Post · Reporting",
+          "url": "https://www.washingtonpost.com/politics/2026/10/27/fecs-filing-system-is-down-week-before-election-agency-wont-say-why/",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "SecurityWeek · Roundup",
+          "url": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+          "kind": "report",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "Reported as attempted intrusions, not a confirmed compromise: the FEC shut the attacked components down to contain them, and no data theft or alteration has been established in the sources cited.",
+      "disclosureDate": "2026-10-27",
+      "detail": {
+        "whatHappened": "The Federal Election Commission's electronic filing system went offline in the final week before the November 3, 2026 midterm elections. POLITICO reports, from a person familiar with the situation granted anonymity to discuss an ongoing internal investigation, that FEC cybersecurity staff 'noticed attempted intrusions and were able to shut down' the parts of the filing system being attacked, describing the incident as 'quite narrow and compartmentalized.' The Washington Post had earlier reported the system down with the agency declining to say why. The outage blocked the 24-hour and 48-hour reports that track last-minute campaign spending on specific races, while past filings remained searchable. Some systems remained down through Tuesday evening, October 27; the system was restored on October 28.",
+        "exposure": "Availability, not (so far) data: campaigns and political groups could not file required last-minute spending disclosures during the outage. No theft or modification of filings has been reported. The FEC does not administer elections or count ballots, so voting itself is unaffected.",
+        "fix": "FEC cybersecurity staff shut down the attacked parts of the filing system to contain the attempt, and service was restored on October 28. The agency initially declined public comment on the cause.",
+        "remaining": "Who attempted the intrusion, what they reached before the shutdown, and why the agency would not initially explain the outage are unanswered in the reporting. Whether any filing deadlines were formally extended is unconfirmed.",
+        "responses": [
+          {
+            "by": "FEC (via POLITICO's source)",
+            "summary": "Cybersecurity staff noticed the attempted intrusions early, shut down the attacked components ('quite narrow and compartmentalized'), and restored the system October 28; the agency had declined to explain the outage when first asked.",
+            "url": "https://www.politico.com/news/2026/10/27/national-campaign-finance-systems-attempted-hack-01137820",
+            "date": "2026-10-28"
+          }
+        ],
+        "claimChecks": []
       }
     }
   ]
