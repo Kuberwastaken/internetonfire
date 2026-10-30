@@ -2627,6 +2627,198 @@
           }
         ]
       }
+    },
+    {
+      "id": "tailscale-tailworm-ssh-vulns",
+      "name": "Tailworm: 11 pre-patch Tailscale/headscale flaws disclosed; SSH root escalation fixed in v1.104.4",
+      "subject": "Tailscale",
+      "summary": "Cyberdione Labs publicly released its 'Tailworm' audit - 11 findings against Tailscale 1.104.2 and headscale 0.29.5, six rated high - over the Oct 24-25 weekend, before patches existed. Four findings concern Tailscale SSH and could turn a policy-authorized session into root on a target server via Unix-socket forwarding. Tailscale shipped v1.104.4 on Oct 28 fixing four bulletined issues and says exploitation needs an existing foothold, not unauthenticated access.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-24",
+      "dateLabel": "Disclosed publicly (pre-patch) Oct 24-25, 2026; Tailscale bulletins and investigation Oct 26-27; v1.104.4 shipped Oct 28",
+      "tags": [
+        "vulnerability",
+        "rce",
+        "network",
+        "open-source"
+      ],
+      "sources": [
+        {
+          "label": "Tailworm report · Cyberdione Labs (original)",
+          "url": "https://tailworm.com/",
+          "kind": "primary",
+          "date": "2026-10-24"
+        },
+        {
+          "label": "Tailscale security bulletins TS-2026-014/015/016/017",
+          "url": "https://tailscale.com/security-bulletins",
+          "kind": "primary",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "Tailscale: Tailscale SSH - findings and fixes",
+          "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes",
+          "kind": "primary",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "Tailscale: investigation and remediation update",
+          "url": "https://tailscale.com/ssh-investigation-update",
+          "kind": "primary",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "BleepingComputer · Reporting",
+          "url": "https://www.bleepingcomputer.com/news/security/tailscale-warns-of-serious-ssh-flaws-allowing-root-privilege-escalation/",
+          "kind": "report",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "SecurityWeek · Reporting",
+          "url": "https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/",
+          "kind": "report",
+          "date": "2026-10-27"
+        }
+      ],
+      "correction": "Despite the report's name, this is not self-replicating malware: every hop requires a device already authorized on the tailnet with SSH access permitted in policy. No in-the-wild exploitation has been reported by any party.",
+      "disclosureDate": "2026-10-24",
+      "detail": {
+        "whatHappened": "Over the October 24-25 weekend, Cyberdione Labs publicly released 'Tailworm', an audit report listing 11 findings against Tailscale 1.104.2 and the self-hosted headscale 0.29.5 control server, all verified by reproduction in a lab - disclosed before any patch was available, a timing SecurityWeek reports drew criticism, while the researchers argued rapid awareness would speed remediation. Six findings are rated high severity and four concern Tailscale SSH, the SSH server built into the root-privileged tailscaled. The headline chain: Tailscale SSH performed Unix-socket forwarding operations as root, and the path allowlist meant to restrict them could be bypassed three ways (privileged dials via ssh -L, socket replacement via ssh -R unlinking root-owned sockets, and a path-check race), giving a policy-authorized peer with forwarding a route to root-only sockets such as the Docker socket or the tailscaled local API. In lab tests this produced root code execution on target servers and theft of enrollment keys usable to add rogue devices, and the researchers showed the chain could be automated to hop machine to machine in under a second per hop. Other findings cover app connectors (experimental conn25) translating traffic to attacker-chosen destinations without consulting network ACLs, unauthenticated memory exhaustion of the headscale control server, unbounded reads from a malicious DERP relay, and tailscale serve weaknesses.",
+        "exposure": "Exploitation of the SSH findings requires an existing foothold: a device already on the tailnet, Tailscale SSH access permitted in the policy file, and forwarding allowed by the access rules (granted automatically on headscale, per-rule on Tailscale's SaaS). Tailscale stresses the bugs do not let an unauthenticated attacker connect to arbitrary Tailscale SSH servers and does not recommend disabling Tailscale SSH outright. Self-hosted headscale servers face the unauthenticated control-server memory exhaustion from plain internet reachability. Everything was verified against Tailscale 1.104.2 and headscale 0.29.5. Because Tailscale SSH grants access by device identity rather than credentials, a chained attack needs no passwords or keys once one device is compromised.",
+        "fix": "Tailscale shipped v1.104.4 on October 28 fixing the four bulletined issues: TS-2026-014 (SSH Unix-socket forwarding now runs as the authenticated user instead of root), TS-2026-015 (SSH session memory is bounded and released on disconnect, preventing the tailscaled OOM crash that would kill every connection on the node), TS-2026-016 (serve TCP-to-Unix forwards are restricted and backend paths revalidated per connection) and TS-2026-017 (serve derives per-request capabilities instead of sharing them across HTTP/2 streams). Tailscale says it also added architectural safeguards against broader classes of related issues. Interim mitigation published during the investigation: set TS_SSH_DISABLE_FORWARDING=1 in the tailscaled service environment and restart, which disables forwarding without disabling Tailscale SSH, and review and tighten SSH access policies. Users are urged to upgrade to v1.104.4 or newer.",
+        "remaining": "Tailscale's bulletins and blog itemize the four fixed issues; they do not enumerate the status of all 11 Cyberdione findings - in particular the headscale-specific, app-connector (experimental) and DERP-client findings. headscale had no numbered patched release in the sources checked, and no CVEs are referenced in the vendor material. Whether any finding was exploited before disclosure is unknown; no party has reported in-the-wild use.",
+        "responses": [
+          {
+            "by": "Tailscale",
+            "summary": "Called the issues serious, published four security bulletins and an investigation page, shipped v1.104.4 within days with fixes plus architectural safeguards, and published a findings-and-fixes post. It says the 'worm' framing is inaccurate: exploitation requires an authorized device with policy-permitted SSH access.",
+            "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes",
+            "date": "2026-10-28"
+          },
+          {
+            "by": "Cyberdione Labs",
+            "summary": "Published the 11-finding report publicly before patches existed, arguing rapid awareness would speed remediation, and updated the report as fixes landed in Tailscale's public repositories.",
+            "url": "https://tailworm.com/",
+            "date": "2026-10-24"
+          },
+          {
+            "by": "SecurityWeek / BleepingComputer",
+            "summary": "Reported the uncoordinated disclosure, Tailscale's rush to patch, and the wormable-chaining demonstration with the vendor's caveats.",
+            "url": "https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/",
+            "date": "2026-10-27"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Tailworm is a worm that spreads automatically between machines",
+            "verdict": "disputed",
+            "explanation": "Researchers showed the SSH chain can be automated to hop in under a second per machine. Tailscale says that is not self-replicating malware: every hop requires policy-permitted SSH access from an already-authorized device.",
+            "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
+          },
+          {
+            "claim": "Anyone on the internet can exploit these flaws against a Tailscale node",
+            "verdict": "inaccurate",
+            "explanation": "The SSH findings require an authenticated, policy-authorized peer. The unauthenticated piece is the headscale control-server memory exhaustion, which affects self-hosted headscale, not Tailscale's hosted service.",
+            "url": "https://www.bleepingcomputer.com/news/security/tailscale-warns-of-serious-ssh-flaws-allowing-root-privilege-escalation/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cursor-claude-code-2-1-313",
+      "name": "Trojanized Claude Code 2.1.313 in Cursor's marketplace plants SSH backdoor",
+      "subject": "Cursor",
+      "summary": "A maliciously modified build of the Claude Code for VS Code extension, version 2.1.313, was served from Cursor's own extension marketplace for about eleven hours on Oct 29. Cursor says it was not developed by Anthropic and at most 5,000 users were affected. The build plants an attacker SSH key, tries to enable the SSH service, opens a persistent reverse tunnel and reports host details. The attacker server is offline; the planted key and persistence survive removing the extension.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-29",
+      "dateLabel": "Malicious build served Oct 29, 2026 ~2:27am-1:35pm PT; Cursor notice Oct 29; clean 2.1.314 published and X announcement Oct 30",
+      "tags": [
+        "supply-chain",
+        "malware",
+        "ai",
+        "credentials"
+      ],
+      "sources": [
+        {
+          "label": "Cursor security notice · Original source",
+          "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+          "kind": "primary",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "X · cursor_ai announcement",
+          "url": "https://x.com/cursor_ai/status/2116074289053175808",
+          "kind": "post",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "OpenSourceMalware technical analysis (updated)",
+          "url": "https://opensourcemalware.com/blog/trojanized-claude-code-extension-plants-persistent-ssh-backdoor",
+          "kind": "report",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Rescana · Analysis",
+          "url": "https://www.rescana.com/post/claude-code-extension-2-1-313-cursor-marketplace-trojanized-ssh-backdoor",
+          "kind": "report",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Phorion advisory (Open VSX attribution superseded)",
+          "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+          "kind": "report",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "Early reports attributed the build to Open VSX (OpenSourceMalware initially, Phorion's advisory still says so); OpenSourceMalware corrected this after Cursor contacted it. Open VSX, npm and the Microsoft VS Code Marketplace never listed a 2.1.313 at all, and Anthropic's changelog skips from 2.1.312 to 2.1.314.",
+      "disclosureDate": "2026-10-29",
+      "detail": {
+        "whatHappened": "Between about 2:27am and 1:35pm PT on October 29, 2026, Cursor's own VS Code extension marketplace served a maliciously modified build of the Claude Code for VS Code extension identifying itself as Anthropic.claude-code version 2.1.313. Cursor says the build was not developed by Anthropic and that an audit found no other tampered extensions. The malware is 66 lines prepended to extension.js, so it runs as soon as the extension loads - no Claude conversation needed. It collects host details, appends an attacker Ed25519 key (comment 'svc-telemetry') to ~/.ssh/authorized_keys, tries to enable the local SSH service, opens a reverse SSH tunnel to tunnel@134.209.82.225 that forwards the machine's SSH port, installs persistence (macOS LaunchAgent com.apple.sysmond, Windows 'SysMon' scheduled task with a Startup-folder fallback, and per OpenSourceMalware a Linux @reboot cron entry), retries roughly every 60 seconds, and posts a host report over plain HTTP to 134.209.82.225:8099/beacon. Cursor removed the package, took the whole marketplace down, rotated its keys, rebuilt and restored it, published indicators and remediation scripts, and announced the incident on X on October 30. It says it worked with the hosting provider (ARIN places the IP in a DigitalOcean range) to take the attacker server offline. How the package entered the marketplace has not been explained, and no one has named who is behind it.",
+        "exposure": "Cursor says at most 5,000 users were affected: anyone who installed or updated Claude Code for VS Code from the Cursor marketplace during the window (darwin-arm64 and win32-x64 builds named). The SSH-enable step usually failed: it needs administrator rights the extension does not have on most macOS and Windows machines, and Phorion reports a likely bug in the macOS check for standard users. But the authorized_keys entry, the persistence files and the host report can all have landed anyway, and they survive updating or removing the extension. The implant collected hostname, username, OS and architecture, home and working directories, the global git email, the public IP, and the names (not values) of up to 40 environment variables containing KEY, TOKEN, SECRET, PASS, AWS or GCP - a map of which credentials a later interactive session through the tunnel could go after. The npm CLI package, the Open VSX extension and the Microsoft Marketplace extension were never affected; none of them has a 2.1.313.",
+        "fix": "Cursor asks all users to update Claude Code for VS Code to 2.1.314 or later, and anyone possibly in the window to run its published checks: search ~/.ssh/authorized_keys (and on Windows C:\\ProgramData\\ssh\\administrators_authorized_keys) for the 'svc-telemetry' key, matching the fingerprint SHA256:0Z6R+DF64Do2nwQic8a7kkfDLNNk4IiK+2U2Rci4htk rather than the comment alone; look for the persistence files (~/Library/LaunchAgents/com.apple.sysmond.plist, ~/.config/.smt and .smtk, the Windows SysMon task and sysmon.cmd Startup script); and look for long-running ssh or autossh processes with -R *:0:localhost:22 or connections to 134.209.82.225 on ports 22 or 8099. Cursor publishes remediation scripts for macOS (run as the affected user) and Windows (run as Administrator). If indicators are present: isolate the machine, remove the key, persistence and tunnel processes, rotate every credential the account could reach from a known-clean machine, and assess a rebuild - OpenSourceMalware advises rebuilding over assuming the known files were the whole compromise. Removing the extension alone does not remove the backdoor.",
+        "remaining": "The entry point into Cursor's marketplace is unexplained ('some form of compromise' is all Cursor told OpenSourceMalware), the operator is unnamed, and what was done through any tunnel that did connect is unknown. Anthropic has not published a statement that Rescana could find. No CVE has been assigned and none may be: this is a malicious build in one marketplace, not a flaw in Claude Code itself. OpenSourceMalware notes its analysis proves the specific artifact was malicious, not by itself how distribution happened.",
+        "responses": [
+          {
+            "by": "Cursor (security notice and X post)",
+            "summary": "Identified and removed the package, took down, key-rotated and rebuilt its marketplace, says at most 5,000 users were affected and that it will contact them directly, worked with the hosting provider to take 134.209.82.225 offline, and published indicators plus macOS and Windows remediation scripts.",
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+            "date": "2026-10-29"
+          },
+          {
+            "by": "OpenSourceMalware",
+            "summary": "Published the full technical analysis (with indicators and hashes), corrected its initial Open VSX attribution after Cursor reached out, and recommends treating loaded hosts as compromised with rebuild preferred over artifact removal.",
+            "url": "https://opensourcemalware.com/blog/trojanized-claude-code-extension-plants-persistent-ssh-backdoor",
+            "date": "2026-10-30"
+          },
+          {
+            "by": "Phorion",
+            "summary": "Published an advisory with indicators; its Open VSX attribution is superseded by Cursor's notice. Notes the macOS SSH-enable step likely fails for standard users due to a bug in the malicious code.",
+            "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+            "date": "2026-10-30"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "The official Claude Code extension was compromised on npm, Open VSX or the Microsoft marketplace",
+            "verdict": "inaccurate",
+            "explanation": "Cursor says the malicious 2.1.313 existed only in its own marketplace. Open VSX, npm and the Microsoft VS Code Marketplace have no 2.1.313 version at all, and OpenSourceMalware's updated post says those artifacts are not malicious.",
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice"
+          },
+          {
+            "claim": "Updating or removing the extension removes the backdoor",
+            "verdict": "not supported",
+            "explanation": "The planted SSH key, persistence entries and host report survive extension updates and removal. Cursor advises running its checks and remediation whether or not the tunnel ever worked.",
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice"
+          },
+          {
+            "claim": "The tunnel gave the attacker access on affected machines",
+            "verdict": "partly",
+            "explanation": "Enabling the SSH service needs administrator rights the extension usually lacks, and Cursor says that step would fail outside highly unusual circumstances. The planted key, persistence and reconnaissance beacon can still have landed on those machines.",
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice"
+          }
+        ]
+      }
     }
   ]
 }
