@@ -3545,7 +3545,7 @@
       "status": "confirmed",
       "severity": "medium",
       "date": "2026-10-29",
-      "dateLabel": "Provider intrusion reported to bunny.net 'last week'; public notice Oct 29, 2026; managed certificate reissuance expected complete by end of Oct 31",
+      "dateLabel": "Provider intrusion reported to bunny.net 'last week'; public notice Oct 29, 2026; managed certificate reissuance completed Oct 31 12:50 UTC",
       "tags": [
         "supply-chain",
         "pki",
@@ -3556,7 +3556,7 @@
           "label": "bunny.net status · Incident page",
           "url": "https://status.bunny.net/incidents/p6gf1by9kr7m",
           "kind": "primary",
-          "date": "2026-10-29"
+          "date": "2026-10-31"
         },
         {
           "label": "Hacker News · Discussion",
@@ -3569,14 +3569,14 @@
       "detail": {
         "whatHappened": "An infrastructure provider used by bunny.net reported unauthorised access involving third-party server management software. One Bunny CDN node, located in Armenia, was hosted on a server supplied by that provider. After the alert, bunny.net says its engineers stopped routing traffic through the server within 20 minutes, preserved logs, securely wiped the machine, revoked its access to other systems and permanently removed it from the CDN. Both bunny.net's investigation and the provider's found no evidence the server or its data was accessed, but bunny.net says it cannot completely rule that out. It disclosed the incident publicly on October 29, 2026. The provider is not named.",
         "exposure": "If the server was accessed, the potentially exposed data would have been temporarily cached CDN content, Pull Zone configurations and TLS certificates stored on that one node. bunny.net says no account data was stored on the server and no internal systems were affected.",
-        "fix": "bunny.net revoked and reissued all TLS certificates for its platform domains (b-cdn.net and bunny.run) and is reissuing managed certificates for custom domains in controlled batches, expected to finish by end of October 31; existing certificates keep working until replaced and no action is needed from managed-certificate customers. Customers who manage their own TLS certificates are advised to revoke and reissue them with new private keys as a precaution.",
+        "fix": "bunny.net revoked and reissued all TLS certificates for its platform domains (b-cdn.net and bunny.run) and completed reissuing all managed custom-domain certificates on Oct 31 12:50 UTC, each with a new private key and the previous certificates revoked; no action is needed from managed-certificate customers. Customers who manage their own TLS certificates are still advised to revoke and reissue them with new private keys as a precaution. bunny.net has stopped using the affected provider while its investigation continues and is changing how configurations are distributed so each PoP only receives the configuration and TLS certificates for the sites it actively serves.",
         "remaining": "Whether the attacker ever reached the bunny.net server is unresolved - neither side found evidence of access, but bunny.net explicitly cannot rule it out. The infrastructure provider and the third-party management software are unnamed, and the provider's investigation is still running. It is not stated whether other bunny.net suppliers use the same software.",
         "responses": [
           {
             "by": "bunny.net (status page)",
-            "summary": "Contained the affected node within 20 minutes of the provider's alert, disclosed publicly with a plain-English account of what could and could not have been exposed, and is rotating all affected certificate material at its own cost rather than waiting for proof of access.",
+            "summary": "Contained the affected node within 20 minutes of the provider's alert, disclosed publicly with a plain-English account of what could and could not have been exposed, and rotated all affected certificate material at its own cost rather than waiting for proof of access - managed custom-domain reissuance completed Oct 31 12:50 UTC. It has dropped the affected provider pending its investigation and is reducing what each PoP holds.",
             "url": "https://status.bunny.net/incidents/p6gf1by9kr7m",
-            "date": "2026-10-29"
+            "date": "2026-10-31"
           }
         ],
         "claimChecks": [

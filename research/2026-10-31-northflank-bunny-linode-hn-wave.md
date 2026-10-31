@@ -21,3 +21,8 @@ Dedupe check against data/incidents.json before writing: no existing northflank/
 - Live re-check of https://status.northflank.com/cmvv0rn5a092f14rutwccodpp: new official update "Secret rotation for MySQL and Redis is now available to all customers. Please rotate all secrets if you have not already."
 - Also on the timeline since the entry was written: Oct 31 01:04 UTC audit logs enabled for all customers including free users (already reflected in the entry's fix field).
 - Record updated in place: dateLabel, primary source URL/date, fix, and Northflank response entry. Incident remains "Identified / major outage" per the status page; no new incident or UI change.
+
+## Bunny CDN follow-up - Oct 31 12:50 UTC (verified same day)
+- Live re-check of https://status.bunny.net/ (incident p6gf1by9kr7m timeline): managed TLS certificate reissuance COMPLETE - all managed certs reissued with new private keys, previous certs revoked, no action for managed customers; self-managed customers still advised to revoke/reissue.
+- New posture facts: bunny.net has stopped using the affected provider while its investigation continues, and is changing configuration distribution so each PoP only receives config and TLS certs for the sites it actively serves. Both investigations still find no evidence of unauthorized access to the bunny.net server.
+- Record updated in place: dateLabel, primary source date, fix, and bunny.net response entry. No new incident or UI change.
