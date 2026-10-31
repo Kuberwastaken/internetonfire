@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {validate} from './validate.mjs';
-import {barsHTML, headlineHTML, listHTML, sharePageHTML, sortIncidents} from '../render.js';
+import {barsHTML, headlineHTML, listHTML, periodDir, periods, periodSharePageHTML, sharePageHTML, sortIncidents} from '../render.js';
 import {timeMatch} from '../time.js';
 import {atomFeed, jsonLd, llmsTxt, sitemap} from './seo.mjs';
 
@@ -23,6 +23,8 @@ for(const file of ['style.css','app.js','render.js','contribute.js','time.js','a
 fs.writeFileSync('dist/index.html',html);
 // One share page per incident (dist/i/<id>/); scripts/og.mjs renders the images they point at.
 for(const item of data.incidents){fs.mkdirSync(`dist/i/${item.id}`,{recursive:true});fs.writeFileSync(`dist/i/${item.id}/index.html`,sharePageHTML(item));}
+// Day and week share pages (dist/d/<date>/, dist/w/<iso-week>/); scripts/og.mjs renders their cards.
+for(const p of [...periods(data).days,...periods(data).weeks]){fs.mkdirSync(`dist/${periodDir(p.kind)}/${p.key}`,{recursive:true});fs.writeFileSync(`dist/${periodDir(p.kind)}/${p.key}/index.html`,periodSharePageHTML(p));}
 fs.writeFileSync('dist/.nojekyll','');
 const tags=JSON.parse(fs.readFileSync('data/tags.json','utf8')).tags;
 fs.writeFileSync('dist/llms.txt',llmsTxt(data,tags));

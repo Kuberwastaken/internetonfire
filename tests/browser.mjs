@@ -1,7 +1,10 @@
 import {chromium} from '@playwright/test';import {spawn} from 'node:child_process';import fs from 'node:fs';import assert from 'node:assert/strict';
+import {isoWeek} from '../render.js';
 // Set CHROME_PATH to use a local Chromium instead of Playwright's pinned download.
 const data=JSON.parse(fs.readFileSync('data/incidents.json','utf8'));const total=data.incidents.length;
 fs.mkdirSync('test-results',{recursive:true});const server=spawn('python3',['-m','http.server','4184','--bind','127.0.0.1'],{stdio:'ignore'});
+const distServer=spawn('python3',['-m','http.server','4185','--bind','127.0.0.1'],{cwd:'dist',stdio:'ignore'});
+const byDayCount=(d)=>data.incidents.filter((i)=>(i.disclosureDate||i.date)===d).length;
 const browser=await chromium.launch(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{});
 const issues=[{number:7,title:'Add example incident (test fixture)',html_url:'https://github.com/Kuberwastaken/internetonfire/pull/7',created_at:'2026-10-22T00:00:00Z',pull_request:{},draft:false,labels:[{name:'npm'}],reactions:{'+1':3,'-1':1}},{number:8,title:'Draft redesign (should be hidden)',html_url:'https://github.com/Kuberwastaken/internetonfire/pull/8',pull_request:{},draft:true,reactions:{}}];
 // Analytics stays out of tests.
@@ -101,4 +104,31 @@ try{
   }
   assert.deepEqual(errors,[]);await page.close();console.log(`PASS ${width}: layout, font, search, chips, headline, bars, expand, links, stars, queue, fallback, deep link, motion, tags, severity, submit, voting`);
  }
-}finally{await browser.close();server.kill();}
+ {
+  // Shareable period links: ?day= / ?week= land pre-filtered; the static /d/ and /w/ pages
+  // carry their own preview tags and send people to that filtered view. Served from dist/.
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));await mockGitHub(page);
+  const byDay={};for(const i of data.incidents){const k=i.disclosureDate||i.date;if(k)byDay[k]=(byDay[k]||0)+1;}
+  const lastDay=Object.keys(byDay).sort().at(-1);
+  await page.goto(`http://127.0.0.1:4184/?day=${lastDay}`,{waitUntil:'networkidle'});
+  assert.equal(await page.locator('.incident').count(),byDayCount(lastDay));
+  assert.ok((await page.locator('[data-headline]').innerText()).includes(' on '));
+  const wk=isoWeek(lastDay);const wCount=Object.keys(byDay).filter((k)=>isoWeek(k)===wk).reduce((m,k)=>m+byDay[k],0);
+  await page.goto(`http://127.0.0.1:4184/?week=${wk}`,{waitUntil:'networkidle'});
+  assert.equal(await page.locator('.incident').count(),wCount);
+  assert.ok((await page.locator('[data-headline]').innerText()).includes('in the week of'));
+  const dmeta=await (await page.context().request.get(`http://127.0.0.1:4185/d/${lastDay}/`)).text();
+  assert.ok(dmeta.includes('property="og:title"'),'day page og:title');
+  assert.ok(dmeta.includes(`og:image" content="https://kuber.studio/internetonfire/assets/og/d-${lastDay}.jpg`));
+  await page.goto(`http://127.0.0.1:4185/d/${lastDay}/`,{waitUntil:'networkidle'});
+  await page.waitForURL(`**/?day=${lastDay}`);
+  assert.equal(await page.locator('.incident').count(),byDayCount(lastDay));
+  const wmeta=await (await page.context().request.get(`http://127.0.0.1:4185/w/${wk}/`)).text();
+  assert.ok(wmeta.includes(`/w/${wk}/`));
+  await page.goto(`http://127.0.0.1:4185/w/${wk}/`,{waitUntil:'networkidle'});
+  await page.waitForURL(`**/?week=${wk}`);
+  assert.equal(await page.locator('.incident').count(),wCount);
+  await page.screenshot({path:'test-results/period.png'});
+  assert.deepEqual(errors,[]);await page.close();console.log('PASS period links: ?day, ?week, /d/, /w/');
+ }
+}finally{await browser.close();server.kill();distServer.kill();}

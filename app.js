@@ -1,10 +1,10 @@
 import { timeMatch } from './time.js';
-import { SEVERITY, STATUS, barsHTML, dayKey, dayLabel, esc, headlineHTML, icon, listHTML, safeURL, sortIncidents } from './render.js';
+import { SEVERITY, STATUS, barsHTML, dayKey, dayLabel, esc, headlineHTML, icon, inWeek, listHTML, safeURL, sortIncidents, weekRange } from './render.js';
 import { REPO, applyVoteIntent, auth, loadMyVotes, setupContribute, votesHTML } from './contribute.js';
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
-const DEFAULTS = { q: '', status: 'all', severity: 'all', window: 'week', day: null, tag: null };
+const DEFAULTS = { q: '', status: 'all', severity: 'all', window: 'week', day: null, week: null, tag: null };
 const state = { ...DEFAULTS };
 const openIds = new Set();
 let incidents = [];
@@ -35,8 +35,8 @@ function visible(...skip) {
     (skip.includes('status') || state.status === 'all' || i.status === state.status) &&
     (skip.includes('severity') || state.severity === 'all' || i.severity === state.severity) &&
     (skip.includes('tag') || !state.tag || (i.tags || []).includes(state.tag)) &&
-    // A picked day overrides the time window.
-    (state.day ? dayKey(i) === state.day : ['within', 'possible'].includes(timeMatch(i, state.window))) &&
+    // A picked day or week overrides the time window.
+    (state.day ? dayKey(i) === state.day : state.week ? inWeek(dayKey(i), state.week) : ['within', 'possible'].includes(timeMatch(i, state.window))) &&
     (!q || [i.name, i.summary, ...(i.tags || []), i.category, i.correction, i.detail?.whatHappened].join(' ').toLowerCase().includes(q))));
 }
 
@@ -50,8 +50,14 @@ function render() {
     ? `${rows.length} of ${incidents.length} <button type="button" class="clear" data-clear>Reset filters</button>`
     : '';
   $('#bars').innerHTML = barsHTML(incidents, localToday(), 30, state.day);
-  $$('#window [data-window]').forEach((b) => b.setAttribute('aria-pressed', String(!state.day && b.dataset.window === state.window)));
+  $$('#window [data-window]').forEach((b) => b.setAttribute('aria-pressed', String(!state.day && !state.week && b.dataset.window === state.window)));
   renderChips();
+}
+
+// Keep the address bar copyable for the current period view.
+function syncUrl() {
+  const p = state.day ? `?day=${state.day}` : state.week ? `?week=${state.week}` : '';
+  history.replaceState(null, '', location.pathname + p + location.hash);
 }
 
 function renderChips() {
@@ -118,6 +124,11 @@ async function load() {
     if (!r.ok) throw Error(String(r.status));
     const data = await r.json();
     incidents = data.incidents;
+    // Shareable period links land here: /?day=2026-10-30 or /?week=2026-W44.
+    const params = new URLSearchParams(location.search);
+    const dayParam = params.get('day'), weekParam = params.get('week');
+    if (dayParam && /^\d{4}-\d{2}-\d{2}$/.test(dayParam) && !Number.isNaN(Date.parse(dayParam + 'T00:00:00Z'))) state.day = dayParam;
+    else if (weekParam && weekRange(weekParam)) state.week = weekParam;
     $('[data-updated]').textContent = 'Sources checked ' + dayLabel(data.updated);
     renderLegend(); render(); openFromHash();
   } catch {
@@ -179,9 +190,9 @@ function setupTip() {
 document.addEventListener('click', (e) => {
   const t = e.target;
   const bar = t.closest('.bar');
-  if (bar && !bar.disabled) { state.day = state.day === bar.dataset.day ? null : bar.dataset.day; render(); return; }
+  if (bar && !bar.disabled) { state.day = state.day === bar.dataset.day ? null : bar.dataset.day; state.week = null; syncUrl(); render(); return; }
   const win = t.closest('[data-window]');
-  if (win) { state.window = win.dataset.window; state.day = null; render(); return; }
+  if (win) { state.window = win.dataset.window; state.day = null; state.week = null; syncUrl(); render(); return; }
   const chip = t.closest('[data-status]');
   if (chip?.closest('#status')) {
     if (chip.dataset.status === 'all') { state.status = 'all'; state.severity = 'all'; }
@@ -192,7 +203,7 @@ document.addEventListener('click', (e) => {
   if (sev?.closest('#status')) { state.severity = sev.dataset.severity === state.severity ? 'all' : sev.dataset.severity; render(); return; }
   const tag = t.closest('[data-tag]');
   if (tag) { state.tag = state.tag === tag.dataset.tag ? null : tag.dataset.tag; render(); if (tag.closest('.incident')) $('#log').scrollIntoView({ block: 'start' }); return; }
-  if (t.closest('[data-clear]')) { Object.assign(state, DEFAULTS); $('#search').value = ''; render(); return; }
+  if (t.closest('[data-clear]')) { Object.assign(state, DEFAULTS); $('#search').value = ''; syncUrl(); render(); return; }
   const clamped = t.closest('p.clamp');
   if (clamped && !getSelection().toString()) { clamped.classList.remove('clamp'); return; }
   const art = t.closest('.incident');

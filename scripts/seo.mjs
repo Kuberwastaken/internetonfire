@@ -84,7 +84,7 @@ Evidence (how well-sourced it is): ${Object.entries(STATUS).map(([k, s]) => `**$
 - [incidents.json](${SITE}data/incidents.json): the full log. Each incident has id, name, subject, summary, severity, status, date, disclosureDate, tags, sources (label, url, kind: primary|report|post|response, date), an optional correction and an optional detail object (whatHappened, exposure, fix, remaining, responses, claimChecks).
 - [tags.json](${SITE}data/tags.json): the tag vocabulary.
 - [Atom feed](${SITE}feed.xml): newest incidents.
-- Link to one incident with \`${SITE}#<id>\`, or \`${SITE}i/<id>/\` for a link with its own preview card.
+- Link to one incident with \`${SITE}#<id>\`, or \`${SITE}i/<id>/\` for a link with its own preview card. Link to a disclosure day or ISO week with \`${SITE}d/<date>/\` or \`${SITE}w/<week>/\` (e.g. \`${SITE}d/2026-10-30/\`, \`${SITE}w/2026-W44/\`); the preview names that period's incidents.
 
 ## Contribute
 

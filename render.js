@@ -85,6 +85,38 @@ export function addDays(key, n) {
   const d = new Date(key + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10);
 }
 
+// ISO 8601 weeks (Monday-Sunday) for the week share pages. The week's Thursday anchors its ISO year.
+export function isoWeek(key) {
+  const d = utc(key);
+  const thu = new Date(d);
+  thu.setUTCDate(d.getUTCDate() + (4 - (d.getUTCDay() || 7)));
+  const jan1 = new Date(Date.UTC(thu.getUTCFullYear(), 0, 1));
+  return `${thu.getUTCFullYear()}-W${String(Math.round((thu - jan1) / 604800000) + 1).padStart(2, '0')}`;
+}
+
+// [monday, sunday] civil-date range of an ISO week key, or null for a malformed or impossible key.
+export function weekRange(weekKey) {
+  const m = /^(\d{4})-W(\d{2})$/.exec(weekKey || '');
+  if (!m || +m[2] < 1 || +m[2] > 53) return null;
+  const jan4 = new Date(Date.UTC(+m[1], 0, 4));
+  const start = new Date(jan4);
+  start.setUTCDate(jan4.getUTCDate() - ((jan4.getUTCDay() || 7) - 1) + (+m[2] - 1) * 7);
+  const end = new Date(start);
+  end.setUTCDate(start.getUTCDate() + 6);
+  const range = [start.toISOString().slice(0, 10), end.toISOString().slice(0, 10)];
+  return isoWeek(range[0]) === weekKey ? range : null;
+}
+
+export const weekLabel = (weekKey) => {
+  const r = weekRange(weekKey);
+  return r ? `${shortDate(r[0])} - ${shortDate(r[1])}` : String(weekKey || '');
+};
+
+export const inWeek = (key, weekKey) => {
+  const r = weekRange(weekKey);
+  return !!(r && key && key >= r[0] && key <= r[1]);
+};
+
 function verdictTone(v) {
   const s = String(v).toLowerCase();
   if (/not supported|false|wrong|overstated|incorrect/.test(s)) return 'no';
@@ -153,6 +185,67 @@ export function sharePageHTML(item) {
 `;
 }
 
+// URL directory for a period kind: days live at /d/<date>/, weeks at /w/<iso-week>/.
+export const periodDir = (kind) => (kind === 'day' ? 'd' : 'w');
+
+// The days and ISO weeks that have at least one entry, newest first. One definition shared
+// by the static period pages (scripts/build.mjs) and their social cards (scripts/og.mjs).
+export function periods(data) {
+  const byDay = new Map();
+  for (const item of data.incidents) {
+    const k = dayKey(item);
+    if (!k) continue;
+    if (!byDay.has(k)) byDay.set(k, []);
+    byDay.get(k).push(item);
+  }
+  const days = [...byDay.keys()].sort().reverse().map((k) => ({ kind: 'day', key: k, label: dayLabel(k), items: sortIncidents(byDay.get(k)) }));
+  const byWeek = new Map();
+  for (const d of days) {
+    const w = isoWeek(d.key);
+    if (!byWeek.has(w)) byWeek.set(w, []);
+    byWeek.get(w).push(...d.items);
+  }
+  const weeks = [...byWeek.keys()].sort().reverse().map((k) => ({ kind: 'week', key: k, label: weekLabel(k), items: sortIncidents(byWeek.get(k)) }));
+  return { days, weeks };
+}
+
+// Static page behind each day/week share link. Same crawler pattern as the incident share
+// pages: preview tags for bots, people sent on to the log filtered to that period. The card
+// image is the standard og card with the period as its subject (scripts/og.mjs).
+export function periodSharePageHTML(period) {
+  const names = [...new Set(period.items.map(subjectOf))];
+  const title = esc(`${period.label} is on fire.`);
+  const when = period.kind === 'day' ? `on ${period.label}` : `in the week of ${period.label}`;
+  const n = period.items.length;
+  const lead = `${n} ${n === 1 ? 'incident' : 'incidents'} went public ${when}`;
+  const kept = [];
+  for (const name of names) {
+    if (`${lead}: ${[...kept, name].join(', ')}`.length > 190) break;
+    kept.push(name);
+  }
+  const more = names.length - kept.length;
+  const desc = esc(kept.length ? `${lead}: ${kept.join(', ')}${more ? `, +${more} more` : ''}.` : `${lead}.`);
+  const dir = periodDir(period.kind);
+  const url = `${SITE}${dir}/${period.key}/`, image = `${SITE}assets/og/${dir}-${period.key}.jpg`;
+  const target = `../../?${period.kind}=${period.key}`;
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${title} · internetonfire</title>
+<meta name="description" content="${desc}">
+<link rel="canonical" href="${SITE}">
+<meta property="og:type" content="article"><meta property="og:site_name" content="internetonfire">
+<meta property="og:url" content="${url}"><meta property="og:title" content="${title}"><meta property="og:description" content="${desc}">
+<meta property="og:image" content="${image}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${title} This is fine.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kuberwastaken"><meta name="twitter:creator" content="@kuberwastaken">
+<meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${desc}"><meta name="twitter:image" content="${image}">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<script>location.replace('${target}')</script>
+</head><body style="font:16px/1.5 system-ui;max-width:40rem;margin:2rem auto;padding:0 1rem">
+<h1>${title}</h1><p>${esc(lead)}: ${esc(names.join(', '))}.</p>
+<p><a href="${target}">Read the log on internetonfire</a></p></body></html>
+`;
+}
+
 export function tagsHTML(item, active = null) {
   // Entries submitted before tags existed fall back to their old free-text category.
   if (!Array.isArray(item.tags)) return item.category ? `<span class="tags"><span class="legacy">${esc(item.category)}</span></span>` : '';
@@ -188,13 +281,13 @@ export function listHTML(items, openIds = new Set(), activeTag = null) {
 const WINDOW_PHRASE = { day: 'in the last 24 hours', week: 'in the last week', month: 'in the last 30 days', all: 'logged so far' };
 
 // The hero line mirrors whatever filters are active, e.g. "12 confirmed incidents tagged #ai in the last week".
-export function headlineHTML(count, { status = 'all', severity = 'all', window = 'week', day = null, tag = null, q = '' } = {}) {
+export function headlineHTML(count, { status = 'all', severity = 'all', window = 'week', day = null, week = null, tag = null, q = '' } = {}) {
   const adj = [SEVERITY[severity], STATUS[status]].filter(Boolean).map((x) => x.label.toLowerCase() + ' ').join('');
   const noun = count === 1 ? 'incident' : 'incidents';
   const parts = [`<b>${count || 'No'}</b> ${adj}${noun}`];
   if (tag) parts.push(`tagged <span class="htag">#${esc(tag)}</span>`);
   if (q.trim()) parts.push(`matching “${esc(q.trim())}”`);
-  parts.push(day ? `on ${esc(dayLabel(day))}` : WINDOW_PHRASE[window] || WINDOW_PHRASE.week);
+  parts.push(day ? `on ${esc(dayLabel(day))}` : week ? `in the week of ${esc(weekLabel(week))}` : WINDOW_PHRASE[window] || WINDOW_PHRASE.week);
   return parts.join(' ') + '.';
 }
 
