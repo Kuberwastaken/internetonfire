@@ -3651,6 +3651,70 @@
           }
         ]
       }
+    },
+    {
+      "id": "scribd-user-data-breach",
+      "name": "Scribd confirms unauthorized access to systems; user emails and partial card metadata exposed",
+      "subject": "Scribd (Everand, Slideshare, Fable)",
+      "summary": "Scribd, Inc. is notifying users in phases that an unauthorized third party gained access to its systems and reached user information across Scribd, Slideshare, Everand and Fable. For most accounts this was basic account information; the notification email lists email address, last 4 digits of credit card with country, card issuer, card expiry date and payment history (not full card details). A smaller number of accounts had more sensitive information involved, not further specified. Scribd says it shut down the access and has no evidence of misuse.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-26",
+      "dateLabel": "Scribd help-center incident page stamped Oct 1, 2026; user notifications phased via Epiq, at least one received Oct 26, 2026; first wide public discussion Oct 31. Intrusion and discovery dates not stated",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Scribd Help Center · Information about the recent security incident",
+          "url": "https://support.scribd.com/hc/en-us/articles/53787421531284-Information-about-the-recent-security-incident",
+          "kind": "primary",
+          "date": "2026-10-01"
+        },
+        {
+          "label": "Hacker News · Discussion (verbatim notification email)",
+          "url": "https://news.ycombinator.com/item?id=50312756",
+          "kind": "post",
+          "date": "2026-10-31"
+        }
+      ],
+      "correction": "Reached the Hacker News front page on Oct 31 as a fresh 'Tell HN: Scribd Breached', but Scribd's help-center page for the incident predates the thread (stamped October 1, 2026) and notices are being sent in phases - disclosure began earlier in October, and the actual incident date is unstated.",
+      "detail": {
+        "whatHappened": "An unauthorized third party gained access to one of Scribd, Inc.'s systems and used that access to reach other internal systems holding user information across Scribd, Slideshare, Everand and Fable. Scribd says it detected the activity, shut down the access, closed the vulnerability, engaged outside forensic and cybersecurity experts, and notified law enforcement and the relevant data protection authorities. Affected users are being notified in phases by Epiq, Scribd's notification partner; one recipient posted their notice (received Monday, October 26, 2026) to Hacker News on October 31, bringing the incident to wide attention.",
+        "exposure": "For most accounts, Scribd describes the data as basic account information. The notification email posted to Hacker News specifies: email address, last 4 digits of credit card and country, credit card issuer, card expiry date, and payment history (not including full credit card details). Scribd's help-center page adds that a smaller number of accounts had more sensitive information involved, without saying what. The number of affected users has not been disclosed, and Scribd reports no evidence the data has been misused.",
+        "fix": "Scribd recommends resetting your password on Scribd, Slideshare, Everand and Fable out of caution, and treating any message claiming to be from those brands that asks for a password or personal information as phishing - the company says it never asks for those by email, text or phone. Affected users are notified by Epiq on Scribd's behalf (check spam too), and a dedicated call center (+1-877-361-9887) handles incident questions.",
+        "remaining": "What the 'more sensitive information' for the smaller cohort was, how many users are affected, when the intrusion happened, when Scribd discovered it, and how the attacker got in are all unstated. The help-center page's October 1 update stamp versus the phased notifications (at least one received October 26) leaves the disclosure timeline unclear.",
+        "responses": [
+          {
+            "by": "Scribd, Inc.",
+            "summary": "Published a help-center incident page, shut down the unauthorized access, closed the vulnerability, engaged outside forensic and cybersecurity experts, notified law enforcement and data protection authorities, and began phased user notifications via Epiq with a dedicated call center.",
+            "url": "https://support.scribd.com/hc/en-us/articles/53787421531284-Information-about-the-recent-security-incident",
+            "date": "2026-10-01"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Scribd suffered a breach of user data",
+            "verdict": "confirmed",
+            "explanation": "Scribd's own help-center page confirms an unauthorized third party gained access to its systems, used it to reach other internal systems, and accessed user information; affected users are being notified via Epiq.",
+            "url": "https://support.scribd.com/hc/en-us/articles/53787421531284-Information-about-the-recent-security-incident"
+          },
+          {
+            "claim": "Full credit card details were exposed",
+            "verdict": "inaccurate",
+            "explanation": "The notification email posted to Hacker News lists only the last 4 digits of the card, country, issuer, expiry date and payment history, and explicitly excludes full credit card details.",
+            "url": "https://news.ycombinator.com/item?id=50312756"
+          },
+          {
+            "claim": "The breach became public with the October 31 Hacker News thread",
+            "verdict": "not established",
+            "explanation": "Scribd's help-center page on the incident is stamped October 1, 2026 and notifications are phased, so disclosure began earlier in October; the Oct 31 thread is the first wide public discussion, not a confirmed start of disclosure.",
+            "url": "https://support.scribd.com/hc/en-us/articles/53787421531284-Information-about-the-recent-security-incident"
+          }
+        ]
+      }
     }
   ]
 }
