@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -3444,6 +3444,212 @@
           }
         ],
         "claimChecks": []
+      }
+    },
+    {
+      "id": "northflank-env-vars-breach",
+      "name": "Northflank breach: customer environment variables decrypted, stored AI API keys abused",
+      "subject": "Northflank",
+      "summary": "Northflank, a cloud deployment platform, told all customers on Oct 30 to assume their environment variables have been decrypted and to rotate every secret immediately. Users report unauthorised use of AI API keys stored on the platform, and Northflank links the activity to the 'Black October' wave of attacks on AI developer platforms tracked by Wiz. Parts of the platform are in major outage while it patches.",
+      "status": "confirmed",
+      "severity": "critical",
+      "date": "2026-10-30",
+      "dateLabel": "Wiz threat alert and first Northflank patches Oct 30, 2026 ~11:43-13:05 UTC; rotation guidance and partial outage ongoing into Oct 31",
+      "tags": [
+        "breach",
+        "credentials",
+        "cloud",
+        "ai"
+      ],
+      "sources": [
+        {
+          "label": "Northflank status · Ongoing incident updates",
+          "url": "https://status.northflank.com",
+          "kind": "primary",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Wiz · 'Black October' for AI Developer Platforms",
+          "url": "https://www.wiz.io/blog/black-october-for-ai-developer-platforms",
+          "kind": "report",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Hacker News · Discussion",
+          "url": "https://news.ycombinator.com/item?id=50305025",
+          "kind": "post",
+          "date": "2026-10-30"
+        }
+      ],
+      "disclosureDate": "2026-10-30",
+      "detail": {
+        "whatHappened": "On October 30, 2026 at 11:43 UTC Northflank received a threat alert from Wiz and began patching its network policies within the hour, with Wiz's incident response team engaged by 13:00 UTC. At 13:58 UTC Northflank told all users to assume every environment variable stored on the platform had been decrypted and to rotate all keys immediately. By evening it reported that multiple users were confirming unauthorised use of AI API keys they had supplied to the platform, and on October 30 at 23:38 UTC it said the reports 'may be consistent with the broader pattern of attacks targeting AI credentials', pointing at the attacker IP addresses in Wiz's 'Black October' report. Large parts of the platform (networking, certificates, services, addons, jobs, builds, logs and metrics) are in major outage while the investigation continues; the app and API stay up. Northflank has not yet explained the initial access path.",
+        "exposure": "Potentially every secret stored on Northflank: workload environment variables, secret groups and global secrets - for all customers, including free-tier users. The confirmed harm so far is unauthorised use of stored AI provider keys; Northflank asks users to review their AI provider usage and billing logs. Wiz reports that across this month's campaign, stolen keys are validated within minutes and then used for LLMjacking at scale, and that around $371,000 in cryptocurrency was allegedly taken using keys stored at another breached platform.",
+        "fix": "Northflank's guidance: revoke and replace every secret stored on the platform with the issuing provider, update the affected secrets and workloads in Northflank, and disable public access on addons where enabled. It has force-enabled secret rotation on Postgres and MongoDB addons, enabled audit logs for all customers including free users, and asks anyone seeing suspicious AI key usage to report it to Northflank support and the provider.",
+        "remaining": "The entry point and full scope are unconfirmed; Northflank says only that its investigation is ongoing. Whether the attackers are the same 'agent swarm' behind this month's other AI platform breaches is not established. How many customers' keys were actually abused, and what else the decrypted secrets opened up (databases, addons, downstream SaaS), is unknown. A post-incident report has not been published.",
+        "responses": [
+          {
+            "by": "Northflank (status page)",
+            "summary": "Acknowledged the incident the same day, ordered blanket secret rotation, force-enabled Postgres/MongoDB rotation and audit logs for all customers, and is publishing rolling updates while parts of the platform remain in major outage.",
+            "url": "https://status.northflank.com",
+            "date": "2026-10-30"
+          },
+          {
+            "by": "Wiz",
+            "summary": "Its threat alert triggered Northflank's response. Its 'Black October' report counts Northflank as the ninth AI developer platform breached this month and describes the shared pattern: targeted theft of stored environment variables feeding LLMjacking and key resale.",
+            "url": "https://www.wiz.io/blog/black-october-for-ai-developer-platforms",
+            "date": "2026-10-30"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Northflank customer environment variables were decrypted",
+            "verdict": "confirmed",
+            "explanation": "This is Northflank's own guidance: 'Assume all environment variables have been decrypted. Disable/rotate all keys.' Users have confirmed unauthorised use of stored AI keys.",
+            "url": "https://status.northflank.com"
+          },
+          {
+            "claim": "The Northflank breach is part of the coordinated October campaign against AI platforms",
+            "verdict": "partly",
+            "explanation": "Wiz lists Northflank as the ninth incident in its 'Black October' campaign tracking and Northflank says attacker IPs overlap, but also notes the incidents are still being analysed and no single root cause links them.",
+            "url": "https://www.wiz.io/blog/black-october-for-ai-developer-platforms"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bunny-cdn-provider-intrusion",
+      "name": "Bunny CDN pulls Armenia node after infrastructure provider intrusion, reissues TLS certificates",
+      "subject": "bunny.net",
+      "summary": "One of bunny.net's infrastructure providers reported unauthorised access through third-party server management software, and a Bunny CDN node in Armenia sat on an affected server. Bunny cut it from rotation within 20 minutes, wiped it and says neither investigation found evidence the server was actually accessed - but it reissued all platform TLS certificates and is rotating managed customer certificates as a precaution.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-29",
+      "dateLabel": "Provider intrusion reported to bunny.net 'last week'; public notice Oct 29, 2026; managed certificate reissuance expected complete by end of Oct 31",
+      "tags": [
+        "supply-chain",
+        "pki",
+        "network"
+      ],
+      "sources": [
+        {
+          "label": "bunny.net status · Incident page",
+          "url": "https://status.bunny.net/incidents/p6gf1by9kr7m",
+          "kind": "primary",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "Hacker News · Discussion",
+          "url": "https://news.ycombinator.com/item?id=50308697",
+          "kind": "post",
+          "date": "2026-10-30"
+        }
+      ],
+      "disclosureDate": "2026-10-29",
+      "detail": {
+        "whatHappened": "An infrastructure provider used by bunny.net reported unauthorised access involving third-party server management software. One Bunny CDN node, located in Armenia, was hosted on a server supplied by that provider. After the alert, bunny.net says its engineers stopped routing traffic through the server within 20 minutes, preserved logs, securely wiped the machine, revoked its access to other systems and permanently removed it from the CDN. Both bunny.net's investigation and the provider's found no evidence the server or its data was accessed, but bunny.net says it cannot completely rule that out. It disclosed the incident publicly on October 29, 2026. The provider is not named.",
+        "exposure": "If the server was accessed, the potentially exposed data would have been temporarily cached CDN content, Pull Zone configurations and TLS certificates stored on that one node. bunny.net says no account data was stored on the server and no internal systems were affected.",
+        "fix": "bunny.net revoked and reissued all TLS certificates for its platform domains (b-cdn.net and bunny.run) and is reissuing managed certificates for custom domains in controlled batches, expected to finish by end of October 31; existing certificates keep working until replaced and no action is needed from managed-certificate customers. Customers who manage their own TLS certificates are advised to revoke and reissue them with new private keys as a precaution.",
+        "remaining": "Whether the attacker ever reached the bunny.net server is unresolved - neither side found evidence of access, but bunny.net explicitly cannot rule it out. The infrastructure provider and the third-party management software are unnamed, and the provider's investigation is still running. It is not stated whether other bunny.net suppliers use the same software.",
+        "responses": [
+          {
+            "by": "bunny.net (status page)",
+            "summary": "Contained the affected node within 20 minutes of the provider's alert, disclosed publicly with a plain-English account of what could and could not have been exposed, and is rotating all affected certificate material at its own cost rather than waiting for proof of access.",
+            "url": "https://status.bunny.net/incidents/p6gf1by9kr7m",
+            "date": "2026-10-29"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Bunny CDN customer data was stolen",
+            "verdict": "not supported",
+            "explanation": "Neither bunny.net's nor the provider's investigation found evidence of access to the server. The certificate rotation is precautionary, and no account data was on the node.",
+            "url": "https://status.bunny.net/incidents/p6gf1by9kr7m"
+          },
+          {
+            "claim": "The incident was limited to one CDN node in Armenia",
+            "verdict": "confirmed",
+            "explanation": "bunny.net says a single node hosted on the affected provider's server was involved, and that it was permanently removed from the infrastructure.",
+            "url": "https://status.bunny.net/incidents/p6gf1by9kr7m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "linode-cve-2026-98432-advisory",
+      "name": "Akamai warns Linode customers over critical Linux kernel RCE CVE-2026-98432",
+      "subject": "Linode (Akamai)",
+      "summary": "Akamai opened a customer security advisory for Linode over CVE-2026-98432, a critical (CVSS 9.8) remote, unauthenticated use-after-free in the Linux kernel's IPv4 stack published Oct 15. It is deploying mitigations and telling customers to apply OS updates as they land. There is no evidence of exploitation on the platform - this is an advisory, not a confirmed breach.",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-10-30",
+      "dateLabel": "CVE-2026-98432 published Oct 15, 2026; Red Hat critical advisory; Akamai/Linode customer advisory opened Oct 30, mitigation work ongoing Oct 31",
+      "tags": [
+        "vulnerability",
+        "rce",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "Linode status · Customer security advisory",
+          "url": "https://status.linode.com/incidents/nt58zhx3pmgm",
+          "kind": "primary",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Red Hat · RHSB-2026-016",
+          "url": "https://access.redhat.com/security/vulnerabilities/RHSB-2026-016",
+          "kind": "report",
+          "date": "2026-10-15"
+        },
+        {
+          "label": "linux-cve-announce · CVE-2026-98432",
+          "url": "https://lists.openwall.net/linux-cve-announce/2026/10/15/1",
+          "kind": "primary",
+          "date": "2026-10-15"
+        },
+        {
+          "label": "Hacker News · Discussion",
+          "url": "https://news.ycombinator.com/item?id=50310687",
+          "kind": "post",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "Reached the Hacker News front page as 'Linode Security Incident', but Akamai's advisory describes investigation and mitigation of a published kernel CVE - it explicitly reports no evidence of exploitation on the Akamai Compute platform. An advisory over a critical shared-infrastructure vulnerability, not a confirmed breach.",
+      "disclosureDate": "2026-10-30",
+      "detail": {
+        "whatHappened": "CVE-2026-98432 is a use-after-free in the Linux kernel's IPv4 networking: tcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the child socket without copying it, and a concurrent CPU processing a retransmitted SYN can then free the same memory. It is remotely exploitable by an unauthenticated attacker and rated CVSS 9.8 (critical); Red Hat issued a critical security bulletin and is expediting fixes. On October 30, 2026 Akamai opened a customer advisory for its Linode cloud platform, saying it was investigating impact, deploying mitigations for the known attack vector, and monitoring the platform in parallel.",
+        "exposure": "Any unpatched Linux host accepting IPv4 connections is potentially exposed to remote code execution; for Linode customers that means their own VMs until OS updates are applied. Akamai reports no evidence the vulnerability has been exploited on the Akamai Compute platform.",
+        "fix": "Apply OS kernel updates from the upstream distribution as soon as they become available. Akamai says it is deploying platform-level mitigations for the known attack vector while it analyses further impact, and points customers at its support tickets for questions.",
+        "remaining": "Akamai's investigation is still open: whether any Linode host was exposed before mitigations, and whether the vulnerability is being exploited anywhere in the wild, is unstated. Distribution kernel fixes were still rolling out when the advisory was published.",
+        "responses": [
+          {
+            "by": "Akamai (Linode status)",
+            "summary": "Opened a customer security advisory the day the issue reached it, committed to deploying mitigations for the known attack vector, and is posting progress updates while telling customers to patch their workloads.",
+            "url": "https://status.linode.com/incidents/nt58zhx3pmgm",
+            "date": "2026-10-30"
+          },
+          {
+            "by": "Red Hat",
+            "summary": "Issued critical bulletin RHSB-2026-016 and is expediting kernel fixes across affected releases.",
+            "url": "https://access.redhat.com/security/vulnerabilities/RHSB-2026-016",
+            "date": "2026-10-15"
+          }
+        ],
+        "claimChecks": [
+          {
+            "claim": "Linode was breached",
+            "verdict": "inaccurate",
+            "explanation": "Akamai's advisory covers investigation and mitigation of a published kernel CVE and says it has no evidence of exploitation on the Akamai Compute platform.",
+            "url": "https://status.linode.com/incidents/nt58zhx3pmgm"
+          },
+          {
+            "claim": "CVE-2026-98432 is remotely exploitable without authentication",
+            "verdict": "confirmed",
+            "explanation": "NVD scores it CVSS 9.8 with network attack vector and no privileges required; Red Hat describes a remote, unauthenticated attacker being able to trigger the use-after-free.",
+            "url": "https://access.redhat.com/security/vulnerabilities/RHSB-2026-016"
+          }
+        ]
       }
     }
   ]
