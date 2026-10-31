@@ -16,3 +16,8 @@ Trigger: user forwarded three leads from the Hacker News front page on Oct 31 ("
 - CVE-2026-98432: Linux kernel IPv4 use-after-free, remote unauthenticated, CVSS 9.8, published Oct 15 (linux-cve-announce, Red Hat RHSB-2026-016 critical). Akamai advisory opened Oct 30: investigating, deploying mitigations, no evidence of exploitation on the Akamai Compute platform. Filed as reported/advisory with a correction note against the "breach" reading.
 
 Dedupe check against data/incidents.json before writing: no existing northflank/bunny/linode/akamai entries.
+
+## Northflank follow-up - Oct 31 13:34 UTC (verified same day)
+- Live re-check of https://status.northflank.com/cmvv0rn5a092f14rutwccodpp: new official update "Secret rotation for MySQL and Redis is now available to all customers. Please rotate all secrets if you have not already."
+- Also on the timeline since the entry was written: Oct 31 01:04 UTC audit logs enabled for all customers including free users (already reflected in the entry's fix field).
+- Record updated in place: dateLabel, primary source URL/date, fix, and Northflank response entry. Incident remains "Identified / major outage" per the status page; no new incident or UI change.

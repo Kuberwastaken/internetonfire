@@ -3474,7 +3474,7 @@
       "status": "confirmed",
       "severity": "critical",
       "date": "2026-10-30",
-      "dateLabel": "Wiz threat alert and first Northflank patches Oct 30, 2026 ~11:43-13:05 UTC; rotation guidance and partial outage ongoing into Oct 31",
+      "dateLabel": "Wiz threat alert and first Northflank patches Oct 30, 2026 ~11:43-13:05 UTC; MySQL/Redis secret rotation opened to all customers Oct 31 13:34 UTC; rotation guidance and partial outage ongoing",
       "tags": [
         "breach",
         "credentials",
@@ -3483,10 +3483,10 @@
       ],
       "sources": [
         {
-          "label": "Northflank status · Ongoing incident updates",
-          "url": "https://status.northflank.com",
+          "label": "Northflank status · Security incident updates",
+          "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
           "kind": "primary",
-          "date": "2026-10-30"
+          "date": "2026-10-31"
         },
         {
           "label": "Wiz · 'Black October' for AI Developer Platforms",
@@ -3505,14 +3505,14 @@
       "detail": {
         "whatHappened": "On October 30, 2026 at 11:43 UTC Northflank received a threat alert from Wiz and began patching its network policies within the hour, with Wiz's incident response team engaged by 13:00 UTC. At 13:58 UTC Northflank told all users to assume every environment variable stored on the platform had been decrypted and to rotate all keys immediately. By evening it reported that multiple users were confirming unauthorised use of AI API keys they had supplied to the platform, and on October 30 at 23:38 UTC it said the reports 'may be consistent with the broader pattern of attacks targeting AI credentials', pointing at the attacker IP addresses in Wiz's 'Black October' report. Large parts of the platform (networking, certificates, services, addons, jobs, builds, logs and metrics) are in major outage while the investigation continues; the app and API stay up. Northflank has not yet explained the initial access path.",
         "exposure": "Potentially every secret stored on Northflank: workload environment variables, secret groups and global secrets - for all customers, including free-tier users. The confirmed harm so far is unauthorised use of stored AI provider keys; Northflank asks users to review their AI provider usage and billing logs. Wiz reports that across this month's campaign, stolen keys are validated within minutes and then used for LLMjacking at scale, and that around $371,000 in cryptocurrency was allegedly taken using keys stored at another breached platform.",
-        "fix": "Northflank's guidance: revoke and replace every secret stored on the platform with the issuing provider, update the affected secrets and workloads in Northflank, and disable public access on addons where enabled. It has force-enabled secret rotation on Postgres and MongoDB addons, enabled audit logs for all customers including free users, and asks anyone seeing suspicious AI key usage to report it to Northflank support and the provider.",
+        "fix": "Northflank's guidance: revoke and replace every secret stored on the platform with the issuing provider, update the affected secrets and workloads in Northflank, and disable public access on addons where enabled. It has force-enabled secret rotation on Postgres and MongoDB addons, opened secret rotation for MySQL and Redis to all customers (Oct 31 13:34 UTC), enabled audit logs for all customers including free users, and asks anyone seeing suspicious AI key usage to report it to Northflank support and the provider.",
         "remaining": "The entry point and full scope are unconfirmed; Northflank says only that its investigation is ongoing. Whether the attackers are the same 'agent swarm' behind this month's other AI platform breaches is not established. How many customers' keys were actually abused, and what else the decrypted secrets opened up (databases, addons, downstream SaaS), is unknown. A post-incident report has not been published.",
         "responses": [
           {
             "by": "Northflank (status page)",
-            "summary": "Acknowledged the incident the same day, ordered blanket secret rotation, force-enabled Postgres/MongoDB rotation and audit logs for all customers, and is publishing rolling updates while parts of the platform remain in major outage.",
-            "url": "https://status.northflank.com",
-            "date": "2026-10-30"
+            "summary": "Acknowledged the incident the same day, ordered blanket secret rotation, force-enabled Postgres/MongoDB rotation, opened MySQL/Redis rotation to all customers (Oct 31 13:34 UTC) and enabled audit logs for all customers, and is publishing rolling updates while parts of the platform remain in major outage.",
+            "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+            "date": "2026-10-31"
           },
           {
             "by": "Wiz",
