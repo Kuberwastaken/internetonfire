@@ -3627,7 +3627,7 @@
       "status": "reported",
       "severity": "high",
       "date": "2026-10-30",
-      "dateLabel": "CVE-2026-98432 published Oct 15, 2026; Red Hat critical advisory; Akamai/Linode customer advisory opened Oct 30, mitigation work ongoing Oct 31",
+      "dateLabel": "CVE-2026-98432 published Oct 15, 2026; Red Hat critical advisory; Akamai/Linode customer advisory opened Oct 30, mitigation work ongoing Oct 31; AWS bulletin 2026-160-AWS published Oct 30, updated Oct 31: patched Amazon Linux kernels available",
       "tags": [
         "vulnerability",
         "rce",
@@ -3657,6 +3657,12 @@
           "url": "https://news.ycombinator.com/item?id=50310687",
           "kind": "post",
           "date": "2026-10-30"
+        },
+        {
+          "label": "AWS · Security bulletin 2026-160-AWS",
+          "url": "https://aws.amazon.com/security/security-bulletins/2026-160-aws/",
+          "kind": "primary",
+          "date": "2026-10-31"
         }
       ],
       "correction": "Reached the Hacker News front page as 'Linode Security Incident', but Akamai's advisory describes investigation and mitigation of a published kernel CVE - it explicitly reports no evidence of exploitation on the Akamai Compute platform. An advisory over a critical shared-infrastructure vulnerability, not a confirmed breach.",
@@ -3664,8 +3670,8 @@
       "detail": {
         "whatHappened": "CVE-2026-98432 is a use-after-free in the Linux kernel's IPv4 networking: tcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the child socket without copying it, and a concurrent CPU processing a retransmitted SYN can then free the same memory. It is remotely exploitable by an unauthenticated attacker and rated CVSS 9.8 (critical); Red Hat issued a critical security bulletin and is expediting fixes. On October 30, 2026 Akamai opened a customer advisory for its Linode cloud platform, saying it was investigating impact, deploying mitigations for the known attack vector, and monitoring the platform in parallel.",
         "exposure": "Any unpatched Linux host accepting IPv4 connections is potentially exposed to remote code execution; for Linode customers that means their own VMs until OS updates are applied. Akamai reports no evidence the vulnerability has been exploited on the Akamai Compute platform.",
-        "fix": "Apply OS kernel updates from the upstream distribution as soon as they become available. Akamai says it is deploying platform-level mitigations for the known attack vector while it analyses further impact, and points customers at its support tickets for questions.",
-        "remaining": "Akamai's investigation is still open: whether any Linode host was exposed before mitigations, and whether the vulnerability is being exploited anywhere in the wild, is unstated. Distribution kernel fixes were still rolling out when the advisory was published.",
+        "fix": "Apply OS kernel updates from the upstream distribution as soon as they become available - patched Amazon Linux 2 and Amazon Linux 2023 kernels are now available per AWS bulletin 2026-160-AWS (update the kernel and reboot; AWS calls a kernel update plus reboot the only complete remediation). Akamai says it is deploying platform-level mitigations for the known attack vector while it analyses further impact, and points customers at its support tickets for questions.",
+        "remaining": "Akamai's investigation is still open: whether any Linode host was exposed before mitigations, and whether the vulnerability is being exploited anywhere in the wild, is unstated. Vendor kernel fixes are now shipping - Amazon Linux 2/2023 per AWS, with Red Hat expediting fixes - but patching plus a reboot remains the customer's responsibility on self-managed hosts.",
         "responses": [
           {
             "by": "Akamai (Linode status)",
@@ -3678,6 +3684,12 @@
             "summary": "Issued critical bulletin RHSB-2026-016 and is expediting kernel fixes across affected releases.",
             "url": "https://access.redhat.com/security/vulnerabilities/RHSB-2026-016",
             "date": "2026-10-15"
+          },
+          {
+            "by": "AWS",
+            "summary": "Published security bulletin 2026-160-AWS for the same CVE (Oct 30, updated Oct 31): patched Amazon Linux 2 and Amazon Linux 2023 kernels are available, updated EKS-optimized AL2023 AMIs (v20261031) and ECS-optimized AMIs are rolling out, AWS is updating the infrastructure behind its managed load-balancer/edge services, and it says Lambda is not affected. This is AWS's own platform response to CVE-2026-98432, separate from Akamai's Linode advisory.",
+            "url": "https://aws.amazon.com/security/security-bulletins/2026-160-aws/",
+            "date": "2026-10-31"
           }
         ],
         "claimChecks": [
