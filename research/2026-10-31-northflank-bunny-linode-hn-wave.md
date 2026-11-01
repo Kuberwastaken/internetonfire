@@ -26,3 +26,7 @@ Dedupe check against data/incidents.json before writing: no existing northflank/
 - Live re-check of https://status.bunny.net/ (incident p6gf1by9kr7m timeline): managed TLS certificate reissuance COMPLETE - all managed certs reissued with new private keys, previous certs revoked, no action for managed customers; self-managed customers still advised to revoke/reissue.
 - New posture facts: bunny.net has stopped using the affected provider while its investigation continues, and is changing configuration distribution so each PoP only receives config and TLS certs for the sites it actively serves. Both investigations still find no evidence of unauthorized access to the bunny.net server.
 - Record updated in place: dateLabel, primary source date, fix, and bunny.net response entry. No new incident or UI change.
+
+## Northflank follow-up - Oct 31 22:32 + 23:31 UTC (verified Nov 1)
+- Live re-check of https://status.northflank.com/cmvv0rn5a092f14rutwccodpp: two further updates - "Secret rotation for Minio Addons is now available to all customers" (22:32 UTC) and "Secret rotation is now available for RabbitMQ add-ons for all customers" (23:31 UTC), both with "Please rotate all secrets if you have not already."
+- Record updated in place: dateLabel, fix, and Northflank response entry now list all addon rotation waves (Postgres/MongoDB forced earlier, then MySQL/Redis, MinIO, RabbitMQ). Incident still "Identified / major outage"; investigation ongoing.
