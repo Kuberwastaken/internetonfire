@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -3016,7 +3016,7 @@
       "id": "amadeus-pss-airline-breach",
       "name": "Amadeus booking-system breach cascades across airlines: Korean Air, Asiana, JAL, ANA, Star Flyer, Malaysia Airlines confirm passenger data exposure",
       "subject": "Amadeus",
-      "summary": "A vulnerability in Amadeus's travel booking display environment - disclosed Oct 1 as unexploited - turns out to have been abused: Korean Air and Asiana confirmed customer leaks Oct 23, JAL says unauthorized access ran from Aug 2023 to Sep 2026 and exposed ~92,000 customers' booking data (passport numbers for ~2,000), ANA and Star Flyer posted their own notices, and Malaysia Airlines confirmed Oct 30 that certain customer information processed through Amadeus between Aug 2023 and Sep 2026 may be affected. Amadeus serves 400+ airlines; the full scope is unconfirmed.",
+      "summary": "A vulnerability in Amadeus's travel booking display environment - disclosed Oct 1 as unexploited - turns out to have been abused: Korean Air and Asiana confirmed customer leaks Oct 23, JAL says unauthorized access ran from Aug 2023 to Sep 2026 and exposed ~92,000 customers' booking data (passport numbers for ~2,000), ANA and Star Flyer posted their own notices, and Malaysia Airlines confirmed Oct 30 that certain customer information processed through Amadeus between Aug 2023 and Sep 2026 may be affected. Amadeus serves 400+ airlines; the full scope is unconfirmed. Qantas said Nov 2 that Amadeus advised it of unauthorized access and it is assessing whether any of its bookings were affected; no Qantas customer-data exposure has been confirmed.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-23",
@@ -3027,6 +3027,18 @@
         "supply-chain"
       ],
       "sources": [
+        {
+          "label": "7NEWS · Qantas spokesperson statement",
+          "url": "https://7news.com.au/news/qantas-among-travel-companies-probing-data-breach-and-customer-booking-impacts-after-amadeus-cyber-attack-c-23102073",
+          "kind": "report",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "News.com.au · Qantas spokesperson statement",
+          "url": "https://www.news.com.au/travel/travel-updates/incidents/qantas-among-list-of-major-airlines-impacted-in-global-cyber-security-breach/news-story/483ef5e79d190e656f90bbbc6f00d3c6",
+          "kind": "report",
+          "date": "2026-11-01"
+        },
         {
           "label": "JAL official notice (English) · Original source",
           "url": "https://www.jal.co.jp/en-jp/news/general/2026/other/261028.html",
@@ -3082,8 +3094,14 @@
         "whatHappened": "Amadeus, whose Passenger Service System handles reservations, ticketing and check-in for more than 400 airlines, published a statement on October 1, 2026 saying it had found a vulnerability in its travel booking display environment that could expose traveler data - and at that time said ransomware actors had not exploited it and no payment data was involved. On October 23, Korean Air and Asiana confirmed customer information had leaked through the booking-system operator. JAL says Amadeus notified it the same day that unauthorized access to the system occurred between August 10, 2023 and September 23, 2026; JAL disclosed on October 28 that reservation codes (PNRs), names, flight dates, routes and travel classes for about 90,000 customers were exposed, with roughly 2,000 more customers also losing email addresses, phone numbers, passport numbers, nationalities, frequent-flyer numbers and ticket/seat numbers. ANA and Star Flyer posted their own breach notices on October 29-30, and Cathay Pacific posted a third-party security notice whose connection is unconfirmed. On October 30, Malaysia Airlines posted its own notice confirming a cybersecurity incident involving Amadeus, saying certain customer information processed through Amadeus between August 2023 and September 2026 may have been affected; it disclosed no data types or counts.",
         "exposure": "Per JAL: booking data (PNRs, names, dates, routes, classes) for ~90,000 customers, plus contact details, passport numbers and loyalty identifiers for ~2,000. JAL says credit card numbers and passwords were not compromised and that it has no evidence of misuse so far. The exposed PNR data is enough to view or social-engineer bookings, and the three-year access window means the airline-confirmed counts are likely a floor, not a ceiling: Amadeus also serves 210 airport operators, 34 cruise and ferry lines and 2 million hotels, and has not given a total.",
         "fix": "Amadeus says it has implemented the necessary security measures, and JAL says flight operations are unaffected. Each affected airline is notifying its own customers under local rules. (ANA separately suspended some web and app services from October 21, but that action appears tied to the PHP2Shell threat, not this incident.)",
-        "remaining": "The total number of affected airlines and passengers is unconfirmed - BleepingComputer asked Amadeus whether more airlines and markets were hit and got no answer, and CNA reports Amadeus acknowledged the vulnerability in its travel booking display environment but did not say how many customers were affected. Malaysia Airlines' confirmation adds a sixth carrier but discloses no data types or counts. Whether exploitation really began in August 2023 or earlier is unverified, and Amadeus has not explained the gap between its Oct 1 'not exploited' statement and the airline confirmations three weeks later.",
+        "remaining": "The total number of affected airlines and passengers is unconfirmed - BleepingComputer asked Amadeus whether more airlines and markets were hit and got no answer, and CNA reports Amadeus acknowledged the vulnerability in its travel booking display environment but did not say how many customers were affected. Malaysia Airlines' confirmation adds a sixth carrier but discloses no data types or counts. Whether exploitation really began in August 2023 or earlier is unverified, and Amadeus has not explained the gap between its Oct 1 'not exploited' statement and the airline confirmations three weeks later. On November 2, Qantas surfaced as another Amadeus customer assessing possible impact: a spokesperson said the airline is working to understand the impact to any Qantas bookings, with no customer-data access confirmed.",
         "responses": [
+          {
+            "by": "Qantas (spokesperson, via 7NEWS)",
+            "summary": "Said November 2 that Amadeus advised the airline of unauthorized access to one of Amadeus's systems and that the issue was contained in September; Qantas is working with Amadeus to understand the impact to any Qantas bookings, says its own systems and databases remain secure, and notified the Australian Cyber Security Centre. No Qantas customer-data access has been confirmed.",
+            "url": "https://7news.com.au/news/qantas-among-travel-companies-probing-data-breach-and-customer-booking-impacts-after-amadeus-cyber-attack-c-23102073",
+            "date": "2026-11-02"
+          },
           {
             "by": "Malaysia Airlines",
             "summary": "Posted a notice on October 30 confirming the Amadeus incident may have affected certain customer information processed through Amadeus between August 2023 and September 2026, stating its own IT systems were not compromised and there is no evidence financial information was accessed; no data types or counts disclosed.",
@@ -3127,6 +3145,12 @@
             "verdict": "confirmed by the airline",
             "explanation": "Malaysia Airlines' own October 30 notice says certain customer information processed through Amadeus between August 2023 and September 2026 may have been affected, while stressing its own IT systems were not compromised and there is no evidence financial information was accessed. CNA corroborates the statement; data types and counts remain undisclosed.",
             "url": "https://www.malaysiaairlines.com/my/en/mh-media-centre/important-for-you/cybersecurity-incident-third-party-technology-provider.html"
+          },
+          {
+            "claim": "Qantas customer data was exposed in the Amadeus incident",
+            "verdict": "unconfirmed - under assessment",
+            "explanation": "A Qantas spokesperson, quoted directly by 7NEWS and News.com.au, said Amadeus advised the airline of unauthorized access to one of its systems, contained in September, and that Qantas is assessing whether any Qantas bookings were affected; the airline says its own systems and databases were not impacted. No Qantas customer-data access has been confirmed, and no Qantas primary incident notice has been published.",
+            "url": "https://7news.com.au/news/qantas-among-travel-companies-probing-data-breach-and-customer-booking-impacts-after-amadeus-cyber-attack-c-23102073"
           }
         ]
       }
