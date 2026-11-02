@@ -3707,11 +3707,11 @@
       "id": "linode-cve-2026-98432-advisory",
       "name": "Akamai warns Linode customers over critical Linux kernel RCE CVE-2026-98432",
       "subject": "Linode (Akamai)",
-      "summary": "Akamai opened a customer security advisory for Linode over CVE-2026-98432, a critical (CVSS 9.8) remote, unauthenticated use-after-free in the Linux kernel's IPv4 stack published Oct 15. It is deploying mitigations and telling customers to apply OS updates as they land. There is no evidence of exploitation on the platform - this is an advisory, not a confirmed breach.",
+      "summary": "Akamai opened a customer security advisory for Linode over CVE-2026-98432, a critical (CVSS 9.8) remote, unauthenticated use-after-free in the Linux kernel's IPv4 stack published Oct 15. On Nov 2 Akamai said it has deployed network rules that drop IPv4 packets with optional headers on public and VPC interfaces, which it says eliminates the immediate attack vector, while kernel patch deployment is still continuing. It reported no evidence of exploitation on the Akamai Compute platform as of its Oct 31 update. This is an advisory, not a confirmed breach, and the advisory is not closed.",
       "status": "reported",
       "severity": "high",
       "date": "2026-10-30",
-      "dateLabel": "CVE-2026-98432 published Oct 15, 2026; Red Hat critical advisory; Akamai/Linode customer advisory opened Oct 30, mitigation work ongoing Oct 31; AWS bulletin 2026-160-AWS published Oct 30, updated Oct 31: patched Amazon Linux kernels available",
+      "dateLabel": "CVE-2026-98432 published Oct 15, 2026; Red Hat critical advisory; Akamai/Linode customer advisory opened Oct 30, mitigation work ongoing Oct 31; Nov 2 (10:55 UTC) update: network rules deployed, kernel patches still deploying; AWS bulletin 2026-160-AWS published Oct 30, updated Oct 31: patched Amazon Linux kernels available",
       "tags": [
         "vulnerability",
         "rce",
@@ -3722,7 +3722,7 @@
           "label": "Linode status · Customer security advisory",
           "url": "https://status.linode.com/incidents/nt58zhx3pmgm",
           "kind": "primary",
-          "date": "2026-10-30"
+          "date": "2026-11-02"
         },
         {
           "label": "Red Hat · RHSB-2026-016",
@@ -3752,11 +3752,17 @@
       "correction": "Reached the Hacker News front page as 'Linode Security Incident', but Akamai's advisory describes investigation and mitigation of a published kernel CVE - it explicitly reports no evidence of exploitation on the Akamai Compute platform. An advisory over a critical shared-infrastructure vulnerability, not a confirmed breach.",
       "disclosureDate": "2026-10-30",
       "detail": {
-        "whatHappened": "CVE-2026-98432 is a use-after-free in the Linux kernel's IPv4 networking: tcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the child socket without copying it, and a concurrent CPU processing a retransmitted SYN can then free the same memory. It is remotely exploitable by an unauthenticated attacker and rated CVSS 9.8 (critical); Red Hat issued a critical security bulletin and is expediting fixes. On October 30, 2026 Akamai opened a customer advisory for its Linode cloud platform, saying it was investigating impact, deploying mitigations for the known attack vector, and monitoring the platform in parallel.",
+        "whatHappened": "CVE-2026-98432 is a use-after-free in the Linux kernel's IPv4 networking: tcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the child socket without copying it, and a concurrent CPU processing a retransmitted SYN can then free the same memory. It is remotely exploitable by an unauthenticated attacker and rated CVSS 9.8 (critical); Red Hat issued a critical security bulletin and is expediting fixes. On October 30, 2026 Akamai opened a customer advisory for its Linode cloud platform, saying it was investigating impact, deploying mitigations for the known attack vector, and monitoring the platform in parallel. On November 2, 2026 (10:55 UTC) Akamai updated the advisory: while it continues to deploy kernel patches across its infrastructure, it has also deployed network rules that drop IPv4 packets with optional headers on public and VPC interfaces. Akamai says this eliminates the immediate attack vector, protects its infrastructure and customer workloads without impacting performance or functionality, and is not limited to the MPTCP exploit but targets the underlying vulnerability.",
         "exposure": "Any unpatched Linux host accepting IPv4 connections is potentially exposed to remote code execution; for Linode customers that means their own VMs until OS updates are applied. Akamai reports no evidence the vulnerability has been exploited on the Akamai Compute platform.",
-        "fix": "Apply OS kernel updates from the upstream distribution as soon as they become available - patched Amazon Linux 2 and Amazon Linux 2023 kernels are now available per AWS bulletin 2026-160-AWS (update the kernel and reboot; AWS calls a kernel update plus reboot the only complete remediation). Akamai says it is deploying platform-level mitigations for the known attack vector while it analyses further impact, and points customers at its support tickets for questions.",
-        "remaining": "Akamai's investigation is still open: whether any Linode host was exposed before mitigations, and whether the vulnerability is being exploited anywhere in the wild, is unstated. Vendor kernel fixes are now shipping - Amazon Linux 2/2023 per AWS, with Red Hat expediting fixes - but patching plus a reboot remains the customer's responsibility on self-managed hosts.",
+        "fix": "Apply OS kernel updates from the upstream distribution as soon as they become available - patched Amazon Linux 2 and Amazon Linux 2023 kernels are now available per AWS bulletin 2026-160-AWS (update the kernel and reboot; AWS calls a kernel update plus reboot the only complete remediation). Akamai says it is deploying platform-level mitigations for the known attack vector while it analyses further impact, and points customers at its support tickets for questions. Akamai says the Nov 2 network rules (dropping IPv4 packets with optional headers on public and VPC interfaces) are deployed; kernel patches are still rolling out. It is tracking upstream OS provider security releases and will make updated distributions available as they ship; customers on the Linode-provided kernel should deploy the latest version when it becomes available. Customers should still apply OS updates from their own distribution.",
+        "remaining": "Akamai's advisory is still open and kernel patch deployment is continuing; the Nov 2 network rules are Akamai's own description of its mitigation, not independently verified, and the advisory is not marked resolved. Akamai's last stated exploitation position (Oct 31) is no evidence of exploitation on the Akamai Compute platform; it has not published a final impact assessment. Vendor kernel fixes are shipping - Amazon Linux 2/2023 per AWS, with Red Hat expediting fixes - but patching plus a reboot remains the customer's responsibility on self-managed hosts.",
         "responses": [
+          {
+            "by": "Akamai (Linode status, Nov 2 update)",
+            "summary": "Said it deployed network rules dropping IPv4 packets with optional headers on public and VPC interfaces, which it says eliminates the immediate attack vector without affecting performance, while kernel patches are still being deployed. Will follow upstream OS releases and advises Linode-kernel users to update when the latest version is available. Provider-specific; separate from other vendors' remediation of the same CVE.",
+            "url": "https://status.linode.com/incidents/nt58zhx3pmgm",
+            "date": "2026-11-02"
+          },
           {
             "by": "Akamai (Linode status)",
             "summary": "Opened a customer security advisory the day the issue reached it, committed to deploying mitigations for the known attack vector, and is posting progress updates while telling customers to patch their workloads.",
