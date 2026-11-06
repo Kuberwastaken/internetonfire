@@ -2886,7 +2886,7 @@
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-27",
-      "dateLabel": "Intrusion Oct 19, detected Oct 23; disclosed Oct 27, 2026 with forced password resets the same day",
+      "dateLabel": "Intrusion Oct 19, detected Oct 23; disclosed Oct 27, 2026 with forced password resets the same day; consolidated follow-up notice Nov 6",
       "tags": [
         "breach",
         "data-leak",
@@ -2916,15 +2916,21 @@
           "url": "https://www.nikkei.com/article/DGXZQOUC277HE0X21C26A0000000/",
           "kind": "report",
           "date": "2026-10-27"
+        },
+        {
+          "label": "So-net official consolidated follow-up notice (Japanese) · Original source",
+          "url": "https://www.so-net.ne.jp/info/2026/20261106_0001.html",
+          "kind": "primary",
+          "date": "2026-11-06"
         }
       ],
       "correction": "The 2.58M figure counts exposed subscriber records; the email-password leak is a smaller subset of about 54,000 accounts from four specific mail services, not every subscriber. So-net says it does not store credit card data.",
       "disclosureDate": "2026-10-27",
       "detail": {
         "whatHappened": "Attackers broke into the So-net member database on October 19, 2026. Sony Network Communications first spotted the intrusion on October 23, took the targeted server offline and cut traffic from the attackers, and by the next day had confirmed personal data was taken. It announced the breach on October 27. Of the roughly 2.6 million exposed records, 2.14 million belong to So-net subscribers and 443,000 to Plala (S Course) subscribers; about 293,000 relate to people who left the services in March 2026 or later, whose details are retained for final billing and support. The attackers also obtained approximately 54,000 email addresses together with their passwords from four mail services (Mail Service (G), A-Box, So-net VAIO Mail and PostPet mail), and 16 records containing bank account details (bank, branch, account type, account number, holder name - not PINs).",
-        "exposure": "Stolen subscriber data includes names, dates of birth, gender, phone numbers, email addresses, user IDs and the IDs customers use to connect to the internet. The email-password leak is the sharpest piece: So-net's FAQ says a third party holding those credentials was in a position to read, send and receive mail through email software and So-net Webmail until the resets. Credit card data is not involved because So-net does not store it, and the NURO service and other offerings do not appear affected.",
+        "exposure": "Stolen subscriber data includes names, dates of birth, gender, phone numbers, user IDs, the IDs customers use to connect to the internet, the free basic So-net email address, and the registered contact email address. So-net's Nov 6 follow-up notice says dates of birth, gender and contact email addresses are only affected where customers had registered them, and that customers whose basic So-net mailbox had already ended for long-term non-use had the address as it stood at termination exposed. The same notice confirms no passwords leaked for the basic So-net mail addresses, for the user IDs behind member-page login, or for the internet connection IDs. The separate email-password leak remains the sharpest piece: So-net's FAQ says a third party holding those credentials was in a position to read, send and receive mail through email software and So-net Webmail until the resets. Credit card data is not involved because So-net does not store it, and the NURO service and other offerings do not appear affected.",
         "fix": "The company took the targeted server offline and blocked the attackers' traffic on October 23, began forcing password resets for the impacted email accounts on October 27 (users must set a new password before resuming service), and reported the incident to Japan's Personal Information Protection Commission. NTT Docomo posted its own notice for affected Plala (S Course) customers.",
-        "remaining": "How the attackers got in has not been disclosed; the company lists the cause only as unauthorized access by a third party and says the investigation continues. Whether the stolen data has been misused or published is not addressed in the notices.",
+        "remaining": "How the attackers got in has not been disclosed; the company lists the cause only as unauthorized access by a third party and says the investigation continues. The Nov 6 notice says that, as of its publication, So-net has confirmed no misuse of the leaked information and no secondary harm from the incident, while warning that the exposed data could still be used for phishing and other suspicious contact.",
         "responses": [
           {
             "by": "Sony Network Communications / So-net",
@@ -2937,13 +2943,19 @@
             "summary": "Posted a parallel apology and notice for Plala (S Course) customers whose information flowed out via the So-net systems.",
             "url": "https://www.docomo.ne.jp/info/notice/page/261027_05_m.html",
             "date": "2026-10-27"
+          },
+          {
+            "by": "Sony Network Communications / So-net",
+            "summary": "Published a consolidated follow-up notice November 6 confirming the free basic So-net email addresses were among the leaked member data while stating that mail passwords, member-page login user ID passwords and internet connection passwords were not leaked; reported no confirmed misuse or secondary harm so far, with the cause investigation ongoing, and opened a dedicated support line (0120-36-8887).",
+            "url": "https://www.so-net.ne.jp/info/2026/20261106_0001.html",
+            "date": "2026-11-06"
           }
         ],
         "claimChecks": [
           {
             "claim": "2.6 million So-net customers had their passwords stolen",
             "verdict": "overstated",
-            "explanation": "The 2.58M figure is subscriber records (names, contact details, IDs). Email passwords leaked for about 54,000 accounts across four named mail services; So-net says no password leaked for the free basic mailbox.",
+            "explanation": "The 2.58M figure is subscriber records (names, contact details, IDs). Email passwords leaked for about 54,000 accounts across four named mail services; So-net says no password leaked for the free basic mailbox. Its Nov 6 follow-up notice further confirms no passwords leaked for the basic So-net mail addresses, member-page login user IDs, or internet connection IDs.",
             "url": "https://www.securityweek.com/hackers-steal-2-6-million-records-from-sonys-japanese-isp-so-net/"
           }
         ]
