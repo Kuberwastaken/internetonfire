@@ -4212,13 +4212,13 @@
     },
     {
       "id": "mirae-asset-securities-data-leak",
-      "name": "Mirae Asset Securities: customer account numbers and staff data leaked",
+      "name": "Mirae Asset Securities: customer account numbers and employee data leaked",
       "subject": "Mirae Asset Securities",
-      "summary": "SBS reports Mirae Asset Securities said external access on Nov 4-5 exposed account numbers for about 3,800 customers and personal information of 35,255 current/former staff and contractors. The reported staff fields included names and employee numbers, with some records also containing email addresses, phone numbers and encrypted passwords. The company reportedly said account-holder names and national ID/passport/driver-license data were not exposed and no financial loss was confirmed.",
-      "status": "reported",
+      "summary": "Two Nov 7 company notices describe intrusions into separate systems. On Nov 4, abnormal access to its mobile-web phone-authentication login service exposed account numbers for about 3,800 customers; the company says account-holder names and other registered information were not exposed. On Nov 5, an attack on groupware exposed information for about 35,255 current/former employees and contractors: mainly names and employee IDs, with some records also containing email addresses, mobile numbers and encrypted passwords. The company disconnected the affected service/server and is reviewing vulnerabilities and access controls. SBS separately reported that the company said no financial losses had been confirmed at that time.",
+      "status": "confirmed",
       "severity": "high",
       "date": "2026-11-07",
-      "dateLabel": "Unauthorized access Nov 4-5; reported by SBS Nov 7, 2026",
+      "dateLabel": "Customer mobile-web access Nov 4; groupware attack Nov 5; primary notices published Nov 7, 2026",
       "tags": [
         "breach",
         "data-leak",
@@ -4231,9 +4231,89 @@
           "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008835291",
           "kind": "report",
           "date": "2026-11-07"
+        },
+        {
+          "label": "Mirae Asset Securities · Customer information notice · Original source",
+          "url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2344058",
+          "kind": "primary",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "Mirae Asset Securities · Employee information notice · Original source",
+          "url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2344060",
+          "kind": "primary",
+          "date": "2026-11-07"
         }
       ],
-      "correction": "This record is based on SBS reporting of company statements; a primary incident notice was not reviewed in this check. Keep “encrypted passwords” distinct from plaintext credentials, and do not imply customer account numbers came with account-holder names.",
+      "correction": "The company’s Nov 7 customer and employee notices cover separate system/date events. Customer data was account numbers only; employee fields varied and included encrypted, not plaintext, passwords in some records. Do not infer customer names, other customer account information, or plaintext credentials. SBS’s AI-translated report attributes the “no financial damage confirmed” statement to the company; the primary notices do not separately state this.",
+      "disclosureDate": "2026-11-07"
+    },
+    {
+      "id": "smartnews-oct31-data-leak",
+      "name": "SmartNews: Oct 31 access may have exposed contact emails and user IDs",
+      "subject": "SmartNews",
+      "summary": "SmartNews says a third party accessed some systems on Oct 31 and personal information may have leaked. The listed categories are 1,582 media-partner contact/departments’ email addresses, 207 advertising-business contact/departments’ email addresses, and 1,033 internal SmartNews user IDs that cannot identify a person on their own. Passwords, credit-card information and other high-risk data were not included; no secondary misuse was confirmed in the Nov 6 notice. The company says it will notify affected parties and strengthen security.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-06",
+      "dateLabel": "Unauthorized access Oct 31, 2026; possible personal-information leak disclosed Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "SmartNews · Personal information leak notice · Original source",
+          "url": "https://about.smartnews.com/en/news/2624.html",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "SmartNews · Separate Oct 31 incident and response update · Original source",
+          "url": "https://about.smartnews.com/en/news/2618.html",
+          "kind": "primary",
+          "date": "2026-11-01"
+        },
+        {
+          "label": "SmartNews · U.S. feature status as of Nov 4 · Original source",
+          "url": "https://about.smartnews.com/en/news/2622.html",
+          "kind": "primary",
+          "date": "2026-11-04"
+        }
+      ],
+      "correction": "The Nov 1 notice says this Oct 31 incident is separate from SmartNews’ Oct 22 security issue. The listed counts are category counts, not a stated unique-person total; internal IDs cannot identify a person alone. The Nov 6 notice describes a possible leak, not verified misuse. The Nov 4 feature-status notice is a dated snapshot and is not a current restoration claim.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "stepgolf-2026-data-access",
+      "name": "StepGolf: unauthorized access likely exposed member records",
+      "subject": "StepGolf",
+      "summary": "StepGolf says unauthorized access occurred in its business and reservation systems; personal-data-bearing database backup files are extremely likely to have leaked. Possible data includes contact details, unencrypted bank direct-debit information, contract/reservation/purchase and lesson records, face photos and specially protected personal information. Up to 215,000 database records may be relevant, not 215,000 people; actual leak count and scope remain under investigation. The company says no concrete secondary harm was identified as of its notice and reports blocking access, changing credentials and engaging outside investigators.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-07",
+      "dateLabel": "Unauthorized access Oct 23 and 25 found during Nov 5 investigation; disclosed Nov 7, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "StepGolf · Unauthorized access and possible personal-information leak · Original source",
+          "url": "https://www.stepgolf.co.jp/news/261107",
+          "kind": "primary",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "StepGolf · Earlier PHP vulnerability response · Original source",
+          "url": "https://www.stepgolf.co.jp/news/261023",
+          "kind": "primary",
+          "date": "2026-10-23"
+        }
+      ],
+      "correction": "The company calls leakage of backups “extremely likely,” but actual exfiltrated records and affected people are not yet known. 215,000 is a maximum database-record count, not a confirmed victim count. Data fields vary by person; the notice says credit-card information and identity documents are not held on the affected system and reports no concrete secondary harm. No link to the separate PHP-vulnerability response is established.",
       "disclosureDate": "2026-11-07"
     }
   ]
