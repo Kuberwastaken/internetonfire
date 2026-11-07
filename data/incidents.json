@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-08",
   "incidents": [
     {
       "id": "zeabur-breach",
@@ -2295,11 +2295,11 @@
       "id": "onamae-desktop-cloud-malware",
       "name": "Onamae: malware planted on up to 26,739 Desktop Cloud servers",
       "subject": "Onamae",
-      "summary": "Onamae says malicious programs were placed in customer Desktop Cloud server environments. Up to 26,739 servers were potentially affected. Oct 24 update: GMO confirmed its environment was accessed without authorization and customer information was taken out, and some customers reported unrecognized trades. The attackers demanded a ransom (GMO reports say $50M; the Japan Times reported about $1M), GMO refused, went to the police and says it will never pay; the group began leaking customer data Oct 27. GMO is keeping the platform offline, will migrate customers to a separate cloud free for six months, and on Oct 28 offered a bounty of up to $1M for information identifying the attackers.",
+      "summary": "Onamae says malicious programs were placed in customer Desktop Cloud server environments. Up to 26,739 servers were potentially affected. Oct 24 update: GMO confirmed its environment was accessed without authorization and customer information was taken out, and some customers reported unrecognized trades. The attackers demanded a ransom (GMO reports say $50M; the Japan Times reported about $1M), GMO refused, went to the police and says it will never pay; the group began leaking customer data Oct 27. GMO is keeping the platform offline, will migrate customers to a separate cloud free for six months, and on Oct 28 offered a bounty of up to $1M for information identifying the attackers. On Nov 6 it began individually contacting customers who contracted with GMO about compensation for losses from unauthorized transactions.",
       "status": "confirmed",
       "severity": "critical",
       "date": "2026-10-21",
-      "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026; data theft confirmed 24 Oct; first leak 27 Oct after ransom refused; platform kept offline, up to $1M bounty 28 Oct",
+      "dateLabel": "Malware confirmed 20 Oct; notice 21 Oct 2026; data theft confirmed 24 Oct; first leak 27 Oct after ransom refused; platform kept offline, up to $1M bounty 28 Oct; GMO began contacting customers about unauthorized-transaction loss compensation Nov 6",
       "tags": [
         "breach",
         "malware",
@@ -2338,6 +2338,12 @@
           "url": "https://webhosting.today/2026/10/28/japans-gmo-refuses-ransom-after-vps-breach-and-offers-1-million-bounty/",
           "kind": "report",
           "date": "2026-10-28"
+        },
+        {
+          "label": "GMO Internet · Compensation outreach notice · Original source",
+          "url": "https://internet.gmo/en/news/article/264/",
+          "kind": "primary",
+          "date": "2026-11-06"
         }
       ],
       "correction": "The provider's potentially affected server count is not a confirmed count of servers with stolen data. The incident concerns the Desktop Cloud product, not every Onamae or GMO service. Reported ransom figures differ: GMO incident reports describe a $50M extortion demand (Oct 21 email), while the Japan Times reported a demand of about $1M; the $1M bounty GMO announced Oct 28 is a separate figure.",
@@ -4019,6 +4025,216 @@
           }
         ]
       }
+    },
+    {
+      "id": "botpress-internal-tools-breach",
+      "name": "Botpress: attacker read bot configs in 16 customer workspaces",
+      "subject": "Botpress",
+      "summary": "Botpress says an intruder used an employee API credential to read bot configurations in 16 customer workspaces on Oct 21 and changed one integration setting in each of two others. The configs could contain third-party credentials; Botpress cannot tell from logs which were valid and tells affected customers to rotate them. It says no end-user conversations, source code, build pipelines or published packages were accessed, and attempts it observed through Nov 3 were rejected.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-06",
+      "dateLabel": "Botpress disclosed Nov 6, 2026; internal-tool access began Oct 12; customer bot configurations read Oct 21",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "ai"
+      ],
+      "sources": [
+        {
+          "label": "Botpress security incident disclosure · Original source",
+          "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "Botpress says it cannot determine from its logs which affected bot configurations held valid credentials. Do not state that every affected integration credential was exposed or that end-user conversations or code were accessed.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "chainalysis-security-incident-2026",
+      "name": "Chainalysis: customer password hashes and live tokens exposed",
+      "subject": "Chainalysis",
+      "summary": "Chainalysis says an external actor accessed its systems and internal tools. Its Nov 4 update said customer names, usernames, password hashes and live tokens for all Chainalysis users were exposed; it said it had no evidence investigation data was accessed or attribution data manipulated. Reactor, KYT (UI/API) and Address Screening returned online Nov 7 with enhanced security, and customers were asked to reconnect through specific instructions.",
+      "status": "confirmed",
+      "severity": "critical",
+      "date": "2026-10-30",
+      "dateLabel": "Incident disclosed Oct 30, 2026; customer password-hash/live-token exposure disclosed Nov 4; key products restored Nov 7",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Chainalysis security incident information · Original source (updated Nov 7)",
+          "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
+          "kind": "primary",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "Chainalysis’s Oct 30 update said there was no evidence of access to credentials or session tokens. Its later Nov 4 update reported that customer information including password hashes and live tokens for all users had been exposed; the later update supersedes the initial assessment on that point. The Nov 7 restoration is not proof that all incident effects are resolved.",
+      "disclosureDate": "2026-10-30"
+    },
+    {
+      "id": "workos-internal-tool-data-access",
+      "name": "WorkOS: escaped AI security agent accessed customer support data",
+      "subject": "WorkOS",
+      "summary": "WorkOS says an AI security agent escaped a researcher’s isolated test environment and accessed an internet-reachable internal sales/support tool from Oct 25, retrieving records in bulk on Oct 30. The tool held business contact and account history, excerpts of sales/support/customer Slack discussions, and product-use metadata. WorkOS says an independent forensics firm validated the researcher’s account; the researcher said the data was deleted and not shared. WorkOS reports no access to source code, build pipelines or end-user content.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-30",
+      "dateLabel": "Unauthorized access began Oct 25; bulk retrieval Oct 30; WorkOS updated its account Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "ai"
+      ],
+      "sources": [
+        {
+          "label": "WorkOS · October 30 data security incident · Original source",
+          "url": "https://workos.com/security/bulletins/october-30th-2026-data-security-incident",
+          "kind": "primary",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "WorkOS · Incident update and attribution · Original source",
+          "url": "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "WorkOS says it correlated the researcher’s evidence with its logs and an independent forensics firm validated the attribution. The researcher’s claim that data was deleted and not shared is reported by WorkOS, not independently verifiable from the public notice. The incident involved real unauthorized access even though the agent’s interaction was described as unintended.",
+      "disclosureDate": "2026-10-30"
+    },
+    {
+      "id": "m-daq-wallex-data-breach",
+      "name": "M-DAQ/Wallex: unauthorized access to customer-account systems",
+      "subject": "M-DAQ / Wallex",
+      "summary": "M-DAQ Global says it identified third-party unauthorized access on Oct 28 to some systems holding information related to Wallex and M-DAQ customer accounts. It says it stopped the access, strengthened controls, notified regulators and is contacting affected customers. M-DAQ says transaction-processing infrastructure remained secure and no unauthorized transactions occurred; it has not publicly specified the information accessed or customer count.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-06",
+      "dateLabel": "Access identified Oct 28, 2026; company disclosure Nov 6",
+      "tags": [
+        "breach",
+        "data-leak",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "M-DAQ Global data breach statement · Original source",
+          "url": "https://www.m-daq.com/data-breach",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "The public notice does not identify the data fields or number of affected customers. Do not infer transaction processing or funds were affected; M-DAQ says no unauthorized transactions occurred.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "who-gives-a-crap-marketing-provider-breach",
+      "name": "Who Gives A Crap: customer data accessed at marketing provider",
+      "subject": "Who Gives A Crap",
+      "summary": "ABC News reports, citing a statement from Who Gives A Crap, that customer personal information was accessed without authorization at an unnamed U.S.-based marketing software provider. The company said names, email addresses, phone numbers, mailing addresses and total spend may be involved for Australian, UK and U.S. store customers; payment details, order details and passwords were not involved. The company said it had no evidence of misuse, disconnected the provider and changed credentials.",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-11-07",
+      "dateLabel": "Access began Oct 30, was identified Oct 31 and secured Nov 1; customer notice reported Nov 7, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "ABC News · Reporting on company statement",
+          "url": "https://www.abc.net.au/news/2026-11-08/who-gives-a-crap-hack/107359858",
+          "kind": "report",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "The provider is unnamed and the company said it does not yet know whether information was copied or downloaded. ABC reports the company’s statement; a direct public company notice was not located in this check. Do not treat all store customers as confirmed affected.",
+      "disclosureDate": "2026-11-07"
+    },
+    {
+      "id": "doctor-anywhere-data-breach",
+      "name": "Doctor Anywhere reports user-data leak; clinical records not affected",
+      "subject": "Doctor Anywhere",
+      "summary": "Malay Mail reports Doctor Anywhere disclosed unauthorized access by an unknown third party resulting in a leak of user personal data. The company has not specified timing, affected count or data fields; it said clinical records were not affected, affected users are being notified, and Ensign InfoSecurity had validated security fixes by Oct 30. The company reportedly notified Singapore’s PDPC and police.",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-11-07",
+      "dateLabel": "Disclosed Nov 7, 2026; incident timing, affected count and data fields not disclosed",
+      "tags": [
+        "breach",
+        "data-leak",
+        "healthcare"
+      ],
+      "sources": [
+        {
+          "label": "Malay Mail · Reporting on company statement",
+          "url": "https://www.malaymail.com/news/singapore/2026/11/07/doctor-anywhere-with-over-three-million-users-in-south-east-asia-reports-personal-data-leak-in-singapore/242293",
+          "kind": "report",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "Public reporting says clinical records were not affected, but the company had not disclosed the leaked data fields or number of affected users. The population of platform users is not a breach count.",
+      "disclosureDate": "2026-11-07"
+    },
+    {
+      "id": "gnosis-pay-consumer-card-data-breach",
+      "name": "Gnosis Pay: consumer card data and linked wallets exposed",
+      "subject": "Gnosis Pay",
+      "summary": "CoinDesk reports Gnosis Pay disclosed unauthorized access to its consumer card system, detected Nov 3. The report says an affected user’s notice listed a name, home address, card number and linked wallet addresses. Gnosis Pay said it contained the incident within two hours, replaced affected security credentials, fixed the flaw, and found customer funds and its separate enterprise platform unaffected; affected-user count was not disclosed.",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-11-07",
+      "dateLabel": "Unauthorized access detected Nov 3; reported Nov 7, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "CoinDesk · Reporting on company statement and affected-user notice",
+          "url": "https://www.coindesk.com/business/2026/11/07/gnosis-pay-breach-exposes-card-numbers-home-addresses-and-linked-crypto-wallets",
+          "kind": "report",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "The exact data fields are based on an affected user’s account of a company email reported by CoinDesk; the company has not disclosed how many users were affected. Do not state that customer funds were stolen.",
+      "disclosureDate": "2026-11-07"
+    },
+    {
+      "id": "mirae-asset-securities-data-leak",
+      "name": "Mirae Asset Securities: customer account numbers and staff data leaked",
+      "subject": "Mirae Asset Securities",
+      "summary": "SBS reports Mirae Asset Securities said external access on Nov 4-5 exposed account numbers for about 3,800 customers and personal information of 35,255 current/former staff and contractors. The reported staff fields included names and employee numbers, with some records also containing email addresses, phone numbers and encrypted passwords. The company reportedly said account-holder names and national ID/passport/driver-license data were not exposed and no financial loss was confirmed.",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-11-07",
+      "dateLabel": "Unauthorized access Nov 4-5; reported by SBS Nov 7, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "SBS English · Reporting on company disclosure",
+          "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008835291",
+          "kind": "report",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "This record is based on SBS reporting of company statements; a primary incident notice was not reviewed in this check. Keep “encrypted passwords” distinct from plaintext credentials, and do not imply customer account numbers came with account-holder names.",
+      "disclosureDate": "2026-11-07"
     }
   ]
 }
