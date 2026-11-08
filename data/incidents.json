@@ -4774,7 +4774,7 @@
       "status": "confirmed",
       "severity": "high",
       "date": null,
-      "dateLabel": "SM disclosed the leak on Nov 8, 2026; it reportedly occurred around Nov 4, with no exact start time disclosed",
+      "dateLabel": "Leak occurred around Nov 4; official SM notice dated Nov 6, 2026. Yonhap's Nov 8 report says the notice was posted on Nov 8, which conflicts with the official page date.",
       "tags": [
         "breach",
         "data-leak",
@@ -4782,20 +4782,20 @@
       ],
       "sources": [
         {
-          "label": "SM Entertainment · Official incident notice",
-          "url": "https://www.smentertainment.com/",
+          "label": "SM Entertainment · Official incident notice (dated Nov 6) · Original source",
+          "url": "https://www.smentertainment.com/%ea%b0%9c%ec%9d%b8%ec%a0%95%eb%b3%b4-%ec%9c%a0%ec%b6%9c-%ec%82%ac%ea%b3%a0%ec%97%90-%ea%b4%80%ed%95%9c-%ec%82%ac%ea%b3%bc-%eb%b0%8f-%ec%95%88%eb%82%b4-%eb%a7%90%ec%94%80-261106/",
           "kind": "primary",
-          "date": "2026-11-08"
+          "date": "2026-11-06"
         },
         {
-          "label": "Yonhap · Reporting on SM disclosure",
+          "label": "Yonhap · Reporting on SM disclosure (states Nov 8 posting date; conflicts with official page date)",
           "url": "https://www.yna.co.kr/view/AKR20261108033900005",
           "kind": "report",
           "date": "2026-11-08"
         }
       ],
-      "correction": "The incident date is not exact: SM says the leak occurred around Nov 4, so `date` is left null rather than using a false-precision date. Yonhap reports SM posted its notice on Nov 8, which is the disclosureDate. No affected-person count or exact document/data scope has been disclosed. No secondary misuse had been confirmed at publication. Reports mention DearU and Dream Maker as also affected, but this entry describes SM Entertainment only and does not assert a common actor or coordinated campaign.",
-      "disclosureDate": "2026-11-08"
+      "correction": "The incident date is approximate: SM says the leak occurred around Nov 4, so `date` remains null. SM has not disclosed the affected-person count or exact per-person data scope; individual notifications were ongoing in its notice. The official notice page is dated Nov 6, 2026, while Yonhap's Nov 8 report says SM posted the notice on Nov 8; preserve this publication-date conflict. This record covers SM Entertainment only. Do not fold in separate affiliate reports or infer a shared attacker. SM said no secondary misuse had been confirmed at publication.",
+      "disclosureDate": "2026-11-06"
     },
     {
       "id": "91app-commerce-cloud-order-database-breach-2026",
