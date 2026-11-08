@@ -5242,6 +5242,43 @@
       ],
       "correction": "Names only: per Japan Post, addresses, phone numbers and other customer information are not included, and no secondary misuse was confirmed as of the notice. This record covers Japan Post's confirmed consignment impact from the CBcloud PickGo incident; do not merge it with the CBcloud vendor record, and do not apply CBcloud's maximum potential field list to these customers.",
       "disclosureDate": "2026-11-05"
+    },
+    {
+      "id": "jnsa-security-check-service-breach-2026",
+      "name": "JNSA: security-literacy check service breached; up to 15,128 cases possibly leaked",
+      "subject": "Japan Network Security Association",
+      "summary": "JNSA's Nov 6 first notice confirms unauthorized access to its Information Security Understanding Check Service, detected Nov 4. User personal information may have leaked for up to 15,128 cases: administrator names, company names and email addresses; organization location, employee count and industry; registered user counts; and user IDs with hashed passwords. Its investigation finds the access may have run since the night of Oct 30. The service is suspended while external specialists investigate the entry route and scope; JNSA planned to report the incident to the Personal Information Protection Commission on Nov 6 and will notify identified users individually.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Unauthorized access possibly since the night of Oct 30, 2026; confirmed Nov 4; first notice published Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials"
+      ],
+      "sources": [
+        {
+          "label": "JNSA · First notice (PDF) · Original source",
+          "url": "https://www.jnsa.org/dl/annual/20261106.pdf",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "ITmedia NEWS · Reporting",
+          "url": "https://www.itmedia.co.jp/news/article/2611/06/2000002978/",
+          "kind": "report",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "CNET Japan · Reporting",
+          "url": "https://japan.cnet.com/article/35254549/",
+          "kind": "report",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "15,128 is the maximum potential-leak count, not a confirmed victim count, and JNSA gives no per-field breakdown; the figure may change as the investigation continues. Passwords were hashed, not plaintext; the hash scheme is not public. Non-administrator trainees can be managed by ID rather than real name, so do not assume every case includes a personal name. The intrusion route was still unknown at publication, and the Personal Information Protection Commission report was planned for Nov 6, not yet stated as filed.",
+      "disclosureDate": "2026-11-06"
     }
   ]
 }
