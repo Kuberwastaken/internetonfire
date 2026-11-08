@@ -5130,6 +5130,30 @@
         }
       ],
       "correction": "Confirmed exposure is limited to email addresses for recipients of reservation/boarding-related messages sent from snj-rsv@solaseedair.jp during July 1 through Oct 31, 2026. The airline reports approximately 490,000 affected records; it does not establish an equal number of unique individuals. It explicitly says names, addresses, phone numbers and credit-card information were not leaked. The vendor first reported a breach affecting some of its mail-delivery servers to Solaseed on Oct 28, but the airline's impact was then unconfirmed; Solaseed was told customer email addresses might have been taken on Nov 2 and identified the affected count Nov 4. This does not establish that Solaseed's own systems or reservation/payment systems were accessed. The airline's notice is marked updated Nov 6; its homepage lists the incident under Nov 4, the earliest public disclosure date located. Actual access and exfiltration dates are not specified, so date is null rather than substituting the vendor-alert, count-identification or notice date. Severity is medium: the airline confirms a large-scale email-address leak, but the disclosed fields exclude more sensitive identity, contact, password and payment data."
+    },
+    {
+      "id": "airdo-email-address-leak-2026",
+      "name": "AIRDO customer email addresses exposed through external mail system",
+      "subject": "AIRDO",
+      "summary": "AIRDO says it received a report that customer email-address information in mail distributed through an external email-delivery system was leaked after unauthorized access to that system. The company's notice gives a maximum of 673,920 email-address records; it does not specify the actual count or the vendor's identity. AIRDO stopped the affected mail service and said it was checking the facts with the provider. The access period and incident timing are not specified in the notice.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "AIRDO publicly disclosed the email-address leak on Nov 5, 2026; the external system's access period and the date of the leak are not specified in its notice.",
+      "disclosureDate": "2026-11-05",
+      "tags": [
+        "breach",
+        "data-leak"
+      ],
+      "sources": [
+        {
+          "label": "AIRDO · Notice on unauthorized access to its email-delivery system and mail service suspension · Original source",
+          "url": "https://www.airdo.jp/news/2026/news-10708.html",
+          "kind": "primary",
+          "date": "2026-11-05"
+        }
+      ],
+      "correction": "AIRDO's notice says it was informed that email-address information from messages sent through an external email-delivery system had leaked due to third-party unauthorized access. It gives a maximum scope of 673,920 email-address entries, not a confirmed number of distinct people. AIRDO stopped the affected email service, and continued checking facts with the provider. The notice does not name the provider or state when the unauthorized access or leakage occurred. Do not infer AIRDO's vendor identity or a common actor from other customer reports; this record is based only on AIRDO's own notice."
     }
   ]
 }
