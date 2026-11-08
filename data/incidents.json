@@ -4796,6 +4796,43 @@
       ],
       "correction": "The incident date is not exact: SM says the leak occurred around Nov 4, so `date` is left null rather than using a false-precision date. Yonhap reports SM posted its notice on Nov 8, which is the disclosureDate. No affected-person count or exact document/data scope has been disclosed. No secondary misuse had been confirmed at publication. Reports mention DearU and Dream Maker as also affected, but this entry describes SM Entertainment only and does not assert a common actor or coordinated campaign.",
       "disclosureDate": "2026-11-08"
+    },
+    {
+      "id": "91app-commerce-cloud-order-database-breach-2026",
+      "name": "91APP: order database accessed; up to 4.8M consumers in scope",
+      "subject": "91APP",
+      "summary": "91APP confirms one Commerce Cloud order database was illegally accessed on Oct 3, 2026; the attack was blocked Oct 14. Its investigation could not determine which brands' customer data was actually accessed, so it published a maximum potential scope: orders placed Apr 4, 2025-Oct 14, 2026, involving up to 1,329 brands and 4,798,255 consumers. Data in scope may include names, phone numbers, delivery addresses, email addresses where provided and order records; not passwords, credit cards or payment data.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-03",
+      "dateLabel": "Unauthorized access occurred Oct 3; blocked Oct 14; first disclosed Oct 16; maximum-scope filing Oct 29; notifications began Nov 2",
+      "disclosureDate": "2026-10-16",
+      "tags": [
+        "breach",
+        "data-leak",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "91APP · Incident statement and investigation timeline · Original source",
+          "url": "https://91app.com/91app-202610-security-incident/",
+          "kind": "primary",
+          "date": "2026-10-22"
+        },
+        {
+          "label": "91APP-KY · Maximum potential scope and Oct 29 investigation update · Original source",
+          "url": "https://ir.91app.com/en/announce_detail.php?id=373",
+          "kind": "primary",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "91APP · Consumer notification and compensation information · Original source",
+          "url": "https://91app.com/91app-202610-security-incident-compensation/",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "The counts of up to 1,329 brands and 4,798,255 consumers are a maximum potential scope, not confirmed affected-brand or person counts. 91APP says it cannot determine which brands' consumer data was actually accessed; do not say every consumer's data was taken. The listed dates and data fields come from 91APP; orders involving convenience-store pickup may have no delivery address. Passwords, credit cards and payment data are excluded."
     }
   ]
 }
