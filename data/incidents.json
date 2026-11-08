@@ -5154,6 +5154,38 @@
         }
       ],
       "correction": "AIRDO's notice says it was informed that email-address information from messages sent through an external email-delivery system had leaked due to third-party unauthorized access. It gives a maximum scope of 673,920 email-address entries, not a confirmed number of distinct people. AIRDO stopped the affected email service, and continued checking facts with the provider. The notice does not name the provider or state when the unauthorized access or leakage occurred. Do not infer AIRDO's vendor identity or a common actor from other customer reports; this record is based only on AIRDO's own notice."
+    },
+    {
+      "id": "tsukaeru-net-portal-and-hosting-intrusion-2026",
+      "name": "Tsukaeru.net: customer portal data leaked; shared servers accessed",
+      "subject": "Tsukaeru.net",
+      "summary": "Tsukaeru.net says it confirmed third-party access to its systems and leakage of customer information held in its contract and service-purchase portal. The specific fields and amount viewed or obtained are still under investigation; the portal did not store credit-card data. The company also confirmed unauthorized access on some shared servers and restored affected systems from a Nov 2 backup, losing website updates and sent/received email made after that backup through early Nov 7. It is investigating possible data access on those servers. 127 VPS instances associated with an affected host are under review; this is an investigation count, not confirmed compromised VPSs. The entry path and incident start remain unknown.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "Tsukaeru.net detected abnormal server activity on Nov 6 and publicly disclosed unauthorized access and portal customer-information leakage on Nov 7, 2026; actual access period and entry path remain under investigation.",
+      "disclosureDate": "2026-11-07",
+      "tags": [
+        "breach",
+        "data-leak",
+        "cloud",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "Tsukaeru.net · Initial unauthorized-access and customer-information-leak notice · Original source",
+          "url": "https://www.tsukaeru.net/news/20261107/",
+          "kind": "primary",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "Tsukaeru.net · Official notices index listing the incident on Nov 7 · Original source",
+          "url": "https://www.tsukaeru.net/news/",
+          "kind": "primary",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "Tsukaeru.net confirms leakage of customer information from its contract/service-purchase portal but has not disclosed which fields or how much was viewed or obtained. The portal stores no credit-card information. Stored portal passwords were encrypted; the company says a third party may have been able to decrypt them, so it reset portal passwords and instructs customers to set a new password, reconfigure 2FA, and change reused passwords, especially email passwords. The company separately confirmed unauthorized access on some shared servers and restored them from a Nov 2 backup; updates to websites and email sent or received after that backup through early Nov 7 were lost. Backup-related data loss is distinct from confirmed data theft: the company is still investigating whether shared-server data was viewed or obtained. The 127 VPS figure is the number being assessed due to association with a host where access was confirmed; it is not a confirmed VPS-intrusion or data-loss count. No other service environments were confirmed accessed in the notice. Abnormal activity was found Nov 6, but the actual start of access and entry route are not stated. Severity is medium because the company confirms portal customer-information leakage and access across hosting infrastructure, but the affected fields and customer count remain unknown; do not imply confirmed theft of credentials, shared-server customer data, or compromise of all 127 VPSs."
     }
   ]
 }
