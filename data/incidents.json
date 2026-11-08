@@ -4740,6 +4740,31 @@
       ],
       "correction": "This record describes Nobeller's reported supplier disclosure only. The source does not establish that Nobeller-specific order records were accessed, what data fields or people were affected, or whether this was the same attack, actor or event as any other CYBERBIZ customer report. Do not present this as a confirmed leak of Nobeller customer records or as a separate attack.",
       "disclosureDate": "2026-11-08"
+    },
+    {
+      "id": "gmo-trust-login-customer-information-leak-2026",
+      "name": "GMO Trust Login: 45,030 individuals affected by exposed files",
+      "subject": "GMO Trust Login",
+      "summary": "GMO GlobalSign says an external specialist investigation found files containing information on 2,492 customer companies and 45,030 individuals could be retrieved from a public storage area. Information included names, email addresses, linked-service names, customer-defined attributes and billing-contact details in contract files. The company says login passwords, MFA data, connected-service passwords and payment details were not included. Logs confirm retrieval from June 8, 2021 through Sep 15, 2026; older logs do not exist, so earlier retrieval cannot be ruled out.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "First disclosed Sep 16, 2026; investigation results published Nov 6. Files may have been retrievable Nov 14, 2017-Sep 15, 2026; confirmed access logs start Jun 8, 2021",
+      "disclosureDate": "2026-09-16",
+      "tags": [
+        "data-leak",
+        "privacy",
+        "credentials"
+      ],
+      "sources": [
+        {
+          "label": "GMO GlobalSign Holdings · Investigation results and apology · Original source",
+          "url": "https://www.gmogshd.com/news-en/apology-and-investigation-results-regarding-the-leakage-of-customer-information-from-gmo-trust-login",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "The reported total covers information in files that could be retrieved and is not proof every record was downloaded. Confirmed retrieval logs begin June 8, 2021; earlier log records no longer exist, so retrieval before then cannot be ruled out. The source excludes GMO Trust Login passwords, MFA information, connected-service passwords and payment details. Do not merge this with GMO's separate Onamae Desktop Cloud incident."
     }
   ]
 }
