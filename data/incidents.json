@@ -4833,6 +4833,59 @@
         }
       ],
       "correction": "The counts of up to 1,329 brands and 4,798,255 consumers are a maximum potential scope, not confirmed affected-brand or person counts. 91APP says it cannot determine which brands' consumer data was actually accessed; do not say every consumer's data was taken. The listed dates and data fields come from 91APP; orders involving convenience-store pickup may have no delivery address. Passwords, credit cards and payment data are excluded."
+    },
+    {
+      "id": "teket-ticketing-customer-data-leak-2026",
+      "name": "teket: customer data leaked; impact count under review",
+      "subject": "teket",
+      "summary": "teket's Nov 8 notice confirms some customer information leaked after unauthorized access to the member-information system. The notice lists names and email addresses for members, and for registered or purchasing members, dates of birth, age, sex, addresses, phone numbers, ticket-issuance codes and organizer-issued serial codes. The number of affected customers is still under investigation. teket says all services are suspended while it investigates and works to contain access and restore service.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-06",
+      "dateLabel": "Server access suspected Nov 5; member-information system access and data leakage confirmed Nov 6; disclosed Nov 8, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "retail",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "teket · First incident notice · Original source",
+          "url": "https://corporate.teket.jp/news/privacy_261108",
+          "kind": "primary",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "teket has not yet provided an affected-customer count. The notice says no unauthorized logins or misuse of leaked information and no further access were confirmed as of Nov 8; all services were suspended while the investigation continued. Do not infer password/payment data exposure or use of ticket codes beyond the fields explicitly listed.",
+      "disclosureDate": "2026-11-08"
+    },
+    {
+      "id": "foundation-wallet-customer-data-breach-2026",
+      "name": "Foundation breach: phishing targeted 21,463 email addresses",
+      "subject": "Foundation",
+      "summary": "Foundation's Nov 5 incident report says the earliest confirmed unauthorized activity began Oct 21 and reached customer records, email systems and domain settings. On Oct 25, the attacker attempted more than 23,000 phishing emails to 21,463 distinct email addresses, using real Foundation mail accounts; some messages included purchase details. Foundation says records in accessible systems included names, email addresses, mailing addresses, phone numbers, order details, archived support conversations and partial card information (cardholder name, last four digits and expiration month/year); full card numbers were handled by payment processors and were not available to Foundation. The company says it cannot confirm that all potentially accessible records were accessed and continues reviewing additional customer/payment records. It reports phishing follow-up calls, but no evidence that Passport devices or their private keys were compromised.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-21",
+      "dateLabel": "Earliest confirmed unauthorized activity Oct 21; phishing campaign began Oct 25; first disclosed Oct 26; full report published Nov 5, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "exploited",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Foundation · Oct 26 notice and Nov 5 incident report · Original source",
+          "url": "https://community.foundation.xyz/t/important-security-notice-emails-that-appeared-to-come-from-foundation/1296",
+          "kind": "primary",
+          "date": "2026-11-05"
+        }
+      ],
+      "correction": "The more-than-23,000 figure is phishing attempts, not unique recipients or confirmed exposed people; 21,463 distinct email addresses were targeted. The approximately 5,600 mailing-address and 5,200 phone-number records were held in systems the attacker could reach, not all confirmed accessed. Foundation found additional customer/payment records and is still checking overlap and scope. Full card numbers were not available to Foundation; the report says Passport devices and their private keys were not compromised. Foundation has not confirmed a link to other breaches despite reports of information recipients say they did not give Foundation.",
+      "disclosureDate": "2026-10-26"
     }
   ]
 }
