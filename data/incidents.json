@@ -4371,6 +4371,164 @@
       ],
       "correction": "Rohto says customer-management fields varied; 2,797,545 is the number of customers affected by those data, not a count of leaked call recordings. The 9,715 customer count is for call audio containing card numbers and expiry dates. Rohto says security codes and passwords were not included and no related secondary harm had been confirmed when reported. Do not infer every customer’s data included all three contact fields or that every call contained card information.",
       "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "gitbook-nov-2026-security-incident",
+      "name": "GitBook: SSO flaw exposed infrastructure and customer data",
+      "subject": "GitBook",
+      "summary": "GitBook says an attacker used an SSO flaw on Nov 2, 2026, to create staff sessions, access a misconfigured GitHub App, and reach production secrets. GitBook says customer data was reachable and treats all customer data as exposed, while reporting no evidence that other customers’ content was modified. It rotated infrastructure and customer secrets and restored service Nov 3.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "GitBook published its postmortem Nov 4, 2026; unauthorized access occurred Nov 2–3",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "GitBook security incident postmortem · Original source",
+          "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
+          "kind": "primary",
+          "date": "2026-11-04"
+        }
+      ],
+      "correction": "GitBook says it found no evidence that other customers’ content was modified, but treated all customer data as exposed because the attacker could reach it. Do not state that customer content was accessed or changed.",
+      "disclosureDate": "2026-11-04",
+      "detail": {
+        "whatHappened": "GitBook says an attacker exploited a flaw in its SSO login flow to create sessions acting as GitBook staff. The attacker queried authentication information for a misconfigured GitHub App, accessed GitBook internal repositories, obtained a Cloudflare API key, and used production secrets for infrastructure access.",
+        "exposure": "GitBook says customer data stored in GitBook was accessible, so it treated all customer data as exposed. Data categories it lists as accessible include API/integration tokens and secrets, session-signing secrets, visitor questions to GitBook Assistant, authenticated documentation sites, and customer content. It says no evidence showed other customers’ content was modified. No affected-customer or record count was disclosed.",
+        "fix": "GitBook says it disabled affected infrastructure accounts, took the app offline, rotated infrastructure and GitBook-managed customer secrets, invalidated pre-cutoff API tokens, recycled staging and production nodes, and restored service on Nov 3.",
+        "remaining": "The public postmortem does not give a count of customers whose data was accessed or establish that customer content was retrieved or modified. The attacker’s stated target was one customer, according to GitBook."
+      }
+    },
+    {
+      "id": "tum-nov-2026-my-tum-incident",
+      "name": "TUM: stolen myTUM passwords used against campus system",
+      "subject": "Technical University of Munich",
+      "summary": "TUM says attackers stole central TUM login passwords from people registered with myTUM, including a TUMonline administrator’s credentials, and used them to attack its campus-management system. Names, home addresses, dates of birth and TUM passwords may have been accessible. TUM says its log review currently indicates no other TUMonline data, such as grades or applications, was compromised; investigation continues.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-06",
+      "dateLabel": "TUM posted its incident notice Nov 6, 2026; attack date not stated",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "education"
+      ],
+      "sources": [
+        {
+          "label": "TUM IT security incident notice · Original source",
+          "url": "https://www.tum.de/en/news-and-events/all-news/press-releases/details/it-security-incident-at-tum",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "TUM says the listed information may have been accessed. Its current log-based assessment is that grades and college applications were not compromised, but the investigation is continuing. No affected-person count is stated.",
+      "disclosureDate": "2026-11-06",
+      "detail": {
+        "whatHappened": "TUM says unknown attackers attacked the myTUM portal and stole passwords for central TUM accounts. Among them were credentials for a TUMonline system administrator, which were then used in an attack on the central campus-management system. TUM took TUMonline offline.",
+        "exposure": "TUM says attackers may have accessed affected individuals’ TUM account passwords, names, home addresses and dates of birth. It says most TUMonline activity was logged and current analysis suggests no other TUMonline data, including grades or college applications, was compromised. The review remains ongoing; the notice gives no count.",
+        "fix": "TUM says it suspended affected accounts, temporarily deactivated TUMonline, reported the incident to the Bavarian data-protection authority and filed a criminal complaint. It instructed users to change TUM passwords and enable MFA.",
+        "remaining": "TUM says it is continuing the investigation and will update its notice as it learns more. The notice does not give the attack date or affected-person count."
+      }
+    },
+    {
+      "id": "trigger-dev-nov-2026-environment-secrets",
+      "name": "Trigger.dev: customer root keys and environment variables accessed",
+      "subject": "Trigger.dev",
+      "summary": "Trigger.dev says an attacker obtained customer root API keys in an incident discovered Nov 1, 2026. This exposed environment variables in 0.66% of customer environments; the attacker also listed recent runs, deployments and schedules in some environments, receiving associated metadata. Trigger.dev says it found no evidence of access to other customer data, services, production databases or dashboard accounts, notified affected customers and revoked affected API keys.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-06",
+      "dateLabel": "Incident detected Nov 1; Trigger.dev published its report Nov 6, 2026",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "Trigger.dev security incident report · Original source",
+          "url": "https://trigger.dev/blog/security-incident-report-nov-2026",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "The 0.66% figure is the share of customers whose environments were impacted, not a count of people or records. Trigger.dev says run/deployment/schedule metadata was accessed in some environments; it found no evidence of access to other customer data, services, production databases or dashboard accounts.",
+      "disclosureDate": "2026-11-06",
+      "detail": {
+        "whatHappened": "Trigger.dev says it detected anomalous activity on Nov 1, blocked the attacker and mitigated the attack vector. The attacker obtained customer root API keys for some environments, giving access to environment variables and environment settings. In some environments the attacker listed recent runs, deployments and schedules.",
+        "exposure": "Trigger.dev says environment variables were exposed in 0.66% of all customers’ environments. Some listing calls returned run, deployment and schedule identifiers and metadata, including task names, status, tags, errors and run metadata. It found no evidence of access to other customer data, services, its production databases or customer dashboard accounts. It did not specify a number of affected customers.",
+        "fix": "Trigger.dev says it notified affected customers, proactively revoked affected Trigger.dev API keys, reviewed API access logs, engaged incident-response experts and notified law enforcement. It advised affected customers to rotate credentials in impacted environments.",
+        "remaining": "Trigger.dev says it cannot yet comment on the attack vector while protecting the investigation. Affected customers are identified through direct email and dashboard notices; 0.66% is a customer/environment percentage, not a disclosed headcount."
+      }
+    },
+    {
+      "id": "kernel-nov-2026-credential-intrusion",
+      "name": "Kernel: intruder downloaded logging data and accessed GPU servers",
+      "subject": "Kernel",
+      "summary": "Kernel says an attacker used a compromised API key to access a logging provider and download data that included a small number of Kernel API keys and app-deployment third-party secrets. The attacker later used a compromised hosting-provider credential to access four GPU-enabled servers. Kernel says 0.28% of customers were impacted, revoked credentials, took affected servers offline and rotated exposed credentials.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Kernel detected the incident Nov 2 and published its notice Nov 4, 2026; access activity began Oct 24",
+      "tags": [
+        "breach",
+        "credentials",
+        "cloud",
+        "data-leak"
+      ],
+      "sources": [
+        {
+          "label": "Kernel security incident notice · Original source",
+          "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
+          "kind": "primary",
+          "date": "2026-11-04"
+        }
+      ],
+      "correction": "Kernel says 0.28% of its customers were impacted; this is not a record count. It says the downloaded logging-provider data contained a small number of Kernel API keys and app-deployment third-party secrets. Do not infer that all customer data or all GPU servers were accessed.",
+      "disclosureDate": "2026-11-04",
+      "detail": {
+        "whatHappened": "Kernel says an attacker used a compromised Kernel API key to probe for access and then access a staff login to its logging provider, from which data was downloaded. On Nov 3, a compromised hosting-provider credential was used to access four GPU-enabled servers. Kernel says the activity was contained by Nov 4.",
+        "exposure": "Downloaded logging-provider data contained a small number of Kernel API keys and third-party secrets for app deployments. Kernel says four GPU-enabled servers were accessed, three of which ran Kernel browser sessions; one server had no customer data. Kernel says 0.28% of its customers were impacted. Its notice does not specify a count of customers or records.",
+        "fix": "Kernel says it revoked compromised credentials, removed access to its logging provider, blocked involved IP addresses, took affected servers offline, rotated credentials those servers could access, audited systems and notified affected organizations.",
+        "remaining": "Kernel has not publicly specified which or how many individual customer secrets or records were involved. Its notices attribute the incident to one financially motivated campaign but do not provide independent attribution evidence."
+      }
+    },
+    {
+      "id": "air-creebec-nov-2026-administrative-intrusion",
+      "name": "Air Creebec: administrative files exfiltrated in cyber intrusion",
+      "subject": "Air Creebec",
+      "summary": "Air Creebec says an intrusion affected some administrative systems and initial findings indicate administrative files were exfiltrated. The files may include personal information about current and former employees and passengers, and operational, administrative or financial information about customers and partners. The review is ongoing; the company says flight operations were not affected.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-04",
+      "dateLabel": "Air Creebec disclosed the intrusion Nov 4, 2026; incident discovery date not specified",
+      "tags": [
+        "breach",
+        "data-leak"
+      ],
+      "sources": [
+        {
+          "label": "Air Creebec cybersecurity intrusion statement · Issuer release via CNW",
+          "url": "https://www.newswire.ca/news-releases/air-creebec-confirms-cybersecurity-intrusion-affecting-some-of-its-administrative-systems-880065062.html",
+          "kind": "primary",
+          "date": "2026-11-04"
+        }
+      ],
+      "correction": "Air Creebec says initial findings indicate administrative files were exfiltrated and that those files may contain the listed personal, operational, administrative or financial information. It has not specified affected people, records, or confirmed fields. Flight operations were not affected.",
+      "disclosureDate": "2026-11-04",
+      "detail": {
+        "whatHappened": "Air Creebec says it discovered an unauthorized intrusion targeting some administrative systems and brought in cybersecurity experts and authorities. Initial findings indicate that administrative files were exfiltrated.",
+        "exposure": "The company says the files may contain personal information relating mainly to current and former employees and passengers, and may contain operational, administrative or financial information about customers and partners. It has not specified how many people or records are affected or which fields were present.",
+        "fix": "Air Creebec says it engaged cybersecurity experts to assess the scope and strengthen affected systems and is working with authorities. It says it is assessing protective measures and will contact eligible people directly.",
+        "remaining": "The review of the exfiltrated files and exposed information is ongoing. The company says aircraft, flight systems and flight operations were not compromised."
+      }
     }
   ]
 }
