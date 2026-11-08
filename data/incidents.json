@@ -4715,6 +4715,31 @@
       ],
       "correction": "About 4.32 million is the number of potentially affected member records, not a confirmed count of leaked records or distinct people. The company says information may have leaked; it does not confirm actual exfiltration. Its Nov 7 website reopening after checks is not evidence that any copied data was recovered or that the exposure question was resolved. Only the travel-memory photo-submission page remained stopped. The company says passwords, passport, payment-card and bank-account information were not in scope.",
       "disclosureDate": "2026-10-31"
+    },
+    {
+      "id": "nobeller-cyberbiz-database-access-2026",
+      "name": "Nobeller (6844): CYBERBIZ database access; order-data impact unclear",
+      "subject": "Nobeller",
+      "summary": "MoneyDJ republishes a filing attributed to Nobeller (6844), whose stated fact date is Nov 7: Shunli Intelligence/CYBERBIZ informed it that part of the vendor's database had unauthorized abnormal access. That database contains data related to Nobeller's online-store orders. The filing does not say whether Nobeller's specific records were accessed, what fields were involved or how many records may be affected.",
+      "status": "reported",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "Vendor notification dated Nov 7, 2026; MoneyDJ republication dated Nov 8; initial unauthorized-access date not disclosed",
+      "tags": [
+        "breach",
+        "data-leak",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "MoneyDJ · Republished MOPS disclosure attributed to Nobeller",
+          "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=d379bd10-82b1-42e2-be69-1b568da6cf84",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "This record describes Nobeller's reported supplier disclosure only. The source does not establish that Nobeller-specific order records were accessed, what data fields or people were affected, or whether this was the same attack, actor or event as any other CYBERBIZ customer report. Do not present this as a confirmed leak of Nobeller customer records or as a separate attack.",
+      "disclosureDate": "2026-11-08"
     }
   ]
 }
