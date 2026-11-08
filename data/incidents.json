@@ -4765,6 +4765,37 @@
         }
       ],
       "correction": "The reported total covers information in files that could be retrieved and is not proof every record was downloaded. Confirmed retrieval logs begin June 8, 2021; earlier log records no longer exist, so retrieval before then cannot be ruled out. The source excludes GMO Trust Login passwords, MFA information, connected-service passwords and payment details. Do not merge this with GMO's separate Onamae Desktop Cloud incident."
+    },
+    {
+      "id": "sm-entertainment-employee-data-leak-2026",
+      "name": "SM Entertainment: employee files leaked, including national IDs and bank data",
+      "subject": "SM Entertainment",
+      "summary": "SM Entertainment says personal information leaked around Nov 4, 2026, including names, mobile numbers, addresses, bank account numbers, South Korean resident registration numbers, affiliation details and some contract contents. Yonhap reports an external attacker accessed business systems including electronic approval and leaked some stored document files. SM says it blocked the attack paths and replaced unauthorized access keys, is investigating with authorities, and had not confirmed secondary misuse at publication. The number of affected people and exact scope are not disclosed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "SM disclosed the leak on Nov 8, 2026; it reportedly occurred around Nov 4, with no exact start time disclosed",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "SM Entertainment · Official incident notice",
+          "url": "https://www.smentertainment.com/",
+          "kind": "primary",
+          "date": "2026-11-08"
+        },
+        {
+          "label": "Yonhap · Reporting on SM disclosure",
+          "url": "https://www.yna.co.kr/view/AKR20261108033900005",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "The incident date is not exact: SM says the leak occurred around Nov 4, so `date` is left null rather than using a false-precision date. Yonhap reports SM posted its notice on Nov 8, which is the disclosureDate. No affected-person count or exact document/data scope has been disclosed. No secondary misuse had been confirmed at publication. Reports mention DearU and Dream Maker as also affected, but this entry describes SM Entertainment only and does not assert a common actor or coordinated campaign.",
+      "disclosureDate": "2026-11-08"
     }
   ]
 }
