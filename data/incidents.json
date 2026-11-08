@@ -4927,6 +4927,44 @@
         }
       ],
       "correction": "Reported-only: the Aug 29 Punch and Aug 30 Guardian articles attribute the attempted-access disclosure to an Army statement. Punch's Nov 8 report quotes an Army post saying the account was restored; Daily Post quotes a restoration statement. No direct August Army post or statement URL was verified in this pass. Inclusion judgment: this is more than an unsupported intrusion claim or routine response because the Army reportedly had to secure the account, restore exclusive administrative control, warn the public about potentially inauthentic content, and later announced restoration after an extended recovery period. That is a bounded security/information-integrity incident even though no successful takeover is established. Severity is low, not medium: the supported facts show no confirmed unauthorised post, data exposure, or broader operational impact. Do not infer a common actor with the separate Defence HQ account incident. The earliest dated public reporting verified is Punch, Aug 29; Nov 8 is the restoration update, not the disclosure date."
+    },
+    {
+      "id": "iris-plaza-external-cloud-data-exposure-2026",
+      "name": "Iris Plaza: cloud data for 7.7M people possibly exposed",
+      "subject": "Iris Plaza data exposure",
+      "summary": "Iris Plaza says a third party accessed an external cloud service used by its online store. Its Nov 5 notice says data relating to about 7.7 million people stored in that service may have been viewed or obtained; the actual leaked amount and affected-person count remain under investigation. Possible data varies by person: about 5.8 million members and former members' data included names, addresses, phone numbers, email addresses, sex, dates of birth and other fields; active-member passwords were among possible fields and some information, including passwords, was encrypted. About 1.9 million non-member records could include names, addresses, phone numbers and email addresses. Credit-card information was not stored in the affected cloud service. As of Nov 5 the company had no reports of related misuse or financial harm.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Suspicious file found and service halted Oct 28; unauthorized access disclosed Oct 29; possible data exposure and scope reported Nov 5; access period and actual impact unknown",
+      "disclosureDate": "2026-10-29",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "Iris Ohyama · Iris Plaza unauthorized-access first notice · Original source",
+          "url": "https://www.irisohyama.co.jp/news/2026/?date=1029",
+          "kind": "primary",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "Iris Ohyama · Iris Plaza second notice on possible personal-information exposure · Original source",
+          "url": "https://www.irisohyama.co.jp/news/2026/?date=1105",
+          "kind": "primary",
+          "date": "2026-11-05"
+        },
+        {
+          "label": "BleepingComputer · Reporting on Iris Plaza's second notice",
+          "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "The unauthorized access is confirmed, but exfiltration is not: Iris Plaza says data in the cloud service may have been viewed or obtained and actual leaked records and affected people remain unknown. The approximately 7.7 million figure is the number of people whose data was stored in the affected service, not a count of people confirmed affected or data confirmed taken. The notice calls the member/non-member group sizes about 5.8 million and 1.9 million people, respectively; do not restate these as actual exposure counts. Data fields varied by person. The notice says passwords were among possible member fields, some information including passwords was encrypted, former members' data did not include passwords, and credit-card data was not stored in the affected cloud service. The first public notice, dated Oct 29, confirms unauthorized access but gives no exposure scope; the Nov 5 second notice is the first disclosure located here that personal data in the service may have been viewed or obtained. The service stopped on Oct 28 when suspicious files were found, but the actual intrusion/onset date is not stated, so date is null rather than substituting discovery or disclosure dates. High severity is based on a confirmed external access incident involving a very large stored population and possible exposure of contact, birth-date and password fields, comparable in potential scale to existing high-severity records such as NetMile (up to 5.49 million members) and Club Tourism (about 4.32 million records). It is not a claim that those people or records were actually accessed or taken. No related misuse or financial harm had been reported as of Nov 5."
     }
   ]
 }
