@@ -5003,6 +5003,36 @@
         }
       ],
       "correction": "This is distinct from the October 8 Tensorlake npm-package Shai-Hulud worm already tracked; do not combine them. Status is reported because the X post itself returned SOURCE_NOT_AVAILABLE during this check; pwn.watch reproduces text it attributes to the post and records multiple edits, and iSec News independently reports the disclosure, but no Tensorlake trust-center statement was located. The currently reported wording does not identify the upstream provider. The report describes malicious branch pushes and GitHub Actions probing, but does not establish that secrets were successfully read or stolen. Tensorlake's post says it found no evidence of critical-system access beyond probing; that is an attributed assessment, not independent forensic verification. High severity reflects reported access to engineering GitHub repositories and attempted CI secret discovery, a bounded but consequential development-system compromise; it does not imply customer data or API keys were accessed. The post says no impact to customer API keys or sandboxes, secrets were rotated, the application was removed from the upstream provider, paying customers were notified, and API key rotation was requested as a precaution. The onset date/duration is unspecified; Nov 8 is the disclosure date, not a verified incident date."
+    },
+    {
+      "id": "credit-mutuel-arkea-fraudulent-transactions-2026",
+      "name": "Crédit Mutuel Arkéa: attackers made fraudulent bank transfers",
+      "subject": "Crédit Mutuel Arkéa",
+      "summary": "Crédit Mutuel Arkéa says a cyberattack enabled fraudulent transactions using the group's own account. The bank says attackers reached it through a service provider's platform, not through Fortuneo, and sent transactions to other banks, potentially enabling cryptocurrency conversion. Customer accounts and assets were not affected, though some transfers were delayed; almost all operations resumed on Nov 4 after checks and enhanced safeguards. Some funds were blocked and recovery efforts continued. The bank has not confirmed a reported specific loss amount and says its assessment is ongoing.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Cyberattack and fraudulent transactions disclosed Nov 4, 2026; exact attack timing and final financial impact remain under assessment; almost all operations resumed that morning",
+      "disclosureDate": "2026-11-04",
+      "tags": [
+        "breach",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Crédit Mutuel Arkéa · Initial cyberattack and fraudulent-transactions notice · Original source",
+          "url": "https://www.cm-arkea.com/arkea/banque/assurances/pa_38367/fr/credit-mutuel-arkea-annonce-avoir-ete-victime-d-une-attaque",
+          "kind": "primary",
+          "date": "2026-11-04"
+        },
+        {
+          "label": "Crédit Mutuel Arkéa · Additional information on fraudulent transfers and recovery · Original source",
+          "url": "https://www.cm-arkea.com/arkea/banque/assurances/pa_38386/fr/informations-complementaires-suite-a-l-attaque-dont-le-credit-mutuel-arkea-a-ete-victime",
+          "kind": "primary",
+          "date": "2026-11-04"
+        }
+      ],
+      "correction": "The bank says the attackers used the group's own account for fraudulent transactions via a service provider's platform, not through Fortuneo or customer accounts. Arkéa says customers' assets were unaffected; some transfers were delayed, and almost all operations resumed during the morning of Nov 4 after checks and strengthened safeguards. Some funds were blocked and recovery efforts were ongoing. Arkéa refused to confirm a reported specific loss figure, saying it could confirm only the order of magnitude while its assessment continued; no exact amount is stated here. The incident is a confirmed bank-system compromise with fraudulent movement of the institution's own funds, not a customer-account theft or a confirmed customer-data breach. The bank's warning about possible phishing was preventive and is not evidence that customer data was compromised. The bank's releases identify Nov 4 as the incident and disclosure date but do not specify the attack's exact start time or duration. High severity reflects reported fraudulent transactions involving the bank's own funds through compromised access, with some amount blocked and a final loss still unresolved; this is more consequential than an outage alone, while not implying customers' assets were affected."
     }
   ]
 }
