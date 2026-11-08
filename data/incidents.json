@@ -5033,6 +5033,72 @@
         }
       ],
       "correction": "The bank says the attackers used the group's own account for fraudulent transactions via a service provider's platform, not through Fortuneo or customer accounts. Arkéa says customers' assets were unaffected; some transfers were delayed, and almost all operations resumed during the morning of Nov 4 after checks and strengthened safeguards. Some funds were blocked and recovery efforts were ongoing. Arkéa refused to confirm a reported specific loss figure, saying it could confirm only the order of magnitude while its assessment continued; no exact amount is stated here. The incident is a confirmed bank-system compromise with fraudulent movement of the institution's own funds, not a customer-account theft or a confirmed customer-data breach. The bank's warning about possible phishing was preventive and is not evidence that customer data was compromised. The bank's releases identify Nov 4 as the incident and disclosure date but do not specify the attack's exact start time or duration. High severity reflects reported fraudulent transactions involving the bank's own funds through compromised access, with some amount blocked and a final loss still unresolved; this is more consequential than an outage alone, while not implying customers' assets were affected."
+    },
+    {
+      "id": "york-university-departmental-webform-data-theft-2026",
+      "name": "York University: personal information stolen from departmental web forms",
+      "subject": "York University",
+      "summary": "York University confirms an unauthorized actor accessed limited departmental web forms and stole personal information. The university says the incident came to its attention Oct 25, 2026, and the affected forms cover selected sites and form populations from 2007 through Oct 2026. The affected-person count is not stated. Most stolen information was York identification and contact information; the university's population-level lists also include sensitive categories such as health, financial-status, identity, disability/accommodation and other information, but those lists do not mean every person had every listed field exposed. York says it found no evidence the actor reached other university IT systems, reported the incident to Ontario's privacy commissioner and law enforcement, and is notifying affected individuals.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "York says the incident came to its attention Oct 25, 2026; actual access/theft timing is unspecified. Earliest public disclosure located is Nov 7; affected web forms include selected populations dating from 2007 through Oct 2026.",
+      "disclosureDate": "2026-11-07",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "York University · Cybersecurity incident notice and FAQ · Original source",
+          "url": "https://www.yorku.ca/uit/infosec/incident-faq/",
+          "kind": "primary",
+          "date": null
+        },
+        {
+          "label": "TorontoToday · Nov 7 report quoting York spokesperson; earliest dated public disclosure located",
+          "url": "https://www.torontotoday.ca/local/education/york-university-cyberattack-government-ids-financial-information-stolen-12992887",
+          "kind": "report",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "CBC News · Nov 8 report on York's notice",
+          "url": "https://www.cbc.ca/news/canada/toronto/york-university-department-forms-cybersecurity-incident-9.7414235",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "York confirms theft of personal information from some departmental web forms, but does not give an affected-person or record count. The listed years (2007 through October 2026) describe selected forms/populations and are not evidence that the incident itself lasted that long; York says it became aware on Oct 25, 2026, while the actual access/theft timing is not specified. York expressly says the table lists possible data elements by population, not fields applying to each person; most stolen data was basic York ID and contact information. A smaller, unspecified number of people whose government-ID or financial-account information was exposed are being directly notified and offered two years of credit monitoring. York reports no evidence the actor moved beyond affected systems or reached other university IT systems. The official notice itself has no visible publication date in the version checked; Nov 7 is the earliest dated public disclosure located, in TorontoToday's report quoting a York spokesperson. Severity is high because confirmed theft spans multiple form populations and the notice includes potentially sensitive health, identity, financial-status and other fields, while the count is unknown and York says most stolen data was basic ID/contact information."
+    },
+    {
+      "id": "zonguldak-governorship-x-account-security-incident-2026",
+      "name": "Zonguldak Governorship: official X account's digital security compromised",
+      "subject": "Zonguldak Governorship X account",
+      "summary": "DHA reports that Zonguldak Governorship said it detected a cyber intervention affecting the digital security of its official X account and started technical work to restore account security. The quoted statement warned that posts, statements, comments, messages and other content from the account should not be treated as the governorship's official views during the response, and cautioned against benefit-seeking requests or directions. The specific mechanism, occurrence time, scope of access, any unauthorized content, and current account status are not established by the sources verified here.",
+      "status": "reported",
+      "severity": "low",
+      "date": null,
+      "dateLabel": "DHA reported the governorship's statement on Nov 7, 2026; incident timing and current account status are not specified in the sources verified.",
+      "disclosureDate": "2026-11-07",
+      "tags": [
+        "government"
+      ],
+      "sources": [
+        {
+          "label": "DHA · Report quoting the governorship's written statement; original statement not located",
+          "url": "https://www.dha.com.tr/gundem/zonguldak-valiliginin-x-hesabina-siber-mudahale-2977168",
+          "kind": "report",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "T24 · Corroborating report quoting the same statement",
+          "url": "https://www.t24.com.tr/haber/zonguldak-valiliginin-x-hesabina-siber-saldiri-gonderiler-korumali-hale-geldi-valilikten-uyari%2C1357753",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "Reported-only: the sources quote a written statement attributed to Zonguldak Governorship, but the original official statement or post was not located in this check. The stated fact is a detected cyber intervention/digital-security compromise and technical work begun to restore account security. The sources do not establish a successful takeover, who controlled the account, unauthorized posts or messages actually being made, private-data access or theft, a specific attacker, or restoration/recovery. DHA's Nov 7 publication is the earliest disclosure located; occurrence timing is unknown, so date is null and disclosureDate is Nov 7. Low severity reflects the bounded account-security and public-information integrity risk in the quoted warning, without evidence here of actual harmful content, data exposure, or wider system impact."
     }
   ]
 }
