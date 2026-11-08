@@ -4249,6 +4249,36 @@
       "disclosureDate": "2026-11-07"
     },
     {
+      "id": "mirae-asset-global-investments-data-leak",
+      "name": "Mirae Asset Global Investments: internal-system data leaked",
+      "subject": "Mirae Asset Global Investments",
+      "summary": "Mirae Asset Global Investments said unauthorized external access to some web systems led to information from internal work systems being viewed and leaked. It said the affected systems did not serve individual customers and that general-customer/investor data, unique identifiers, sensitive information and personal credit data were not exposed. The reports do not specify the leaked fields or a count. The company said it blocked access and was investigating with an external cybersecurity firm.",
+      "status": "reported",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "Reported 28 Oct 2026",
+      "tags": [
+        "breach",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Herald Business · Reporting on company disclosure",
+          "url": "https://biz.heraldcorp.com/article/10917417",
+          "kind": "report",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "Financial News · Reporting on company disclosure",
+          "url": "https://www.fnnews.com/news/202610281029211054",
+          "kind": "report",
+          "date": "2026-10-28"
+        }
+      ],
+      "correction": "Separate from Mirae Asset Securities. The cited reports attribute the scope and excluded-data statements to Mirae Asset Global Investments; they do not identify the specific exposed fields or a record count. Do not combine this incident with attacks reported at other group affiliates.",
+      "disclosureDate": "2026-10-28"
+    },
+    {
       "id": "smartnews-oct31-data-leak",
       "name": "SmartNews: Oct 31 access may have exposed contact emails and user IDs",
       "subject": "SmartNews",
