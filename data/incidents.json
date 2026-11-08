@@ -4529,6 +4529,100 @@
         "fix": "Air Creebec says it engaged cybersecurity experts to assess the scope and strengthen affected systems and is working with authorities. It says it is assessing protective measures and will contact eligible people directly.",
         "remaining": "The review of the exfiltrated files and exposed information is ongoing. The company says aircraft, flight systems and flight operations were not compromised."
       }
+    },
+    {
+      "id": "arara-message-nov-2026-data-breach",
+      "name": "ARARA Message: 81M email addresses potentially taken",
+      "subject": "ARARA Message",
+      "summary": "ARARA and its parent Paycloud say attackers accessed the ARARA Message email-delivery service and removed, or may have removed, 81,329,467 deduplicated email-address records. The figure includes addresses suspected of being taken and is not a person count. Customer-specific fields may also include names, sex, birth dates, phone numbers, membership numbers or addresses; up to about 380 client companies may be affected, still under review. The service was used to send up to 7.13 million phishing emails impersonating card companies Oct 28–30; the service did not hold card numbers.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-06",
+      "dateLabel": "ARARA/Paycloud third report published Nov 6, 2026; service disabled Oct 31",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "ARARA Message unauthorized-access update · Original source",
+          "url": "https://www.arara.com/news/info/20261106_arara",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers.",
+      "disclosureDate": "2026-11-06",
+      "detail": {
+        "whatHappened": "ARARA and Paycloud say unauthorized access occurred in the ARARA Message email-delivery system, which was abused to send phishing email impersonating card companies. The Nov 6 third report says the incident scope proved substantially larger than in earlier reports. ARARA stopped all service on Oct 31.",
+        "exposure": "The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers.",
+        "fix": "ARARA says it stopped the service on Oct 31 and is contacting potentially affected clients, working with police and relevant privacy/communications authorities, and investigating with external specialists. Restart timing is undecided pending remediation, independent security confirmation and client credential resets.",
+        "remaining": "The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records."
+      }
+    },
+    {
+      "id": "akyrise-nov-2026-ecommerce-breach",
+      "name": "akyrise: customer membership data leaked in EC-site breach",
+      "subject": "akyrise",
+      "summary": "Euglena says it confirmed unauthorized access to the akyrise ecommerce site on Nov 4 and found registered customer membership information had leaked. Its notice lists up to 490,000 login-account records and up to 900,000 registration/purchase-related records as possible scope still under investigation; these are maximum record counts, not confirmed leaked records or people. Listed login data includes customer IDs, email addresses and hashed passwords. The company says its server did not hold credit-card numbers.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-05",
+      "dateLabel": "Euglena disclosed the breach Nov 5, 2026; unauthorized access found Nov 4",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "Euglena / akyrise customer-data notice · Original source",
+          "url": "https://www.euglena.jp/news/20261105-1/",
+          "kind": "primary",
+          "date": "2026-11-05"
+        }
+      ],
+      "correction": "Euglena says customer membership data leaked but has not determined the affected customers, information fields, counts or cause. Its image table gives maximum investigation-scope counts of 490,000 login-account cases and 900,000 registration/purchase cases; these are not confirmed leaked record or person counts. The listed passwords were stored hashed, and card numbers were not held on the company server. Euglena explicitly says the direct EC-site compromise and its separate ARARA and Sagawa contractor-service incidents are independent; this entry covers only the EC site.",
+      "disclosureDate": "2026-11-05",
+      "detail": {
+        "whatHappened": "Euglena says it confirmed a third party had accessed the akyrise ecommerce site on Nov 4. After closing the site and investigating, it found customer membership information had leaked. The company treats this as a distinct incident from separate unauthorized-access incidents involving email delivery and a parcel-tracking service used by contractors.",
+        "exposure": "Euglena’s notice says possible information in scope includes customer IDs, email addresses and hashed login passwords; customer registration and purchase/delivery-related information may include names, addresses, phone numbers, birth dates, sex, email addresses and purchase/shipping information. The accompanying table states up to 490,000 login-account cases and up to 900,000 registration/purchase cases are under investigation; these are maximum scope figures, not confirmed leaked counts or people. Euglena says its server did not store credit-card numbers.",
+        "fix": "Euglena says it closed the ecommerce site, is conducting emergency checks of related systems and strengthening monitoring, and is investigating causes and scope. It plans to resume the site after system remediation and safety checks, and is notifying affected customers directly. Existing and recurring orders are being checked and shipped in turn.",
+        "remaining": "The company has not established the number of affected customers, exact leaked fields, leakage extent or cause. It says no secondary harm had been confirmed when the notice was published. Its separate ARARA and Sagawa vendor-service incidents are independent and are not combined in this record."
+      }
+    },
+    {
+      "id": "sagawa-parcel-tracking-data-breach-2026",
+      "name": "Sagawa: up to 53M personal-data records may have leaked",
+      "subject": "Sagawa Express",
+      "summary": "Sagawa says it found unauthorized access to its parcel-tracking system on Sep 30, 2026. Its Oct 23 update puts the maximum possible exposed information at about 53.23 million records, including duplicates; it says this is neither a person count nor a confirmed count of records actually taken. Data in scope includes shipper/recipient names, addresses and phone numbers, customer-contract details, and Smart Club names, addresses, phone numbers, emails and member IDs. Passwords and card data were not included. Tracking resumed Oct 23; some related web services remained suspended while investigation continued.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-23",
+      "dateLabel": "Unauthorized access found Sep 30; Sagawa published its fifth update Oct 23, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Sagawa Express incident update (fifth report) · Original source",
+          "url": "https://www2.sagawa-exp.co.jp/information/detail/430/",
+          "kind": "primary",
+          "date": "2026-10-23"
+        }
+      ],
+      "correction": "The maximum ~53.23 million is a duplicate-inclusive record estimate and not a count of people; Sagawa says it has not confirmed that all listed information actually left its systems. Handwritten waybill data is excluded. Passwords and card information are not in scope. As of Oct 23, tracking resumed but several related services remained stopped.",
+      "disclosureDate": "2026-10-23",
+      "detail": {
+        "whatHappened": "Sagawa says it confirmed unauthorized third-party access to its web parcel-tracking service on Sep 30, 2026, blocked external access to parts of its internet freight system and investigated with a third-party specialist. In its fifth report, it said the tracking service resumed on Oct 23 after security measures and safety checks; some API, shipping-intake, redelivery/recipient-change and returns services remained stopped.",
+        "exposure": "Sagawa estimated a maximum of about 53.23 million potentially exposed personal-information records, including duplicates and with further deduplication and customer identification ongoing. It says the figure is not the number of people and is not a confirmed count of records actually exfiltrated. Possible data includes shipper and recipient names, addresses and phone numbers in waybill data covering Jun 21-Sep 30; names, addresses and phone numbers from freight-contract customer lists; and Smart Club names, addresses, phone numbers, email addresses and member IDs. Handwritten waybills are excluded; passwords and credit-card data are not included. Sagawa reported no secondary misuse as of the update.",
+        "fix": "Sagawa says it blocked external access, performed specialist-assisted checks and security measures, resumed parcel tracking on Oct 23 and continued monitoring. It was still identifying potentially affected customers and preparing notifications; other related web services remained suspended at that time.",
+        "remaining": "The maximum count includes duplicates and is not a person count. Sagawa said the total is not a confirmed count of records actually leaked, and it was continuing deduplication, determining affected customers and investigating causes and scope. The notice does not state an attacker identity or motive."
+      }
     }
   ]
 }
