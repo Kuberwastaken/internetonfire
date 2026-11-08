@@ -5186,6 +5186,62 @@
         }
       ],
       "correction": "Tsukaeru.net confirms leakage of customer information from its contract/service-purchase portal but has not disclosed which fields or how much was viewed or obtained. The portal stores no credit-card information. Stored portal passwords were encrypted; the company says a third party may have been able to decrypt them, so it reset portal passwords and instructs customers to set a new password, reconfigure 2FA, and change reused passwords, especially email passwords. The company separately confirmed unauthorized access on some shared servers and restored them from a Nov 2 backup; updates to websites and email sent or received after that backup through early Nov 7 were lost. Backup-related data loss is distinct from confirmed data theft: the company is still investigating whether shared-server data was viewed or obtained. The 127 VPS figure is the number being assessed due to association with a host where access was confirmed; it is not a confirmed VPS-intrusion or data-loss count. No other service environments were confirmed accessed in the notice. Abnormal activity was found Nov 6, but the actual start of access and entry route are not stated. Severity is medium because the company confirms portal customer-information leakage and access across hosting infrastructure, but the affected fields and customer count remain unknown; do not imply confirmed theft of credentials, shared-server customer data, or compromise of all 127 VPSs."
+    },
+    {
+      "id": "cbcloud-pickgo-unauthorized-access-2026",
+      "name": "CBcloud PickGo: shipper and driver data potentially leaked; scope varies by customer",
+      "subject": "CBcloud (PickGo)",
+      "summary": "CBcloud confirmed unauthorized access to the business service of its PickGo dispatch platform on Nov 1 and disclosed it on Nov 2. A Nov 3 second report fixes the maximum potential scope of possibly leaked information: shipper company names, registered contact names, addresses, phone numbers and email addresses, plus order information (job IDs and amounts; pickup and delivery point names, addresses, contact names and phone numbers) and assigned partner-driver information (name, phone number, email address, vehicle number, live delivery location, and vehicle/profile image URLs that become inaccessible five minutes after issuance). The range varies by customer and no affected count is given. CBcloud says bank account, card and other payment information and login passwords are not included. It blocked the source communications, suspended the misused account, fixed the exploited flaw, and restricts some functions and access from outside Japan.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-01",
+      "dateLabel": "Unauthorized access confirmed Nov 1, 2026; first report Nov 2; second report Nov 3 detailing the maximum potential scope",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "CBcloud · First report · Original source",
+          "url": "https://cb-cloud.com/news/AJZDw0h3",
+          "kind": "primary",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "CBcloud · Second report (scope identified) · Original source",
+          "url": "https://cb-cloud.com/news/MC7mDLUO",
+          "kind": "primary",
+          "date": "2026-11-03"
+        }
+      ],
+      "correction": "The listed fields are the maximum potential range and vary by customer; CBcloud gives no affected count, so do not convert the field list into confirmed theft of all listed data. Bank account, card and other payment information and login passwords are stated as not included. Driver image URLs expire five minutes after issuance. Japan Post's confirmed consignment impact is tracked as its own customer record; do not merge the two or extend this maximum field list to Japan Post customers.",
+      "disclosureDate": "2026-11-02"
+    },
+    {
+      "id": "japan-post-cbcloud-consignment-data-leak-2026",
+      "name": "Japan Post: customer names leaked via CBcloud PickGo breach",
+      "subject": "Japan Post",
+      "summary": "Japan Post's Nov 5 release confirms customer information leaked after the Nov 1 unauthorized access at CBcloud, to which it consigns some parcel pickup and delivery. For customers whose parcels CBcloud handled in Dec 2025 to Mar 2026 and in Sep 2026, the leaked information is names only: 1,672 full-name cases and 2,091 surname-only cases. Addresses, phone numbers and other customer information are not included. No misuse has been confirmed so far; affected customers will be notified in writing, and the incident has been reported to the Personal Information Protection Commission. CBcloud told Japan Post it blocked the source, suspended the misused account and fixed the exploited flaw.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-01",
+      "dateLabel": "Unauthorized access at CBcloud Nov 1, 2026; CBcloud first informed Japan Post Nov 2 and confirmed Japan Post customer impact Nov 4; disclosed Nov 5, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Japan Post · Press release · Original source",
+          "url": "https://www.post.japanpost.jp/newsrelease/pressrelease/414336381813.html",
+          "kind": "primary",
+          "date": "2026-11-05"
+        }
+      ],
+      "correction": "Names only: per Japan Post, addresses, phone numbers and other customer information are not included, and no secondary misuse was confirmed as of the notice. This record covers Japan Post's confirmed consignment impact from the CBcloud PickGo incident; do not merge it with the CBcloud vendor record, and do not apply CBcloud's maximum potential field list to these customers.",
+      "disclosureDate": "2026-11-05"
     }
   ]
 }
