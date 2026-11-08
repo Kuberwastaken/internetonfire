@@ -4684,6 +4684,37 @@
       ],
       "correction": "The notice confirms unauthorized access but says leakage is possible, not confirmed. Approximately 5.49 million is the maximum potential population including former members, not a confirmed victim or exposed-record count. The company says no online publication or misuse was confirmed, and its notice does not state when the access occurred. NetMile and Sugotama were suspended; the notice says the separate Premium Yutai Club, IR-navi and IR-port services had no confirmed impact at that time.",
       "disclosureDate": "2026-11-02"
+    },
+    {
+      "id": "club-tourism-internet-member-data-exposure-2026",
+      "name": "Club Tourism: possible exposure of about 4.32M member records",
+      "subject": "Club Tourism",
+      "summary": "Club Tourism says it detected unauthorized access to part of its server on Oct 30 and confirmed possible external leakage of information in its internet reservation system. About 4.32 million internet-member records may be in scope, including names, nationality, sex, birth date/age, address, phone, email, member ID and emergency contact. The company says login passwords, passport, card and bank-account information are not included, and non-internet-members are unaffected. It reported no concrete secondary harm at the time of its initial notice. On Nov 7 it reopened most of its website after security checks; the travel-memory photo submission page remains stopped.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Access detected Oct 30; possible leakage disclosed Oct 31, 2026; most website pages reopened Nov 7",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Club Tourism · First incident notice · Original source",
+          "url": "https://www.club-t.com/ct/news/2026/1102/",
+          "kind": "primary",
+          "date": "2026-10-31"
+        },
+        {
+          "label": "Club Tourism · Website reopening update · Original source",
+          "url": "https://www.club-t.com/ct/news/2026/1107_1/",
+          "kind": "primary",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "About 4.32 million is the number of potentially affected member records, not a confirmed count of leaked records or distinct people. The company says information may have leaked; it does not confirm actual exfiltration. Its Nov 7 website reopening after checks is not evidence that any copied data was recovered or that the exposure question was resolved. Only the travel-memory photo-submission page remained stopped. The company says passwords, passport, payment-card and bank-account information were not in scope.",
+      "disclosureDate": "2026-10-31"
     }
   ]
 }
