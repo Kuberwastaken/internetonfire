@@ -4965,6 +4965,44 @@
         }
       ],
       "correction": "The unauthorized access is confirmed, but exfiltration is not: Iris Plaza says data in the cloud service may have been viewed or obtained and actual leaked records and affected people remain unknown. The approximately 7.7 million figure is the number of people whose data was stored in the affected service, not a count of people confirmed affected or data confirmed taken. The notice calls the member/non-member group sizes about 5.8 million and 1.9 million people, respectively; do not restate these as actual exposure counts. Data fields varied by person. The notice says passwords were among possible member fields, some information including passwords was encrypted, former members' data did not include passwords, and credit-card data was not stored in the affected cloud service. The first public notice, dated Oct 29, confirms unauthorized access but gives no exposure scope; the Nov 5 second notice is the first disclosure located here that personal data in the service may have been viewed or obtained. The service stopped on Oct 28 when suspicious files were found, but the actual intrusion/onset date is not stated, so date is null rather than substituting discovery or disclosure dates. High severity is based on a confirmed external access incident involving a very large stored population and possible exposure of contact, birth-date and password fields, comparable in potential scale to existing high-severity records such as NetMile (up to 5.49 million members) and Club Tourism (about 4.32 million records). It is not a claim that those people or records were actually accessed or taken. No related misuse or financial harm had been reported as of Nov 5."
+    },
+    {
+      "id": "tensorlake-engineering-github-access-2026",
+      "name": "Tensorlake: attacker probed GitHub Actions secrets",
+      "subject": "Tensorlake engineering GitHub",
+      "summary": "A Nov 8 X post attributed by pwn.watch to Tensorlake founder Diptanu Choudhury says an attacker used an internal application running on an upstream provider to reach Tensorlake engineering sandboxes with access to company GitHub repositories, pushed malicious code to branches, and triggered GitHub Actions to probe workflow secrets. The post says the upstream provider had suffered a breach weeks earlier that exposed Tensorlake environment variables, which had not been rotated. Tensorlake said it found no evidence of access to critical systems beyond probing secrets and no impact to customer information such as API keys or sandboxes. It said it rotated secrets, removed the application from the upstream provider, notified paying customers, and asked customers to rotate API keys as a precaution. No confirmed secret theft is reported.",
+      "status": "reported",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Incident disclosed Nov 8, 2026; incident onset and duration not specified",
+      "disclosureDate": "2026-11-08",
+      "tags": [
+        "breach",
+        "ci-cd",
+        "credentials",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "X · post attributed to Diptanu Choudhury by pwn.watch · direct post currently unavailable",
+          "url": "https://x.com/diptanu/status/2119228351978328379",
+          "kind": "post",
+          "date": "2026-11-08"
+        },
+        {
+          "label": "pwn.watch · Incident record reproducing the post and its edit history · Reporting",
+          "url": "https://pwn.watch/i/tensorlake-vendor-sandbox-github-access-nov-2026",
+          "kind": "report",
+          "date": "2026-11-08"
+        },
+        {
+          "label": "iSec News · Reporting on Tensorlake's attributed disclosure",
+          "url": "https://www.isec.news/2026/11/08/tensorlake-vendor-sandboxes-engineering-github-access/",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "This is distinct from the October 8 Tensorlake npm-package Shai-Hulud worm already tracked; do not combine them. Status is reported because the X post itself returned SOURCE_NOT_AVAILABLE during this check; pwn.watch reproduces text it attributes to the post and records multiple edits, and iSec News independently reports the disclosure, but no Tensorlake trust-center statement was located. The currently reported wording does not identify the upstream provider. The report describes malicious branch pushes and GitHub Actions probing, but does not establish that secrets were successfully read or stolen. Tensorlake's post says it found no evidence of critical-system access beyond probing; that is an attributed assessment, not independent forensic verification. High severity reflects reported access to engineering GitHub repositories and attempted CI secret discovery, a bounded but consequential development-system compromise; it does not imply customer data or API keys were accessed. The post says no impact to customer API keys or sandboxes, secrets were rotated, the application was removed from the upstream provider, paying customers were notified, and API key rotation was requested as a precaution. The onset date/duration is unspecified; Nov 8 is the disclosure date, not a verified incident date."
     }
   ]
 }
