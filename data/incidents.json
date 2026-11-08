@@ -5279,6 +5279,68 @@
       ],
       "correction": "15,128 is the maximum potential-leak count, not a confirmed victim count, and JNSA gives no per-field breakdown; the figure may change as the investigation continues. Passwords were hashed, not plaintext; the hash scheme is not public. Non-administrator trainees can be managed by ID rather than real name, so do not assume every case includes a personal name. The intrusion route was still unknown at publication, and the Personal Information Protection Commission report was planned for Nov 6, not yet stated as filed.",
       "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "studio-design-cloud-breach-2026",
+      "name": "Studio: no-code site builder breach may have exposed all customers' data and credentials",
+      "subject": "Studio",
+      "summary": "Studio, the no-code website builder, confirms a third party exploited a vulnerability in some of its functions to access its cloud environment, leaving customer data externally obtainable until it contained the access on Oct 14. The confirmed intrusion window is Sep 30 to Oct 1, 2026; Studio detected it internally on Oct 13 and published its first report Oct 16. Potentially exposed for all customers: account usernames, emails and hashed passwords; design editor and CMS contents; form submissions; live-preview URLs; and credentials stored in settings, including external-service API keys and tokens, password-protected page passwords, Google Sheets integration credentials and custom proxy keys. Encrypted-at-rest items may have been readable because the decryption keys were read in the same intrusion. Studio AI early-access applicants from Dec 2022 to Aug 2023 (email, username, IP-derived country) are also potentially affected, including people without Studio accounts. Studio rotated credentials and encryption keys, asks users to change passwords and rotate keys, and says no tampering or deletion has been confirmed; affected counts are still pending.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-09-30",
+      "dateLabel": "Unauthorized access Sep 30-Oct 1, 2026 (currently confirmed window); detected Oct 13; vulnerability fixed and access closed Oct 13-14; first report Oct 16, updated Oct 17-18, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials"
+      ],
+      "sources": [
+        {
+          "label": "Studio · First report and updates · Original source",
+          "url": "https://studio.design/ja/whats-new/unauthorized-access-2026-10",
+          "kind": "primary",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Digital Agency · Customer impact notice · Original source",
+          "url": "https://www.digital.go.jp/press/a0a8f66c-b32d-4695-9372-bcd5d4280f22",
+          "kind": "primary",
+          "date": "2026-10-22"
+        }
+      ],
+      "correction": "Studio has not confirmed actual third-party acquisition but is treating data as obtained; affected customer and record counts are still under review. Because the decryption keys were also read, encrypted-at-rest items (form submissions, API keys, Sheets credentials, proxy keys, reCAPTCHA settings, webhook URLs) may have been readable; passwords were hashed, not plaintext. Form-attachment contents were not exposed, only filenames; answers sent while Studio storage was disabled and answers fully deleted before Sep 30 are excluded. The stolen credentials included write permission, but Studio says it found no write or delete records. Multiple customers published their own impact notices, including Japan's Digital Agency (up to about 13,300 form submissions from 2021-2023 and 35 staff/contractor accounts), oro, YYSystem, Liveworks and CBcloud.",
+      "disclosureDate": "2026-10-16"
+    },
+    {
+      "id": "cbcloud-studio-inquiry-form-leak-2026",
+      "name": "CBcloud: 3,497 inquiry-form records potentially leaked in Studio breach",
+      "subject": "CBcloud",
+      "summary": "CBcloud's Oct 21 notice says inquiry-form data on four of its Studio-built sites may have leaked in the Studio cloud breach: up to 3,497 submission records across its recruit site (name, email), corporate site (name, email, phone), Clocky service site (name, email, phone) and PickGo partner LP site (name, email, phone, address, and filenames of attached vehicle inspection certificates and driver's licenses). The attached images themselves were not leaked, only their filenames. PickGo member, order and payment data are managed in separate systems and are not in scope. CBcloud was notified by Studio on Oct 16, changed its Studio settings, is reviewing external integrations, and has filed its initial report to the Personal Information Protection Commission.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-09-30",
+      "dateLabel": "Studio cloud intrusion Sep 30-Oct 1, 2026; data externally obtainable until Studio contained it Oct 14; Studio notified CBcloud Oct 16; CBcloud notice published Oct 21, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "CBcloud · Studio breach customer notice · Original source",
+          "url": "https://cb-cloud.com/news/KRH8jkWM",
+          "kind": "primary",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Studio · First report and updates · Original source",
+          "url": "https://studio.design/ja/whats-new/unauthorized-access-2026-10",
+          "kind": "primary",
+          "date": "2026-10-16"
+        }
+      ],
+      "correction": "Leakage remains potential: Studio says no actual third-party acquisition has been confirmed. The 3,497 figure counts submission records and the same person may appear in multiple forms. Attached certificate and license images were not leaked, only their filenames. This record is separate from CBcloud's Nov 1 PickGo platform incident; do not merge them. Other Studio customers' impacts are tracked on the Studio vendor record.",
+      "disclosureDate": "2026-10-21"
     }
   ]
 }
