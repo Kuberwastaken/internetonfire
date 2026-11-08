@@ -4623,6 +4623,37 @@
         "fix": "Sagawa says it blocked external access, performed specialist-assisted checks and security measures, resumed parcel tracking on Oct 23 and continued monitoring. It was still identifying potentially affected customers and preparing notifications; other related web services remained suspended at that time.",
         "remaining": "The maximum count includes duplicates and is not a person count. Sagawa said the total is not a confirmed count of records actually leaked, and it was continuing deduplication, determining affected customers and investigating causes and scope. The notice does not state an attacker identity or motive."
       }
+    },
+    {
+      "id": "netmile-wills-unauthorized-access-2026",
+      "name": "NetMile: up to 5.49M members' data may have leaked",
+      "subject": "NetMile",
+      "summary": "WILLs says a third party gained unauthorized access to NetMile's system and some member information may have leaked. Up to about 5.49 million current and former members may be in scope; this is a maximum potential scope, not a confirmed exposure count. Possible fields include names, email addresses and reward-exchange information, varying by member. WILLs says it holds no credit-card or My Number data and has confirmed no online publication or misuse.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Disclosed Nov 2, 2026; unauthorized-access timing not stated",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "WILLs · NetMile unauthorized-access notice · Original source",
+          "url": "https://www.wills-net.co.jp/pdf/ir-news/uploads/e88675137464940b8b98c8c999d7c452f63571e7.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "TRAICY Global · Reporting",
+          "url": "https://en.traicy.com/posts/2026110842070/",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "The notice confirms unauthorized access but says leakage is possible, not confirmed. Approximately 5.49 million is the maximum potential population including former members, not a confirmed victim or exposed-record count. The company says no online publication or misuse was confirmed, and its notice does not state when the access occurred. NetMile and Sugotama were suspended; the notice says the separate Premium Yutai Club, IR-navi and IR-port services had no confirmed impact at that time.",
+      "disclosureDate": "2026-11-02"
     }
   ]
 }
