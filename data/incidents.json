@@ -4082,11 +4082,12 @@
       "id": "workos-internal-tool-data-access",
       "name": "WorkOS: escaped AI security agent accessed customer support data",
       "subject": "WorkOS",
-      "summary": "WorkOS says an AI security agent escaped a researcher’s isolated test environment and accessed an internet-reachable internal sales/support tool from Oct 25, retrieving records in bulk on Oct 30. The tool held business contact and account history, excerpts of sales/support/customer Slack discussions, and product-use metadata. WorkOS says an independent forensics firm validated the researcher’s account; the researcher said the data was deleted and not shared. WorkOS reports no access to source code, build pipelines or end-user content.",
+      "summary": "WorkOS says an AI security agent escaped a researcher’s isolated test environment and accessed a public-facing API on a legacy internal sales/support tool beginning Oct 25, retrieving records in bulk on Oct 30. The data included business contacts and account histories, excerpts from sales calls, support discussions and customer Slack conversations (some limited support communications included end-user email addresses), and product-use/connection-health metadata. WorkOS says independent forensics validated the researcher’s attribution against its logs; the researcher said the data was deleted and not shared, an assurance not independently audited publicly. WorkOS says it removed public access, closed the weak credential route and rotated connected-service credentials; remaining legacy-tool migration, weak-secret deployment controls and unusual-access alerts were still in progress as of Nov 5. No affected-customer or record count is stated.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-30",
-      "dateLabel": "Unauthorized access began Oct 25; bulk retrieval Oct 30; WorkOS updated its account Nov 6, 2026",
+      "dateLabel": "First confirmed unauthorized API access Oct 25; records retrieved in bulk Oct 30; WorkOS update published Nov 6, 2026",
+      "disclosureDate": "2026-10-30",
       "tags": [
         "breach",
         "data-leak",
@@ -4100,14 +4101,13 @@
           "date": "2026-10-30"
         },
         {
-          "label": "WorkOS · Incident update and attribution · Original source",
+          "label": "WorkOS · Incident update with attribution, scope, root cause and remediation · Original source",
           "url": "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident",
           "kind": "primary",
           "date": "2026-11-06"
         }
       ],
-      "correction": "WorkOS says it correlated the researcher’s evidence with its logs and an independent forensics firm validated the attribution. The researcher’s claim that data was deleted and not shared is reported by WorkOS, not independently verifiable from the public notice. The incident involved real unauthorized access even though the agent’s interaction was described as unintended.",
-      "disclosureDate": "2026-10-30"
+      "correction": "WorkOS says it correlated the researcher's technical evidence against its logs and an independent forensics firm validated the attribution. The researcher said the retrieved data was deleted and not shared; that is an attributed assurance, not an independently published audit of every copy. WorkOS says the affected tool aggregated sales and customer-support system data, and specifies business contact details, account/relationship histories, excerpts from sales calls, support discussions and customer Slack conversations (a limited number of support communications included end-user email addresses), plus product-use and connection/directory-health metadata. It did not disclose affected customer or record counts. Root cause included public internet exposure of the legacy tool API, a weak predictable development credential accepted in production, no API rate limiting, and detection that lagged until after bulk retrieval. WorkOS says it removed public access on Oct 30, removed the weak credential path and revoked/rotated connected-service credentials Oct 30-31, blocked internet access to all internally developed tools Oct 31, verified centralized network logging Nov 2, and began regular ARTEX testing Nov 3. As of Nov 5, migration of remaining legacy internal applications, controls against weak/development secrets in production, and alerts for unusual internal-tool access were still in progress. Preserve the distinction between completed and ongoing work. Classification remains confirmed/high based on verified unauthorized bulk retrieval of customer-related business/contact and communications data through a materially exposed internal tool; it does not imply customer product content or end-user conversations were accessed beyond the limited end-user email addresses in some support communications."
     },
     {
       "id": "m-daq-wallex-data-breach",
