@@ -4886,6 +4886,47 @@
       ],
       "correction": "The more-than-23,000 figure is phishing attempts, not unique recipients or confirmed exposed people; 21,463 distinct email addresses were targeted. The approximately 5,600 mailing-address and 5,200 phone-number records were held in systems the attacker could reach, not all confirmed accessed. Foundation found additional customer/payment records and is still checking overlap and scope. Full card numbers were not available to Foundation; the report says Passport devices and their private keys were not compromised. Foundation has not confirmed a link to other breaches despite reports of information recipients say they did not give Foundation.",
       "disclosureDate": "2026-10-26"
+    },
+    {
+      "id": "nigerian-army-x-account-access-attempt-2026",
+      "name": "Nigerian Army X account restricted after reported access attempt",
+      "subject": "Nigerian Army X account",
+      "summary": "The Nigerian Army said it detected attempted unauthorised access to its official X account around 5pm on Aug 29, 2026. It activated measures to secure the account and restore exclusive administrative control, and advised the public to disregard suspicious or unverified content from it. On Nov 8, the Army said the account was restored under official management and updates resumed. The reporting does not establish a successful takeover, malicious posts, data theft or an identified attacker.",
+      "status": "reported",
+      "severity": "low",
+      "date": "2026-08-29",
+      "dateLabel": "Attempted access reported Aug 29, 2026; official management restored Nov 8, 2026",
+      "disclosureDate": "2026-08-29",
+      "tags": [
+        "government"
+      ],
+      "sources": [
+        {
+          "label": "Punch Newspapers · Reporting quoting Army statement",
+          "url": "https://punchng.com/army-confirms-hack-attempt-on-official-x-account/",
+          "kind": "report",
+          "date": "2026-08-29"
+        },
+        {
+          "label": "The Guardian Nigeria · Reporting quoting Army statement",
+          "url": "https://guardian.ng/news/army-raises-alarm-over-attempted-hack-of-x-account/",
+          "kind": "report",
+          "date": "2026-08-30"
+        },
+        {
+          "label": "Punch Newspapers · Restoration report quoting Army's X post",
+          "url": "https://punchng.com/army-recovers-x-account-after-after-hack-attempt/",
+          "kind": "report",
+          "date": "2026-11-08"
+        },
+        {
+          "label": "Daily Post Nigeria · Restoration report quoting Army statement",
+          "url": "https://dailypost.ng/2026/11/08/nigeria-army-official-x-twitter-account-now-restore-resumes-updates/",
+          "kind": "report",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "Reported-only: the Aug 29 Punch and Aug 30 Guardian articles attribute the attempted-access disclosure to an Army statement. Punch's Nov 8 report quotes an Army post saying the account was restored; Daily Post quotes a restoration statement. No direct August Army post or statement URL was verified in this pass. Inclusion judgment: this is more than an unsupported intrusion claim or routine response because the Army reportedly had to secure the account, restore exclusive administrative control, warn the public about potentially inauthentic content, and later announced restoration after an extended recovery period. That is a bounded security/information-integrity incident even though no successful takeover is established. Severity is low, not medium: the supported facts show no confirmed unauthorised post, data exposure, or broader operational impact. Do not infer a common actor with the separate Defence HQ account incident. The earliest dated public reporting verified is Punch, Aug 29; Nov 8 is the restoration update, not the disclosure date."
     }
   ]
 }
