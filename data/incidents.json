@@ -5099,6 +5099,37 @@
         }
       ],
       "correction": "Reported-only: the sources quote a written statement attributed to Zonguldak Governorship, but the original official statement or post was not located in this check. The stated fact is a detected cyber intervention/digital-security compromise and technical work begun to restore account security. The sources do not establish a successful takeover, who controlled the account, unauthorized posts or messages actually being made, private-data access or theft, a specific attacker, or restoration/recovery. DHA's Nov 7 publication is the earliest disclosure located; occurrence timing is unknown, so date is null and disclosureDate is Nov 7. Low severity reflects the bounded account-security and public-information integrity risk in the quoted warning, without evidence here of actual harmful content, data exposure, or wider system impact."
+    },
+    {
+      "id": "solaseed-air-email-address-data-leak-2026",
+      "name": "Solaseed Air: 490,000 recipient email addresses leaked via vendor system",
+      "subject": "Solaseed Air",
+      "summary": "Solaseed Air says an unauthorized third party accessed an external email-distribution system used by the airline and downloaded files containing personal information. The company confirmed customer email addresses were leaked; about 490,000 records relate to recipients of messages sent from snj-rsv@solaseedair.jp between July 1 and Oct 31, 2026. The airline says names, street addresses, phone numbers and credit-card information were not leaked. The figure is a record count, not a confirmed number of unique people. The investigation continues.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "The airline first received a vendor notice about an email-system breach on Oct 28; customer-address impact was reported to Solaseed on Nov 2 and the affected count was identified Nov 4. The airline's public notice was listed on its homepage Nov 4 and updated Nov 6; actual incident and data-access timing are unspecified.",
+      "disclosureDate": "2026-11-04",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Solaseed Air · Customer notice on personal-information leakage through external email system · Original source, updated Nov 6",
+          "url": "https://www.solaseedair.jp/info/2026/11/post-20260912.html",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "Solaseed Air · Homepage notice listing the incident on Nov 4 · Original source; establishes earliest disclosure date located",
+          "url": "https://www.solaseedair.jp/",
+          "kind": "primary",
+          "date": "2026-11-04"
+        }
+      ],
+      "correction": "Confirmed exposure is limited to email addresses for recipients of reservation/boarding-related messages sent from snj-rsv@solaseedair.jp during July 1 through Oct 31, 2026. The airline reports approximately 490,000 affected records; it does not establish an equal number of unique individuals. It explicitly says names, addresses, phone numbers and credit-card information were not leaked. The vendor first reported a breach affecting some of its mail-delivery servers to Solaseed on Oct 28, but the airline's impact was then unconfirmed; Solaseed was told customer email addresses might have been taken on Nov 2 and identified the affected count Nov 4. This does not establish that Solaseed's own systems or reservation/payment systems were accessed. The airline's notice is marked updated Nov 6; its homepage lists the incident under Nov 4, the earliest public disclosure date located. Actual access and exfiltration dates are not specified, so date is null rather than substituting the vendor-alert, count-identification or notice date. Severity is medium: the airline confirms a large-scale email-address leak, but the disclosed fields exclude more sensitive identity, contact, password and payment data."
     }
   ]
 }
