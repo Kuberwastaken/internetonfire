@@ -4138,7 +4138,7 @@
       "id": "who-gives-a-crap-marketing-provider-breach",
       "name": "Who Gives A Crap: customer data accessed at marketing provider",
       "subject": "Who Gives A Crap",
-      "summary": "ABC News reports, citing a statement from Who Gives A Crap, that customer personal information was accessed without authorization at an unnamed U.S.-based marketing software provider. The company said names, email addresses, phone numbers, mailing addresses and total spend may be involved for Australian, UK and U.S. store customers; payment details, order details and passwords were not involved. The company said it had no evidence of misuse, disconnected the provider and changed credentials.",
+      "summary": "ABC News reports, citing Who Gives A Crap's statement, that an unauthorized party accessed customer personal information held at an unnamed U.S.-based marketing software provider. The company's reported timeline is access beginning Oct 30, detection Oct 31 and containment Nov 1. The fields included names, email addresses, phone numbers, mailing addresses and total spend for data held in its Australian, UK and U.S. stores; the provider said Canadian customer data was not accessed. Payment details, order details and passwords were not involved. The company said it did not know whether information was copied or downloaded, had no evidence of misuse at publication, and its customer accounts were not directly accessed.",
       "status": "reported",
       "severity": "medium",
       "date": "2026-11-07",
@@ -4150,13 +4150,13 @@
       ],
       "sources": [
         {
-          "label": "ABC News · Reporting on company statement",
+          "label": "ABC News · Updated incident report citing company statement",
           "url": "https://www.abc.net.au/news/2026-11-08/who-gives-a-crap-hack/107359858",
           "kind": "report",
-          "date": "2026-11-07"
+          "date": "2026-11-08"
         }
       ],
-      "correction": "The provider is unnamed and the company said it does not yet know whether information was copied or downloaded. ABC reports the company’s statement; a direct public company notice was not located in this check. Do not treat all store customers as confirmed affected.",
+      "correction": "The provider is unnamed. ABC reports that the company did not know whether the accessed information was copied or downloaded; do not equate access with confirmed exfiltration. The report does not give an affected-customer count, and the affected regions do not mean every customer in those stores was affected. The vendor, data fields and impact statements remain attributed to ABC's account of company statements; no direct company incident notice was located in this check.",
       "disclosureDate": "2026-11-07"
     },
     {
