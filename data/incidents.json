@@ -4315,6 +4315,62 @@
       ],
       "correction": "The company calls leakage of backups “extremely likely,” but actual exfiltrated records and affected people are not yet known. 215,000 is a maximum database-record count, not a confirmed victim count. Data fields vary by person; the notice says credit-card information and identity documents are not held on the affected system and reports no concrete secondary harm. No link to the separate PHP-vulnerability response is established.",
       "disclosureDate": "2026-11-07"
+    },
+    {
+      "id": "m1-customer-data-breach-2026",
+      "name": "M1: customer identity and contact data involved in Oct 30 breach",
+      "subject": "M1",
+      "summary": "M1 says it identified a data breach on Oct 30 involving certain customer information. Listed data includes names, NRIC/FIN numbers, dates of birth, mobile numbers, email addresses and addresses. M1 says no payment-card, financial/banking or customer-account-access information was compromised, the breach was contained, and services remained operational. It said affected customers would be notified by email or letter.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-30",
+      "dateLabel": "Breach identified Oct 30, 2026; disclosed Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "M1 · Data breach disclosure · Original source",
+          "url": "https://www.m1.com.sg/about-us/news-releases/2026/m1-discloses-data-breach",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "M1 did not state how many customers were affected or whether every listed field applied to each person; do not infer a victim count. The company says payment-card, financial/banking and customer-account-access information were not compromised. The investigation was ongoing when disclosed.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "rohto-sept-2026-data-breach",
+      "name": "Rohto: 2.8M customers' data and 9,715 card numbers obtained",
+      "subject": "Rohto Pharmaceutical",
+      "summary": "Rohto confirmed that a third party misused telephone-system account information and obtained data from its mail-order telephone and customer-management systems. Name, address and phone information for 2,797,545 customers was obtained; items varied by customer. Call audio from specified periods between Sep 10, 2025 and Sep 5, 2026 was also obtained, and audio for 9,715 customers contained credit-card numbers and expiry dates. Rohto says it stopped taking card numbers by phone, changed related passwords, is monitoring affected cards with issuers, and had not confirmed secondary harm when it published its findings.",
+      "status": "confirmed",
+      "severity": "critical",
+      "date": "2026-09-10",
+      "dateLabel": "Suspicious access reported Sep 10, 2026; confirmed impact disclosed Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Rohto Pharmaceutical · Confirmed leakage and investigation results · Original source",
+          "url": "https://www.rohto.co.jp/en/news/whatsnew/2026/1106_01/",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "Rohto Pharmaceutical · Earlier investigation update · Original source",
+          "url": "https://www.rohto.co.jp/en/news/whatsnew/2026/0915_01/",
+          "kind": "primary",
+          "date": "2026-09-15"
+        }
+      ],
+      "correction": "Rohto says customer-management fields varied; 2,797,545 is the number of customers affected by those data, not a count of leaked call recordings. The 9,715 customer count is for call audio containing card numbers and expiry dates. Rohto says security codes and passwords were not included and no related secondary harm had been confirmed when reported. Do not infer every customer’s data included all three contact fields or that every call contained card information.",
+      "disclosureDate": "2026-11-06"
     }
   ]
 }
