@@ -3,13 +3,13 @@
   "incidents": [
     {
       "id": "kinkos-japan-arara-message-customer-leak-2026",
-      "name": "Kinko's Japan: Smart Membership email addresses leaked via ARARA Message",
+      "name": "Kinko's Japan: Smart Membership data leaked via ARARA Message",
       "subject": "Kinko's Japan",
-      "summary": "Kinko's Japan confirmed in its Nov 2 first notice that Smart Membership customers' email addresses leaked following unauthorized access to its newsletter vendor ARARA Message. After ARARA's Oct 29 announcement, the vendor initially told Kinko's its server environment was outside the confirmed leak scope. Kinko's asked again after ARARA's Nov 2 second report expanded the affected environments, and then received confirmation that its members' email addresses were included. The Nov 2 notice gives no affected count. Kinko's stopped email delivery through ARARA until safety could be confirmed and was checking the affected email-address count and impact on other registered information.",
+      "summary": "Kinko's Japan first disclosed a Smart Membership email-address leak on Nov 2. Its Nov 9 second report confirmed 266,395 email-address records: 262,875 with other information and 3,520 email-only. Additional leaked information included names, dates of birth, Smart Membership card numbers, membership stages, frequently used stores and membership-registration dates/times. The notice does not say that every listed field applies to every affected record. Kinko's says it holds no credit-card information and stopped ARARA Message email delivery pending safety confirmation.",
       "status": "confirmed",
       "severity": "medium",
       "date": null,
-      "dateLabel": "Access date affecting Kinko's not stated; affected membership email addresses confirmed and first disclosed Nov 2, 2026, following ARARA's expanded second report",
+      "dateLabel": "Access date affecting Kinko's not stated; first disclosed Nov 2, 2026; count and broader member-data scope confirmed in its Nov 9 second report",
       "tags": [
         "breach",
         "data-leak",
@@ -21,9 +21,15 @@
           "url": "https://www.kinkos.co.jp/corporate/archives/news/261102/",
           "kind": "primary",
           "date": "2026-11-02"
+        },
+        {
+          "label": "Kinko's Japan · Second customer leak notice · Original source",
+          "url": "https://www.kinkos.co.jp/corporate/archives/news/20261109/",
+          "kind": "primary",
+          "date": "2026-11-09"
         }
       ],
-      "correction": "Primary-confirmed: Smart Membership email addresses leaked; Kinko's Nov 2 notice gives no count. The Nov 9 count/attribute expansion is secondary-reported and not independently verified. This client record is not additive to ARARA's vendor total.",
+      "correction": "Count is email-address records, not verified unique people; field coverage per record is unspecified. This ARARA client slice is not additive to the vendor total.",
       "disclosureDate": "2026-11-02"
     },
     {
