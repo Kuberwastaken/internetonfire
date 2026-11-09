@@ -1,6 +1,141 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "incidents": [
+    {
+      "id": "waseda-unauthorized-access-2026",
+      "name": "Waseda University: 3,342 MyWaseda login records obtained in unauthorized access",
+      "subject": "Waseda University",
+      "summary": "Waseda University confirmed a third party gained unauthorized access on Aug 31 to an IT system managing user information for MyWaseda, its portal for email and other services, and obtained 3,342 records: 81 individually held records for current/former faculty, staff, students and alumni (combinations of name, affiliation category, Waseda email address and encrypted password information), and 3,261 staff user records obtained as a set (faculty/staff ID number, name, Waseda email address, department name, affiliation category and encrypted password information). The intrusion was found during a security review of university IT systems conducted in response to a PHP vulnerability. Waseda suspended the relevant systems, restricted external access, changed administrator passwords and temporarily suspended MyWaseda and Waseda-ID alumni services, including Waseda email and certificate issuance, until their security is confirmed. It is investigating with an external cybersecurity specialist and has reported to and consulted the relevant authorities; affected users are being told to change passwords.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-08-31",
+      "dateLabel": "Unauthorized access Aug 31, 2026; found during a PHP-vulnerability security review; disclosed Nov 9, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "education"
+      ],
+      "sources": [
+        {
+          "label": "Waseda University · Breach notice · Original source",
+          "url": "https://www.waseda.jp/top/en/news/90064",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "3,342 is a record count, not unique individuals: one user can have multiple email addresses. Password information was stored in encrypted form, not as entered; do not describe it as plaintext. No impact on admission applicants or Open College participants has been confirmed, but Waseda says it cannot rule out that other information was obtained, so the scope may grow.",
+      "disclosureDate": "2026-11-09"
+    },
+    {
+      "id": "raksul-data-submission-system-breach-2026",
+      "name": "Raksul: print data-submission system breached; customer print data may have leaked",
+      "subject": "Raksul",
+      "summary": "Raksul confirmed third-party unauthorized access to the system that processes data submissions for its printing service, detected Nov 8 around 00:20. The system's authentication credentials were improperly obtained, leaving some stored data externally accessible. Personal information in customer-submitted print data and in invoice and web-mail data may have leaked: names, company names, addresses, phone numbers and email addresses; print data can also include information of people named on printed items such as business cards and postcards, not only ordering customers. The affected count and scope are under investigation. Raksul confirms credit card information, login IDs and passwords were not leaked. It invalidated the misused credentials, suspended the misused account and paused services involving data submission from Nov 8; staged restoration began Nov 9 at 07:00, with Raksul Package, the Adobe Express integration, the design-request service and the catalog site still suspended. It plans to report the incident to the Personal Information Protection Commission.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-08",
+      "dateLabel": "Detected Nov 8, 2026 around 00:20; data-submission services suspended from Nov 8, staged restoration from Nov 9; disclosed Nov 9, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Raksul · Unauthorized access notice · Original source",
+          "url": "https://corp.raksul.com/news/press/261109_unauthorized-access/",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "Leakage is potential (おそれ), not confirmed exfiltration, and the affected count and scope are still being tallied; do not state a victim count. Credit card information, login IDs and passwords are confirmed not leaked. The stolen credentials are Raksul system credentials (the attack vector), not customer login credentials. Some services remain suspended while others restore.",
+      "disclosureDate": "2026-11-09"
+    },
+    {
+      "id": "prestige-core-solution-breach-2026",
+      "name": "Prestige Core Solution: up to 5.5M roadside-assistance customer records leaked",
+      "subject": "Prestige Core Solution",
+      "summary": "Prestige International confirmed an unauthorized intrusion into group business systems led to leakage of customer data for roadside-assistance and related services that client companies outsource to its subsidiary Prestige Core Solution (PCS). The maximum potential scope is approximately 5.5 million records (including duplicates; the unique-individual count is under review): names, addresses, phone numbers and email addresses; vehicle information such as registration numbers and VINs; accident and breakdown intake details; and partial financial-institution account information. No credit card information leakage has been confirmed. The access was detected Oct 29 and compromised credentials were invalidated; as the unauthorized access continued, the relevant systems were shut down on Oct 30. The company is investigating with external specialists, reporting to the Personal Information Protection Commission and consulting police, and says some partner/contractor company information may also be included. No secondary damage or misuse has been confirmed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-29",
+      "dateLabel": "Unauthorized access detected Oct 29, 2026; systems shut down Oct 30; disclosed Nov 2, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notice is a reference translation of the Japanese original. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records (e.g. Mitsui Sumitomo Insurance) whose field scopes are narrower - do not bleed this field list or count into them. No credit card information leakage confirmed.",
+      "disclosureDate": "2026-11-02"
+    },
+    {
+      "id": "mitsui-sumitomo-pcs-vendor-customer-leak-2026",
+      "name": "Mitsui Sumitomo Insurance: ~228,000 auto-insurance customer records leaked via PCS vendor breach",
+      "subject": "Mitsui Sumitomo Insurance",
+      "summary": "MS&AD's Mitsui Sumitomo Insurance reported that Prestige Core Solution (PCS), to which it outsources some auto-insurance roadside-service operations, suffered unauthorized access and that MSI customer information leaked: approximately 228,000 records of some auto-insurance customers, comprising name, address, phone number, vehicle information (registration number, VIN and similar) and accident/breakdown intake information. Credit card and bank account information are not included. PCS detected the access Oct 29 and reported the MSI customer leak to MSI on Nov 4. No misuse of the customer information has been confirmed; MSI will notify affected customers individually once preparations are complete.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-29",
+      "dateLabel": "Unauthorized access detected at vendor PCS Oct 29, 2026; PCS reported MSI customer impact Nov 4; disclosed Nov 9, 2026 (figures as of Nov 9, 09:00)",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Mitsui Sumitomo Insurance · Vendor breach customer notice (PDF) · Original source",
+          "url": "https://www.ms-ins.com/news/fy2026/pdf/1109_1.pdf",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "This record covers Mitsui Sumitomo Insurance's confirmed customer impact only (~228,000 records; no card or bank account information). The vendor-wide maximum potential scope (up to ~5.5M records across clients, including partial bank account information) belongs to the Prestige Core Solution record - do not merge the two or extend vendor-wide fields or counts to MSI customers.",
+      "disclosureDate": "2026-11-09"
+    },
+    {
+      "id": "ms-compass-data-leak-2026",
+      "name": "Mitsui Sumitomo Insurance: MS Compass site breached, ~23,000 customer records leaked",
+      "subject": "Mitsui Sumitomo Insurance (MS Compass)",
+      "summary": "Mitsui Sumitomo Insurance confirmed that MS Compass, its information site for small and mid-sized companies, received unauthorized access on Nov 2-3 and that customer information leaked: approximately 23,000 records covering registered MS Compass members (individuals and corporations), applicants to company-run seminars (November 2023 to November 2026) and people who contacted it via the site's inquiry form. Leaked items include company name, corporate number, job title, name, email address, phone number, industry, head-office and other addresses, revenue and employee count. Credit card and bank account information are not included, and no misuse has been confirmed. MS Compass restricted some system access on Nov 3 and temporarily closed the whole site on Nov 6; the company says there has been no external unauthorized access since Nov 3. It is investigating the cause and scope with an external specialist organization and will notify affected customers individually.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-02",
+      "dateLabel": "Unauthorized access detected Nov 2-3, 2026; access partially restricted Nov 3; site fully closed Nov 6; disclosed Nov 9, 2026 (figures as of Nov 9, 09:00)",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Mitsui Sumitomo Insurance · MS Compass breach notice (PDF) · Original source",
+          "url": "https://www.ms-ins.com/news/fy2026/pdf/1109_2.pdf",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "This is a separate incident from the PCS vendor breach Mitsui Sumitomo disclosed the same day (different system, dates and field scope) - do not merge them. ~23,000 is the company's figure as of Nov 9, 09:00 and may change as the investigation continues; leakage itself is stated as confirmed.",
+      "disclosureDate": "2026-11-09"
+    },
     {
       "id": "zeabur-breach",
       "name": "Zeabur breach: 3.2M environment variables read; platform shutting down",
@@ -4214,7 +4349,7 @@
       "id": "mirae-asset-securities-data-leak",
       "name": "Mirae Asset Securities: customer account numbers and employee data leaked",
       "subject": "Mirae Asset Securities",
-      "summary": "Two Nov 7 company notices describe intrusions into separate systems. On Nov 4, abnormal access to its mobile-web phone-authentication login service exposed account numbers for about 3,800 customers; the company says account-holder names and other registered information were not exposed. On Nov 5, an attack on groupware exposed information for about 35,255 current/former employees and contractors: mainly names and employee IDs, with some records also containing email addresses, mobile numbers and encrypted passwords. The company disconnected the affected service/server and is reviewing vulnerabilities and access controls. SBS separately reported that the company said no financial losses had been confirmed at that time.",
+      "summary": "Two Nov 7 company notices describe intrusions into separate systems. On Nov 4, abnormal access to its mobile-web phone-authentication login service exposed account numbers for about 3,800 customers; the company says account-holder names and other registered information were not exposed. On Nov 5, an attack on groupware exposed information for about 35,255 current/former employees and contractors: mainly names and employee IDs, with some records also containing email addresses, mobile numbers and encrypted passwords. The company disconnected the affected service/server and is reviewing vulnerabilities and access controls. SBS separately reported that the company said no financial losses had been confirmed at that time. On Nov 9, South Korea's Financial Supervisory Service launched an emergency on-site inspection into the breach's scale, entry route and any consumer losses; Seoul Economic Daily reports four Mirae Asset Group affiliates have been hacked in succession since Oct 26 (Mirae Asset Life Insurance, Mirae Asset Global Investments, Mirae Asset Energy Infrastructure Asset Management and Mirae Asset Securities), and cites an industry view that the attacks may be a coordinated campaign targeting the group.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-11-07",
@@ -4243,9 +4378,15 @@
           "url": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=66&messageId=2344060",
           "kind": "primary",
           "date": "2026-11-07"
+        },
+        {
+          "label": "Seoul Economic Daily · Reporting on FSS inspection and group-wide pattern",
+          "url": "https://en.sedaily.com/finance/2026/11/09/fss-launches-on-site-inspection-of-mirae-asset-securities",
+          "kind": "report",
+          "date": "2026-11-09"
         }
       ],
-      "correction": "The company’s Nov 7 customer and employee notices cover separate system/date events. Customer data was account numbers only; employee fields varied and included encrypted, not plaintext, passwords in some records. Do not infer customer names, other customer account information, or plaintext credentials. SBS’s AI-translated report attributes the “no financial damage confirmed” statement to the company; the primary notices do not separately state this.",
+      "correction": "The company’s Nov 7 customer and employee notices cover separate system/date events. Customer data was account numbers only; employee fields varied and included encrypted, not plaintext, passwords in some records. Do not infer customer names, other customer account information, or plaintext credentials. SBS’s AI-translated report attributes the “no financial damage confirmed” statement to the company; the primary notices do not separately state this. A Nov 9 FSS on-site inspection is confirmed by reporting; the coordinated-campaign framing is an industry view cited by Seoul Economic Daily, not confirmed attribution - do not state it as fact. The reported ~39,000 total matches the two company notices (3,800 customers + 35,255 employees).",
       "disclosureDate": "2026-11-07"
     },
     {
