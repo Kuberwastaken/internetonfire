@@ -6442,6 +6442,91 @@
         "data-leak",
         "privacy"
       ]
+    },
+    {
+      "id": "sourcenext-member-api-data-theft-2026",
+      "name": "SourceNext: API data theft, 22.52M records potentially affected",
+      "subject": "SourceNext",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-09",
+      "disclosureDate": "2026-10-15",
+      "dateLabel": "API misuse began Oct 9 ~10:00, 2026; detected Oct 13 ~09:00 and contained 13:36; disclosed Oct 15",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials"
+      ],
+      "summary": "SourceNext confirmed a third party misused its member-information API and obtained customer information, with access from Oct 9 around 10:00 until containment Oct 13 at 13:36, following detection around 09:00 that day. Its possible affected scope is 22,519,960 records, not a stated count of people, and exact scope remains under investigation. Possible fields vary by customer and include email, password, name and kana, address, sex, phone, fax, birth date, company, title, department and service/registration/login information. Password storage format is not specified. Card data was not stored in the affected system. SourceNext is forcing password resets at login, sending individual emails and using external forensics; it filed a privacy-regulator report Oct 15 and planned a police report Oct 16. SourceNext says this site/API incident is unrelated to its separate Cuenote FC mail-service incident.",
+      "correction": "Confirmed API misuse and data acquisition; 22,519,960 is the possible record scope, not confirmed unique people. Fields vary and password format is unspecified. Separate from Cuenote; no totals are added.",
+      "sources": [
+        {
+          "label": "SourceNext · Oct 15 member API incident notice · Original source",
+          "url": "https://www.sourcenext.com/support/i/2026/1015_info/",
+          "date": "2026-10-15",
+          "kind": "primary"
+        },
+        {
+          "label": "SourceNext · Separate mail incident boundary · Original source",
+          "url": "https://www.sourcenext.com/support/i/2026/1105_info/",
+          "date": "2026-11-05",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ymirlink-cuenote-fc-provider-data-export-2026",
+      "name": "Cuenote FC / Ymirlink: 51.6M gross records exported across 49 systems",
+      "subject": "Cuenote FC / Ymirlink",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-10-19",
+      "dateLabel": "First detected Oct 16, 2026 at 06:49; actual attacker start unstated; first disclosed Oct 19; expanded Oct 26 report and Nov 9 client updates",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "Ymirlink confirmed data export from 49 Cuenote FC client systems, with 51,628,280 gross, duplicate-inclusive records in its Oct 26 second report; 16 additional systems were still being counted, so the total may rise. This supersedes the first report's roughly 9M gross records from five systems and is not a unique-person count. Detected Oct 16, the incident involved a library vulnerability, stolen support/QA credentials, malware and database export; actual access start is not disclosed. Fields vary by client, including recipient emails and attributes, delivery and web-registration logs, and client-staff contacts. Cuenote BASE separately had 190 Ymirlink contract-customer records involved. Named FC client slices are SourceNext's 142,669 unique email addresses; iStyle's about 2.8M people receiving mail and about 8,000 address-book people (overlap unstated); and Asmark's 2,155 deduplicated monitors (3,048 gross rows) plus four business contacts. These units and groups are not added to each other or the vendor count. Ymirlink patched systems, removed credentials, restricted IP access and reported to authorities; no public release or misuse was seen in its report.",
+      "correction": "51,628,280 is gross duplicate-inclusive records, not people; 16 systems still counting. Client units differ and overlap is unstated: do not sum. Attacker start unknown. SourceNext API and Saison/Benefit One are not linked by this evidence.",
+      "detail": {
+        "whatHappened": "Ymirlink detected an anomaly Oct 16 at 06:49 and later found more systems affected Oct 25. Its first public report is Oct 19; the second report is dated Oct 26 despite a 20261027 URL. The Oct 14 mail-population window in iStyle's notice is not an attacker-start date. Three shared systems showed zero leaks in the second report.",
+        "exposure": "SourceNext's client notice counts 142,669 unique emails and varying order/transaction data, IDs, some campaign serials, gift-redemption URLs, device/unsubscribe information and URLs in emails; names, address, phone, passwords and card data are excluded for that slice. iStyle counts about 2.8M people with email-only information plus about 8,000 address-book people with email, some names and business company/department; overlap is not stated. Asmark counts 2,155 deduplicated monitors (3,048 gross records) plus four business contacts; fields vary, with names/emails and some membership/survey metadata, household school-age attributes without names and payout/shipping methods; no survey answers, passwords, card or bank data, or monitors' address/phone/birth date. The four business contacts had surname and phone. Client scopes are not the provider-wide field list.",
+        "remaining": "SourceNext relays Ymirlink's Oct 30 assessment that no malware, access traces or vulnerabilities were found in the reviewed environment at report time. This is an attributed assessment, not an independent resolution or a negation of confirmed exports. Saison Card appeared as a spoof sender name, which does not establish a client relationship or a Benefit One incident link. The separate 160-person SourceNext form defect is not included."
+      },
+      "sources": [
+        {
+          "label": "Ymirlink · First report · Original source",
+          "url": "https://www.ymir.co.jp/info/ymir-information20261019.html",
+          "date": "2026-10-19",
+          "kind": "primary"
+        },
+        {
+          "label": "Ymirlink · Second report dated Oct 26 · Original source",
+          "url": "https://www.ymir.co.jp/info/ymir-information20261027.html",
+          "date": "2026-10-26",
+          "kind": "primary"
+        },
+        {
+          "label": "SourceNext · Cuenote client second report · Original source",
+          "url": "https://www.sourcenext.com/support/i/2026/1105_info/",
+          "date": "2026-11-05",
+          "kind": "primary"
+        },
+        {
+          "label": "Asmark · Cuenote client second report · Original source",
+          "url": "https://www.asmarq.co.jp/news/external_service_20261109/",
+          "date": "2026-11-09",
+          "kind": "primary"
+        },
+        {
+          "label": "iStyle · Cuenote client second report · Original source",
+          "url": "https://www.istyle.co.jp/news/info/2026/11/1109-2.html",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
     }
   ]
 }
