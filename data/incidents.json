@@ -7052,6 +7052,92 @@
           "kind": "primary"
         }
       ]
+    },
+    {
+      "id": "amplifon-americas-file-acquisition-2026",
+      "name": "Amplifon Americas: files obtained in Jan-Feb intrusion",
+      "subject": "Amplifon Americas",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-01-18",
+      "disclosureDate": "2026-11-06",
+      "dateLabel": "Files obtained Jan 18-Feb 8, 2026; detected Feb 11; data-impact review Oct 6; Texas OAG listing Nov 6; reporting Nov 9",
+      "tags": [
+        "breach",
+        "data-leak",
+        "healthcare"
+      ],
+      "summary": "Amplifon's California AG-filed notice says an unauthorized party obtained files from certain systems Jan 18-Feb 8. It detected suspicious activity Feb 11 and identified possible personal-data impact in an Oct 6 review. The Texas OAG listing reports 85,804 Texas residents and identity, financial, medical and insurance categories; these categories do not apply to everyone. The CA sample's individual fields are placeholders, not proof of each person's exposure. Amplifon disabled affected accounts, enhanced monitoring and offers 24-month identity services. Its no-known-misuse statement is notice-time, not proof of no later misuse.",
+      "correction": "85,804 is the Texas cohort, not a national total. Listed field categories are not universal. CA notice fields are placeholders; no individual exposure inferred. Nov 6 filing differs from Nov 9 reporting.",
+      "detail": {
+        "whatHappened": "The CA-filed company notice says suspicious activity was detected Feb 11, followed by containment, external investigation and law-enforcement notification. Investigation found files obtained Jan 18-Feb 8; review indicated possible personal-data impact Oct 6. The Texas listing was published Nov 6, before Nov 9 news coverage.",
+        "exposure": "Texas OAG lists 85,804 Texans and categories including name, address, SSN, driver's license, other government ID, financial, medical, health insurance and DOB. Categories may differ per person. The CA template does not fill individual data elements. A 1,332,826 national total appears in secondary reporting but is not adopted here as a directly verified official total.",
+        "fix": "Amplifon says it secured systems, disabled affected accounts, enhanced suspicious-activity monitoring and notified law enforcement. Its sample notice offers 24 months of identity monitoring, fraud consultation and restoration services to recipients.",
+        "remaining": "National total and person-specific data fields are not established by the retrieved CA template. Texas OAG warns listed details may change. No known misuse is the company notice-time assessment, not a later assurance."
+      },
+      "sources": [
+        {
+          "label": "Amplifon · CA AG-filed individual notice template",
+          "url": "https://oag.ca.gov/system/files/Amplifon%20-%20Individual%20Notice%20Template.pdf",
+          "date": null,
+          "kind": "primary"
+        },
+        {
+          "label": "Texas OAG · Company report and Texas cohort listing",
+          "url": "https://oag.my.site.com/datasecuritybreachreport/DataSecurityReportsPage",
+          "date": "2026-11-06",
+          "kind": "primary"
+        },
+        {
+          "label": "SecurityWeek · National total reported Nov 9",
+          "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/",
+          "date": "2026-11-09",
+          "kind": "report"
+        }
+      ]
+    },
+    {
+      "id": "estt-reported-ransomware-hosting-outage-2026",
+      "name": "ESTT: hosting outage attributed to ransomware in reporting",
+      "subject": "ESTT",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-11-08",
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Outage/attack Nov 8, 2026 per Nov 9 reporting; earliest directly dated report checked Nov 9; official status page undated",
+      "tags": [
+        "ransomware",
+        "outage",
+        "cloud"
+      ],
+      "summary": "ESTT's official site confirms a serious technical failure affecting client services and ongoing infrastructure recovery, but does not identify a cyber cause. Nov 9 reporting attributes the outage to file-encrypting malware, citing ESTT, and says 90% of virtual servers were restored while account dashboards remained unavailable. Those cause and recovery details are secondary-reported, not confirmed by the retrieved official page. No customer-data leak evidence was reported at that time. There is no established shared actor or connection to Beget.",
+      "correction": "Official page confirms technical outage only; ransomware and 90% restoration are company-attributed reporting as of Nov 9. Not proof of full recovery or no later data leak. No Beget link inferred.",
+      "detail": {
+        "whatHappened": "The Moscow Times reports a Nov 8 cloud-infrastructure disruption caused by file-encrypting malware, attributed to ESTT. Habr also reports ransomware as a preliminary company explanation. The current official site describes only a serious technical failure and recovery work; cyber cause is not independently primary-confirmed here.",
+        "exposure": "Operational availability is affected. Reporting says dashboards remained inaccessible and no evidence of customer-data leakage had been found. No stolen-data fields, victim count or data-theft finding is established. Historical DDoS activity and Beget are separate events, not linkage evidence.",
+        "fix": "ESTT says engineers are restoring infrastructure. Nov 9 reporting says 90% of virtual servers had been restored, but dashboards remained inaccessible and no full-restoration timeline was given. This is an interim reported milestone, not universal recovery.",
+        "remaining": "Primary cyber-cause confirmation, full recovery time and final impact are unresolved. No-leak evidence is a dated reported assessment, not proof no data was taken. No actor attribution or connection to Beget is established."
+      },
+      "sources": [
+        {
+          "label": "ESTT · Undated technical-failure status · Original source",
+          "url": "https://estt.ru/",
+          "date": null,
+          "kind": "primary"
+        },
+        {
+          "label": "The Moscow Times · Company-attributed ransomware/recovery report",
+          "url": "https://www.themoscowtimes.com/2026/11/09/cyberattack-disrupts-russian-web-hosting-provider-estt-a94212",
+          "date": "2026-11-09",
+          "kind": "report"
+        },
+        {
+          "label": "Habr · Preliminary ransomware attribution reported",
+          "url": "https://habr.com/ru/news/1105374/",
+          "date": "2026-11-09",
+          "kind": "report"
+        }
+      ]
     }
   ]
 }
