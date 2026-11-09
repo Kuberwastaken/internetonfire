@@ -5341,6 +5341,144 @@
       ],
       "correction": "Leakage remains potential: Studio says no actual third-party acquisition has been confirmed. The 3,497 figure counts submission records and the same person may appear in multiple forms. Attached certificate and license images were not leaked, only their filenames. This record is separate from CBcloud's Nov 1 PickGo platform incident; do not merge them. Other Studio customers' impacts are tracked on the Studio vendor record.",
       "disclosureDate": "2026-10-21"
+    },
+    {
+      "id": "muji-app-store-breach-2026",
+      "name": "MUJI: up to 27.26M app/store records and 1.09M MUJI Card numbers may have leaked",
+      "subject": "MUJI (Ryohin Keikaku)",
+      "summary": "Ryohin Keikaku confirmed unauthorized access to its systems around 1:00 AM JST on Oct 29, 2026 and says customer information may have leaked. Its Oct 30 first notice covered up to about 27.26 million MUJI app records (email address, date of birth, gender); the Nov 4 second notice expands that to MUJI online-store members (including non-app users) and adds member IDs to the base set, says about 520,000 of the 27.26 million also include names, addresses and phone numbers, and discloses two card-data groups: about 1.09 million MUJI Card members (full card number, birth date, MUJI Card ID; about 345,000 cards still valid) and about 120 customers who registered cards on the app or store (first 6 + last 2 digits and cardholder name). On Nov 6 Ryohin Keikaku suspended the MUJI online store and almost all app features as a security measure (its third notice on the same incident), estimating 1-2 days; the store was still showing its suspension page as of Nov 9. No dark-web posting or misuse has been confirmed so far.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-29",
+      "dateLabel": "Unauthorized access around 1:00 AM JST Oct 29, 2026 (per Credit Saison); first notice Oct 30; second notice Nov 4 expands scope to online-store members and card data; third notice Nov 6 suspends the online store; store still suspended as of Nov 9",
+      "tags": [
+        "breach",
+        "data-leak",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "Ryohin Keikaku: MUJI app customer-info leak possibility (first notice)",
+          "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1030_01",
+          "kind": "primary",
+          "date": "2026-10-30"
+        },
+        {
+          "label": "Ryohin Keikaku: second notice (expanded scope, card data)",
+          "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1104_02",
+          "kind": "primary",
+          "date": "2026-11-04"
+        },
+        {
+          "label": "Ryohin Keikaku second-notice data table (image)",
+          "url": "https://images.microcms-assets.io/assets/1abbce69114443b0af3672230990db72/32693700f0594e8097d2a6add2c2f090/%E8%A1%A8.png",
+          "kind": "primary",
+          "date": "2026-11-04"
+        },
+        {
+          "label": "Credit Saison: MUJI Card member-info leak possibility",
+          "url": "https://www.saisoncard.co.jp/customer-support/information/20261104",
+          "kind": "primary",
+          "date": "2026-11-04"
+        },
+        {
+          "label": "Ryohin Keikaku: MUJI online store suspension (third notice)",
+          "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1106_01",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "MUJI online store suspension page (live)",
+          "url": "https://www.muji.com/content/maintenance_s_20261106.html",
+          "kind": "primary",
+          "date": null
+        },
+        {
+          "label": "Kyodo News · Reporting",
+          "url": "https://english.kyodonews.net/articles/-/90309",
+          "kind": "report",
+          "date": "2026-11-04"
+        }
+      ],
+      "disclosureDate": "2026-10-30",
+      "detail": {
+        "whatHappened": "Ryohin Keikaku, operator of the MUJI brand, detected unauthorized access to its systems. Card issuer Credit Saison dates the intrusion to around 1:00 AM JST on October 29, 2026. Ryohin Keikaku published a first notice on October 30 saying some customer information held for the official MUJI app may have leaked externally. It says it blocked the access point and applied fixes. On November 4 a second notice reported that further analysis showed the scope includes MUJI online-store members (including people who do not use the app), that some records also contain names, addresses and phone numbers, and that card information for MUJI Card holders and for customers who registered cards on the app or store may also have been accessed. It also confirmed that card numbers, MUJI Card IDs and birth dates collected from Credit Saison before July 2021 for a MUJI points scheme were still held on its systems. On November 6 it suspended the MUJI online store entirely and all MUJI app features except the membership barcode display, citing customer-data protection and further security hardening, estimating a 1-2 day outage; its suspension page was still live on November 9.",
+        "exposure": "Per Ryohin Keikaku's second-notice table: (1) up to about 27.26 million records (including withdrawn members) of email address, birth date, gender and member ID for MUJI app and online-store customers; (2) about 520,000 of those also include name, address and phone number (as of the notice); (3) about 1.09 million current and former MUJI Card members who joined by July 2021: full card number, MUJI Card ID and birth date, of which about 345,000 cards are currently valid and the rest expired or cancelled - cardholder name, expiry date and security code not included; Credit Saison adds that of the valid cards about 168,000 were viewable together with the base customer info and about 25,000 with the name/address/phone set; (4) about 120 customers who registered card information on the app or online store: first 6 and last 2 digits of the card number plus cardholder name (expiry and security code not included), viewable together with their name/address/phone records. Customers who got a MUJI Card in August 2021 or later are out of scope. Whether any of this data was actually exfiltrated remains unconfirmed: both companies say no dark-web posting and no misuse has been found, and Credit Saison has seen no rise in fraudulent card use.",
+        "fix": "Ryohin Keikaku says it detected the access, blocked the relevant access point and applied a fix, and is monitoring beyond the affected system. On November 6 it took the online store and almost all app functions offline for further security hardening. It is notifying affected customers individually by email or post. Credit Saison says its own systems were not breached, has stepped up fraud monitoring, offers card reissue on request, and will contact MUJI Card holders whose details Ryohin Keikaku cannot reach. Customers are told to check card statements and watch for impersonation emails and calls.",
+        "remaining": "Whether data was actually taken (all notices say 'possibility' of leak), the intrusion vector and the full scope are still under investigation; the 520,000 name/address/phone count is marked 'as of now' and may grow. The online store's suspension has run past its 1-2 day estimate (still down November 9) with no new notice yet; the suspension is a stated security measure, not evidence of new exfiltration. Why pre-2021 MUJI Card numbers were still retained on Ryohin Keikaku's systems after the points scheme changed is acknowledged but not explained beyond the notice text.",
+        "responses": [
+          {
+            "by": "Ryohin Keikaku (first notice)",
+            "summary": "Disclosed possible leak of email, birth date and gender for up to about 27.26 million MUJI app records, said the access was blocked and fixed, and warned of impersonation emails.",
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1030_01",
+            "date": "2026-10-30"
+          },
+          {
+            "by": "Ryohin Keikaku (second notice)",
+            "summary": "Expanded the scope to online-store members and member IDs, added name/address/phone for about 520,000, and disclosed potential access to MUJI Card numbers (about 1.09 million) and registered-card partial digits (about 120), with a per-category table.",
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1104_02",
+            "date": "2026-11-04"
+          },
+          {
+            "by": "Credit Saison",
+            "summary": "Confirmed about 1.09 million MUJI Card holders in scope (about 345,000 currently valid), said cardholder names, expiry dates and security codes were not included, reported no rise in fraudulent use, and offered reissue.",
+            "url": "https://www.saisoncard.co.jp/customer-support/information/20261104",
+            "date": "2026-11-04"
+          },
+          {
+            "by": "Ryohin Keikaku (third notice)",
+            "summary": "Suspended the MUJI online store and all app features except the membership barcode as a security measure, estimating 1-2 days to restore; physical stores unaffected.",
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1106_01",
+            "date": "2026-11-06"
+          },
+          {
+            "by": "Kyodo News",
+            "summary": "Reported that about 1.09 million customer records including credit card numbers may have leaked, about 345,000 of them full numbers of currently valid cards with dates of birth.",
+            "url": "https://english.kyodonews.net/articles/-/90309",
+            "date": "2026-11-04"
+          }
+        ],
+        "claimChecks": []
+      }
+    },
+    {
+      "id": "muji-curtain-contractor-breach-2026",
+      "name": "MUJI order-curtain subcontractor: 19,933 customer records may have leaked",
+      "subject": "MUJI (Ryohin Keikaku)",
+      "summary": "Ryohin Keikaku says a server managed by Nanotech, a systems subcontractor of its order-curtain vendor MN Interfashion, was accessed without authorization, and customer information for MUJI order curtains may have leaked. The potentially exposed data covers 19,933 records (including duplicates) for customers who ordered MUJI order curtains between April 10, 2018 and January 25, 2022: names, addresses, phone numbers, order information and delivery addresses. Credit-card information and email addresses were not included. This is a separate incident from the MUJI app/online-store breach: a different vendor chain, server and dataset.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-19",
+      "dateLabel": "Unauthorized access to Nanotech's server Oct 19, 2026; traces found and reported to Ryohin Keikaku via MN Interfashion Oct 28; Ryohin Keikaku notice Nov 2",
+      "tags": [
+        "breach",
+        "data-leak",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "Ryohin Keikaku: order-curtain customer-info leak possibility",
+          "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1102_01",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "disclosureDate": "2026-11-02",
+      "detail": {
+        "whatHappened": "Ryohin Keikaku outsources MUJI order-curtain operations to MN Interfashion, which subcontracts system work to Nanotech. On October 28, 2026 Nanotech found traces that a server it manages had been accessed without authorization on October 19, and reported this to Ryohin Keikaku through MN Interfashion the same day. Ryohin Keikaku disclosed the incident on November 2. Current order-curtain operations run on a different server, which it says shows no problems.",
+        "exposure": "Up to 19,933 records, including duplicate records for the same customers, covering orders placed between April 10, 2018 and January 25, 2022: names, addresses, phone numbers, order information and delivery addresses. Credit-card information and email addresses were not included. Actual exfiltration is unconfirmed: an external specialist firm is still investigating the access method, whether information leaked externally, and the scope of impact. No misuse has been confirmed so far.",
+        "fix": "Ryohin Keikaku is notifying potentially affected customers by post and has commissioned an external specialist investigation. It says it will strengthen information management and security with its contractors, and current curtain ordering runs on a separate, unaffected server. It warns of suspicious calls or mail abusing the data.",
+        "remaining": "Whether information actually leaked externally, the unauthorized-access method, and the full impact scope are all still under investigation. The count includes duplicates, so the number of affected individuals is lower and unstated. No notice from Nanotech or MN Interfashion itself has been published; the only primary source so far is Ryohin Keikaku.",
+        "responses": [
+          {
+            "by": "Ryohin Keikaku",
+            "summary": "Disclosed the subcontractor server access, the 19,933-record scope with field details, postal notifications to customers, and an external investigation.",
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1102_01",
+            "date": "2026-11-02"
+          }
+        ],
+        "claimChecks": []
+      }
     }
   ]
 }
