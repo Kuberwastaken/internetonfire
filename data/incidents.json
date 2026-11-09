@@ -2,6 +2,160 @@
   "updated": "2026-11-09",
   "incidents": [
     {
+      "id": "mitsui-sumitomo-policyholder-portal-leak-2026",
+      "name": "Mitsui Sumitomo Insurance: ~37,000 policyholder portal customer records leaked",
+      "subject": "Mitsui Sumitomo Insurance",
+      "summary": "MS&AD's Mitsui Sumitomo Insurance confirmed that its policyholder portal (\"Contractholders' Page\") received unauthorized access detected on the night of Nov 2, that it proactively suspended related services late on Nov 3 to protect customer information and investigate, and that customer information leaked: approximately 37,000 records (as of Nov 6, 09:00 JST) of customers registered on the portal, comprising insurance policy numbers, name, address, phone number and email address. Credit card and bank account information are not included. The portal has been disconnected from the network and the company says there has been no external unauthorized access since the suspension. No misuse of the leaked information has been confirmed; an external forensic investigation is under way and affected customers will be notified individually. As of Nov 9, 08:00 JST a broad set of MSI services remains suspended, including the policyholder portal, My Agent, 1DAY Insurance, the net de insurance products, corporate web services and MS Compass.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-02",
+      "dateLabel": "Unauthorized access detected night of Nov 2, 2026; related services suspended late Nov 3; leak confirmed and disclosed Nov 6, 2026 (figures as of Nov 6, 09:00 JST); broad service suspension in effect as of Nov 9, 08:00 JST",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Mitsui Sumitomo Insurance · Information leak notice (PDF) · Original source",
+          "url": "https://www.ms-ins.com/news/fy2026/pdf/1106_1.pdf",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "Mitsui Sumitomo Insurance · Service suspension notice (PDF, updated Nov 9) · Original source",
+          "url": "https://www.ms-ins.com/information/2026/information_1103_1.pdf",
+          "kind": "primary",
+          "date": "2026-11-03"
+        },
+        {
+          "label": "Sankei Shimbun · MS&AD group aggregate report · News report",
+          "url": "https://www.sankei.com/article/20261109-JSTN4AHSZBJMNC2WZHEZPRTJXE/",
+          "kind": "report",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "This is a separate incident from both the PCS vendor breach affecting MSI's outsourced roadside-service customers (~228,000 records) and the MS Compass site breach (~23,000 records): different systems, dates and field scopes - do not merge them or extend their fields or counts here. ~37,000 is the company's figure as of Nov 6, 09:00 JST and may change as the investigation continues. Sankei's ~296,000 and ~1.011 million figures are media aggregates across multiple MS&AD group companies and incidents, not this incident's count - do not merge the aggregate into this record.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "aioi-nissay-dowa-policyholder-portal-leak-2026",
+      "name": "Aioi Nissay Dowa Insurance: ~444,000 policyholder portal customer records leaked",
+      "subject": "Aioi Nissay Dowa Insurance",
+      "summary": "MS&AD's Aioi Nissay Dowa Insurance confirmed that its policyholder portal (\"Contractholders' Page\") received unauthorized access detected on the night of Nov 2, that it proactively suspended related services late on Nov 3, and that customer information leaked: approximately 444,000 records (as of Nov 6, 09:00 JST) of customers registered on the portal. Leaked items vary by customer and include insurance policy numbers, name, address, phone number, email address and portal ID; for 3 records, credit card holder name and the last 4 digits of the card number (the remaining digits were masked - no full card numbers or security codes leaked); and for 19 records, account holder name, financial institution name and account number with the last 3 digits masked (no full account numbers, PINs or internet-banking credentials leaked). No sensitive personal information is included and no misuse has been confirmed. The portal has been disconnected from the network and the company says there has been no external unauthorized access since the suspension; an external forensic investigation is under way and affected customers will be notified individually.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-02",
+      "dateLabel": "Unauthorized access detected night of Nov 2, 2026; related services suspended late Nov 3; leak confirmed and disclosed Nov 6, 2026 (figures as of Nov 6, 09:00 JST)",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Aioi Nissay Dowa Insurance · Information leak notice (PDF) · Original source",
+          "url": "https://www.aioinissaydowa.co.jp/corporate/about/news/pdf/2026/news_2026110601531.pdf",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "Same-window sibling incidents at other MS&AD companies (Mitsui Sumitomo Insurance ~37,000 policyholder portal records; Mitsui Direct ~234,000 own-website records) are separate company systems - do not merge their counts into this record. Not every customer has every listed item. Card data is limited to holder name plus the last 4 digits in 3 records, and account data to partially masked numbers in 19 records - do not describe full card or account numbers as leaked. ~444,000 is the company's figure as of Nov 6, 09:00 JST and may change as the investigation continues.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "mitsui-direct-website-breach-2026",
+      "name": "Mitsui Direct General Insurance: ~234,000 customer records leaked in website breach",
+      "subject": "Mitsui Direct General Insurance",
+      "summary": "MS&AD's Mitsui Direct General Insurance detected a third party accessing its own website early on Nov 4, stopped all procedures on its website and app to protect customer information and investigate, and confirmed on Nov 6 that customer information leaked: approximately 234,000 records (as of Nov 6, 13:00 JST) of customers who obtained estimates or contracts, comprising contractor and named-insured information (name, address, phone number, date of birth, email address and similar), vehicle information (model, registration number, owner and similar) and insurance policy terms and coverage details. Credit card information, bank account information and My Page login passwords are not included. No secondary damage or misuse has been confirmed; an external forensic investigation is under way, services remained suspended as of Nov 6 with restart timing to be announced, and affected customers will be notified individually.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Unauthorized access detected early Nov 4, 2026; all website and app procedures suspended; leak disclosed Nov 6, 2026 (figures as of Nov 6, 13:00 JST)",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Mitsui Direct General Insurance · Customer information leak notice · Original source",
+          "url": "https://www.mitsui-direct.co.jp/information/20261106.html",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "NHK · Mitsui Direct and Tokio Marine & Nichido Direct contractor information leak · News report",
+          "url": "https://news.web.nhk/newsweb/na/nd-20261106de71809",
+          "kind": "report",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "This is Mitsui Direct's own website breach, distinct from both the MS&AD sibling policyholder-portal intrusions (Aioi Nissay Dowa ~444,000 records; Mitsui Sumitomo Insurance ~37,000 records) and the PCS vendor incident Mitsui Direct separately disclosed on Nov 2, where its customer impact remains under investigation - do not merge these incidents or sum their counts. ~234,000 is the company's figure as of Nov 6, 13:00 JST, a record count rather than a confirmed unique-person count, and may change as the investigation continues.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "sompo-japan-pcs-vendor-customer-leak-2026",
+      "name": "Sompo Japan: ~65,000 customer records potentially leaked via PCS vendor breach",
+      "subject": "Sompo Japan",
+      "summary": "Sompo Japan announced that Prestige Core Solution (PCS), to which it outsources some auto-insurance inquiry and intake-management operations, suffered unauthorized access and that Sompo Japan customer information registered on PCS's system may have leaked externally: approximately 65,000 records including contract information (such as name, phone number, address and vehicle registration number), inquiry history and roadside-service arrangement history. Credit card information is not included, and no unauthorized use or secondary damage has been confirmed. PCS detected unauthorized access to its PremierNet2 (PN2) business system on Oct 29 and reported the potential impact scope to Sompo Japan on Nov 4; PCS has stopped using the system. Sompo Japan plans to inform potentially affected customers individually.",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-10-29",
+      "dateLabel": "Unauthorized access detected at vendor PCS Oct 29, 2026; PCS reported potential Sompo Japan impact Nov 4; disclosed Nov 5, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Sompo Japan · Vendor breach customer notice (PDF) · Original source",
+          "url": "https://www.sompo-japan.co.jp/-/media/SJNK/files/news/2026/20261105_1.pdf",
+          "kind": "primary",
+          "date": "2026-11-05"
+        },
+        {
+          "label": "Nikkei · Sompo Japan ~65,000 records potentially leaked · News report",
+          "url": "https://www.nikkei.com/article/DGXZQOUB053QJ0V01C26A1000000/",
+          "kind": "report",
+          "date": "2026-11-05"
+        }
+      ],
+      "correction": "Part of the single PCS vendor incident (PremierNet2), not a separate intrusion into Sompo Japan's own systems. The company states leakage is possible, not confirmed - hence reported status. The ~65,000 figure falls within the PCS vendor-wide maximum scope (up to ~5.5M records including duplicates) - do not add it to the vendor total. The Sompo primary PDF blocks some automated fetches; its content is cross-verified against Nikkei, TBS and trade-press reports quoting the Nov 5 announcement.",
+      "disclosureDate": "2026-11-05"
+    },
+    {
+      "id": "nissan-financial-pcs-vendor-customer-leak-2026",
+      "name": "Nissan Financial Services: up to ~236,000 customer records potentially leaked via PCS vendor breach",
+      "subject": "Nissan Financial Services",
+      "summary": "Nissan Financial Services announced that Prestige Core Solution (PCS), to which it outsources roadside-service intake and arrangement operations, suffered unauthorized access and that some customer information registered on PCS's business system may have leaked externally: up to approximately 236,000 records of some contract customers who used roadside services, comprising contract information (name, address, phone number, email address and vehicle information), inquiry history and roadside-service arrangement history. Credit card and bank account information are not included, and no secondary damage or unauthorized use has been confirmed. PCS detected unauthorized access to its PremierNet2 business system on Oct 29 and reported the potential impact scope to Nissan Financial Services on Nov 4; PCS has stopped using the system and roadside services continue under alternative operations.",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-10-29",
+      "dateLabel": "Unauthorized access detected at vendor PCS Oct 29, 2026; PCS reported potential Nissan Financial Services impact Nov 4; disclosed Nov 5, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Nissan Financial Services · Vendor breach customer notice (PDF) · Original source",
+          "url": "https://www.nissan-fs.co.jp/info_list/pdf/261105.pdf",
+          "kind": "primary",
+          "date": "2026-11-05"
+        }
+      ],
+      "correction": "Part of the single PCS vendor incident (PremierNet2), not a separate intrusion into Nissan Financial Services' own systems. The company states leakage is possible, not confirmed - hence reported status. Up to ~236,000 is a maximum potential record count, not a confirmed leak count or unique-person count, and it falls within the PCS vendor-wide maximum scope (up to ~5.5M records including duplicates) - do not add it to the vendor total.",
+      "disclosureDate": "2026-11-05"
+    },
+    {
       "id": "mirae-asset-life-insurance-data-leak",
       "name": "Mirae Asset Life Insurance: customer transaction and identity data leaked in hack",
       "subject": "Mirae Asset Life Insurance",
@@ -135,11 +289,11 @@
       "id": "prestige-core-solution-breach-2026",
       "name": "Prestige Core Solution: up to 5.5M roadside-assistance customer records leaked",
       "subject": "Prestige Core Solution",
-      "summary": "Prestige International confirmed an unauthorized intrusion into group business systems led to leakage of customer data for roadside-assistance and related services that client companies outsource to its subsidiary Prestige Core Solution (PCS). The maximum potential scope is approximately 5.5 million records (including duplicates; the unique-individual count is under review): names, addresses, phone numbers and email addresses; vehicle information such as registration numbers and VINs; accident and breakdown intake details; and partial financial-institution account information. No credit card information leakage has been confirmed. The access was detected Oct 29 and compromised credentials were invalidated; as the unauthorized access continued, the relevant systems were shut down on Oct 30. The company is investigating with external specialists, reporting to the Personal Information Protection Commission and consulting police, and says some partner/contractor company information may also be included. No secondary damage or misuse has been confirmed.",
+      "summary": "Prestige International confirmed an unauthorized intrusion into group business systems led to leakage of customer data for roadside-assistance and related services that client companies outsource to its subsidiary Prestige Core Solution (PCS). The maximum potential scope is approximately 5.5 million records (including duplicates; the unique-individual count is under review): names, addresses, phone numbers and email addresses; vehicle information such as registration numbers and VINs; accident and breakdown intake details; and partial financial-institution account information. A second report on Nov 6 confirmed that credit card information (card numbers) was included in the exfiltrated data in 3 cases, recorded in a portion of the system's call intake records; the issuing card companies have been notified. The access was detected Oct 29 and compromised credentials were invalidated; as the unauthorized access continued, the relevant systems were shut down on Oct 30. The company is investigating with external specialists, reporting to the Personal Information Protection Commission and consulting police, and says some partner/contractor company information may also be included; no secondary damage or misuse has been confirmed overall.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-29",
-      "dateLabel": "Unauthorized access detected Oct 29, 2026; systems shut down Oct 30; disclosed Nov 2, 2026",
+      "dateLabel": "Unauthorized access detected Oct 29, 2026; systems shut down Oct 30; disclosed Nov 2, 2026; second report Nov 6 confirmed 3 credit card number records exfiltrated",
       "tags": [
         "breach",
         "data-leak",
@@ -152,9 +306,15 @@
           "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
           "kind": "primary",
           "date": "2026-11-02"
+        },
+        {
+          "label": "Prestige International · Second report (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261106_01_en.pdf",
+          "kind": "primary",
+          "date": "2026-11-06"
         }
       ],
-      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notice is a reference translation of the Japanese original. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records (e.g. Mitsui Sumitomo Insurance) whose field scopes are narrower - do not bleed this field list or count into them. No credit card information leakage confirmed.",
+      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notices are reference translations of the Japanese originals, which prevail. The Nov 6 second report confirmed credit card numbers in 3 exfiltrated records from a portion of the system's call intake records (vendor-wide scope); issuers were notified and no misuse is confirmed. This card finding does not extend to client-specific records (e.g. Mitsui Sumitomo Insurance, whose own notice states no card or bank account information) - do not propagate it into them without evidence. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records whose field scopes are narrower - do not bleed this field list or count into them. Other PCS client notices (Sompo Japan ~65,000 potential records, Nissan Financial Services up to ~236,000 potential records, SBI Insurance impact under investigation, and others) belong to this same vendor incident: they are not separate intrusions, and their figures fall within the vendor-wide maximum - do not add them to the 5.5M.",
       "disclosureDate": "2026-11-02"
     },
     {
