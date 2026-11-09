@@ -5072,7 +5072,7 @@
       "status": "confirmed",
       "severity": "high",
       "date": "2026-11-06",
-      "dateLabel": "TUM posted its incident notice Nov 6, 2026; attack date not stated",
+      "dateLabel": "First notice Nov 6, 2026; attack date unstated; TUMonline access and password changes restored Nov 9 at 07:00 Munich time",
       "tags": [
         "breach",
         "credentials",
@@ -5081,10 +5081,10 @@
       ],
       "sources": [
         {
-          "label": "TUM IT security incident notice · Original source",
+          "label": "TUM · Incident notice updated Nov 9 · Original source",
           "url": "https://www.tum.de/en/news-and-events/all-news/press-releases/details/it-security-incident-at-tum",
           "kind": "primary",
-          "date": "2026-11-06"
+          "date": "2026-11-09"
         }
       ],
       "correction": "TUM says the listed information may have been accessed. Its current log-based assessment is that grades and college applications were not compromised, but the investigation is continuing. No affected-person count is stated.",
@@ -5092,7 +5092,7 @@
       "detail": {
         "whatHappened": "TUM says unknown attackers attacked the myTUM portal and stole passwords for central TUM accounts. Among them were credentials for a TUMonline system administrator, which were then used in an attack on the central campus-management system. TUM took TUMonline offline.",
         "exposure": "TUM says attackers may have accessed affected individuals’ TUM account passwords, names, home addresses and dates of birth. It says most TUMonline activity was logged and current analysis suggests no other TUMonline data, including grades or college applications, was compromised. The review remains ongoing; the notice gives no count.",
-        "fix": "TUM says it suspended affected accounts, temporarily deactivated TUMonline, reported the incident to the Bavarian data-protection authority and filed a criminal complaint. It instructed users to change TUM passwords and enable MFA.",
+        "fix": "As of Nov 9, 2026 at 07:00 Munich time, TUM says password changes in TUMonline were re-enabled and access restored. It had suspended affected accounts, temporarily deactivated TUMonline, reported the incident to the Bavarian data-protection authority and filed a criminal complaint. Users were instructed to change TUM passwords and enable MFA.",
         "remaining": "TUM says it is continuing the investigation and will update its notice as it learns more. The notice does not give the attack date or affected-person count."
       }
     },
@@ -6524,6 +6524,85 @@
           "label": "iStyle · Cuenote client second report · Original source",
           "url": "https://www.istyle.co.jp/news/info/2026/11/1109-2.html",
           "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "bbt-se-brenner-base-tunnel-data-theft-2026",
+      "name": "BBT SE: document-exchange server breached; data volume disputed",
+      "subject": "BBT SE / Brenner Base Tunnel",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-10-17",
+      "disclosureDate": "2026-11-06",
+      "dateLabel": "Attack Oct 17, 2026 per BBT; first disclosed Nov 6; disputed 812 GB and ransom-demand reports Nov 9",
+      "tags": [
+        "breach",
+        "data-leak"
+      ],
+      "summary": "BBT SE confirmed an intrusion into an external document-exchange server, according to Austrian and Italian reporting. The reported 812 GB figure is not a settled theft count: ORF describes stolen data, while ANSA describes the server's total volume. The material was mostly already-public technical and administrative documents. BBT says internal IT, tunnel construction and operations were unaffected; the server was isolated and Italian contractors notified. A ransom demand was reported, but attribution to Everest remains unverified.",
+      "correction": "812 GB is disputed: stolen data in ORF, server volume in ANSA, and an unverified Everest claim elsewhere. No primary BBT notice retrieved. No publication seen is BBT's report-time assessment, not proof of no leak.",
+      "detail": {
+        "whatHappened": "BBT's statement, carried by ORF and ANSA, dates the attack to Oct 17 and limits it to an external server exchanging documents with Italian contractors. TT and ORF first reported the confirmed intrusion and data access Nov 6. The 812 GB figure and ransom demand appeared in Nov 9 reporting.",
+        "exposure": "Company-attributed descriptions concern mostly already-public tender documents, survey/topographic data and other technical or administrative material. Italian contractors were notified; Austrian contractors were not affected so far. No affected-person count is given. ORF's stolen-volume wording and ANSA's server-volume wording do not establish the same quantity.",
+        "fix": "BBT says it isolated the affected server, activated security protocols, engaged external forensic specialists and informed Italian cybersecurity, police and data-protection authorities. Internal systems, construction and operations were unaffected according to its checks; publication was being monitored.",
+        "remaining": "The stolen volume and Everest attribution remain unsettled. No primary BBT notice was retrieved; company confirmation is reported by the press. No publication had been observed at report time."
+      },
+      "sources": [
+        {
+          "label": "Tiroler Tageszeitung · First intrusion report",
+          "url": "https://www.tt.com/artikel/30946313/hackerangriff-auf-brenner-basistunnel-gesellschaft-bestaetigt-cyberattacke",
+          "date": "2026-11-06",
+          "kind": "report"
+        },
+        {
+          "label": "ORF Tirol · Stolen-volume and ransom reporting",
+          "url": "https://tirol.orf.at/stories/3378789/",
+          "date": "2026-11-09",
+          "kind": "report"
+        },
+        {
+          "label": "ANSA · Company statement and server-volume wording",
+          "url": "https://www.ansa.it/trentino/notizie/2026/11/09/cyberattacco-al-tunnel-del-brennero-molti-documenti-sono-pubblici_7c12c275-a095-4c67-a3b2-e8ff79960dd5.html",
+          "date": "2026-11-09",
+          "kind": "report"
+        },
+        {
+          "label": "matricedigitale · Unverified Everest claim context",
+          "url": "https://www.matricedigitale.it/2026/11/09/everest-brennero-ransomware-furto-dati-infrastrutture/",
+          "date": "2026-11-09",
+          "kind": "report"
+        }
+      ]
+    },
+    {
+      "id": "digicert-archived-customer-information-access-2026",
+      "name": "DigiCert: read-only access to archived customer information",
+      "subject": "DigiCert",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-06-27",
+      "disclosureDate": "2026-10-20",
+      "dateLabel": "Unauthorized access Jun 27-Jul 2, 2026; preliminary disclosure Oct 20; full report Nov 3; action items later completed",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "DigiCert reports unauthorized read-only access to a small proportion of archived customer information from Jun 27 through Jul 2. Most was business contact data; a small minority of customer accounts included identity or address documents. An inadvertently public internal business system allowed self-registered accounts without MFA to read archives. DigiCert says customer login credentials, certificates, CA systems, CertCentral and DigiCert ONE were unaffected. No affected-person or account count is published. The authorization fix shipped Jul 2; later comments mark all 13 action items complete.",
+      "correction": "Read-only archive access, not certificate issuance or customer-login compromise. No victim count published. The Feb 2025 exposure misconfiguration is distinct from the Jun 27-Jul 2, 2026 data-access window.",
+      "detail": {
+        "whatHappened": "A Feb 4, 2025 migration accidentally exposed an internal business system. An MFA-exempt self-registration endpoint created unassigned accounts with read-only archive access. DigiCert later established unauthorized data access from Jun 27 through Jul 2, 2026, confirmed a reportable event Oct 19 and filed its preliminary report Oct 20.",
+        "exposure": "Mostly names, business email addresses, phone numbers and business addresses. A small minority of customer accounts included documents such as a driver's license, passport or utility bill. DigiCert reports zero affected certificates; access could not write records, approve validations or issue certificates. Customer login credentials and CA/validation systems were unaffected.",
+        "fix": "An authorization restriction deployed Jul 2 ended unassigned-account access. DigiCert later restricted network exposure, disabled self-registration, reset business-system passwords and added access monitoring. Comments mark action items 12 and 13 complete, completing all 13. Affected customers were contacted and law enforcement notified.",
+        "remaining": "No affected-person or account count is published. Commenters requested dataset numbers and clarification of the archived information's validation use; these questions remain unanswered in the retrieved thread."
+      },
+      "sources": [
+        {
+          "label": "DigiCert · Mozilla Bugzilla incident 2084460 · Original source",
+          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2084460",
+          "date": "2026-10-20",
           "kind": "primary"
         }
       ]
