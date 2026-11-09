@@ -5982,11 +5982,11 @@
       "id": "muji-app-store-breach-2026",
       "name": "MUJI: up to 27.26M app/store records and 1.09M MUJI Card numbers may have leaked",
       "subject": "MUJI (Ryohin Keikaku)",
-      "summary": "Ryohin Keikaku confirmed unauthorized access to its systems around 1:00 AM JST on Oct 29, 2026 and says customer information may have leaked. Its Oct 30 first notice covered up to about 27.26 million MUJI app records (email address, date of birth, gender); the Nov 4 second notice expands that to MUJI online-store members (including non-app users) and adds member IDs to the base set, says about 520,000 of the 27.26 million also include names, addresses and phone numbers, and discloses two card-data groups: about 1.09 million MUJI Card members (full card number, birth date, MUJI Card ID; about 345,000 cards still valid) and about 120 customers who registered cards on the app or store (first 6 + last 2 digits and cardholder name). On Nov 6 Ryohin Keikaku suspended the MUJI online store and almost all app features as a security measure (its third notice on the same incident), estimating 1-2 days; the store was still showing its suspension page as of Nov 9. No dark-web posting or misuse has been confirmed so far.",
+      "summary": "Ryohin Keikaku confirmed unauthorized access to MUJI systems around 01:00 JST Oct 29 and says customer data may have leaked. Its Nov 9 fourth report retains about 27.26M app/online-store records (email, birth date, gender, member ID) and revises the name/address/phone subset to about 750,000, replacing 520,000. Other groups remain about 1.09M MUJI Card holders (full number, ID, birth date; about 345,000 valid) and about 120 registered-card customers (first six/last two digits and cardholder name). It also reports credential-stuffing logins possibly exposing purchase history and points for about 270,000, and access to about 440,000 cash-on-delivery recipients' names and postal codes for Jan 2020-Feb 2025 orders. Overlaps for the new groups are not stated; do not add the counts. Online-store reopening is postponed with no date, and all customers must reset passwords on reopening. No misuse has been confirmed.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-29",
-      "dateLabel": "Unauthorized access around 1:00 AM JST Oct 29, 2026 (per Credit Saison); first notice Oct 30; second notice Nov 4 expands scope to online-store members and card data; third notice Nov 6 suspends the online store; store still suspended as of Nov 9",
+      "dateLabel": "Unauthorized access around 01:00 JST Oct 29, 2026; first notice Oct 30; expanded reports Nov 4 and Nov 9; store suspended Nov 6, reopening postponed without date",
       "tags": [
         "breach",
         "data-leak",
@@ -6034,14 +6034,26 @@
           "url": "https://english.kyodonews.net/articles/-/90309",
           "kind": "report",
           "date": "2026-11-04"
+        },
+        {
+          "label": "Ryohin Keikaku · Fourth report · Original source",
+          "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1109_01",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "Ryohin Keikaku · Fourth-report count table (PDF) · Original source",
+          "url": "https://files.microcms-assets.io/assets/1abbce69114443b0af3672230990db72/e51754a43b58416ba83ad4b641b3121b/261109_%E7%AC%AC4%E5%A0%B1%EF%BC%BF%E6%83%85%E5%A0%B1%E6%BC%8F%E6%B4%A9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9_.pdf",
+          "kind": "primary",
+          "date": "2026-11-09"
         }
       ],
       "disclosureDate": "2026-10-30",
       "detail": {
-        "whatHappened": "Ryohin Keikaku, operator of the MUJI brand, detected unauthorized access to its systems. Card issuer Credit Saison dates the intrusion to around 1:00 AM JST on October 29, 2026. Ryohin Keikaku published a first notice on October 30 saying some customer information held for the official MUJI app may have leaked externally. It says it blocked the access point and applied fixes. On November 4 a second notice reported that further analysis showed the scope includes MUJI online-store members (including people who do not use the app), that some records also contain names, addresses and phone numbers, and that card information for MUJI Card holders and for customers who registered cards on the app or store may also have been accessed. It also confirmed that card numbers, MUJI Card IDs and birth dates collected from Credit Saison before July 2021 for a MUJI points scheme were still held on its systems. On November 6 it suspended the MUJI online store entirely and all MUJI app features except the membership barcode display, citing customer-data protection and further security hardening, estimating a 1-2 day outage; its suspension page was still live on November 9.",
-        "exposure": "Per Ryohin Keikaku's second-notice table: (1) up to about 27.26 million records (including withdrawn members) of email address, birth date, gender and member ID for MUJI app and online-store customers; (2) about 520,000 of those also include name, address and phone number (as of the notice); (3) about 1.09 million current and former MUJI Card members who joined by July 2021: full card number, MUJI Card ID and birth date, of which about 345,000 cards are currently valid and the rest expired or cancelled - cardholder name, expiry date and security code not included; Credit Saison adds that of the valid cards about 168,000 were viewable together with the base customer info and about 25,000 with the name/address/phone set; (4) about 120 customers who registered card information on the app or online store: first 6 and last 2 digits of the card number plus cardholder name (expiry and security code not included), viewable together with their name/address/phone records. Customers who got a MUJI Card in August 2021 or later are out of scope. Whether any of this data was actually exfiltrated remains unconfirmed: both companies say no dark-web posting and no misuse has been found, and Credit Saison has seen no rise in fraudulent card use.",
-        "fix": "Ryohin Keikaku says it detected the access, blocked the relevant access point and applied a fix, and is monitoring beyond the affected system. On November 6 it took the online store and almost all app functions offline for further security hardening. It is notifying affected customers individually by email or post. Credit Saison says its own systems were not breached, has stepped up fraud monitoring, offers card reissue on request, and will contact MUJI Card holders whose details Ryohin Keikaku cannot reach. Customers are told to check card statements and watch for impersonation emails and calls.",
-        "remaining": "Whether data was actually taken (all notices say 'possibility' of leak), the intrusion vector and the full scope are still under investigation; the 520,000 name/address/phone count is marked 'as of now' and may grow. The online store's suspension has run past its 1-2 day estimate (still down November 9) with no new notice yet; the suspension is a stated security measure, not evidence of new exfiltration. Why pre-2021 MUJI Card numbers were still retained on Ryohin Keikaku's systems after the points scheme changed is acknowledged but not explained beyond the notice text.",
+        "whatHappened": "Ryohin Keikaku, operator of the MUJI brand, detected unauthorized access to its systems. Card issuer Credit Saison dates the intrusion to around 1:00 AM JST on October 29, 2026. Ryohin Keikaku published a first notice on October 30 saying some customer information held for the official MUJI app may have leaked externally. It says it blocked the access point and applied fixes. On November 4 a second notice reported that further analysis showed the scope includes MUJI online-store members (including people who do not use the app), that some records also contain names, addresses and phone numbers, and that card information for MUJI Card holders and for customers who registered cards on the app or store may also have been accessed. It also confirmed that card numbers, MUJI Card IDs and birth dates collected from Credit Saison before July 2021 for a MUJI points scheme were still held on its systems. On November 6 it suspended the MUJI online store entirely and all MUJI app features except the membership barcode display, citing customer-data protection and further security hardening, estimating a 1-2 day outage; its suspension page was still live on November 9. The Nov 9 fourth report found possible credential-stuffing logins using ID/password pairs obtained elsewhere despite strengthened monitoring, and access to historical cash-on-delivery recipient data. Reopening is postponed with no date; a password reset will be required for all customers.",
+        "exposure": "Per Ryohin Keikaku's table, updated in the Nov 9 fourth notice: (1) up to about 27.26 million records (including withdrawn members) of email address, birth date, gender and member ID for MUJI app and online-store customers; (2) about 750,000 of those also include name, address and phone number (Nov 9 update); (3) about 1.09 million current and former MUJI Card members who joined by July 2021: full card number, MUJI Card ID and birth date, of which about 345,000 cards are currently valid and the rest expired or cancelled - cardholder name, expiry date and security code not included; Credit Saison adds that of the valid cards about 168,000 were viewable together with the base customer info and about 25,000 with the name/address/phone set; (4) about 120 customers who registered card information on the app or online store: first 6 and last 2 digits of the card number plus cardholder name (expiry and security code not included); overlap with the base groups is not stated. Customers who got a MUJI Card in August 2021 or later are out of scope. Whether any of this data was actually exfiltrated remains unconfirmed: both companies say no dark-web posting and no misuse has been found, and Credit Saison has seen no rise in fraudulent card use. Nov 9 supersedes the earlier 520,000 name/address/phone subset with about 750,000 within 27.26M. The fourth report adds about 270,000 credential-stuffing login cases involving purchase history and points; overlap with 27.26M is unstated, so this is not labelled a subset or added to it. About 440,000 COD recipients for orders received Jan 2, 2020-Feb 10, 2025 had names and postal codes accessed, not orderer information; overlap is unstated. The 120 registered-card group overlap is also unstated. No group counts are summed.",
+        "fix": "Ryohin Keikaku says it detected the access, blocked the relevant access point and applied a fix, and is monitoring beyond the affected system. On November 6 it took the online store and almost all app functions offline for further security hardening. It is notifying affected customers individually by email or post. Credit Saison says its own systems were not breached, has stepped up fraud monitoring, offers card reissue on request, and will contact MUJI Card holders whose details Ryohin Keikaku cannot reach. Customers are told to check card statements and watch for impersonation emails and calls. Nov 9: reopening postponed without a date; all customers must reset passwords on reopening. Individual notices by MUJI and Credit Saison start Nov 10.",
+        "remaining": "Actual exfiltration and full scope remain under investigation. The 750,000 name/address/phone count replaces 520,000 within the unchanged 27.26M base. The fourth report does not establish overlaps for the 270,000 credential-stuffing or 440,000 COD groups, so no additive total is supported. Online-store reopening is postponed without a date; the outage is a security measure, not by itself proof of new exfiltration.",
         "responses": [
           {
             "by": "Ryohin Keikaku (first notice)",
@@ -6072,10 +6084,17 @@
             "summary": "Reported that about 1.09 million customer records including credit card numbers may have leaked, about 345,000 of them full numbers of currently valid cards with dates of birth.",
             "url": "https://english.kyodonews.net/articles/-/90309",
             "date": "2026-11-04"
+          },
+          {
+            "by": "Ryohin Keikaku (fourth notice)",
+            "summary": "Revised the name/address/phone subset to about 750,000; added credential-stuffing and historical COD recipient scope with overlaps unstated; postponed reopening and announced password resets and individual notices.",
+            "url": "https://www.ryohin-keikaku.jp/news/articles/2026_1109_01",
+            "date": "2026-11-09"
           }
         ],
         "claimChecks": []
-      }
+      },
+      "correction": "Potential exposure, not confirmed theft of every record. 750,000 replaces 520,000 within 27.26M. Overlap of 270,000 login cases and 440,000 COD recipients is unstated: do not sum groups. Store reopening remains postponed."
     },
     {
       "id": "muji-curtain-contractor-breach-2026",
@@ -6199,6 +6218,101 @@
         {
           "label": "Docomo · Fourth report: scope and partial service restoration · Original source",
           "url": "https://www.docomo.ne.jp/info/notice/page/261109_00_m.html",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "id": "nitori-holdings-system-breach-2026",
+      "name": "Nitori: up to 37.62M records may have leaked",
+      "subject": "Nitori Holdings",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Unauthorized access discovered and blocked Nov 6, 2026; possible mid-to-late October access remains unconfirmed; disclosed Nov 9",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "retail"
+      ],
+      "summary": "Nitori Holdings confirmed unauthorized access discovered Nov 6 and says up to 37.62 million records may have leaked. The maximum is records, not people; fields vary by customer and the count may change. Potential individual-member and purchaser data includes member number, name and kana, email, address, phone, birth date and gender. Corporate-member data includes company, department, representative, address, phone and contact-person details. Nitori Net and official EC-mall shop order data is also in scope. Login passwords and credit-card data are excluded. Nitori blocked access, fixed vulnerabilities and strengthened monitoring; cause, route and secondary harm remain under investigation. It is contacting the privacy regulator and police and will notify affected customers by email or post.",
+      "correction": "Possible exposure, not confirmed theft of 37.62M records or people. Actual access date is unknown; October access is only possible. Fields and final count remain under investigation.",
+      "sources": [
+        {
+          "label": "Nitori Holdings · Unauthorized access notice · Original source",
+          "url": "https://www.nitorihd.co.jp/news/items/2b702dbe4d438f7fef74945d68e5bd27_3.pdf",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "id": "ntt-data-sumitomo-life-vitality-leak-2026",
+      "name": "NTT DATA / Sumitomo Life: about 80,000 Vitality users' data leaked",
+      "subject": "NTT DATA / Sumitomo Life",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Access confirmed Nov 2, 2026 (actual access date unstated); blocked and services suspended Nov 3; disclosed Nov 9",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "summary": "NTT DATA confirmed leakage from its application systems for Sumitomo Life Vitality trial/corporate and Vitality Smart (including benefit type) services, affecting about 80,000 current or past users. Fields include any of name, address, phone, birth date, email and partially masked card number; about 1,000 users had card-number data involved, a subset of the 80,000. Insurance-contract information and Vitality health or step data are excluded. Sumitomo Life says its Vitality app and Vitality insurance are unaffected. Access was confirmed Nov 2 and blocked Nov 3. New applications, Vitality Smart self-cancellation and card changes, and the group portal are suspended with restart date undecided. Cause and route remain under investigation; no misuse has been confirmed.",
+      "correction": "About 80,000 counts users, not records. Card-number data is partially masked and affects about 1,000 within that total, not an additional group. Actual access date is unstated; service restoration is not confirmed.",
+      "sources": [
+        {
+          "label": "NTT DATA · Vitality application-service leak notice · Original source",
+          "url": "https://www.nttdata.com/global/ja/news/release/2026/110900/",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "Sumitomo Life · Vitality customer notice · Original source",
+          "url": "https://www.sumitomolife.co.jp/news/detail/newsrelease_261109.html",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "id": "trustbank-furusato-choice-member-leak-2026",
+      "name": "Furusato Choice (Trustbank): 4.45M member records leaked",
+      "subject": "Trustbank",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-17",
+      "disclosureDate": "2026-10-20",
+      "dateLabel": "Unauthorized access Oct 17, 2026; noticed Oct 19 and services stopped 15:50 JST; first disclosure Oct 20; app reopened Nov 9",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "Trustbank confirmed unauthorized access to Furusato Choice and leakage of 4,454,097 member records, a figure that may change. Data includes name, email, address, phone, hashed password and estimated donation-deduction amount. Its Oct 23 second report identified extra information for five donors within that total: point history for five, donation history for two, saved-card display information (last four digits, name, expiry) for two, birth date for two and delivery address for one. Trustbank says the displayed card information alone cannot be used for payment and is fetched from its payment provider, not stored by Trustbank. All member passwords were invalidated and need resetting. It notified the privacy regulator Oct 20 and police Oct 21. Municipal/vendor donation management restarted Oct 26, partner-site integration Oct 28, the Web version Nov 6 at noon and the app Nov 9 at 15:00 JST. Choice Pay remains to be restored.",
+      "correction": "4,454,097 counts member records, not verified unique people; the figure may change. Extra fields affect five donors within the total. Card data is partial, not full numbers. Choice Pay is not yet restored.",
+      "sources": [
+        {
+          "label": "Trustbank · First leak notice · Original source",
+          "url": "https://www.trustbank.co.jp/newsroom/newsrelease/news261020/",
+          "kind": "primary",
+          "date": "2026-10-20"
+        },
+        {
+          "label": "Trustbank · Second report: additional donor fields · Original source",
+          "url": "https://www.trustbank.co.jp/newsroom/newsrelease/news20261023/",
+          "kind": "primary",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "Trustbank · Sixth report: app restoration · Original source",
+          "url": "https://www.trustbank.co.jp/newsroom/newsrelease/news20261109/",
           "kind": "primary",
           "date": "2026-11-09"
         }
