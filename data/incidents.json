@@ -2,6 +2,31 @@
   "updated": "2026-11-09",
   "incidents": [
     {
+      "id": "kinkos-japan-arara-message-customer-leak-2026",
+      "name": "Kinko's Japan: Smart Membership email addresses leaked via ARARA Message",
+      "subject": "Kinko's Japan",
+      "summary": "Kinko's Japan confirmed in its Nov 2 first notice that Smart Membership customers' email addresses leaked following unauthorized access to its newsletter vendor ARARA Message. After ARARA's Oct 29 announcement, the vendor initially told Kinko's its server environment was outside the confirmed leak scope. Kinko's asked again after ARARA's Nov 2 second report expanded the affected environments, and then received confirmation that its members' email addresses were included. The Nov 2 notice gives no affected count. Kinko's stopped email delivery through ARARA until safety could be confirmed and was checking the affected email-address count and impact on other registered information.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "Access date affecting Kinko's not stated; affected membership email addresses confirmed and first disclosed Nov 2, 2026, following ARARA's expanded second report",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Kinko's Japan · First customer leak notice · Original source",
+          "url": "https://www.kinkos.co.jp/corporate/archives/news/261102/",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "This record's confirmed core is the email-address leak in Kinko's Nov 2 first-party notice. That notice says names, membership numbers, registration dates, birth dates and favorite stores were registered with ARARA but their leakage was not confirmed at that time; Kinko's says it holds no credit-card information. A secondary outlet reports a Nov 9 expansion with counts and additional attributes, but its corresponding first-party second notice was not recovered in this qualification, so those counts and fields are not asserted here as confirmed. The affected count remains unstated in the verified primary notice, not zero. This is a customer slice of the ARARA Message incident, not a separate intrusion or an addition to the vendor-wide address total. ARARA's access date is not substituted for an unknown Kinko's-specific access date.",
+      "disclosureDate": "2026-11-02"
+    },
+    {
       "id": "sega-arara-message-customer-leak-2026",
       "name": "SEGA: 2.2M newsletter email addresses leaked via ARARA Message",
       "subject": "SEGA",
