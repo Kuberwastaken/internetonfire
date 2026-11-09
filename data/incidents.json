@@ -5218,7 +5218,7 @@
       "id": "arara-message-nov-2026-data-breach",
       "name": "ARARA Message: 81M email addresses potentially taken",
       "subject": "ARARA Message",
-      "summary": "ARARA and its parent Paycloud say attackers accessed the ARARA Message email-delivery service and removed, or may have removed, 81,329,467 deduplicated email-address records. The figure includes addresses suspected of being taken and is not a person count. Customer-specific fields may also include names, sex, birth dates, phone numbers, membership numbers or addresses; up to about 380 client companies may be affected, still under review. The service was used to send up to 7.13 million phishing emails impersonating card companies Oct 28–30; the service did not hold card numbers.",
+      "summary": "ARARA and its parent Paycloud say attackers accessed the ARARA Message email-delivery service and removed, or may have removed, 81,329,467 deduplicated email-address records. The figure includes addresses suspected of being taken and is not a person count. Customer-specific fields may also include names, sex, birth dates, phone numbers, membership numbers or addresses; up to about 380 client companies may be affected, still under review. The service was used to send up to 7.13 million phishing emails impersonating card companies Oct 28–30; the service did not hold card numbers. Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-28",
@@ -5246,15 +5246,27 @@
           "url": "https://www.arara.com/news/info/20261106_arara",
           "kind": "primary",
           "date": "2026-11-06"
+        },
+        {
+          "label": "Kakaku.com · Nov 5 issuer notice and field table",
+          "url": "https://prtimes.jp/main/html/rd/p/000001064.000001455.html",
+          "date": "2026-11-05",
+          "kind": "primary"
+        },
+        {
+          "label": "PLM · Nov 6 vendor/client and direct-site notice",
+          "url": "https://prtimes.jp/main/html/rd/p/000000326.000019259.html",
+          "date": "2026-11-06",
+          "kind": "primary"
         }
       ],
-      "correction": "The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it.",
+      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it.",
       "disclosureDate": "2026-10-29",
       "detail": {
         "whatHappened": "ARARA and Paycloud say unauthorized access occurred in the ARARA Message email-delivery system, which was abused to send phishing email impersonating card companies. The Nov 6 third report says the incident scope proved substantially larger than in earlier reports. ARARA stopped all service on Oct 31.",
-        "exposure": "The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers.",
+        "exposure": "Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers.",
         "fix": "ARARA says it stopped the service on Oct 31 and is contacting potentially affected clients, working with police and relevant privacy/communications authorities, and investigating with external specialists. Restart timing is undecided pending remediation, independent security confirmation and client credential resets.",
-        "remaining": "The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records."
+        "remaining": "Kakaku and PLM client counts are non-additive slices, with cross-client overlap unstated. PLM direct-site email overlap is also unknown. The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records."
       }
     },
     {
@@ -6875,6 +6887,67 @@
           "label": "Previdian · Attempts-only sensor qualification",
           "url": "https://previdian.com/CVE-2026-123158",
           "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "chiba-lotte-plm-smartphone-site-download-2026",
+      "name": "Chiba Lotte Marines: smartphone-site email and nickname file downloaded",
+      "subject": "Chiba Lotte Marines / PLM",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-30",
+      "disclosureDate": "2026-11-06",
+      "dateLabel": "Direct access/download Oct 30, 2026; suspicious page detected Nov 4; counts confirmed/disclosed Nov 6",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "PLM confirms a direct compromise of Chiba Lotte Marines' official smartphone-site management system. An Oct 30 access downloaded a file containing 11,875 email-address records and 37,070 registered nickname records, including former paid members. The field counts may overlap and are not summed into people. This is distinct from five clubs' ARARA email-delivery incident; overlap with Marines' 2,618 ARARA email records is unknown. Names, payment data and fan-club records are excluded. Emergency maintenance and external investigation were underway, with no restoration date in the Nov 6 notice.",
+      "correction": "11,875 emails and 37,070 nicknames are field-record counts, not additive people. Overlap with each other and ARARA is unknown. Direct-site event is separate from vendor access; fan-club records excluded.",
+      "detail": {
+        "whatHappened": "PLM says a suspicious page was found Nov 4 in the Marines site management system. Investigation established unauthorized access and file download Oct 30; the email/nickname counts were established Nov 6. The same issuer notice separately reports ARARA-delivery exposure, not the cause of this direct-site event.",
+        "exposure": "The downloaded file held 11,875 email-address records and 37,070 registered nickname records for official smartphone-site paid members, including former members. The notice gives no relationship between those two field counts or their overlap with the Marines ARARA slice. Names, credit-card/payment data and fan-club membership data are out of scope.",
+        "fix": "PLM says emergency maintenance followed detection, with external specialists investigating and addressing vulnerabilities. Restoration timing was unknown as of the Nov 6 notice; further investigation and authority reporting were planned.",
+        "remaining": "Unique-person count, field-count overlap and overlap with ARARA are unstated. No secondary misuse had been confirmed at notice time; this is not proof of no later misuse."
+      },
+      "sources": [
+        {
+          "label": "PLM · Direct-site download and distinct ARARA component · Original source",
+          "url": "https://prtimes.jp/main/html/rd/p/000000326.000019259.html",
+          "date": "2026-11-06",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ntt-smile-energy-e-point-unauthorized-exchanges-2026",
+      "name": "Smile e-Point: ~14,000 unauthorized exchanges used 8M points",
+      "subject": "NTT Smile Energy / Smile e-Point",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-30",
+      "disclosureDate": "2026-11-06",
+      "dateLabel": "Unauthorized exchanges Oct 30-31, 2026; exchange service stopped Oct 31; disclosed Nov 6 during investigation of Oct 28 Eco Megane access",
+      "tags": [
+        "breach",
+        "credentials"
+      ],
+      "summary": "NTT Smile Energy confirms unauthorized reading of Smile e-Point exchange data followed by about 14,000 fraudulent digital-gift exchanges totaling 8,000,000 points on Oct 30-31. About 29,000 unexchanged-data cases as of Oct 28 form a reference for potentially viewed records, not confirmed victims. These are exchange cases and points, not unique people or currency. The company had not confirmed customer identity/contact-data leakage. It discovered this while investigating Oct 28 Eco Megane access, but the exact shared access path is not established. Exchanges were stopped and full point compensation promised to Oct 28 holders.",
+      "correction": "~14,000 fraudulent exchange cases / 8M points; ~29,000 potentially viewed cases is a reference population, not extra victims. No money conversion or unique-person count. Eco Megane association does not establish a shared access path.",
+      "detail": {
+        "whatHappened": "During investigation of Oct 28 unauthorized Eco Megane access, NTT Smile Energy found Smile e-Point management numbers, exchange URLs and point amounts had been read without authorization and used for bulk gift exchanges. The notice does not establish that both components used the same access path.",
+        "exposure": "About 1,500 unauthorized exchanges / 1M points occurred Oct 30 and 12,500 / 7M points Oct 31, totaling ~14,000 cases / 8M points. The ~29,000 reference is unexchanged cases as of Oct 28 at 00:00 that may have been viewed, not people. Names, addresses and contact-information leakage had not been confirmed. Omron Points is explicitly not affected.",
+        "fix": "The exchange partner detected the surge and stopped exchanges Oct 31. NTT Smile Energy promised full point compensation to holders as of Oct 28, with individual instructions to follow. It had made an initial privacy-authority report and was preparing police reporting and a support channel; forensic investigation continued.",
+        "remaining": "Affected unique people, currency value and exact access path are not established. Potentially viewed cases and fraudulent exchanges are different groups, not additive victims. Compensation was promised, not verified completed."
+      },
+      "sources": [
+        {
+          "label": "NTT Smile Energy · Nov 6 Smile e-Point / Eco Megane investigation notice",
+          "url": "https://prtimes.jp/main/html/rd/p/000000143.000005498.html",
+          "date": "2026-11-06",
           "kind": "primary"
         }
       ]
