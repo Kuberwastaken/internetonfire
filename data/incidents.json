@@ -3666,7 +3666,7 @@
       "id": "amadeus-pss-airline-breach",
       "name": "Amadeus booking-system breach cascades across airlines: Korean Air, Asiana, JAL, ANA, Star Flyer, Malaysia Airlines, Cathay Pacific, Singapore Airlines confirm passenger data exposure; Condor reported affected",
       "subject": "Amadeus",
-      "summary": "A vulnerability in Amadeus's travel booking display environment - disclosed Oct 1 as unexploited - turns out to have been abused: Korean Air and Asiana confirmed customer leaks Oct 23, JAL says unauthorized access ran from Aug 2023 to Sep 2026 and exposed ~92,000 customers' booking data (passport numbers for ~2,000), ANA and Star Flyer posted their own notices, and Malaysia Airlines confirmed Oct 30 that certain customer information processed through Amadeus between Aug 2023 and Sep 2026 may be affected. Cathay Pacific confirmed Oct 30 that about 53,000 bookings were affected by unauthorized access to Amadeus-held reservation data. Amadeus serves 400+ airlines; the full scope is unconfirmed. Qantas said Nov 2 that Amadeus advised it of unauthorized access and it is assessing whether any of its bookings were affected; no Qantas customer-data exposure has been confirmed. In a Nov 2 statement reported by the New Straits Times, Amadeus said it has taken measures to fix the vulnerability, that certain booking-display data was accessible through it, and that investigations continue with no evidence payment or financial data was accessed and no indications of ransomware exploitation. On Nov 3, Singapore Airlines said, in statements reported by CNA, The Straits Times and AsiaOne, that about 46,000 SIA booking records were accessed in a breach on Amadeus's platform; for about 620 of those records, email addresses, phone numbers, travel-document details and KrisFlyer membership numbers may also have been accessed. SIA says its own IT systems were not breached. On Nov 1, Korean travel-information provider TOPAS posted its own notice that signs of some customers' booking codes (PNRs) leaking from Amadeus systems had been confirmed, citing an estimated incident period of Aug 10, 2023 to Sep 23, 2026 that is still under investigation. On Nov 4, aeroTELEGRAPH reported that a Condor spokeswoman told it, to current knowledge, Condor customer records held in an Amadeus-operated system are affected - no count or fields disclosed, and no Condor primary notice found; on Nov 6, Bangkok Airways said the incident may have affected some of its passengers' booking information, without confirming any exposure. On Nov 6, Norway’s National Security Authority (NSM) said Amadeus told it a threat actor had access for at least three years, sensitive data leaked, and the vulnerability was closed Sep 23, 2026; NSM listed possible fields by booking type, but did not identify affected airlines or confirm specific Norwegian bookings were accessed.",
+      "summary": "A vulnerability in Amadeus's travel booking display environment - disclosed Oct 1 as unexploited - turns out to have been abused: Korean Air and Asiana confirmed customer leaks Oct 23, JAL says unauthorized access ran from Aug 2023 to Sep 2026 and exposed ~92,000 customers' booking data (passport numbers for ~2,000), ANA and Star Flyer posted their own notices, and Malaysia Airlines confirmed Oct 30 that certain customer information processed through Amadeus between Aug 2023 and Sep 2026 may be affected. Cathay Pacific confirmed Oct 30 that about 53,000 bookings were affected by unauthorized access to Amadeus-held reservation data. Amadeus serves 400+ airlines; the full scope is unconfirmed. Qantas said Nov 2 that Amadeus advised it of unauthorized access and it is assessing whether any of its bookings were affected; no Qantas customer-data exposure has been confirmed. In a Nov 2 statement reported by the New Straits Times, Amadeus said it has taken measures to fix the vulnerability, that certain booking-display data was accessible through it, and that investigations continue with no evidence payment or financial data was accessed and no indications of ransomware exploitation. On Nov 3, Singapore Airlines said, in statements reported by CNA, The Straits Times and AsiaOne, that about 46,000 SIA booking records were accessed in a breach on Amadeus's platform; for about 620 of those records, email addresses, phone numbers, travel-document details and KrisFlyer membership numbers may also have been accessed. SIA says its own IT systems were not breached. On Nov 1, Korean travel-information provider TOPAS posted its own notice that signs of some customers' booking codes (PNRs) leaking from Amadeus systems had been confirmed, citing an estimated incident period of Aug 10, 2023 to Sep 23, 2026 that is still under investigation. On Nov 4, aeroTELEGRAPH reported that a Condor spokeswoman told it, to current knowledge, Condor customer records held in an Amadeus-operated system are affected - no count or fields disclosed, and no Condor primary notice found; on Nov 6, Bangkok Airways said the incident may have affected some of its passengers' booking information, without confirming any exposure. On Nov 6, Norway’s National Security Authority (NSM) said Amadeus told it a threat actor had access for at least three years, sensitive data leaked, and the vulnerability was closed Sep 23, 2026; NSM listed possible fields by booking type, but did not identify affected airlines or confirm specific Norwegian bookings were accessed. On Nov 9, THAI said about 60,529 passenger records held by Amadeus may have been accessed during Aug 10, 2023-Sep 23, 2026, including name, PNR, travel date, route and cabin class; about 376 of those records may additionally involve email, phone, passport number, nationality, frequent-flyer number and other flight/ticket/seat details. THAI says card data was unaffected, its own systems and operations were not impacted, and it had not found evidence the data was disclosed. Passenger review and individual notification continue; these record counts are not summed with other airlines.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-23",
@@ -3802,6 +3802,12 @@
           "url": "https://nsm.no/aktuelt/reiseopplysninger-kompromittert-hos-spansk-leverandor",
           "kind": "primary",
           "date": "2026-11-06"
+        },
+        {
+          "label": "THAI · Amadeus passenger-data notice · Original source",
+          "url": "https://www.thaiairways.com/en-us/content/news-and-announcements/amadeus-reports-unauthorized-access-to-thai-passenger-data/",
+          "date": "2026-11-09",
+          "kind": "primary"
         }
       ],
       "correction": "Amadeus's Oct 1 statement said the vulnerability had not been exploited by ransomware actors; subsequent airline confirmations show the flaw was maliciously exploited. JAL's ~90,000 + ~2,000 figures are JAL's customers only, not a total. Cathay Pacific's own Oct 30 notice confirms about 53,000 bookings were affected by unauthorized access to Amadeus-held reservation data. NH Travel's inclusion of its own customers remains unconfirmed - its Nov 4 notice only relays TOPAS's report and says NH is checking through TOPAS. TOPAS's estimated Aug 2023 - Sep 2026 window is under investigation, not a proven global window. Bangkok Airways reported only potential impact, so it is not a confirmed affected carrier; each airline's figures are its own and are not a combined total.",
@@ -6316,6 +6322,125 @@
           "kind": "primary",
           "date": "2026-11-09"
         }
+      ]
+    },
+    {
+      "id": "sony-life-insurance-customer-system-leak-2026",
+      "name": "Sony Life: reported 2.9M additional customer records leaked",
+      "subject": "Sony Life Insurance",
+      "status": "reported",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-10-28",
+      "dateLabel": "Detected Oct 27, 2026; first disclosure Oct 28; reported expansion Nov 9; actual access start unknown",
+      "summary": "Reporting says Sony Life announced about 2.9 million additional customer records leaked from its customer portal and related systems on Nov 9, including former customers, bringing the customer total across announcements to about 3.29 million. The additional customer fields are policy number, name, address and phone; health or medical history, My Number, card and bank-account data were reportedly not involved. The earlier Oct 28 announcement covered about 385,000 Medicare Life contract records handled by Sony Life as an agent, including name, birth date, sex, address, phone, policy number and contract details. Separate reported groups include about 12,500 employee records and 780 agency-salesperson records, including email and company-issued numbers. Abnormal access was detected Oct 27; the intrusion start and method remain unknown. No misuse was reported.",
+      "correction": "Nov 9 expansion is secondary-reported; the Sony Life primary notice has not been retrieved. About 2.9M is additional to the earlier 385,000. Employee and agent counts are separate, not added to the customer headline.",
+      "sources": [
+        {
+          "label": "Medicare Life · Notice dated Oct 28 (PDF) · Original source",
+          "url": "https://www.medicarelife.com/pdf/20261029.pdf",
+          "date": "2026-10-28",
+          "kind": "primary"
+        },
+        {
+          "label": "Insurance Journal · Mirror of Sony Life Oct 28 notice",
+          "url": "https://ins-journal.com/articles/44de1d4bdae3/",
+          "date": "2026-10-28",
+          "kind": "report"
+        },
+        {
+          "label": "Nikkei · Nov 9 expansion reporting",
+          "url": "https://www.nikkei.com/article/DGXZQOUB097T20Z01C26A1000000/",
+          "date": "2026-11-09",
+          "kind": "report"
+        }
+      ],
+      "tags": [
+        "breach",
+        "data-leak",
+        "finance"
+      ]
+    },
+    {
+      "id": "credit-saison-benefit-one-subcontractor-leak-2026",
+      "name": "Saison / Benefit One: 198,660 people affected, 2,622 with PII; rest identifier-only",
+      "subject": "Credit Saison / Benefit One",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-19",
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Subcontractor access Oct 19, 2026; service paused Oct 22; Saison notice Nov 9, earliest public disclosure unverified",
+      "summary": "Credit Saison says a Benefit One subcontractor system used for Selectable Gold Benefits for SAISON GOLD Premium members was accessed without authorization Oct 19. Its Nov 9 notice confirms 198,660 distinct people after deduplication, but only 2,622 had personal details involved; the rest had internal identifiers only. Four mutually exclusive groups are 2,617 with varying name, kana, sex, birth date, phone, email and postcode plus Saison/Benefit One identifiers; five with personal fields and Benefit One identifiers but no Saison ID; 42,358 with Saison and Benefit One identifiers only; and 153,680 with Saison identifier only. Payment card number, expiry and security code were not involved. Benefit One first reported the 2,622 personal-data cases to Saison Oct 28 and additional internal identifiers Nov 5. The service has been paused since Oct 22 with no restart date; no misuse is confirmed. The subcontractor is not named.",
+      "correction": "198,660 is deduplicated people, not 198,660 full-PII cases: 2,622 had personal details; the rest identifiers only. Fields vary. Nov 9 is the verified issuer notice, not a verified earliest public disclosure. Do not conflate other Benefit One incidents.",
+      "sources": [
+        {
+          "label": "Credit Saison · Selectable Gold Benefits data leak notice · Original source",
+          "url": "https://www.saisoncard.co.jp/customer-support/information/20261109/",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ],
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ]
+    },
+    {
+      "id": "seoul-pass-travolution-reservation-leak-2026",
+      "name": "Seoul PASS / Travolution: booking information leaked after two access events",
+      "subject": "Seoul PASS / Travolution",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-06",
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Unauthorized access Nov 6 and Nov 8, 2026, each detected and blocked that day; disclosed Nov 9",
+      "summary": "Travolution, operator of Seoul PASS, confirms reservation information was viewed and some customer information leaked after unauthorized access to its reservation-management system Nov 6 and Nov 8. Each event was detected and blocked the same day. Affected bookings mainly have use dates in 2022-2026; the number is not disclosed. Fields vary: booker name, email, phone, nationality, order number, product, use date and party size; some records also include booking-form answers and ticket codes. Most bookings carried only name and booking details, with email and phone in some. Payment card, bank data and passwords were not included. Travolution blocked the route and accounts, replaced servers and security keys, invalidated issued access rights, reported to authorities and is notifying users. Its notice offers a Check My Information page.",
+      "correction": "Count undisclosed, not zero. Fields vary; most records contained name and booking details, with contact data in some. Two access events belong to this reservation-system incident. No payment card, bank data or passwords included.",
+      "sources": [
+        {
+          "label": "Seoul PASS / Travolution · Privacy incident notice · Original source",
+          "url": "https://www.seoultravelpass.com/en/notices/privacy-incident-2026-11",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ],
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ]
+    },
+    {
+      "id": "eztravel-historical-booking-contact-leak-2026",
+      "name": "ezTravel: over 690,000 people reportedly affected by booking-contact data theft",
+      "subject": "ezTravel",
+      "status": "reported",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Unusual member-center activity detected Nov 7, 2026; reported disclosure Nov 9; actual access start unstated",
+      "summary": "CNA and Focus Taiwan report that ezTravel detected abnormal external attack activity at its member center Nov 7 and found historical order contact data improperly obtained. According to the quoted company statement, over 690,000 people were affected after deduplication; possible fields include name, email, phone and purchase or booking details. The company says credit-card numbers, security codes, login passwords, passport numbers and national ID numbers were not involved, and payment/transaction systems are separate. It blocked traffic, hired an external forensic team, notified authorities and police within the legal deadline, and sent customers SMS and email scam warnings. A company-hosted notice has not been recovered.",
+      "correction": "Secondary-reported company statement, not a retrieved primary notice. Over 690,000 counts deduplicated people. Nov 7 is detection, not established access start; field scope remains qualified.",
+      "sources": [
+        {
+          "label": "CNA · ezTravel company-statement reporting",
+          "url": "https://www.cna.com.tw/news/ahel/202611090202.aspx",
+          "date": "2026-11-09",
+          "kind": "report"
+        },
+        {
+          "label": "Focus Taiwan · ezTravel company-statement reporting",
+          "url": "https://focustaiwan.tw/society/202611090021",
+          "date": "2026-11-09",
+          "kind": "report"
+        }
+      ],
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
       ]
     }
   ]
