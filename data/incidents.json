@@ -6662,6 +6662,37 @@
           "kind": "primary"
         }
       ]
+    },
+    {
+      "id": "opendoor-travelko-newsletter-website-leak-2026",
+      "name": "Travelko: 381,926 newsletter email records leaked from website",
+      "subject": "OpenDoor / Travelko",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Unauthorized access and leakage confirmed Nov 6, 2026; disclosed Nov 9; access start not stated",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "OpenDoor confirms that unauthorized access to Travelko's website leaked 381,926 newsletter email-address records. Of these, 152,655 also contained prefecture and 616 contained postal code; overlap between those field subsets is unstated. These are records, not a verified unique-person count. OpenDoor says this is separate from the ARARA email-contractor incident announced Nov 4, although most leaked email addresses overlap. It excludes names, street addresses, phone numbers, gender, birth dates, passwords and card data. The newsletter is paused; other services remain available. The company reports containment and no observed publication or misuse as of Nov 9.",
+      "correction": "Separate website incident from ARARA; most leaked emails overlap. Do not add the counts. 381,926 counts address records, not verified unique people; 152,655 prefecture and 616 postal-code records are subsets, not extra victims.",
+      "detail": {
+        "whatHappened": "OpenDoor says it confirmed third-party access to the Travelko website and external leakage of newsletter email addresses on Nov 6. Its Nov 9 notice distinguishes this website incident from the ARARA newsletter-delivery contractor incident it announced Nov 4. Actual access start and the technical intrusion route are not disclosed.",
+        "exposure": "381,926 newsletter email-address records leaked. Within them, 152,655 included prefecture and 616 included postal code; overlap between those subsets is not stated. OpenDoor explicitly excludes names, street addresses, phone numbers, gender, birth dates, passwords and credit-card information. Most emails overlap with the separate ARARA incident, so counts must not be summed.",
+        "fix": "OpenDoor says it blocked the intrusion route and completed security measures, with monitoring and stronger access controls continuing. The newsletter is paused, while other services remain available. Police were consulted and the Personal Information Protection Commission and other authorities informed. Individual email notifications were being prepared after checking the two incidents' affected scopes.",
+        "remaining": "Access start and unique-person count are unstated. Most emails overlap with ARARA, but exact overlap is not given. No publication or misuse had been confirmed by OpenDoor as of Nov 9; this is a report-time assessment, not proof of no later misuse."
+      },
+      "sources": [
+        {
+          "label": "OpenDoor · Nov 9 Travelko website incident notice · Original source",
+          "url": "https://www.opendoor.co.jp/shared/pdf/20261109_info.pdf",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
     }
   ]
 }
