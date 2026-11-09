@@ -2,6 +2,60 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "qubole-trusted-aws-roles-data-theft-2026",
+      "name": "Qubole-trusted AWS roles abused to steal customer secrets and S3 data",
+      "subject": "Qubole",
+      "summary": "Wiz CIRT, working with Sentra and Mandiant, observed an actor using IAM credentials from an AWS account associated with Qubole to assume trusted integration roles in multiple customer AWS environments from Oct 14-26. The actor harvested Lambda environment variables, Secrets Manager secrets and SSM parameters, tested discovered AWS, Entra ID and Okta credentials, and exfiltrated S3 data, including entire buckets in some sessions. Customer counts, data volumes and how the vendor-associated credentials were obtained are not disclosed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-10-14",
+      "dateLabel": "Main researcher-observed campaign Oct 14-26, 2026; Wiz research published Nov 9, 2026",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "cloud",
+        "exploited"
+      ],
+      "sources": [
+        {
+          "label": "Wiz CIRT · Trusted by Default: Qubole Cross-Account Access Abused in the Wild · Original research",
+          "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "Confirmed means researcher-observed intrusion/exfiltration, not vendor-confirmed scope or completed remediation. Wiz explicitly could not link separate Oct 8-11 customer-owned key abuse to this campaign; those dates are not combined. Its analyzed ISO had no identified deployments or confirmed use. Missing S3 logs limited object-level visibility in several environments. No link to other public campaigns or actor motive is established."
+    },
+    {
+      "id": "wyndham-android-credential-database-exposure-2026",
+      "name": "Wyndham Android app credential reportedly exposed customer database",
+      "subject": "Wyndham Hotels & Resorts",
+      "summary": "TechCrunch reports that researcher Robert Wiggins found a hardcoded credential in Wyndham's Android app granting access to a Salesforce-hosted company database. Wiggins said it exposed customer names, email addresses, membership numbers, login JWTs and company files. The credential was revoked after TechCrunch contacted Wyndham. The company told TechCrunch it had taken steps to address the issue and had no evidence of unauthorized access; it did not say whether it had logs to check earlier access. Exposure duration and affected-customer count are unknown.",
+      "status": "reported",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Exposure start and duration unknown; TechCrunch report Nov 9, 2026",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "vulnerability",
+        "credentials",
+        "data-leak",
+        "privacy",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "TechCrunch · Wyndham app credential exposure, researcher findings and company response",
+          "url": "https://techcrunch.com/2026/11/09/hotel-giant-wyndham-exposed-customer-data-after-app-security-lapse/",
+          "kind": "report",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "Reported exposure, not established malicious access or data theft. Wiggins could not determine an accurate customer-record count; his millions of database entries and Wyndham's rewards-member total are not impact counts. Credential revocation is reported, but a permanent app fix, prior-access visibility and notification plans were not established. No company-hosted notice or researcher primary write-up is cited."
+    },
+    {
       "id": "kinkos-japan-arara-message-customer-leak-2026",
       "name": "Kinko's Japan: Smart Membership data leaked via ARARA Message",
       "subject": "Kinko's Japan",
