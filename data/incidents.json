@@ -6140,6 +6140,37 @@
           "date": "2026-11-09"
         }
       ]
+    },
+    {
+      "id": "kobo-bus-reservation-api-unauthorized-access-2026",
+      "subject": "Kobo",
+      "name": "Kobo: bus reservation API leak, up to 8,341 records potentially affected",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-09-16",
+      "dateLabel": "Suspicious access Sep 16-19, 2026; detected Oct 13; first disclosed Oct 15, 2026 (Japan Bus Online notice Nov 9)",
+      "disclosureDate": "2026-10-15",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "Japanese bus-ticket operator Kobo Co., Ltd. says a third party accessed an API server behind its highway-bus reservation services (Hassha Orai Net, Japan Bus Online) on Sep 16-19, 2026. Kobo detected it Oct 13 and confirmed some reservation data leaked before the server was blocked. Leaked data: reservation name, phone number and trip details (date, route, reservation number). Kobo says card, bank, address, email and password data were not on that server. Up to 8,341 records / 5,614 people (provisional, final confirmation ongoing); 1,986 records / 1,358 people are Japan Bus Online customers (a subset, not additional). Kobo has reported it to the regulator and police and warns of phishing SMS and calls.",
+      "correction": "Counts are Kobo's maximums, still being confirmed. Records and people are different units. The Japan Bus Online figure is a subset. No misuse reported.",
+      "sources": [
+        {
+          "label": "Kobo notice, Oct 15 (JA, PDF)",
+          "url": "https://www.khobho.co.jp/wp-content/themes/kobo/pdf/20261015.pdf",
+          "kind": "primary",
+          "date": "2026-10-15"
+        },
+        {
+          "label": "Japan Bus Online notice, Nov 9 (EN)",
+          "url": "https://www.japanbusonline.com/en/Home/Notice/001",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ]
     }
   ]
 }
