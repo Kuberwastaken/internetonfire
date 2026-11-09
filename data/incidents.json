@@ -6171,6 +6171,38 @@
           "date": "2026-11-09"
         }
       ]
+    },
+    {
+      "id": "docomo-my-docomo-online-shop-leak-2026",
+      "subject": "Docomo",
+      "name": "Docomo: My docomo / Online Shop leak, up to 300,000 records potentially affected",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Unauthorized access confirmed Nov 4, 2026; emergency maintenance from Nov 5 ~01:05 JST; first leak disclosure Nov 5; fourth report Nov 9 with partial My docomo restoration",
+      "disclosureDate": "2026-11-05",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "outage"
+      ],
+      "summary": "NTT Docomo confirmed that external unauthorized access to My docomo and Docomo Online Shop on Nov 4 caused customer information to leak before emergency maintenance began Nov 5. Up to about 300,000 records are potentially affected; the final count and scope remain under investigation, and the maximum is not stated as a count of people. Its Nov 9 fourth report lists names, birth dates, ages, addresses, phone numbers, emails, ID document numbers, mobile numbers, contract start dates, plans, options and discounts; some customers' data also includes legal-agent or proxy contacts, employer or company details, bank name, branch, account number and account holder, and childcare-program information. Docomo says it addressed the confirmed access route and most My docomo procedures began resuming around 15:00 JST Nov 9. Docomo Online Shop and listed My docomo procedures remain under emergency maintenance with no restart date. No new leakage was confirmed as of the fourth report; investigation continues and Docomo warns of impersonation emails, SMS and calls.",
+      "correction": "300,000 is a provisional maximum record count, not people or confirmed extraction of every record. Final scope remains under investigation. Some fields apply only to some customers. My docomo partial recovery does not mean Online Shop restoration.",
+      "sources": [
+        {
+          "label": "Docomo · Second report: first confirmed leak disclosure · Original source",
+          "url": "https://www.docomo.ne.jp/info/notice/page/261105_03_m.html",
+          "kind": "primary",
+          "date": "2026-11-05"
+        },
+        {
+          "label": "Docomo · Fourth report: scope and partial service restoration · Original source",
+          "url": "https://www.docomo.ne.jp/info/notice/page/261109_00_m.html",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ]
     }
   ]
 }
