@@ -6951,6 +6951,107 @@
           "kind": "primary"
         }
       ]
+    },
+    {
+      "id": "fireworks-ai-october-security-incident-2026",
+      "name": "Fireworks AI: October incident expands to billing and limited model data",
+      "subject": "Fireworks AI",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-10-09",
+      "dateLabel": "Identified Oct 6, 2026; first bulletin Oct 9 at 22:00 PDT; further activity Oct 24; expanded update Nov 9; initial access start unknown",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "ai"
+      ],
+      "summary": "Fireworks' Nov 9 update expands its October incident from stored evaluation-job secrets to account and billing data, plus secrets, datasets and incomplete model weights for a limited set of accounts. A further Oct 24 workload on development machines, reached through a third-party cloud-provider incident, caused additional customer-data impact. The company says it detected that activity the same day. Its no-further-successful-access finding is explicitly as of Oct 25, not current proof. Card numbers were not stored or impacted. No customer total is disclosed; self-serve dataset upload/download is disabled during investigation, while Training SDK and isolated Lab training remain available.",
+      "correction": "Expanded scope supersedes earlier secrets-only findings. Limited account/model scope, not all customers/models. No-further-access evidence stops Oct 25; investigation continues. Card numbers not stored or impacted.",
+      "detail": {
+        "whatHappened": "The original bulletin says Fireworks identified unauthorized internal-credential use Oct 6 and published Oct 9 at 22:00 PDT. The Nov 9 update reports a cloud-provider incident Oct 23 followed by access to Fireworks development machines and an unauthorized workload Oct 24. Initial intrusion start is unstated; October 9 is disclosure, not the later activity date.",
+        "exposure": "Accessible internal-app information included resource identifiers/names/descriptions/timestamps and billing/shipping addresses, invoices, payment history, account balances and credit usage. Certain customers had a subset of incomplete model weights and datasets accessed; secrets were also impacted in limited accounts. No account total is given. Payment-card numbers were not stored or affected.",
+        "fix": "Fireworks says it revoked/replaced credentials and service accounts, reduced privileges, isolated systems and tightened data access/logging with Unit 42. Batch Inference and dataset-training self-serve uploads/downloads are disabled during investigation. Training SDK remains available with ZDR and Lab training is isolated. Customers are being notified.",
+        "remaining": "No-further-successful-access evidence is as of Oct 25, not Nov 9 or current proof. No impact detected to Inference, Training SDK or Nexus is the company's investigation-to-date assessment, subject to change. Total accounts and full impact remain unquantified."
+      },
+      "sources": [
+        {
+          "label": "Fireworks · Original October bulletin and dated publication timeline",
+          "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident",
+          "date": "2026-10-10",
+          "kind": "primary"
+        },
+        {
+          "label": "Fireworks · Expanded incident update Nov 9",
+          "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "yojiya-membership-api-data-extraction-2026",
+      "name": "Yojiya: 131,557 people confirmed affected by membership API extraction",
+      "subject": "Yojiya Group",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-11-07",
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "Unauthorized API access/extraction confirmed early Nov 7, 2026; first report Nov 9",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "Yojiya confirms membership-system data extraction affecting 131,557 people, with a maximum potential scope of 134,344 people registered as of Nov 7 across stores, ecommerce and app. The figures are confirmed versus potential people, not additive. Listed data includes name/kana, address, phone, birth date, sex, email, member details and purchase statistics. Payment data and member login passwords were not held. Yojiya disabled/replaced a potentially used API key, blocked source IPs and added API restrictions. Services remain available; how the key was exposed is still under investigation. No misuse had been confirmed as of Nov 9.",
+      "correction": "131,557 confirmed people versus 134,344 maximum potential people; do not sum. API key exposure route unknown. No misuse as of Nov 9 is a report-time assessment, not proof of no later misuse.",
+      "detail": {
+        "whatHappened": "Yojiya says unauthorized access to its membership-information API was confirmed early Nov 7 and member data was obtained externally. Its Nov 9 first report concerns some members registered across stores, online shop and app as of Nov 7.",
+        "exposure": "Confirmed leakage covers 131,557 people; maximum potential scope is 134,344 people. Listed fields are names/kana, address, phone, DOB, sex, email, member-number-type information and purchase statistics. The notice does not establish every field for every person. Payment/card data and member login passwords were not held.",
+        "fix": "Yojiya says it invalidated/reissued the possibly used API authentication key, blocked source IPs and added API access restrictions. Customer emails and authority/police reporting were being arranged. Stores, online shop and app remain available; stronger app version and point-redemption identity checks are being introduced.",
+        "remaining": "The API-key exposure route and final potential scope remain under investigation. No misuse had been confirmed as of Nov 9; that does not establish no later misuse or full resolution."
+      },
+      "sources": [
+        {
+          "label": "Yojiya · Nov 9 first membership-system incident report",
+          "url": "https://www.yojiya.co.jp/261109-01",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "dennys-japan-app-migration-unauthorized-access-2026",
+      "name": "Denny's Japan: 5,590 accessed accounts; 3,298 people with leaked data",
+      "subject": "Denny's Japan",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "disclosureDate": "2026-11-03",
+      "dateLabel": "Unauthorized credential creation discovered Oct 30, 2026; first report Nov 3; counts finalized Nov 8 and updated Nov 9; access start unstated",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "Denny's Japan's Nov 9 second report says unauthorized credential creation in old-to-new app migration allowed access affecting 5,590 people; confirmed personal-information leakage affected 3,298 unique people. These are different scopes, not additive. Leaked field counts overlap: 2,851 member-code items, 19 emails, 538 basic-profile items, 91 favorite-store items and 71 kids'-birthday items. The app held no names, street addresses, phone numbers, passwords or card data. Denny's says the impact-scope investigation is complete, but cause and safety review continue. This updates the Nov 3 incident, not a new access event.",
+      "correction": "5,590 people with unauthorized access versus 3,298 deduplicated people with leakage. Field-item counts overlap and must not be summed into people. Scope investigation complete does not mean cause/safety review complete.",
+      "detail": {
+        "whatHappened": "Denny's says migration processing from its old app allowed a third party to create unauthorized authentication credentials. Suspicious-access investigation identified this Oct 30. The Nov 9 second report updates the Nov 3 first report; initial access timing is unstated.",
+        "exposure": "Unauthorized access was confirmed for 5,590 people; personal-information leakage for 3,298 unique people. Field-item counts: member codes 2,851; emails 19; DOB/sex/prefecture profile data 538; favorite stores 91; kids' birthdays 71. Customers overlap across fields. Names, street addresses, phone numbers, passwords and card data were not held in the app.",
+        "fix": "System changes Oct 30 blocked new unauthorized credential creation. Known credentials were invalidated Oct 31, Nov 2 and Nov 5-6. Counts were finalized Nov 8; affected customers are being emailed. The privacy authority was notified Oct 31 and updated Nov 5. Some users may need to log in again.",
+        "remaining": "Denny's says access/leak impact scope is complete, while cause investigation and safety checks continue with specialists and the developer. Initial access start is not stated; overlapping field counts are not additional victims."
+      },
+      "sources": [
+        {
+          "label": "Denny's Japan · Nov 9 second report, linked to Nov 3 first report",
+          "url": "https://www.dennys.jp/pdf/261109.pdf",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
     }
   ]
 }
