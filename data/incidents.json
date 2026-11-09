@@ -2,6 +2,85 @@
   "updated": "2026-11-09",
   "incidents": [
     {
+      "id": "mirae-asset-life-insurance-data-leak",
+      "name": "Mirae Asset Life Insurance: customer transaction and identity data leaked in hack",
+      "subject": "Mirae Asset Life Insurance",
+      "summary": "Mirae Asset Life Insurance confirmed a cyber intrusion after detecting abnormal symptoms in some systems on the evening of Oct 25, and verified early on Oct 26 with an external specialist organization that personal (credit) information had leaked - the first hacking-related data leak reported by a Korean insurer. The intrusion occurred in the customer subscription system and parts of the homepage. Per the company's notice, leaked items vary by customer and span customer transaction information (name, resident registration number, date of birth, phone number, email, address, connection information (CI), bank name, account number, account holder, signature, driver's license copy, retirement-income withholding receipt/payment statement, bankbook-copy lookup history, homepage consultation details (name, date of birth, gender, consultation title) and retirement pension status), other homepage service information excluding account numbers, and some employee information (name, email, mobile number). Reporting on the FSS on-site inspection puts the affected count at about 6,800 people. The company activated an emergency response system, blocked the attacking IPs, reported to the FSS, KISA and the Personal Information Protection Commission, and temporarily took its website offline; the FSS extended its on-site inspection as leaked items were expanded in early-November updates.",
+      "status": "confirmed",
+      "severity": "critical",
+      "date": "2026-10-25",
+      "dateLabel": "Abnormal symptoms detected Oct 25, 2026; leak confirmed early Oct 26; disclosed Oct 26, 2026; leaked-item list expanded in early-November updates",
+      "tags": [
+        "breach",
+        "data-leak",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Mirae Asset Life Insurance · Leak notice and apology · Original source",
+          "url": "https://life.miraeasset.com/micro/company/press/506.do",
+          "kind": "primary",
+          "date": "2026-10-26"
+        },
+        {
+          "label": "Yonhap Infomax · Reporting on the breach and FSS inspection",
+          "url": "https://en.infomaxai.com/news/articleView.html?idxno=145141",
+          "kind": "report",
+          "date": "2026-10-26"
+        },
+        {
+          "label": "Financial News · Reporting on expanded leaked items",
+          "url": "https://www.fnnews.com/news/202611021749022332",
+          "kind": "report",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "Herald Business · Reporting (~6,800 affected per on-site inspection)",
+          "url": "https://biz.heraldcorp.com/article/10929198",
+          "kind": "report",
+          "date": "2026-11-07"
+        }
+      ],
+      "correction": "Leaked items vary by customer - do not treat the full field list as applying to every affected person. The ~6,800 affected count comes from reporting on the FSS on-site inspection, not the company notice, which gives no count. The claim that the hacker viewed about 41 files is reported, and viewed files are not confirmed exfiltration scope. Bank account numbers appear in the leaked fields; homepage service information excludes account numbers. Any coordinated-campaign framing across Mirae Asset Group affiliates remains an industry view, not confirmed attribution.",
+      "disclosureDate": "2026-10-26"
+    },
+    {
+      "id": "mirae-asset-energy-infra-hack-attempt-2026",
+      "name": "Mirae Asset Energy Infrastructure Asset Management: hacking attempt blocked, no leak",
+      "subject": "Mirae Asset Energy Infra AM",
+      "summary": "Mirae Asset Energy Infrastructure Asset Management, the group's energy/infrastructure private-equity fund manager, detected an external intrusion attempt against its website around the same period as the attempt at Mirae Asset Global Investments, reported it to financial authorities and opened its own investigation. The company said the website is a promotional and disclosure site only and that no customer personal information or financial data was leaked; it tightened administrator access controls and account security immediately on detection and suspended the website for system stabilization. Mirae Asset Group said the external intrusion acts were blocked with no information leaked and no actual damage. Reporting notes the incident was not a PHP-related breach.",
+      "status": "reported",
+      "severity": "low",
+      "date": null,
+      "dateLabel": "Hacking attempt detected around early November 2026 and reported Nov 2; website suspended for system stabilization",
+      "tags": [
+        "breach",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Seoul Economic Daily · Reporting on the three-affiliate chain",
+          "url": "https://en.sedaily.com/finance/2026/11/02/three-mirae-asset-affiliates-hit-by-hacking-attempts-in",
+          "kind": "report",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "Edaily · Reporting with company statement",
+          "url": "https://www.edaily.co.kr/News/Read?newsId=04772406645641784",
+          "kind": "report",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "Etoday · Reporting with Mirae Asset Group statement",
+          "url": "https://www.etoday.co.kr/news/view/2643312",
+          "kind": "report",
+          "date": "2026-11-03"
+        }
+      ],
+      "correction": "An attempted intrusion only: per the company and Mirae Asset Group, no information was leaked and no damage occurred, and the affected site holds no customer personal or financial data - do not list this as a data leak. Detection timing is described only as around the same period as the Mirae Asset Global Investments attempt; the group-targeting analysis is an industry view, not confirmed attribution, so do not assert a shared attacker across the affiliate incidents.",
+      "disclosureDate": "2026-11-02"
+    },
+    {
       "id": "waseda-unauthorized-access-2026",
       "name": "Waseda University: 3,342 MyWaseda login records obtained in unauthorized access",
       "subject": "Waseda University",
