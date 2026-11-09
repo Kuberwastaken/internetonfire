@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "incidents": [
     {
       "id": "kinkos-japan-arara-message-customer-leak-2026",
@@ -6413,19 +6413,25 @@
     },
     {
       "id": "seoul-pass-travolution-reservation-leak-2026",
-      "name": "Seoul PASS / Travolution: booking information leaked after two access events",
-      "subject": "Seoul PASS / Travolution",
+      "name": "Travolution: Seoul PASS and Orderect booking information leaked",
+      "subject": "Travolution / Seoul PASS / Orderect",
       "status": "confirmed",
       "severity": "medium",
       "date": "2026-11-06",
       "disclosureDate": "2026-11-09",
       "dateLabel": "Unauthorized access Nov 6 and Nov 8, 2026, each detected and blocked that day; disclosed Nov 9",
-      "summary": "Travolution, operator of Seoul PASS, confirms reservation information was viewed and some customer information leaked after unauthorized access to its reservation-management system Nov 6 and Nov 8. Each event was detected and blocked the same day. Affected bookings mainly have use dates in 2022-2026; the number is not disclosed. Fields vary: booker name, email, phone, nationality, order number, product, use date and party size; some records also include booking-form answers and ticket codes. Most bookings carried only name and booking details, with email and phone in some. Payment card, bank data and passwords were not included. Travolution blocked the route and accounts, replaced servers and security keys, invalidated issued access rights, reported to authorities and is notifying users. Its notice offers a Check My Information page.",
-      "correction": "Count undisclosed, not zero. Fields vary; most records contained name and booking details, with contact data in some. Two access events belong to this reservation-system incident. No payment card, bank data or passwords included.",
+      "summary": "Travolution's Nov 9 notices for Seoul PASS and Orderect confirm reservation information was viewed and some customer information leaked after unauthorized access Nov 6 and Nov 8. Both notices describe the same dates and response; they are grouped here, not counted as separate incidents. Each event was detected and blocked that day. Affected bookings mainly have use dates in 2022-2026; brand populations and overlap are unknown. Fields vary: booker name, email, phone, nationality, order number, product, use date and party size, plus some booking-form inputs. Only the Seoul PASS notice explicitly lists ticket codes. Most bookings carried name and booking details; email and phone were present in some. Card data, bank data and passwords were excluded. Travolution says it blocked access, replaced servers/security keys, invalidated rights, notified authorities and is sending individual notices.",
+      "correction": "Brand populations and overlap are unknown: do not sum or count this as two incidents. Fields vary; ticket codes appear only in the Seoul PASS notice. No payment card, bank data or passwords included.",
       "sources": [
         {
           "label": "Seoul PASS / Travolution · Privacy incident notice · Original source",
           "url": "https://www.seoultravelpass.com/en/notices/privacy-incident-2026-11",
+          "date": "2026-11-09",
+          "kind": "primary"
+        },
+        {
+          "label": "Orderect / Travolution · Privacy incident notice · Original source",
+          "url": "https://www.orderect.com/en/notices/privacy-incident-2026-11",
           "date": "2026-11-09",
           "kind": "primary"
         }
@@ -6434,7 +6440,13 @@
         "breach",
         "data-leak",
         "privacy"
-      ]
+      ],
+      "detail": {
+        "whatHappened": "Both Nov 9 Travolution notices describe unauthorized reservation-system reads and customer-information leakage Nov 6 and Nov 8, each detected and blocked the same day. Matching operator, dates and response support grouping the brand notices here rather than adding a separate incident.",
+        "exposure": "Mainly bookings with use dates in 2022-2026. Fields vary by booking; most include booker name and booking details, while contact details occur in some. Extra booking inputs may be present; only Seoul PASS explicitly lists ticket codes. Brand populations, affected-person count and cross-brand overlap are unstated.",
+        "fix": "Travolution says it blocked the route and accounts, replaced servers and major security keys, invalidated issued access rights, strengthened access controls and notified authorities. Individual email notices are being sent to confirmed affected customers.",
+        "remaining": "Brand populations and overlap are unknown. The notices do not establish a unique-person total or that every listed field was leaked for every booking. Same-operator brand notices are grouped, not summed."
+      }
     },
     {
       "id": "eztravel-historical-booking-contact-leak-2026",
@@ -6738,20 +6750,20 @@
       "severity": "high",
       "date": "2026-11-02",
       "disclosureDate": "2026-11-02",
-      "dateLabel": "Attack night Nov 1-2, 2026; management access estimated Nov 2 at 02:00 MSK; first customer notice 04:50 MSK; status updated Nov 7",
+      "dateLabel": "Attack night Nov 1-2, 2026; management access estimated Nov 2 at 02:00 MSK; first customer notice 04:50 MSK; status updated Nov 7; backup-based recovery milestone reported Nov 8-9 via company-attributed press accounts",
       "tags": [
         "breach",
         "malware",
         "outage",
         "cloud"
       ],
-      "summary": "Beget confirms attackers accessed infrastructure management servers and launched malware designed to delete server data on Nov 2. It disconnected servers to contain the attack and began recovery. Its Nov 7-updated page still says recovery is in progress: unmanaged dedicated servers and DNS were restored, mail and shared hosting returned in stages, and the control panel has limited functionality. The company page does not quantify victims or establish loss of the entire cloud platform.",
+      "summary": "Beget confirms attackers accessed infrastructure management servers and launched malware designed to delete server data on Nov 2. It disconnected servers to contain the attack and began recovery. Its Nov 7-updated page still says recovery is in progress: unmanaged dedicated servers and DNS were restored, mail and shared hosting returned in stages, and the control panel has limited functionality. The company page does not quantify victims or establish loss of the entire cloud platform. Tatar-Inform's Nov 8 report, quoting Beget's press service, says infrastructure preparation was complete and restoration of shared-hosting websites from backups and transfer of VPS backups to users had begun. TKS's Nov 9 account also attributes this milestone to the company. No overall completion date was given; this is a secondary-reported start of recovery work, not universal service or data restoration.",
       "correction": "Destructive malware and infrastructure access are company-confirmed; total erased data and victim count are not. Partial recovery is not full restoration. No data-theft claim inferred.",
       "detail": {
         "whatHappened": "Beget estimates management-server access began Nov 2 at 02:00 MSK, destructive malware launched at 02:30 and unauthorized access detected at 02:40. All servers were disconnected at 02:55; investigation and recovery followed. Its first customer Telegram notice was at 04:50, per its own timeline.",
         "exposure": "The official page describes malware designed to delete server data, but gives no total erased-data volume, affected-person count or data-theft finding. Do not turn broader reporting of platform loss into a company-confirmed scope.",
-        "fix": "Beget reports unmanaged dedicated servers and DNS restored Nov 2, more than 80% of mail infrastructure Nov 3, and staged shared-hosting recovery. Its timeline reports 60% of shared hosting and 40% of managed dedicated servers restored Nov 5; the control panel has limited functionality. Page last updated Nov 7, recovery ongoing.",
-        "remaining": "Final loss scope, victim count and full restoration time are not stated. The Nov 7 page is an interim company status, not evidence all infrastructure or customer data was lost."
+        "fix": "Tatar-Inform's Nov 8 report, quoting Beget's press service, says infrastructure preparation was complete and restoration of shared-hosting websites from backups and transfer of VPS backups to users had begun. TKS's Nov 9 account also attributes this milestone to the company. No overall completion date was given; this is a secondary-reported start of recovery work, not universal service or data restoration. Beget reports unmanaged dedicated servers and DNS restored Nov 2, more than 80% of mail infrastructure Nov 3, and staged shared-hosting recovery. Its timeline reports 60% of shared hosting and 40% of managed dedicated servers restored Nov 5; the control panel has limited functionality. Page last updated Nov 7, recovery ongoing.",
+        "remaining": "Nov 8 backup-restoration milestone is company-attributed secondary reporting; no later primary status retrieved. Final loss scope, victim count and full restoration time are not stated. The Nov 7 page is an interim company status, not evidence all infrastructure or customer data was lost."
       },
       "sources": [
         {
@@ -6759,6 +6771,18 @@
           "url": "https://beget.com/en/about",
           "date": "2026-11-07",
           "kind": "primary"
+        },
+        {
+          "label": "Tatar-Inform · Nov 8 company-attributed recovery milestone",
+          "url": "https://www.tatar-inform.ru/news/provaider-beget-pristupil-k-vosstanovleniyu-saitov-iz-rezervnyx-kopii-6048164",
+          "date": "2026-11-08",
+          "kind": "report"
+        },
+        {
+          "label": "TKS · Company-attributed backup recovery account",
+          "url": "https://www.tks.ru/technology/2026/11/09/0001/beget-nachal-vosstanovlenie-saitov-iz-rezervnyh-kopiy/",
+          "date": "2026-11-09",
+          "kind": "report"
         }
       ]
     },
