@@ -2,6 +2,219 @@
   "updated": "2026-11-09",
   "incidents": [
     {
+      "id": "sega-arara-message-customer-leak-2026",
+      "name": "SEGA: 2.2M newsletter email addresses leaked via ARARA Message",
+      "subject": "SEGA",
+      "summary": "SEGA says email-newsletter recipient data for some SEGA and SEGA FAVE products and services was leaked after a third party accessed the ARARA Message delivery system run by its vendor ARARA. The leaked data is 2,196,044 email addresses, of which 92,273 include delivery-associated information still under investigation. SEGA says names, birth dates, sex, addresses, phone numbers, credit-card information and login passwords were not leaked, that SEGA Account email addresses use a different delivery system and are out of scope, and that no misuse has been confirmed. Individual notices to affected customers will follow.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": null,
+      "dateLabel": "Access date to ARARA's system not stated in SEGA's notice. SEGA timeline: Oct 29 asked ARARA, which reported no leak; Nov 1 ARARA announced unauthorized access; Nov 3 ARARA told SEGA addresses were leaked; formal report Nov 5-8; SEGA notice Nov 9, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "SEGA · Notice of personal-information leak via contractor (Japanese) · Original source",
+          "url": "https://www.sega.co.jp/release/261109_1.html",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "This record covers SEGA's own notice only: email addresses (2,196,044, with 92,273 carrying associated delivery information under investigation) from 11 newsletter sends between Jul 2 and Oct 28, 2026. It is a client of the ARARA Message incident and is part of that record's 81,329,467 deduplicated-address vendor total, not an addition to it, and not a count of people. Do not extend ARARA's other possible fields (names, birth dates, phone numbers, addresses) to SEGA: SEGA states those were not leaked. SEGA says the separate SEGA FAVE ALL.Net/Aime server intrusion is a different matter; it has its own record.",
+      "disclosureDate": "2026-11-09"
+    },
+    {
+      "id": "zurich-japan-pcs-vendor-customer-leak-2026",
+      "name": "Zurich Japan: past roadside-service cases found in PCS vendor leak",
+      "subject": "Zurich Japan",
+      "summary": "Zurich Insurance Japan says Prestige Core Solution (PCS), which handled its roadside-assistance work until the contract ended Jan 31, 2026, reported unauthorized access to PCS's business system, and that the leaked personal information includes cases Zurich had outsourced to PCS. The record count and data fields are not yet known; PCS is still investigating and Zurich will publish results when PCS reports them. Zurich says only roadside cases outsourced to PCS up to Jan 31, 2026 may be affected.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-29",
+      "dateLabel": "PCS detected unauthorized access Oct 29, 2026 (per PCS release Nov 2, cited by Zurich); Zurich notice Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "sources": [
+        {
+          "label": "Zurich Japan · Notice on contractor unauthorized access (Japanese) · Original source",
+          "url": "https://www.zurich.co.jp/aboutus/news/news/2026/1106/",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "Zurich confirms its historical cases are among the leaked data but has published no count or field list. This record covers only this client's notice. The vendor-wide maximum (up to ~5.5M records across clients, with the vendor's partial bank account field) belongs to the Prestige Core Solution record - do not merge, add counts, or extend vendor-wide fields to this client's customers. Other client notices (Sompo Japan, Nissan Financial, Mitsui Sumitomo and others) are the same vendor incident, not separate intrusions. Severity is medium until counts and fields are published; raise it if they show a large or sensitive set.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "panasonic-automotive-pcs-blue-battery-leak-2026",
+      "name": "Panasonic Automotive: 173 Blue Battery support records may have leaked via PCS",
+      "subject": "Panasonic Automotive",
+      "summary": "Panasonic Automotive Systems says Prestige Core Solution (PCS), which handles part of the administration for subsidiary Panasonic Car Electronics' Panasonic Blue Battery Anshin Support program, was hit by unauthorized access and that customer information for that service may have leaked. The number of records that may have leaked is 173. The exact fields and scope are under investigation. Panasonic says its own and Panasonic Car Electronics' systems were not accessed, PCS has implemented security measures and the service continues, and affected customers will be informed individually.",
+      "status": "confirmed",
+      "severity": "medium",
+      "date": "2026-10-29",
+      "dateLabel": "PCS detected unauthorized access Oct 29, 2026 (per PCS release Nov 2, cited by Panasonic); Panasonic notice Nov 5, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Panasonic Automotive Systems · Notice on customer information leak via contractor (Japanese) · Original source",
+          "url": "https://automotive.panasonic.com/information/20261105-01",
+          "kind": "primary",
+          "date": "2026-11-05"
+        },
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "173 is a potential record count for the Blue Battery Anshin Support service only, and the fields are still under review. This record covers only this client's notice. The vendor-wide maximum (up to ~5.5M records across clients, with the vendor's partial bank account field) belongs to the Prestige Core Solution record - do not merge, add counts, or extend vendor-wide fields to this client's customers. Other client notices (Sompo Japan, Nissan Financial, Mitsui Sumitomo and others) are the same vendor incident, not separate intrusions.",
+      "disclosureDate": "2026-11-05"
+    },
+    {
+      "id": "2rinkan-pcs-roadside-customer-leak-2026",
+      "name": "2Rinkan Yellow Hat: some roadside-service customers possibly affected by PCS breach",
+      "subject": "2Rinkan",
+      "summary": "2Rinkan Yellow Hat says Prestige Core Solution (PCS), which runs its 2Rinkan JACCS card member roadside service and 2Rinkan roadside service, reported unauthorized access to its system on Oct 30, and that personal information of some customers may have leaked. The affected fields (name, contact details and similar) and count are still being identified by PCS. 2Rinkan says no misuse has been confirmed, will email affected customers individually and has opened a dedicated phone line.",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-10-29",
+      "dateLabel": "PCS detected unauthorized access Oct 29, 2026 (per PCS release Nov 2); PCS reported to 2Rinkan Oct 30; 2Rinkan notice Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "2Rinkan Yellow Hat · Notice on possible customer data leak via PCS (Japanese) · Original source",
+          "url": "https://2rinkan.jp/annai/20261106/",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "Potential impact only: 2Rinkan has not published a count or confirmed fields (name and contact details are examples under review). This record covers only this client's notice. The vendor-wide maximum (up to ~5.5M records across clients, with the vendor's partial bank account field) belongs to the Prestige Core Solution record - do not merge, add counts, or extend vendor-wide fields to this client's customers. Other client notices (Sompo Japan, Nissan Financial, Mitsui Sumitomo and others) are the same vendor incident, not separate intrusions.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "bmw-japan-pcs-vendor-customer-leak-2026",
+      "name": "BMW Japan: roadside customers possibly affected by PCS vendor breach",
+      "subject": "BMW Japan",
+      "summary": "BMW Japan and BMW Japan Finance say Prestige Core Solution (PCS), which runs roadside-assistance and accident-intake systems for them, had unauthorized access detected Oct 29 and that some data stored on the system was taken. BMW says PCS could not yet identify how many BMW customers or which of their data were affected. BMW reported to Japan's Personal Information Protection Commission on Nov 2 and has seen no misuse or secondary harm.",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-10-29",
+      "dateLabel": "PCS system access detected Oct 29, 2026 (per BMW notice); BMW Japan reported to the regulator Nov 2; BMW notice Nov 6, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "BMW Japan · Notice on contractor unauthorized access (Japanese) · Original source",
+          "url": "https://www.bmw.co.jp/ja/topics/announcement/202611-01.html",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "The vendor-system field list in BMW's notice (name, address, phone, email, vehicle information, intake details, partial bank account details) describes what the whole PCS system may have held across clients, per PCS; BMW says not all of it is confirmed for BMW customers, and BMW's own affected fields and count are unresolved. Credit-card leakage was not confirmed by PCS at that point. This record covers only this client's notice. The vendor-wide maximum (up to ~5.5M records across clients, with the vendor's partial bank account field) belongs to the Prestige Core Solution record - do not merge, add counts, or extend vendor-wide fields to this client's customers. Other client notices (Sompo Japan, Nissan Financial, Mitsui Sumitomo and others) are the same vendor incident, not separate intrusions.",
+      "disclosureDate": "2026-11-06"
+    },
+    {
+      "id": "porsche-japan-pcs-vendor-customer-leak-2026",
+      "name": "Porsche Japan: roadside and accident-intake customers possibly affected by PCS breach",
+      "subject": "Porsche Japan",
+      "summary": "Porsche Japan and Porsche Financial Services Japan say Prestige Core Solution (PCS), which handles Porsche Japan's roadside service and Porsche Financial Services Japan's Porsche auto-insurance accident intake, had unauthorized access detected Oct 29 and that some data stored on the system was taken. The companies say the count and fields affecting Porsche customers are not yet identified, and only roadside and accident-intake information is known to be potentially affected; other Porsche services are not. Both reported to Japan's Personal Information Protection Commission on Nov 2 and have seen no misuse.",
+      "status": "reported",
+      "severity": "medium",
+      "date": "2026-10-29",
+      "dateLabel": "PCS system access detected Oct 29, 2026 (per Porsche notice); regulator reports Nov 2; Porsche notice Nov 5, 2026",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Porsche Japan · Notice on contractor unauthorized access (Japanese) · Original source",
+          "url": "https://www.porsche.com/japan/jp/legal/notice/",
+          "kind": "primary",
+          "date": "2026-11-05"
+        },
+        {
+          "label": "Prestige International · Notification and apology (English) · Original source",
+          "url": "https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_en_01.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        }
+      ],
+      "correction": "Potential impact only. The field list in Porsche's notice is the vendor's whole-system list (partial bank account details included), not confirmed for Porsche customers; Porsche's own count and fields are unresolved. This record covers only this client's notice. The vendor-wide maximum (up to ~5.5M records across clients, with the vendor's partial bank account field) belongs to the Prestige Core Solution record - do not merge, add counts, or extend vendor-wide fields to this client's customers. Other client notices (Sompo Japan, Nissan Financial, Mitsui Sumitomo and others) are the same vendor incident, not separate intrusions.",
+      "disclosureDate": "2026-11-05"
+    },
+    {
+      "id": "sega-fave-all-net-aime-unauthorized-access-2026",
+      "name": "SEGA FAVE: ALL.Net and Aime servers accessed, arcade services down since Nov 1",
+      "subject": "SEGA FAVE",
+      "summary": "SEGA FAVE says a third party gained unauthorized access to some servers tied to ALL.Net, the arcade-game network service, and Aime. It suspended ALL.Net and Aime services from 3pm on Nov 1, 2026, stopping online play and Aime play for ALL.Net titles, plus SEGA Lucky Kuji Online and new SEGA ID registration. Bandai Namco Experience titles that use ALL.Net were also hit. SEGA FAVE says its initial investigation found no data leak of customer or partner information, and that payment data including credit cards is not held on the affected servers. Whether data left is still under investigation. On Nov 8 Bandai Namco Experience began test restarts of eight of its titles; SEGA titles were still in maintenance with no restart date as of Nov 8, 9am (ITmedia).",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Date of intrusion not published. Services suspended Nov 1, 2026 3pm JST; disclosed Nov 2; Bandai Namco Experience test restart Nov 8; SEGA titles still down as of Nov 8, 9am",
+      "tags": [
+        "breach",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "SEGA FAVE · Notice on unauthorized access to servers (Japanese/English) · Original source",
+          "url": "https://www.segafave.co.jp/news/261102_1/",
+          "kind": "primary",
+          "date": "2026-11-02"
+        },
+        {
+          "label": "ITmedia NEWS · Bandai Namco titles test-restart, SEGA titles still in maintenance",
+          "url": "https://www.itmedia.co.jp/news/article/2611/09/2000003003/",
+          "kind": "report",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "Confirmed: unauthorized access to some ALL.Net/Aime servers and a service suspension. Not confirmed: any data leak (the initial investigation found none; the investigation is ongoing) or the attack type or entry route (not published). Severity is high for a real compromise with a multi-publisher arcade outage lasting a week or more, not for a data breach. Separate from the SEGA/ARARA email-address leak, which is a different vendor and dataset.",
+      "disclosureDate": "2026-11-02"
+    },
+    {
       "id": "mitsui-sumitomo-policyholder-portal-leak-2026",
       "name": "Mitsui Sumitomo Insurance: ~37,000 policyholder portal customer records leaked",
       "subject": "Mitsui Sumitomo Insurance",
@@ -314,7 +527,7 @@
           "date": "2026-11-06"
         }
       ],
-      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notices are reference translations of the Japanese originals, which prevail. The Nov 6 second report confirmed credit card numbers in 3 exfiltrated records from a portion of the system's call intake records (vendor-wide scope); issuers were notified and no misuse is confirmed. This card finding does not extend to client-specific records (e.g. Mitsui Sumitomo Insurance, whose own notice states no card or bank account information) - do not propagate it into them without evidence. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records whose field scopes are narrower - do not bleed this field list or count into them. Other PCS client notices (Sompo Japan ~65,000 potential records, Nissan Financial Services up to ~236,000 potential records, SBI Insurance impact under investigation, and others) belong to this same vendor incident: they are not separate intrusions, and their figures fall within the vendor-wide maximum - do not add them to the 5.5M.",
+      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notices are reference translations of the Japanese originals, which prevail. The Nov 6 second report confirmed credit card numbers in 3 exfiltrated records from a portion of the system's call intake records (vendor-wide scope); issuers were notified and no misuse is confirmed. This card finding does not extend to client-specific records (e.g. Mitsui Sumitomo Insurance, whose own notice states no card or bank account information) - do not propagate it into them without evidence. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records whose field scopes are narrower - do not bleed this field list or count into them. Other PCS client notices (Sompo Japan ~65,000 potential records, Nissan Financial Services up to ~236,000 potential records, SBI Insurance impact under investigation, Zurich Japan historical cases with count unknown, Panasonic Automotive 173 potential records, 2Rinkan, BMW Japan and Porsche Japan with scope unresolved, and others) belong to this same vendor incident: they are not separate intrusions, and their figures fall within the vendor-wide maximum - do not add them to the 5.5M.",
       "disclosureDate": "2026-11-02"
     },
     {
@@ -4947,8 +5160,8 @@
       "summary": "ARARA and its parent Paycloud say attackers accessed the ARARA Message email-delivery service and removed, or may have removed, 81,329,467 deduplicated email-address records. The figure includes addresses suspected of being taken and is not a person count. Customer-specific fields may also include names, sex, birth dates, phone numbers, membership numbers or addresses; up to about 380 client companies may be affected, still under review. The service was used to send up to 7.13 million phishing emails impersonating card companies Oct 28–30; the service did not hold card numbers.",
       "status": "confirmed",
       "severity": "high",
-      "date": "2026-11-06",
-      "dateLabel": "ARARA/Paycloud third report published Nov 6, 2026; service disabled Oct 31",
+      "date": "2026-10-28",
+      "dateLabel": "Unauthorized access confirmed Oct 28, 2026 (ARARA's first report; intrusion start not published, and later reports widened the affected systems); phishing email sent via the service Oct 28-30; first public report Oct 29; all service stopped Oct 31; second report Nov 2 (about 77M addresses); third report Nov 6 (81,329,467 deduplicated addresses)",
       "tags": [
         "breach",
         "data-leak",
@@ -4956,14 +5169,26 @@
       ],
       "sources": [
         {
+          "label": "ARARA · First report: unauthorized access and service stop (Oct 29) · Original source",
+          "url": "https://www.arara.com/news/info/20261029_arara",
+          "kind": "primary",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "ARARA · Second report (Nov 2, PDF) · Original source",
+          "url": "https://www.arara.com/dcms_media/other/arara_20261102__.pdf",
+          "kind": "primary",
+          "date": "2026-11-02"
+        },
+        {
           "label": "ARARA Message unauthorized-access update · Original source",
           "url": "https://www.arara.com/news/info/20261106_arara",
           "kind": "primary",
           "date": "2026-11-06"
         }
       ],
-      "correction": "The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers.",
-      "disclosureDate": "2026-11-06",
+      "correction": "The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it.",
+      "disclosureDate": "2026-10-29",
       "detail": {
         "whatHappened": "ARARA and Paycloud say unauthorized access occurred in the ARARA Message email-delivery system, which was abused to send phishing email impersonating card companies. The Nov 6 third report says the incident scope proved substantially larger than in earlier reports. ARARA stopped all service on Oct 31.",
         "exposure": "The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers.",
