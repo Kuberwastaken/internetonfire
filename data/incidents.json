@@ -6693,6 +6693,167 @@
           "kind": "primary"
         }
       ]
+    },
+    {
+      "id": "queens-public-library-ransomware-outage-2026",
+      "name": "Queens Public Library: ransomware disrupts network services",
+      "subject": "Queens Public Library",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-11-04",
+      "dateLabel": "Public outage/ransomware alerts Nov 4, 2026 per dated reporting; intrusion start unstated; live restoration status checked Nov 9",
+      "tags": [
+        "ransomware",
+        "outage"
+      ],
+      "summary": "Queens Public Library confirms ransomware caused a network outage affecting all locations. Its website, app, onsite computers, digital media and renewals remain affected. Free Wi-Fi and checkout/return machines have been restored; branches remain open, though some programs may be impacted. The current official status page makes no data-theft or personal-data exposure claim. This is an operational ransomware incident, not an established data breach.",
+      "correction": "No data theft, exposed fields or affected-person count stated on the official status page. Partial service restoration does not mean full recovery. Intrusion start unknown.",
+      "detail": {
+        "whatHappened": "QPL's official status page attributes the systemwide network outage to ransomware. The Record's Nov 5 report says QPL posted outage and ransomware alerts Nov 4; that is public reporting timing, not a verified intrusion start.",
+        "exposure": "Website, app, onsite computers and digital media are affected; renewals are unavailable. No data theft, affected-person count or exposed fields are asserted by the current primary. Branch or borough population figures are not victim counts.",
+        "fix": "The live status page says free Wi-Fi and checkout/return machines have been restored. Branches remain open and late fines are not charged. Full system restoration is still underway, with no completion date given.",
+        "remaining": "Full recovery timing and intrusion start are unstated. The official page does not establish whether data was stolen; no theft claim should be inferred from ransomware alone."
+      },
+      "sources": [
+        {
+          "label": "QPL · Live network outage status · Original source",
+          "url": "https://connect.queenslibrary.org/",
+          "date": null,
+          "kind": "primary"
+        },
+        {
+          "label": "The Record · Nov 4 alerts reported",
+          "url": "https://therecord.media/queens-library-ransomware-causes-disruptions",
+          "date": "2026-11-05",
+          "kind": "report"
+        }
+      ]
+    },
+    {
+      "id": "beget-destructive-infrastructure-attack-2026",
+      "name": "Beget: management servers breached; destructive malware launched",
+      "subject": "Beget",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-02",
+      "disclosureDate": "2026-11-02",
+      "dateLabel": "Attack night Nov 1-2, 2026; management access estimated Nov 2 at 02:00 MSK; first customer notice 04:50 MSK; status updated Nov 7",
+      "tags": [
+        "breach",
+        "malware",
+        "outage",
+        "cloud"
+      ],
+      "summary": "Beget confirms attackers accessed infrastructure management servers and launched malware designed to delete server data on Nov 2. It disconnected servers to contain the attack and began recovery. Its Nov 7-updated page still says recovery is in progress: unmanaged dedicated servers and DNS were restored, mail and shared hosting returned in stages, and the control panel has limited functionality. The company page does not quantify victims or establish loss of the entire cloud platform.",
+      "correction": "Destructive malware and infrastructure access are company-confirmed; total erased data and victim count are not. Partial recovery is not full restoration. No data-theft claim inferred.",
+      "detail": {
+        "whatHappened": "Beget estimates management-server access began Nov 2 at 02:00 MSK, destructive malware launched at 02:30 and unauthorized access detected at 02:40. All servers were disconnected at 02:55; investigation and recovery followed. Its first customer Telegram notice was at 04:50, per its own timeline.",
+        "exposure": "The official page describes malware designed to delete server data, but gives no total erased-data volume, affected-person count or data-theft finding. Do not turn broader reporting of platform loss into a company-confirmed scope.",
+        "fix": "Beget reports unmanaged dedicated servers and DNS restored Nov 2, more than 80% of mail infrastructure Nov 3, and staged shared-hosting recovery. Its timeline reports 60% of shared hosting and 40% of managed dedicated servers restored Nov 5; the control panel has limited functionality. Page last updated Nov 7, recovery ongoing.",
+        "remaining": "Final loss scope, victim count and full restoration time are not stated. The Nov 7 page is an interim company status, not evidence all infrastructure or customer data was lost."
+      },
+      "sources": [
+        {
+          "label": "Beget · Incident and recovery timeline · Original source",
+          "url": "https://beget.com/en/about",
+          "date": "2026-11-07",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ethersphere-bee-js-swarm-desktop-malware-2026",
+      "name": "Ethersphere: bee-js and Swarm Desktop release malware reported",
+      "subject": "Ethersphere / Swarm",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-11-09",
+      "disclosureDate": "2026-11-09",
+      "dateLabel": "bee-js malicious commit Nov 8 and npm release Nov 9, 2026 UTC per StepSecurity; Nov 9 advisory/OX report; StepSecurity page carries a Nov 8 label",
+      "tags": [
+        "supply-chain",
+        "npm",
+        "malware",
+        "credentials"
+      ],
+      "summary": "StepSecurity and OX report malicious Ethersphere releases: @ethersphere/bee-js 13.3.0 and Swarm Desktop 0.56.2. Reported payloads target Swarm wallet configuration and encrypted keys, and attempt cross-platform persistence. GitHub's advisory lists bee-js 13.3.0 as malware; no vendor incident notice was retrieved. Affected installations, actual wallet theft and how release access was obtained remain unknown. StepSecurity's 3,560 all-version Nov 1-7 downloads predate the malicious release and are not affected downloads or victims.",
+      "correction": "Researcher-reported release compromise; vendor confirmation not retrieved. No installation or wallet-loss count established. 3,560 historical all-version downloads are not affected downloads.",
+      "detail": {
+        "whatHappened": "StepSecurity reports an unsigned release commit under bee-worker Nov 8 at 23:59:54 UTC, followed by bee-js 13.3.0 npm publication Nov 9 at 00:09:50 UTC through the legitimate workflow. OX also identifies Swarm Desktop 0.56.2. Misuse of release access is suspected; the stolen credential or initial access method is not established.",
+        "exposure": "Researchers describe payloads seeking Swarm config.yaml and encrypted wallet keys, plus persistence attempts on Linux, macOS and Windows. Code behavior is not a count of successful wallet thefts. Affected installations and users are unknown. Monthly ecosystem downloads and pre-release all-version downloads must not be treated as affected installations.",
+        "fix": "Researchers advise excluding bee-js 13.3.0 and investigating systems where its install payload ran; removing the package alone may not remove persistence. StepSecurity examined 13.2.0 without the malicious hook, while OX reports the npm version reverted. These are researcher findings, not a retrieved vendor remediation statement.",
+        "remaining": "Vendor confirmation, affected installations, actual wallet/fund theft and initial release-access method remain unknown. StepSecurity's Nov 8 page label precedes its Nov 9 UTC release timeline; Nov 9 is the directly dated advisory/OX disclosure used here, not a proven first-report timestamp."
+      },
+      "sources": [
+        {
+          "label": "StepSecurity · Release and payload analysis",
+          "url": "https://www.stepsecurity.io/blog/ethersphere-bee-js-13-3-0-compromise",
+          "date": "2026-11-08",
+          "kind": "report"
+        },
+        {
+          "label": "OX Security · bee-js and Swarm Desktop analysis",
+          "url": "https://www.ox.security/blog/ethersphere-hijacked-with-crypto-stealing-malware-via-github-npm/",
+          "date": "2026-11-09",
+          "kind": "report"
+        },
+        {
+          "label": "GitHub Advisory Database · bee-js malware listing",
+          "url": "https://github.com/advisories/GHSA-hh7j-5m3j-23pf",
+          "date": "2026-11-09",
+          "kind": "report"
+        }
+      ]
+    },
+    {
+      "id": "openssh-sshole-authentication-bypass-2026",
+      "name": "OpenSSH SSHole: musl/no-PAM authentication bypass patched",
+      "subject": "OpenSSH / SSHole",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-11-05",
+      "dateLabel": "OpenSSH 10.6p2 released Nov 5, 2026; SANS exploit attempts from Nov 5; GreyNoise first successful gridpoint exploitation Nov 7 at 00:46:51 UTC",
+      "tags": [
+        "vulnerability",
+        "exploited",
+        "advisory"
+      ],
+      "summary": "OpenSSH 10.6p2 fixes a critical password-authentication bypass affecting some Linux builds using musl with PAM disabled, not all OpenSSH installations. SANS reports oversized-password exploit attempts; its telemetry alone does not prove successful logins. Separately, GreyNoise confirms shell-command execution on vulnerable gridpoints, first observed Nov 7, and reports 16 post-exploitation events from six attacker IPs. Those are sensor events and source IPs, not a global victim count. Update affected builds; investigation of successful access is distinct from scan volume.",
+      "correction": "Configuration-limited vulnerability, not universal OpenSSH exposure. SANS/Previdian attempt counts do not prove success; GreyNoise separately confirms shell execution on vulnerable sensors. No global victim count.",
+      "detail": {
+        "whatHappened": "OpenSSH's Nov 5 release calls this a critical workaround for some Linux/musl systems built and run without PAM, with the root cause outside sshd but exploitable through it. GreyNoise describes an oversized password authenticating to accounts configured to reject password logins; susceptible account and authentication settings matter.",
+        "exposure": "A successful bypass can grant the affected account's SSH access. SANS identifies exploit-like attempts from Nov 5, not proven successful intrusion. GreyNoise's primary activity page defines success as shell commands on vulnerable gridpoints and reports 16 confirmed post-exploitation events from six attacker IPs. Neither sensor events nor broad port-22 traffic establish affected organizations or global prevalence.",
+        "fix": "OpenSSH 10.6p2 includes the workaround. Affected operators should update and check their build/authentication configuration; disabling password authentication can limit this path while remediation is assessed. Scan attempts and successful logins require separate investigation.",
+        "remaining": "Global victim count and prevalence are unknown. Previdian explicitly says its 20 observed attempts from 13 IPs do not establish vulnerable targets or successful access. GreyNoise confirms success on its own vulnerable gridpoints, a separate evidence stream from attempts-only telemetry."
+      },
+      "sources": [
+        {
+          "label": "OpenSSH · 10.6p2 release notes · Original source",
+          "url": "https://www.openssh.org/txt/release-10.6p2",
+          "date": "2026-11-05",
+          "kind": "primary"
+        },
+        {
+          "label": "SANS ISC · SSHole attempt telemetry",
+          "url": "https://isc.sans.edu/diary/Scans+for+Sshole+Vulnerability+CVE2026123158/33498/",
+          "date": "2026-11-08",
+          "kind": "primary"
+        },
+        {
+          "label": "GreyNoise · First-party SSHole activity report",
+          "url": "https://sshole.events.greynoise.io/",
+          "date": "2026-11-09",
+          "kind": "primary"
+        },
+        {
+          "label": "Previdian · Attempts-only sensor qualification",
+          "url": "https://previdian.com/CVE-2026-123158",
+          "date": "2026-11-09",
+          "kind": "primary"
+        }
+      ]
     }
   ]
 }
