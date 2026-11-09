@@ -23,7 +23,7 @@
           "date": "2026-11-02"
         }
       ],
-      "correction": "This record's confirmed core is the email-address leak in Kinko's Nov 2 first-party notice. That notice says names, membership numbers, registration dates, birth dates and favorite stores were registered with ARARA but their leakage was not confirmed at that time; Kinko's says it holds no credit-card information. A secondary outlet reports a Nov 9 expansion with counts and additional attributes, but its corresponding first-party second notice was not recovered in this qualification, so those counts and fields are not asserted here as confirmed. The affected count remains unstated in the verified primary notice, not zero. This is a customer slice of the ARARA Message incident, not a separate intrusion or an addition to the vendor-wide address total. ARARA's access date is not substituted for an unknown Kinko's-specific access date.",
+      "correction": "Primary-confirmed: Smart Membership email addresses leaked; Kinko's Nov 2 notice gives no count. The Nov 9 count/attribute expansion is secondary-reported and not independently verified. This client record is not additive to ARARA's vendor total.",
       "disclosureDate": "2026-11-02"
     },
     {
