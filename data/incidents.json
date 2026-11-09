@@ -6115,6 +6115,31 @@
         ],
         "claimChecks": []
       }
+    },
+    {
+      "id": "sharefull-internal-system-unauthorized-access-2026",
+      "subject": "Sharefull",
+      "name": "Sharefull: internal system accessed, up to 7.5M accounts possibly exposed",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Unauthorized access ~23:30 JST Nov 4, 2026 (company-stated, approximate); disclosed Nov 9, 2026",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "Sharefull, a Japanese gig-work app, says a third party accessed its internal management system around Nov 4 and personal and company data may have leaked. It reports up to about 7.5 million user accounts and about 7,500 companies as maximums, not confirmed counts; exfiltration is possible, not confirmed, and the investigation continues. Possible user data: names, phone numbers, emails, addresses, birth dates, salary-transfer bank account details (no PINs or passwords), emergency contacts, residence-status details and other account attributes. Possible company data: contact details, contact-person details and some sales-management data. Sharefull says salary amounts and points, contract and work records, ID images and card data were not in the affected data, and My Number is not held. It blocked the access path on Nov 5, notified the privacy regulator (filing in progress) and police, and says service continues normally.",
+      "correction": "Possible exposure only: figures are 'up to' maximums, theft is not confirmed. Salary-transfer bank details possibly exposed, not salary amounts. Sharefull Shift app: no unauthorized access found.",
+      "sources": [
+        {
+          "label": "Sharefull Inc. · Notice of possible personal and corporate data leak · Original source (PR Times)",
+          "url": "https://prtimes.jp/main/html/rd/p/000000271.000124219.html",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ]
     }
   ]
 }
