@@ -294,7 +294,7 @@
       "id": "sph-media-five-system-data-breach-2026",
       "name": "SPH Media: five systems hit, about 9% of database affected",
       "subject": "SPH Media",
-      "summary": "SPH Media told The Straits Times and The Business Times that cyberattacks hit five systems, first detected Nov 4 and most recently Nov 8. About 9% of its database was affected, mainly email addresses plus some names, postal addresses and phone numbers, including some employee emails. The company declined a person count; the percentage denominator and unique-person scope are unspecified. It says news/subscription services were unaffected and corporate-customer information, payment cards, financial/banking information and customer account access were not compromised. Bugs and configuration issues were addressed, with perimeter changes, monitoring, external forensics and authority/police reports.",
+      "summary": "SPH Media told The Straits Times and The Business Times that cyberattacks hit five systems, first detected Nov 4 and most recently Nov 8. About 9% of its database was affected, mainly email addresses plus some names, postal addresses and phone numbers, including some employee emails. The company declined a person count; the percentage denominator and unique-person scope are unspecified. It says news/subscription services were unaffected and corporate-customer information, payment cards, financial/banking information and customer account access were not compromised. Bugs and configuration issues were addressed, with perimeter changes, monitoring, external forensics and authority/police reports. In direct responses to CNA, SPH says all affected parties were informed; IMDA and PDPC say they are investigating, while CSA is monitoring and the agencies have asked SPH to contain impact and identify the root cause.",
       "status": "reported",
       "severity": "high",
       "date": null,
@@ -317,9 +317,15 @@
           "url": "https://www.businesstimes.com.sg/singapore/sph-media-hit-data-breach-affecting-9-its-database",
           "kind": "report",
           "date": "2026-11-10"
+        },
+        {
+          "label": "CNA · Agency joint response and SPH notification status from direct queries",
+          "url": "https://www.channelnewsasia.com/singapore/sph-media-cyberattack-data-breach-6538681",
+          "kind": "report",
+          "date": "2026-11-10"
         }
       ],
-      "correction": "Reported company account via publisher-affiliated newspapers, not a standalone retrieved incident notice or independent forensic confirmation. Nine percent is not a verified person count. Same-actor and AI-enabled attack assessments are preliminary suspicions, not established attribution. Nov 4 is detection, not a known intrusion start; remediation and exclusion statements are dated company assessments, not a permanent all-clear."
+      "correction": "Reported company account via publisher-affiliated newspapers, not a standalone retrieved incident notice or independent forensic confirmation. Nine percent is not a verified person count. Same-actor and AI-enabled attack assessments are preliminary suspicions, not established attribution. Nov 4 is detection, not a known intrusion start; remediation and exclusion statements are dated company assessments, not a permanent all-clear. CNA independently reports direct company/agency responses: SPH says all affected parties were informed; IMDA/PDPC investigating and CSA monitoring are response status, not proof of full containment. No standalone agency incident publication was retrieved. These statements do not add an affected-person count, final root cause or confirmed attribution."
     },
     {
       "id": "smartshare-ownly-campaign-participant-leak-2026",
