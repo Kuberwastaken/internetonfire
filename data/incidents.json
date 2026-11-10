@@ -5,7 +5,7 @@
       "id": "qubole-trusted-aws-roles-data-theft-2026",
       "name": "Qubole-trusted AWS roles abused to steal customer secrets and S3 data",
       "subject": "Qubole",
-      "summary": "Wiz CIRT, working with Sentra and Mandiant, observed an actor using IAM credentials from an AWS account associated with Qubole to assume trusted integration roles in multiple customer AWS environments from Oct 14-26. The actor harvested Lambda environment variables, Secrets Manager secrets and SSM parameters, tested discovered AWS, Entra ID and Okta credentials, and exfiltrated S3 data, including entire buckets in some sessions. Customer counts, data volumes and how the vendor-associated credentials were obtained are not disclosed.",
+      "summary": "Wiz CIRT, working with Sentra and Mandiant, observed an actor using IAM credentials from a Qubole-associated AWS account to assume customer integration roles Oct 14-26, harvest secrets, test credentials and exfiltrate S3 data. Sentra separately describes \"dozens of Qubole customers\" and \"more than a dozen organizations\", not an exact reconciled count. Its investigation reports about 100 passwords/keys read in seven minutes, thousands of credential records in downloaded files, and millions of files downloaded across one company's accounts. These are different units and scopes, not an aggregate impact total.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-10-14",
@@ -24,9 +24,15 @@
           "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild",
           "kind": "primary",
           "date": "2026-11-09"
+        },
+        {
+          "label": "Sentra · Inside the Qubole Supply Chain Attack · Original investigation and attributed scope",
+          "url": "https://sentra.io/blog/breaches/inside-the-qubole-supply-chain-attack",
+          "kind": "primary",
+          "date": "2026-11-09"
         }
       ],
-      "correction": "Confirmed means researcher-observed intrusion/exfiltration, not vendor-confirmed scope or completed remediation. Wiz explicitly could not link separate Oct 8-11 customer-owned key abuse to this campaign; those dates are not combined. Its analyzed ISO had no identified deployments or confirmed use. Missing S3 logs limited object-level visibility in several environments. No link to other public campaigns or actor motive is established."
+      "correction": "Researcher-observed intrusion/exfiltration, not vendor-confirmed scope or completed remediation. Wiz gives no customer count/data volume; Sentra's differing qualitative estimates are its own. Sentra adds EC2 user-data credential harvesting to Lambda, Secrets Manager and SSM; the initial acquisition of vendor-associated credentials remains unknown. Its zero write actions describe observed activity, not every environment. Trusts remained when the actor went quiet, so silence is not revoked access. Wiz cannot link separate Oct 8-11 customer-owned key abuse to the Oct 14-26 campaign; its analyzed ISO has no identified deployments or confirmed use. Missing S3 logs limit object-level visibility. No other-campaign link or actor motive is established."
     },
     {
       "id": "wyndham-android-credential-database-exposure-2026",
