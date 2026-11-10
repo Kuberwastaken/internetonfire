@@ -40,13 +40,13 @@
     },
     {
       "id": "korea-fsi-assessment-support-system-hack-2026",
-      "name": "South Korea FSI: assessment-support site hacked; data scope disputed",
+      "name": "South Korea FSI: revised reports detail assessment-site data leak",
       "subject": "Financial Security Institute",
-      "summary": "Yonhap, Hankyoreh and Seoul Economic Daily report a hack and data leak at South Korea's Financial Security Institute assessment-support site, detected Nov 9. Personal-data scope conflicts: Yonhap says FSI reportedly told firms personal data was not leaked; Hankyoreh reports partly masked staff names, phone numbers and emails in administrative documents were leaked. It quotes the Financial Services Commission saying vulnerability information was not leaked, while Yonhap describes possible exposure of firms' security-assessment answers. No affected count is established.",
+      "summary": "Revised Yonhap reports say South Korea's Financial Security Institute assessment-support site leaked about 200 administrative forms, around 300 personal-information items such as names/birth dates in forms, and about 350 system-user information records with masked names/mobile numbers. These are different units, not verified unique people or an additive victim total. This later reporting revises Yonhap's earlier account that FSI denied personal-data leakage. Officials reportedly detected unauthorized access/leakage Nov 9 around 15:00 KST and blocked the system; full intrusion onset remains unknown.",
       "status": "reported",
       "severity": "high",
       "date": null,
-      "dateLabel": "Intrusion onset unknown; breach reportedly detected Nov 9, 2026; reporting Nov 10",
+      "dateLabel": "Intrusion onset unknown; access/leak reportedly detected Nov 9, 2026 around 15:00 KST; initial and revised reporting Nov 10",
       "disclosureDate": "2026-11-10",
       "tags": [
         "breach",
@@ -77,14 +77,26 @@
           "url": "https://en.sedaily.com/finance/2026/11/10/financial-security-institute-hacked-some-personal-data",
           "kind": "report",
           "date": "2026-11-10"
+        },
+        {
+          "label": "Yonhap · Revised Korean Nov 10 at 23:07 KST, record units and limited official exclusions",
+          "url": "https://www.yna.co.kr/view/AKR20261110174751002",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Yonhap · Revised English Nov 10 at 23:49 KST, forms and personal/user information",
+          "url": "https://en.yna.co.kr/view/AEN20261110010651315",
+          "kind": "report",
+          "date": "2026-11-10"
         }
       ],
-      "correction": "Secondary reporting only, without a retrieved primary incident notice. Personal-data and assessment-information scope remains attributed and conflicting, not resolved by combining reports. The roughly 3,000 companies cited by Yonhap are the assessment program's population, not affected firms or victims. Nov 9 is reported detection, not known onset.",
+      "correction": "Secondary reporting only; no primary incident notice retrieved. Revised Yonhap reporting on Nov 10 at 23:07/23:49 KST supersedes its earlier no-personal-data-leak account, while preserving that earlier provenance. About 200 forms, 300 personal-information items and 350 masked system-user records are distinct units with unknown overlap, not an additive unique-person total. The roughly 3,000 companies are the assessment program population, not affected firms. Official exclusions are limited to stated security/customer-sensitive information, not all personal data. Nov 9 at 15:00 KST is detection, not onset.",
       "detail": {
-        "whatHappened": "Reports describe a breach of the routine security-assessment support site used to exchange member-firm application/administrative materials, not proof of compromise across FSI's core systems. Access was reportedly blocked and regulators notified.",
-        "exposure": "Yonhap reports possible exposure of firms' security-assessment responses and says FSI reportedly denied personal-data leakage. Hankyoreh and Seoul Economic Daily report personal information in submitted documents, with Hankyoreh naming partly masked staff names/phones/emails and quoting FSC that security-vulnerability information was not leaked. Exact counts and final scope are unknown.",
-        "fix": "Reports say FSI blocked access and reported to regulators; Hankyoreh says the Financial Supervisory Service is investigating. Officials requested wider checks and prevention.",
-        "remaining": "No primary incident notice retrieved. Personal-data and assessment-information scope conflicts remain unresolved; no attribution, access onset or affected-person/company total is established. The program's roughly 3,000 companies are not a breach count."
+        "whatHappened": "Revised Yonhap reporting, citing authorities, says FSI detected abnormal external access and leakage around Nov 9 at 15:00 KST, immediately blocked the assessment-support system and reported to the FSC and KISA. This was a site for submitting assessment materials, not proof of compromise across all FSI systems.",
+        "exposure": "Revised Korean Yonhap reports about 200 administrative forms, around 300 personal-information items including names/birth dates in forms, and about 350 system-user records containing masked names/mobile numbers. Most personal information is described as apparently belonging to financial-firm assessment staff. Units and overlap are unresolved; do not sum them as people. An FSI official quoted by Yonhap excludes system-configuration/security information, resident-registration numbers and customer-sensitive personal-credit information. The report says the site did not collect vulnerability-analysis results. These are attributed limited exclusions, not a denial of all personal-data leakage.",
+        "fix": "Reports say FSI blocked the affected system, notified the FSC/KISA and financial firms, and is investigating cause and prevention. Yonhap reports a policy to compensate if secondary harm occurs, not proof compensation is already paid or harm established.",
+        "remaining": "No primary incident notice retrieved; reported status remains secondary-only. Later Yonhap reporting revises its earlier personal-data exclusion and adds counts, but final scope, overlap, affected unique people, actor and intrusion onset remain unverified. Earlier Hankyoreh/Seoul Economic Daily reports of personal data and FSC vulnerability-information exclusion remain source history, not extra counts. The assessment program's roughly 3,000 firms are not a breach count."
       }
     },
     {
