@@ -1,6 +1,37 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "incidents": [
+    {
+      "id": "tradewaltz-production-training-intrusion-2026",
+      "name": "TradeWaltz: production and training systems breached; data at risk",
+      "subject": "TradeWaltz",
+      "summary": "TradeWaltz confirms intrusion into its production and training environments; registered data may have been acquired, but exfiltration, fields and counts remain unconfirmed. It detected unauthorized access Nov 10 around 10:00 JST, stopped both environments at 14:30 and confirmed intrusion from log analysis at 15:10. Both remain stopped in its 20:00 third report. TradeWaltz for Grain Importers and Export Documentary are outside the stated incident scope and continue normally. Cause, full scope and restart timing remain unknown.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Intrusion onset unknown; access detected Nov 10, 2026 around 10:00 JST; first notice 14:50, second 16:00 and third 20:00 JST",
+      "disclosureDate": "2026-11-10",
+      "tags": [
+        "breach",
+        "outage",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "TradeWaltz · Nov 10 third report at 20:00 JST, preserving first/second reports",
+          "url": "https://www.tradewaltz.com/news/13816/",
+          "kind": "primary",
+          "date": "2026-11-10"
+        }
+      ],
+      "correction": "Confirmed status covers production/training intrusion and ongoing service halt, not confirmed exfiltration. No affected-data fields, records or person count is established. Detection at about 10:00 JST is not intrusion onset. The vendor says shutdown prevents further unauthorized access; this is its assessment, not an independently verified all-clear or full recovery. Grain Importers/Export Documentary exclusions are service-specific.",
+      "detail": {
+        "whatHappened": "After detecting unauthorized external access around Nov 10 at 10:00 JST, TradeWaltz established its response headquarters at 14:00 and stopped production/training at 14:30. Log analysis confirmed intrusion into both environments at 15:10.",
+        "exposure": "Data registered in TradeWaltz may have been acquired by a third party, but the data scope, fields and counts are still under investigation. Exfiltration is not confirmed. TradeWaltz for Grain Importers and TradeWaltz for Export Documentary are stated to be outside scope and operating normally.",
+        "fix": "The provider says it deleted all accounts confirmed misused or created illegitimately at 14:45, restricted source IPs at 14:55 and began log extraction/analysis then. Production and training remain halted as of 20:00 JST; restart will follow safety checks.",
+        "remaining": "Cause, full access onset, affected data and restart ETA remain unknown. The provider asserts no further unauthorized access is possible after shutdown, not an independent containment finding. Its next update is planned for Nov 11 around 08:00 JST; that is a reporting plan, not a restoration deadline."
+      }
+    },
     {
       "id": "sats-tappee-school-meal-app-breach-2026",
       "name": "SATS Tappee: school meal app breached; student and parent data exposed",
