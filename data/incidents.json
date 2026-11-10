@@ -2,6 +2,43 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "vanderbilt-university-cyber-incident-2026",
+      "name": "Vanderbilt University: cyber incident restricts systems and cloud services",
+      "subject": "Vanderbilt University",
+      "summary": "Vanderbilt University confirms an active cybersecurity incident affecting university devices, systems and cloud services. Its Nov 9 19:15 local update says campus Wi-Fi is restored but access to most systems and applications remains restricted, with government agencies and other partners assisting. Classes and work are scheduled normally for Nov 10. Separately, Vanderbilt Health says its own systems have so far not been impacted and patient care continues at all hospital and clinical locations. Investigation and response continue; containment is not confirmed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Occurrence date unknown; university incident notices and 19:15 local status update Nov 9, 2026",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "outage",
+        "education",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "Vanderbilt University · Nov 9 active cybersecurity incident updates · Original notice",
+          "url": "https://news.vanderbilt.edu/2026/11/09/nov-9-active-cybersecurity-incident-updates/",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "Vanderbilt Health · Separate systems and patient-care status · Original notice",
+          "url": "https://news.vumc.org/2026/11/09/alert-vanderbilt-health-employees-should-not-attempt-to-access-vanderbilt-universitys-it-resources-until-further-notice/",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "BleepingComputer · BYOD ransomware and data-theft claims, not university-confirmed",
+          "url": "https://www.bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed/",
+          "kind": "report",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "Confirmed status covers the university incident and disruption, not ransomware attribution or data theft. BleepingComputer reports BYOD claims of encryption, stolen student/employee/research data and over one million SSNs; Vanderbilt has not confirmed the actor, encryption, theft or count. Those are attacker claims, not verified affected-person totals. Restored Wi-Fi and normal classes do not establish full recovery or containment. Vanderbilt Health is separate; its so-far-unaffected assessment is dated to Nov 9, not a guarantee of later status."
+    },
+    {
       "id": "signaltalk-marujan-member-password-leak-2026",
       "name": "Maru-Jan: all 1,855,578 members' passwords leaked",
       "subject": "Maru-Jan",
@@ -41,9 +78,9 @@
     },
     {
       "id": "frontline-central-school-health-data-breach-2026",
-      "name": "Frontline Education: Central and School Health data hit by intrusion",
+      "name": "Frontline Education: regulator lists 3,085,266 affected by intrusion",
       "subject": "Frontline Education",
-      "summary": "Frontline Education says unauthorized access to part of its Frontline Central and School Health Management environment occurred Aug 14-15 through a vulnerability in an unnamed third-party software product. Impacted fields vary by individual and include Social Security numbers, dates of birth, driver's license numbers, passports/other government IDs, Medicaid IDs and student IDs. The Oct 26 notice says the vulnerability was remediated and the investigation complete, with no unauthorized activity seen since Aug 15 and no known misuse at publication. Individual notifications began on or about Oct 26; monitoring is offered to eligible affected people.",
+      "summary": "Indiana AG's November year-to-date report lists Frontline Education with 3,085,266 total affected and 66,157 Indiana residents, notification Oct 26 and occurrence Aug 14. Frontline says unauthorized access to part of its Central and School Health Management environment occurred Aug 14-15 through an unnamed third-party software vulnerability. Impacted identifiers vary by person: SSN, DOB, driver's license, passport/other government ID, Medicaid ID and student ID. Its Oct 26 notice says the flaw was remediated, investigation complete, no unauthorized activity seen since Aug 15 and no known misuse at publication; individual notifications began on or about Oct 26.",
       "status": "confirmed",
       "severity": "high",
       "date": "2026-08-14",
@@ -61,9 +98,15 @@
           "url": "https://www.frontlineeducation.com/news/frontline-education-notice-of-data-breach/",
           "kind": "primary",
           "date": "2026-10-26"
+        },
+        {
+          "label": "Indiana Attorney General · November 2026 YTD breach report · Page 13, row 497",
+          "url": "https://www.in.gov/attorneygeneral/consumer-protection-division/id-theft-prevention/files/DB-Year-to-Date-Report-Novemver-2026.pdf",
+          "kind": "primary",
+          "date": null
         }
       ],
-      "correction": "Older incident backfilled with actual dates, not a new Nov 10 event. Oct 26 is the retrieved notice date, not an established first-ever public/regulator disclosure. No aggregate affected-person count is given; fields are not universal. Frontline's 10,000-plus supported K-12 organizations are not impact scope, and district-specific reporting is not a vendor-wide total. Remediation, investigation completion and no-known-misuse statements are company assessments as of the notice, not guarantees of no later harm."
+      "correction": "The 3,085,266 total and 66,157 Indiana subset are regulator-reported, not sums of district reports; the company notice itself gives no aggregate. Fields are not universal. Frontline's 10,000-plus supported K-12 organizations are not impact scope. This is recovered scope evidence for the August incident, not a new Nov 10 incident/disclosure. Oct 26 is the retrieved company notice and regulator-listed notification date, not a proven first-ever public disclosure. Company remediation, completed-investigation and no-known-misuse assessments are dated to its notice, not guarantees of no later harm."
     },
     {
       "id": "qubole-trusted-aws-roles-data-theft-2026",
