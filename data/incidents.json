@@ -2,6 +2,57 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "rakus-blastmail-database-exfiltration-2026",
+      "name": "Blastmail: contract-customer and recipient data stolen from databases",
+      "subject": "Blastmail",
+      "summary": "RAKUS confirms intruders entered two RAKUS Lite Cloud API servers, ran commands and extracted sales-management and service-database data. All contract customers' company/contact/billing details and contract/payment histories were taken; card numbers were not held. The provider's Nov 10 update confirms 421 contracts with leakage beyond contractor information, all contacted, not 421 people or all exposed records. Niigata Nippo confirms 245,347 Passport-member records; Japan Society of Monetary Economics corrects its scope to 1,496 registration records, including former/unsubscribed registrants. These client slices are non-additive. External investigation completed Nov 10; restart is scheduled Nov 11, not yet restored.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Intrusion onset unknown; alert detected Oct 20 at 21:52 JST, 2026; shutdown/extraction disclosure Oct 21; provider and client scope updates Nov 8-10",
+      "disclosureDate": "2026-10-21",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "cloud",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "RAKUS · Blastmail second report Oct 21, Oct 28 scope addendum · Original vendor notice",
+          "url": "https://www.rakus.co.jp/news/2026/1021-3.html",
+          "kind": "primary",
+          "date": "2026-10-21"
+        },
+        {
+          "label": "Blastmail · Direct provider status Nov 10 at 18:40 JST · 421 contracts and planned restart",
+          "url": "https://info.blastmail.jp/information_20261021.html",
+          "kind": "primary",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Niigata Nippo · Nov 10 sixth client report and field scope",
+          "url": "https://www.niigata-nippo.co.jp/articles/-/940084",
+          "kind": "primary",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Japan Society of Monetary Economics · Nov 8 corrected client count and fields",
+          "url": "https://www.jsmeweb.org/new-infomation/post-2966/",
+          "kind": "primary",
+          "date": "2026-11-08"
+        }
+      ],
+      "correction": "One vendor event; client counts are records, not verified unique people, and are not additive or a deduplicated vendor total. The 421 contracts concern leakage beyond contractor information, while sales-management contractor data was taken for all contracts; do not add member-record counts to contracts. Niigata fields: kana-name, prefecture/city, email, sex, age band, subscribed product/newsletter; its Salmon Project members are excluded. Society fields: email, member number, chapter, delivery status and voting eligibility, excluding name, university, address, phone and bank data. Those exclusions are client-specific. Oct 28 vendor no-other-RAKUS-service-impact assessment is dated, not universal proof. External investigation is complete per provider Nov 10; the final cause/prevention report remains pending. Scheduled Nov 11 restart is not completed restoration.",
+      "detail": {
+        "whatHappened": "The provider confirms two API-server intrusions and commands used to reach sales/service databases and take data. An alert was detected Oct 20 at 21:52 JST; exact initial access date remains unknown. Admin/API service stopped Oct 21 around 00:30 JST and mail delivery around 01:00. These are detection/shutdown times, not proven intrusion onset.",
+        "exposure": "RAKUS confirms intruders entered two RAKUS Lite Cloud API servers, ran commands and extracted sales-management and service-database data. All contract customers' company/contact/billing details and contract/payment histories were taken; card numbers were not held. The provider's Nov 10 update confirms 421 contracts with leakage beyond contractor information, all contacted, not 421 people or all exposed records. Niigata Nippo confirms 245,347 Passport-member records; Japan Society of Monetary Economics corrects its scope to 1,496 registration records, including former/unsubscribed registrants. These client slices are non-additive. External investigation completed Nov 10; restart is scheduled Nov 11, not yet restored. One vendor event; client counts are records, not verified unique people, and are not additive or a deduplicated vendor total. The 421 contracts concern leakage beyond contractor information, while sales-management contractor data was taken for all contracts; do not add member-record counts to contracts. Niigata fields: kana-name, prefecture/city, email, sex, age band, subscribed product/newsletter; its Salmon Project members are excluded. Society fields: email, member number, chapter, delivery status and voting eligibility, excluding name, university, address, phone and bank data. Those exclusions are client-specific. Oct 28 vendor no-other-RAKUS-service-impact assessment is dated, not universal proof. External investigation is complete per provider Nov 10; the final cause/prevention report remains pending. Scheduled Nov 11 restart is not completed restoration.",
+        "fix": "Provider Nov 10 says external investigation is complete, no additional affected clients were found, and all 421 contracts with leakage beyond contractor information were contacted. It reported to PPC, JIPDEC, the communications authority and police. Restart is fixed for Nov 11, with admin/API and mail still suspended as of the update. Niigata plans phased mailing restart with services/dates unset; Society will withhold use until safety is confirmed.",
+        "remaining": "A final cause/prevention report is being prepared, not yet published. The provider's no-additional-clients result is a dated investigation finding, not proof of no earlier data theft. Scheduled vendor restart is not actual restoration or every client's restart. Society individual notice method remains under consideration; client populations and cross-client overlap are unresolved."
+      }
+    },
+    {
       "id": "aeon-gift-application-record-leak-2026",
       "name": "AEON: 414 summer-gift application records leaked after website intrusion",
       "subject": "AEON Gift Applications",
@@ -5775,15 +5826,33 @@
           "url": "https://ceres-inc.jp/news/detail/20261106-2/",
           "kind": "primary",
           "date": "2026-11-06"
+        },
+        {
+          "label": "Hoiku-is · Third report: member/corporate records and partial newsletter bodies",
+          "url": "https://hoiku-is.jp/job/news/news-147/",
+          "date": "2026-11-10",
+          "kind": "primary"
+        },
+        {
+          "label": "Fanplus/Ticketplus · Second report: approximate matched email records",
+          "url": "https://fanplus.co.jp/static/fanplus/information/arara_notice_20261106.pdf",
+          "date": "2026-11-06",
+          "kind": "primary"
+        },
+        {
+          "label": "Japan Badminton · BIRD MEMBERS newsletter client scope",
+          "url": "https://www.badminton.or.jp/news/detail/2319",
+          "date": "2026-11-09",
+          "kind": "primary"
         }
       ],
-      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it. Mercury/CoinTrade's 88,289 addresses are also a non-additive client slice, not people or a separate vendor intrusion. See exposure detail; do not combine with PointIncome development-backup records.",
+      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it. Mercury/CoinTrade's 88,289 addresses are also a non-additive client slice, not people or a separate vendor intrusion. See exposure detail; do not combine with PointIncome development-backup records. Hoiku-is confirms 28 partial newsletter-body cases, so Kakaku's email-body exclusion must not be generalized. Hoiku-is, Fanplus/Ticketplus and BIRD MEMBERS are non-additive ARARA client scopes; BIRD MEMBERS overlaps Fanplus.",
       "disclosureDate": "2026-10-29",
       "detail": {
         "whatHappened": "ARARA and Paycloud say unauthorized access occurred in the ARARA Message email-delivery system, which was abused to send phishing email impersonating card companies. The Nov 6 third report says the incident scope proved substantially larger than in earlier reports. ARARA stopped all service on Oct 31.",
-        "exposure": "Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers. Ceres' Nov 6 notice confirms Mercury/CoinTrade's 88,289 deduplicated email addresses from Oct 8-29 mailings leaked via repica/ARARA; addresses may include former/noncurrent customers. Email only, not names, bodies or passwords; no Mercury core-system intrusion, incident-linked unauthorized login or asset loss was observed as of notice. Mercury was informed Nov 2 and received the list Nov 4. This is a non-additive client slice, separate from PointIncome's development incident.",
+        "exposure": "Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers. Ceres' Nov 6 notice confirms Mercury/CoinTrade's 88,289 deduplicated email addresses from Oct 8-29 mailings leaked via repica/ARARA; addresses may include former/noncurrent customers. Email only, not names, bodies or passwords; no Mercury core-system intrusion, incident-linked unauthorized login or asset loss was observed as of notice. Mercury was informed Nov 2 and received the list Nov 4. This is a non-additive client slice, separate from PointIncome's development incident. Hoiku-is' Nov 10 third report confirms 107,867 individual-member records, 56 corporate-customer records and partial newsletter-body leakage in 28 cases. These are different units, not a people sum; 28 body cases are not extra victims. No own-system intrusion/leak is confirmed. Fanplus/Ticketplus' Nov 6 report estimates about 4.43M email-address records by matching the ARARA list; not unique people, with no other fields or own-service intrusion/leak confirmed. Japan Badminton's Nov 9 BIRD MEMBERS notice covers paid/free newsletter addresses registered as of Oct 31, email only and count unknown; it overlaps Fanplus scope and is not additive.",
         "fix": "ARARA says it stopped the service on Oct 31 and is contacting potentially affected clients, working with police and relevant privacy/communications authorities, and investigating with external specialists. Restart timing is undecided pending remediation, independent security confirmation and client credential resets.",
-        "remaining": "Kakaku and PLM client counts are non-additive slices, with cross-client overlap unstated. PLM direct-site email overlap is also unknown. The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records. Mercury mailings paused with provider shutdown; individual notices follow restart, with authority reporting and provider/security review continuing."
+        "remaining": "Kakaku and PLM client counts are non-additive slices, with cross-client overlap unstated. PLM direct-site email overlap is also unknown. The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records. Mercury mailings paused with provider shutdown; individual notices follow restart, with authority reporting and provider/security review continuing. Hoiku-is individual notices and PPC coordination are planned, with no misuse confirmed at Nov 10. BIRD MEMBERS switched to a new mail system; vendor investigation continues. Client scopes do not resolve a vendor-wide unique-person total."
       }
     },
     {
