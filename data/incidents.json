@@ -2,6 +2,51 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "pk-softech-pension-fund-data-theft-2026",
+      "name": "PK Softech: pension-fund data extracted, Publica scope still unresolved",
+      "subject": "PK Softech",
+      "summary": "PK Softech says malware enabled access to part of its IT infrastructure in late September. Switzerland's FDPIC confirms data was extracted from several pension funds, including Publica, and opened a formal vendor investigation Oct 22 after Oct 8 notification. Publica's Nov 9 update says affected people and fields remain under analysis, with no indication of dark-web publication. Its supplier test environment is separate from productive pension systems: Publica says its systems, myPublica, pension assets and payouts are unaffected. The vendor disconnected the affected environment, involved specialists and authorities, filed a police complaint and says unrestricted customer service resumed Oct 2.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Vendor says attack in late September 2026; exact occurrence unknown; public notice Oct 8; regulator notice Oct 23; Publica status Nov 9 and SRF reporting Nov 10",
+      "disclosureDate": "2026-10-08",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance",
+        "malware"
+      ],
+      "sources": [
+        {
+          "label": "PK Softech · Cyberattack notice (German) · Original source",
+          "url": "https://www.pksoftech.ch/de/newsreader/Cyberangriff-auf-die-PKSoftechAG",
+          "kind": "primary",
+          "date": "2026-10-08"
+        },
+        {
+          "label": "Swiss FDPIC · Formal supplier investigation and pension-fund extraction",
+          "url": "https://www.edoeb.admin.ch/en/fdpic-launched-investigation-following-cyber-attack-on-software-supplier",
+          "kind": "primary",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "Publica · Supplier incident, possible fields and Nov 9 status",
+          "url": "https://www.publica.ch/en/cyber-attack-software-supplier",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "SRF · Reported extortion and attributed Akira assessment (German)",
+          "url": "https://www.srf.ch/news/schweiz/heikle-daten-gestohlen-hacker-fordern-loesegeld-nach-angriff-auf-publica-lieferantin",
+          "kind": "report",
+          "date": "2026-11-10"
+        }
+      ],
+      "correction": "Vendor-level incident, not separate pension-fund intrusions. Publica lists names/contact details, DOB, OASI number, pension/salary/assets data, marital/partner details and IBAN as possibly affected, not confirmed universal fields; no verified person count. Productive-system/assets/payout assurances and no-publication finding are dated Publica statements, not full recovery proof. SRF reports ransom demands and potentially exposed undercover federal-personnel data from multiple sources; PK Softech and Publica say neither received a demand. Recipient, payment, sale and publication are unestablished. Akira attribution is secondary reporting citing prosecutors, not named in the vendor/FDPIC notices. No new Nov 10 attack or stolen pension assets is established."
+    },
+    {
       "id": "douzone-apo-backup-possible-data-exposure-2026",
       "name": "Douzone APO: signs of encrypted backup removal, personal-data risk",
       "subject": "Douzone APO Backup",
