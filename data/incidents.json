@@ -568,11 +568,11 @@
       "id": "vanderbilt-university-cyber-incident-2026",
       "name": "Vanderbilt University: cyber incident restricts systems and cloud services",
       "subject": "Vanderbilt University",
-      "summary": "Vanderbilt University confirms an active cybersecurity incident affecting university devices, systems and cloud services. Its Nov 9 19:15 local update says campus Wi-Fi is restored but access to most systems and applications remains restricted, with government agencies and other partners assisting. Classes and work are scheduled normally for Nov 10. Separately, Vanderbilt Health says its own systems have so far not been impacted and patient care continues at all hospital and clinical locations. Investigation and response continue; containment is not confirmed.",
+      "summary": "Vanderbilt University confirms an ongoing cybersecurity incident. Its Nov 10 09:00 local update restores campus Wi-Fi, Okta with MFA, Outlook on university/personal devices, Brightspace, Zoom and YES; sophomore registration proceeds. University devices may be used again, with newly observed suspicious activity reported to IT. All other systems and applications remain restricted, explicitly CampusPrint. Government/partner response continues, not full recovery or confirmed containment. Separately, Vanderbilt Health's Nov 9 notice says its own systems had so far not been impacted and patient care continued.",
       "status": "confirmed",
       "severity": "high",
       "date": null,
-      "dateLabel": "Occurrence date unknown; university incident notices and 19:15 local status update Nov 9, 2026",
+      "dateLabel": "Occurrence date unknown; first university notices Nov 9, 2026; latest service/device guidance Nov 10 at 09:00 local (America/Chicago)",
       "disclosureDate": "2026-11-09",
       "tags": [
         "outage",
@@ -581,10 +581,10 @@
       ],
       "sources": [
         {
-          "label": "Vanderbilt University · Nov 9 active cybersecurity incident updates · Original notice",
+          "label": "Vanderbilt University · Active incident notice, updated Nov 10 at 09:00 local",
           "url": "https://news.vanderbilt.edu/2026/11/09/nov-9-active-cybersecurity-incident-updates/",
           "kind": "primary",
-          "date": "2026-11-09"
+          "date": "2026-11-10"
         },
         {
           "label": "Vanderbilt Health · Separate systems and patient-care status · Original notice",
@@ -599,7 +599,13 @@
           "date": "2026-11-09"
         }
       ],
-      "correction": "Confirmed status covers the university incident and disruption, not ransomware attribution or data theft. BleepingComputer reports BYOD claims of encryption, stolen student/employee/research data and over one million SSNs; Vanderbilt has not confirmed the actor, encryption, theft or count. Those are attacker claims, not verified affected-person totals. Restored Wi-Fi and normal classes do not establish full recovery or containment. Vanderbilt Health is separate; its so-far-unaffected assessment is dated to Nov 9, not a guarantee of later status."
+      "correction": "Confirmed status covers the university incident and disruption, not ransomware attribution or data theft. BleepingComputer reports BYOD claims of encryption, stolen student/employee/research data and over one million SSNs; Vanderbilt has not confirmed the actor, encryption, theft or count. Those are attacker claims, not verified affected-person totals. Nov 10 named-service restoration and permission to resume university devices supersede the initial blanket device-shutdown guidance, but do not establish full recovery or containment. All other systems/apps, including CampusPrint, remain restricted. Vanderbilt Health is separate; its so-far-unaffected assessment is dated to Nov 9, not a guarantee of later status.",
+      "detail": {
+        "whatHappened": "Vanderbilt continues to describe an active cybersecurity hacking incident affecting university devices, systems and cloud services. It is working with government agencies and other partners; full cause, actor and access onset remain unconfirmed.",
+        "exposure": "The university has not confirmed ransomware attribution, data theft or a victim total. BleepingComputer reports BYOD claims of encryption, student/employee/research data theft and over one million SSNs; these remain attacker claims, not verified counts. Vanderbilt Health is separate and its Nov 9 unaffected-system/patient-care statement is not a later university-wide all-clear.",
+        "fix": "At Nov 10 09:00 local, campus Wi-Fi, Okta with continued MFA, Outlook on university and personal devices, Brightspace, Zoom and YES are available; sophomore registration proceeds. Students, faculty and staff may resume Vanderbilt devices and should report new abnormal/suspicious activity to IT. All other university systems/apps remain restricted, explicitly CampusPrint.",
+        "remaining": "Incident response and containment work continue. Named-service availability and device permission are partial restoration, not full recovery or confirmed containment. University data theft, attribution and counts remain unconfirmed. Vanderbilt Health's separate Nov 9 assessment is dated and has not been upgraded by this university update."
+      }
     },
     {
       "id": "signaltalk-marujan-member-password-leak-2026",
