@@ -2,6 +2,44 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "douzone-apo-backup-possible-data-exposure-2026",
+      "name": "Douzone APO: signs of encrypted backup removal, personal-data risk",
+      "subject": "Douzone APO Backup",
+      "summary": "Douzone's Oct 23 notice confirms an intrusion incident and signs that some encrypted backup data was removed through a backup-solution vulnerability. Affected client companies and individuals were not yet identified; personal-data leakage is possible, not confirmed. Douzone says all stored backups were encrypted, with no signs of key leakage found, and that it shut affected servers, blocked overseas IPs and reported to KISA. Nov 10 MTN/DDaily reports say AgileSoDA received an Oct 28 possible-exposure notice for iCUBE employee/HR/payroll/tax, family/deduction, contact, identifier and financial data; its actual leakage and scope remain unknown.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Occurrence unknown; vendor notice Oct 23, 2026; AgileSoDA notification reportedly Oct 28; client-related reporting Nov 10",
+      "disclosureDate": "2026-10-23",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "Douzone · APO backup intrusion and possible personal-data leakage · Original notice (Korean)",
+          "url": "https://www.douzone.com/board/read.jsp?code=notice&id=3508",
+          "kind": "primary",
+          "date": "2026-10-23"
+        },
+        {
+          "label": "MTN · AgileSoDA possible exposure and quoted NH Bank assessment",
+          "url": "https://news.mtn.co.kr/article/2026111009485562248",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Digital Daily · AgileSoDA possible APO backup exposure, scope unconfirmed",
+          "url": "https://www.ddaily.co.kr/page/view/2026111010472850060",
+          "kind": "report",
+          "date": "2026-11-10"
+        }
+      ],
+      "correction": "Confirmed status covers the vendor intrusion and observed signs of encrypted-data removal, not confirmed readable personal-data loss or AgileSoDA-specific exfiltration. No affected-client/person count, universal field list or exact occurrence date is established. No signs of key leakage is a dated vendor finding, not proof all backups are safe. AgileSoDA details are secondary reporting; no affiliate primary notice is cited. NH Bank's quoted no-customer-data-leak assessment concerns NH Bank and AgileSoDA client data, not all vendor backups. No standalone bank breach is established. Douzone says its relation to the Oct 18 notice remains under investigation. Nov 10 reporting is not the first vendor disclosure."
+    },
+    {
       "id": "vanderbilt-university-cyber-incident-2026",
       "name": "Vanderbilt University: cyber incident restricts systems and cloud services",
       "subject": "Vanderbilt University",
