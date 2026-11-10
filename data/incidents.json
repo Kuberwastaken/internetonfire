@@ -2,6 +2,70 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "signaltalk-marujan-member-password-leak-2026",
+      "name": "Maru-Jan: all 1,855,578 members' passwords leaked",
+      "subject": "Maru-Jan",
+      "summary": "SignalTalk confirms unauthorized access abusing a management-system function allowed member data to be downloaded by around 15:00 JST on Nov 4. All 1,855,578 Maru-Jan members' passwords were affected, with email addresses only where registered. Password storage format is not stated. SignalTalk says it identified the route, addressed the abused component and resumed service at 16:00 JST Nov 7; server, admin-system and business-PC checks, monitoring and investigation of other weaknesses continue. Old passwords still work; the company requests password changes, including reused passwords on other services.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Member data downloaded by around 15:00 JST Nov 4, 2026; cyberattack maintenance notice Nov 6; detailed leak/count release Nov 7",
+      "disclosureDate": "2026-11-06",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "SignalTalk · Maru-Jan unauthorized access and member-data leak (Japanese) · Original release",
+          "url": "https://www.signaltalk.com/press/20261107.php",
+          "kind": "primary",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "Maru-Jan · Member explanation and Nov 7 addendum (Japanese)",
+          "url": "https://www.maru-jan.com/2026information.html",
+          "kind": "primary",
+          "date": "2026-11-07"
+        },
+        {
+          "label": "Maru-Jan · Official news list: Nov 6 cyberattack maintenance, Nov 7 leak explanation",
+          "url": "https://www.maru-jan.com/syougai.html",
+          "kind": "primary",
+          "date": null
+        }
+      ],
+      "correction": "Count is all members whose passwords leaked, not 1,855,578 verified email/password pairs; email registration varies. Neither plaintext nor hashed password storage is established. Card numbers were not held and are excluded. Service resumption is not completed incident response or evidence against downstream misuse. Disclosure date tracks the Nov 6 incident notice; the Nov 7 release supplied detailed leak scope. No exact publication time inferred."
+    },
+    {
+      "id": "frontline-central-school-health-data-breach-2026",
+      "name": "Frontline Education: Central and School Health data hit by intrusion",
+      "subject": "Frontline Education",
+      "summary": "Frontline Education says unauthorized access to part of its Frontline Central and School Health Management environment occurred Aug 14-15 through a vulnerability in an unnamed third-party software product. Impacted fields vary by individual and include Social Security numbers, dates of birth, driver's license numbers, passports/other government IDs, Medicaid IDs and student IDs. The Oct 26 notice says the vulnerability was remediated and the investigation complete, with no unauthorized activity seen since Aug 15 and no known misuse at publication. Individual notifications began on or about Oct 26; monitoring is offered to eligible affected people.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-08-14",
+      "dateLabel": "Unauthorized access Aug 14-15, 2026; retrieved company notice Oct 26 and individual notifications starting on or about Oct 26",
+      "disclosureDate": "2026-10-26",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "education"
+      ],
+      "sources": [
+        {
+          "label": "Frontline Education · Notice of Data Breach · Original Oct 26 notice and FAQ",
+          "url": "https://www.frontlineeducation.com/news/frontline-education-notice-of-data-breach/",
+          "kind": "primary",
+          "date": "2026-10-26"
+        }
+      ],
+      "correction": "Older incident backfilled with actual dates, not a new Nov 10 event. Oct 26 is the retrieved notice date, not an established first-ever public/regulator disclosure. No aggregate affected-person count is given; fields are not universal. Frontline's 10,000-plus supported K-12 organizations are not impact scope, and district-specific reporting is not a vendor-wide total. Remediation, investigation completion and no-known-misuse statements are company assessments as of the notice, not guarantees of no later harm."
+    },
+    {
       "id": "qubole-trusted-aws-roles-data-theft-2026",
       "name": "Qubole-trusted AWS roles abused to steal customer secrets and S3 data",
       "subject": "Qubole",
