@@ -2,6 +2,112 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "cross-point-client-api-key-member-data-2026",
+      "name": "CROSS POINT: leaked client API key used to acquire member data",
+      "subject": "CROSS POINT",
+      "summary": "The vendor confirms member data was acquired at one unnamed CROSS POINT client through abuse of its leaked legitimate API key, detected early Nov 7. Potential fields vary: names, contact/demographic data, member IDs/rank/points, store-card and shop IDs, and purchase statistics. Cards and login passwords were not held. The affected key was revoked/reissued and the source blocked; all clients' keys were rotated Nov 9 at 22:15 JST as a precaution. Client identity, member count, access onset and how the key leaked remain unknown; investigation continues.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Access onset unknown; detected early Nov 7, 2026; all-client precautionary key rotation Nov 9; notice Nov 10",
+      "disclosureDate": "2026-11-10",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "CROSS POINT vendor · unauthorized API access · Original Nov 10 notice",
+          "url": "https://www.ill.co.jp/info/261110/",
+          "kind": "primary",
+          "date": "2026-11-10"
+        }
+      ],
+      "correction": "Confirmed acquisition concerns one client, not all clients whose keys were rotated. The vendor says this was not direct internal-database intrusion, tampering or a software vulnerability, and found no other-client leakage traces as of its notice. These are scoped vendor findings, not a universal all-clear. Listed fields are not universal for every member; remediation does not settle full impact."
+    },
+    {
+      "id": "pointincome-development-backup-access-2026",
+      "name": "PointIncome: development intrusion may have exposed 11,100 members",
+      "subject": "PointIncome",
+      "summary": "Ceres detected unauthorized development-environment access Oct 29. A test backup from Nov 15, 2025 covering about 11,100 members and four device IDs may have been viewed, not confirmed exfiltrated. Member fields include nickname, email, encrypted password and secret-question strings, DOB and historical point balance; subsets include 16 phone numbers and one account-holder name. Ceres blocked the access route and affected logins, forced password resets, reset secret questions and disabled SNS login links, with individual notices and monitoring.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Access onset unknown; detected Oct 29, 2026; historical backup dated Nov 15, 2025; notice Nov 6",
+      "disclosureDate": "2026-11-06",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Ceres · PointIncome development access and separate Mercury notice · Original Nov 6 release",
+          "url": "https://ceres-inc.jp/news/detail/20261106-2/",
+          "kind": "primary",
+          "date": "2026-11-06"
+        }
+      ],
+      "correction": "Confirmed development intrusion, possible viewing only. Encryption is not a claim of hashing or plaintext. Four device IDs are separate records, not four added victims; phone/account-holder subsets are within the member set. No traces of other device IDs being viewed, production intrusion or latest-member-data viewing were found as of notice. Separate Mercury/CoinTrade repica/ARARA email leakage is not this development incident; no cross-population addition."
+    },
+    {
+      "id": "vook-analytics-tool-database-access-2026",
+      "name": "Vook: analytics-tool flaw enabled database access, possible data loss",
+      "subject": "Vook",
+      "summary": "Vook confirms a third party exploited an internal analytics-tool vulnerability to access its database, with possible information acquisition. A suspicious account was found Oct 14; investigation reached this finding Oct 22. Possible fields vary across members, event applicants, inquiries and business contacts: contact/demographic/employer data, some resume/education data, login authentication credentials, work-viewing passwords, IP/social data, payment-service customer IDs and survey/notification data. Login authentication was invalidated Oct 22, database credentials changed and the tool stopped; scope and individual notices remain pending.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Access onset unknown; suspicious account found Oct 14, 2026; investigation finding and authentication invalidation Oct 22; notice Oct 30",
+      "disclosureDate": "2026-10-30",
+      "tags": [
+        "breach",
+        "vulnerability",
+        "credentials",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Vook · First unauthorized-access and possible leakage notice · Original Oct 30 release",
+          "url": "https://vook.co.jp/574",
+          "kind": "primary",
+          "date": "2026-10-30"
+        }
+      ],
+      "correction": "No affected-person count or universal field coverage established. Login authentication credentials are not member login passwords, which Vook excludes along with cards and bank accounts; work-viewing passwords are a separate field. The tool had read-only database access; no modification, destruction or misuse was observed as of notice, not proof of no data acquisition. PPC reporting and police consultation done; investigation and recipient identification continue."
+    },
+    {
+      "id": "lafool-legacy-survey-file-theft-2026",
+      "name": "Lafool Survey: legacy files taken for 24,232 people at 182 companies",
+      "subject": "Lafool Survey",
+      "summary": "Lafool confirms legacy-system files were acquired July 24-Oct 25, with personal-data files taken July 24 and Aug 8. Its Nov 9 notice lists 182 companies and 24,232 people, subject to revision: mainly employee IDs, names, departments and survey answers/results; some include sensitive stress-check and physician interview/consultation records. Suspicion was detected Oct 27 and file acquisition confirmed Oct 29. The key was invalidated Oct 27 and foreign IPs blocked Oct 28. Companies are being notified; external investigation is planned, not complete.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-07-24",
+      "dateLabel": "Files acquired July 24-Oct 25, 2026; personal-data files July 24 and Aug 8 only; detected Oct 27, confirmed Oct 29, disclosed Nov 9",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "breach",
+        "credentials",
+        "data-leak",
+        "privacy",
+        "healthcare"
+      ],
+      "sources": [
+        {
+          "label": "Lafool · Legacy Survey system unauthorized access · Original Nov 9 notice",
+          "url": "https://corp.lafool.co.jp/news/information/172/",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "Fields vary; address, phone and password acquisition and publication/misuse were not found in the current investigation, not permanent exclusions. Current service migrated July 30 to a separate cloud unit inaccessible to the abused key; its Nov 4 no-attacker-record finding is a dated company assessment. The company estimates a hardcoded key was obtained from a test-runtime image published in 2019 by a former contractor developer; that is a suspected route, not a proven 2019 breach or separate contractor incident. Police/PPC reported; further investigation pending."
+    },
+    {
       "id": "edion-ec-log-payment-tampering-2026",
       "name": "EDION EC: payment-input tampering and 5,360 gift-card leaks confirmed",
       "subject": "EDION EC",
@@ -5563,15 +5669,21 @@
           "url": "https://prtimes.jp/main/html/rd/p/000000326.000019259.html",
           "date": "2026-11-06",
           "kind": "primary"
+        },
+        {
+          "label": "Ceres · Mercury/CoinTrade repica client scope, separate from PointIncome",
+          "url": "https://ceres-inc.jp/news/detail/20261106-2/",
+          "kind": "primary",
+          "date": "2026-11-06"
         }
       ],
-      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it.",
+      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it. Mercury/CoinTrade's 88,289 addresses are also a non-additive client slice, not people or a separate vendor intrusion. See exposure detail; do not combine with PointIncome development-backup records.",
       "disclosureDate": "2026-10-29",
       "detail": {
         "whatHappened": "ARARA and Paycloud say unauthorized access occurred in the ARARA Message email-delivery system, which was abused to send phishing email impersonating card companies. The Nov 6 third report says the incident scope proved substantially larger than in earlier reports. ARARA stopped all service on Oct 31.",
-        "exposure": "Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers.",
+        "exposure": "Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers. Ceres' Nov 6 notice confirms Mercury/CoinTrade's 88,289 deduplicated email addresses from Oct 8-29 mailings leaked via repica/ARARA; addresses may include former/noncurrent customers. Email only, not names, bodies or passwords; no Mercury core-system intrusion, incident-linked unauthorized login or asset loss was observed as of notice. Mercury was informed Nov 2 and received the list Nov 4. This is a non-additive client slice, separate from PointIncome's development incident.",
         "fix": "ARARA says it stopped the service on Oct 31 and is contacting potentially affected clients, working with police and relevant privacy/communications authorities, and investigating with external specialists. Restart timing is undecided pending remediation, independent security confirmation and client credential resets.",
-        "remaining": "Kakaku and PLM client counts are non-additive slices, with cross-client overlap unstated. PLM direct-site email overlap is also unknown. The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records."
+        "remaining": "Kakaku and PLM client counts are non-additive slices, with cross-client overlap unstated. PLM direct-site email overlap is also unknown. The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records. Mercury mailings paused with provider shutdown; individual notices follow restart, with authority reporting and provider/security review continuing."
       }
     },
     {
