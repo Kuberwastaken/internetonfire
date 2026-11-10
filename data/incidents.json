@@ -2,6 +2,41 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "edion-ec-log-payment-tampering-2026",
+      "name": "EDION EC: payment-input tampering and 5,360 gift-card leaks confirmed",
+      "subject": "EDION EC",
+      "summary": "EDION detected unauthorized access to EC log storage Nov 5 around 18:30 JST. Its Nov 9 second notice, corrected Nov 10, confirms payment-input tampering active after 19:00 JST Nov 4 and leakage of 5,360 gift cards' numbers, PINs and usage histories. New card inputs on PCs may have been intercepted in up to 556 input events, not verified people/cards or confirmed exfiltrations. Up to five order-error logs contained full card details; login IDs/passwords for up to 1,141 people may be affected. EC service stopped Nov 7 at 22:00 JST, with restart undecided; limited app member-card/coupon functions resumed Nov 8 at 21:10.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-04",
+      "dateLabel": "Payment program active after 19:00 JST Nov 4, 2026; other access onset unknown; detected Nov 5; first notice Nov 6; scope expanded Nov 9, shutdown date corrected Nov 10",
+      "disclosureDate": "2026-11-06",
+      "tags": [
+        "breach",
+        "data-leak",
+        "credentials",
+        "malware",
+        "retail",
+        "privacy",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "EDION · First EC unauthorized-access notice (Japanese) · Original Nov 6 release",
+          "url": "https://www.edion.co.jp/system/files/news-release/pdf/ja/2026-11/20261106_pr_1.pdf",
+          "kind": "primary",
+          "date": "2026-11-06"
+        },
+        {
+          "label": "EDION · Second notice Nov 9, corrected Nov 10 (Japanese) · Payment tampering and expanded scope",
+          "url": "https://www.edion.co.jp/system/files/news-release/pdf/ja/2026-11/20261109_pr_1_1.pdf",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "The second notice supersedes initial no-card/password and safe-normal-operation claims. Potential PC interception and the five error-log cases concern card number, expiry, holder and security code. Smartphone inputs were outside this program only, not every possible exposure. Password storage format is unknown. Earlier possible log populations were up to 4,131 linked-data people and 9,554 order-log people with overlap, combined below 13,685, not a verified unique count; fields vary and unlinked logs remain under review. Do not add these to card, gift-card or login populations. Member-database access/leak is unconfirmed. Gift-card misuse limits depend on EC closure and physical-card requirements, not permanent safety. Issuer monitoring, password notices, scope investigation and preparations for additional PPC/police reports continue. No independently established payment loss or downstream misuse."
+    },
+    {
       "id": "pk-softech-pension-fund-data-theft-2026",
       "name": "PK Softech: pension-fund data extracted, Publica scope still unresolved",
       "subject": "PK Softech",
