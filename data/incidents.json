@@ -2,6 +2,126 @@
   "updated": "2026-11-10",
   "incidents": [
     {
+      "id": "korea-fsi-assessment-support-system-hack-2026",
+      "name": "South Korea FSI: assessment-support site hacked; data scope disputed",
+      "subject": "Financial Security Institute",
+      "summary": "Yonhap, Hankyoreh and Seoul Economic Daily report a hack and data leak at South Korea's Financial Security Institute assessment-support site, detected Nov 9. Personal-data scope conflicts: Yonhap says FSI reportedly told firms personal data was not leaked; Hankyoreh reports partly masked staff names, phone numbers and emails in administrative documents were leaked. It quotes the Financial Services Commission saying vulnerability information was not leaked, while Yonhap describes possible exposure of firms' security-assessment answers. No affected count is established.",
+      "status": "reported",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Intrusion onset unknown; breach reportedly detected Nov 9, 2026; reporting Nov 10",
+      "disclosureDate": "2026-11-10",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "label": "Yonhap · Korean report, FSI-attributed personal-data exclusion and assessment scope",
+          "url": "https://www.yna.co.kr/view/AKR20261110174700002",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Yonhap · English report, officials on assessment information",
+          "url": "https://en.yna.co.kr/view/AEN20261110010600315",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Hankyoreh · Staff-information report and FSC vulnerability-information exclusion",
+          "url": "https://www.hani.co.kr/arti/economy/finance/1286705.html",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Seoul Economic Daily · Personal-email/document exposure report, English translation",
+          "url": "https://en.sedaily.com/finance/2026/11/10/financial-security-institute-hacked-some-personal-data",
+          "kind": "report",
+          "date": "2026-11-10"
+        }
+      ],
+      "correction": "Secondary reporting only, without a retrieved primary incident notice. Personal-data and assessment-information scope remains attributed and conflicting, not resolved by combining reports. The roughly 3,000 companies cited by Yonhap are the assessment program's population, not affected firms or victims. Nov 9 is reported detection, not known onset.",
+      "detail": {
+        "whatHappened": "Reports describe a breach of the routine security-assessment support site used to exchange member-firm application/administrative materials, not proof of compromise across FSI's core systems. Access was reportedly blocked and regulators notified.",
+        "exposure": "Yonhap reports possible exposure of firms' security-assessment responses and says FSI reportedly denied personal-data leakage. Hankyoreh and Seoul Economic Daily report personal information in submitted documents, with Hankyoreh naming partly masked staff names/phones/emails and quoting FSC that security-vulnerability information was not leaked. Exact counts and final scope are unknown.",
+        "fix": "Reports say FSI blocked access and reported to regulators; Hankyoreh says the Financial Supervisory Service is investigating. Officials requested wider checks and prevention.",
+        "remaining": "No primary incident notice retrieved. Personal-data and assessment-information scope conflicts remain unresolved; no attribution, access onset or affected-person/company total is established. The program's roughly 3,000 companies are not a breach count."
+      }
+    },
+    {
+      "id": "near-ai-sglang-infrastructure-access-2026",
+      "name": "NEAR AI: SGLang exploit exposed accounts and legacy-agent data",
+      "subject": "NEAR AI",
+      "summary": "NEAR AI confirms an SGLang remote-code-execution exploit on one inference server led to infrastructure access and downloading account details for about 100 users. Separately, 18 legacy non-TEE agents had chat histories, settings and logs retrieved, and two Cloud customers had API keys exposed in logs and revoked. These are different, potentially overlapping units, not an additive victim total. In-flight requests on the accessed server, including confidential-mode requests, could have been observed Nov 8. No indication was found of access to stored Private Chat conversations or uploads.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-08",
+      "dateLabel": "Official blog index dates exploitation Nov 8, 2026; incident report dates possible in-flight observation Nov 8; disclosed Nov 9",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "ai",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "label": "NEAR AI · Nov 9 SGLang security incident report",
+          "url": "https://near.ai/blog/security-incident-report-sglang-vulnerability",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "NEAR AI · Official blog index explicitly dates SGLang exploitation Nov 8",
+          "url": "https://near.ai/blog",
+          "kind": "primary",
+          "date": "2026-11-09"
+        }
+      ],
+      "correction": "About 100 users, 18 agents and two Cloud customers are distinct units with unknown overlap, not a sum. Nov 8 exploitation is explicitly dated by the official blog index; the report itself only dates potential in-flight observation. Neither proves all requests were observed. The 18 agents were legacy non-TEE deployments; confidential-mode in-flight requests are a separate exposure path. No indication of stored Private Chat conversation/upload access is not a guarantee of no access.",
+      "detail": {
+        "whatHappened": "An attacker exploited SGLang RCE on one inference server and reached an internal system behind deprecated Private Chat. Account details were downloaded and data was retrieved from 18 legacy NEAR AI Agents deployments.",
+        "exposure": "Approximately 100 users' account details included email, name and, for some, plan/balance. The 18 non-TEE agents exposed chat histories, settings and logs; logs held two Cloud customers' API keys, now revoked. On Nov 8 the attacker could have observed requests processed on the accessed server, including confidential requests, not necessarily every request. No indication of stored Private Chat conversations/uploads being accessed was found.",
+        "fix": "NEAR AI reports fixing SGLang across inference servers, revoking sessions/admin credentials, replacing agent tokens and rotating remaining credentials. Private Chat was taken offline; Cloud access restored. It says forensic review is complete, affected users/agent owners contacted and the vulnerability reported to SGLang.",
+        "remaining": "Vendor-reported containment/review does not establish any earlier access or the number of in-flight requests observed. Confidential computing does not protect against code execution inside vulnerable inference software. Account, agent and customer counts must not be added."
+      }
+    },
+    {
+      "id": "soft99-online-shop-access-2026",
+      "name": "Soft99: shop server accessed; up to 136,968 people potentially exposed",
+      "subject": "Soft99",
+      "summary": "Soft99 confirms unauthorized access to its official online shop but only possible personal-data leakage, with up to 136,968 people potentially affected and final scope under review. An attacker uploaded a program via the contact-form image attachment feature, then placed a command-capable file; server inspection and configuration-file reading followed. Possible fields include contact details, birth dates, sex, purchases, delivery details and limited card information: last four digits, expiry and cardholder name. The shop is suspended; no resulting secondary harm is confirmed.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Intrusion onset unknown; contractor reported suspicious activity Nov 5, 2026; PPC notified Nov 9; disclosed Nov 10 at 16:00 JST",
+      "disclosureDate": "2026-11-10",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "retail"
+      ],
+      "sources": [
+        {
+          "label": "Soft99 · Nov 10 official online-shop access and possible personal-data leak notice",
+          "url": "https://www.soft99.co.jp/important/detail/261110/",
+          "kind": "primary",
+          "date": "2026-11-10"
+        }
+      ],
+      "correction": "Confirmed status covers unauthorized access/server activity, not proven personal-data exfiltration. Maximum 136,968 is a potential person scope, still being checked, not a confirmed leaked-record total. Listed card fields are only last four digits, expiry and cardholder name, not full card numbers. Nov 5 is suspicion reported to Soft99, not a known intrusion onset.",
+      "detail": {
+        "whatHappened": "The contractor reported suspicious shop activity Nov 5. Investigation found program-file upload through the contact-form image function and placement of a file permitting external commands. The attacker inspected the server and read configuration files with site-program permissions.",
+        "exposure": "People registered with or shopping at the official online shop by Nov 5 may be affected, up to 136,968 people. Names, addresses, email, phone, birth dates, sex, purchase and delivery information, and card last four digits/expiry/cardholder name are listed as potentially leaked. Exact people/count details and field coverage remain under review.",
+        "fix": "The official shop was suspended and access paths blocked, with stronger restrictions and security measures. Soft99 reported to the PPC Nov 9 and is investigating with contractors; external-security-expert investigation and further prevention measures are planned.",
+        "remaining": "Personal-data leakage remains possible, not confirmed; full onset, final scope and per-person fields are not yet established. No incident-related secondary harm is confirmed at the Nov 10 notice."
+      }
+    },
+    {
       "id": "jcci-net-test-management-system-access-2026",
       "name": "JCCI: test-management server accessed; 980,000 people potentially exposed",
       "subject": "Japan Chamber of Commerce",
@@ -5572,11 +5692,11 @@
       "id": "stepgolf-2026-data-access",
       "name": "StepGolf: unauthorized access likely exposed member records",
       "subject": "StepGolf",
-      "summary": "StepGolf says unauthorized access occurred in its business and reservation systems; personal-data-bearing database backup files are extremely likely to have leaked. Possible data includes contact details, unencrypted bank direct-debit information, contract/reservation/purchase and lesson records, face photos and specially protected personal information. Up to 215,000 database records may be relevant, not 215,000 people; actual leak count and scope remain under investigation. The company says no concrete secondary harm was identified as of its notice and reports blocking access, changing credentials and engaging outside investigators.",
+      "summary": "StepGolf confirms unauthorized access to business and reservation systems and says leakage of database backups is extremely likely, not proven at a final count. Its Nov 10 second report replaces the earlier 215,000-record maximum with 114,605 personal-database registrations, 107,781 face-photo records and 12,707 bank-account records. These potentially exposed registration counts are not people, actual leaked counts or an additive total. Fields vary and bank direct-debit data was unencrypted. Reservations and lessons continue; no concrete secondary harm is confirmed.",
       "status": "confirmed",
       "severity": "high",
-      "date": "2026-11-07",
-      "dateLabel": "Unauthorized access Oct 23 and 25 found during Nov 5 investigation; disclosed Nov 7, 2026",
+      "date": null,
+      "dateLabel": "Full intrusion onset unknown; unauthorized access Oct 23 and 25 found during Nov 5 investigation; disclosed Nov 7, 2026; scope revised Nov 10",
       "tags": [
         "breach",
         "data-leak",
@@ -5594,10 +5714,22 @@
           "url": "https://www.stepgolf.co.jp/news/261023",
           "kind": "primary",
           "date": "2026-10-23"
+        },
+        {
+          "label": "StepGolf · Nov 10 second report, revised registration counts and response",
+          "url": "https://www.stepgolf.co.jp/news/261110",
+          "kind": "primary",
+          "date": "2026-11-10"
         }
       ],
-      "correction": "The company calls leakage of backups “extremely likely,” but actual exfiltrated records and affected people are not yet known. 215,000 is a maximum database-record count, not a confirmed victim count. Data fields vary by person; the notice says credit-card information and identity documents are not held on the affected system and reports no concrete secondary harm. No link to the separate PHP-vulnerability response is established.",
-      "disclosureDate": "2026-11-07"
+      "correction": "Nov 10 second-report counts supersede the Nov 7 maximum 215,000 database registrations. The 114,605 personal-database, 107,781 face-photo and 12,707 bank-record counts are potentially exposed registrations, not confirmed leakage or unique people; overlap is unknown, so do not sum. Fields vary per person. Access is confirmed and backup leakage called extremely likely, not a final exfiltration count. Nov 7 is disclosure, not onset; Oct 23/25 are known access dates, not proof of the earliest access. No established link to the separate PHP-vulnerability response.",
+      "disclosureDate": "2026-11-07",
+      "detail": {
+        "whatHappened": "Abnormal processing detected Nov 5 led to confirmed unauthorized access. Access-history review also found access on Oct 23 and 25. Database backups containing personal information are considered extremely likely to have leaked; full onset and final scope remain unknown.",
+        "exposure": "Nov 10 scope covers trial applicants and current/former members registered by Oct 23: 114,605 personal-database registrations, 107,781 face-photo records including retained photos of withdrawn/expelled members, and 12,707 bank direct-debit records. Do not add or treat these as people/actual leaked counts. Potential fields include names, contact details, birth dates, contracts, reservations, purchases, lesson notes and specially protected personal information; bank names, branches, account numbers and account holders were stored unencrypted. Fields vary by person. Cards and identity documents are not held in the affected system.",
+        "fix": "StepGolf reports blocking unauthorized access, disabling suspicious programs, changing credentials and strengthening restrictions. It reported to the PPC, consulted police and engaged outside security investigators. Further authentication, data-retention and monitoring measures are planned; reservations and lessons remain available.",
+        "remaining": "Actual leakage count, unique people, cross-category overlap and full cause/scope remain under investigation. No concrete secondary harm is confirmed. Individual notices are planned when ready; a dedicated email channel is open, while telephone support is still being prepared."
+      }
     },
     {
       "id": "m1-customer-data-breach-2026",
@@ -5893,14 +6025,20 @@
           "url": "https://contents.xj-storage.jp/xcontents/AS71226/0d5f3847/6172/4bcc/bfab/73896dab795d/20261106211906670s.pdf",
           "kind": "primary",
           "date": "2026-11-06"
+        },
+        {
+          "label": "Kagoshima Bank · Nov 10 Paydon revised affected count and planned notification restart",
+          "url": "https://www.kagin.co.jp/important/20261110_075.html",
+          "kind": "primary",
+          "date": "2026-11-10"
         }
       ],
-      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it. Mercury/CoinTrade's 88,289 addresses are also a non-additive client slice, not people or a separate vendor intrusion. See exposure detail; do not combine with PointIncome development-backup records. Hoiku-is confirms 28 partial newsletter-body cases, so Kakaku's email-body exclusion must not be generalized. Hoiku-is, Fanplus/Ticketplus and BIRD MEMBERS are non-additive ARARA client scopes; BIRD MEMBERS overlaps Fanplus. JAL ABC maximum ~450,000 email-address records are another non-additive client slice; its email-only and body exclusions are client-specific. Paycloud's 34,285,087 email-only/47,044,380 email-plus-attributes split is provisional within the unchanged 81,329,467 total, not extra people/records or uniform field coverage. Environment B is already included and belongs to the same access period.",
+      "correction": "Kakaku ~5.7M and PLM 13,711 are client records within ARARA, not extra victims: do not sum. PLM direct-site access is separate with unknown overlap. The 81,329,467 figure is a deduplicated email-address count, not people, and the vendor says it includes data feared to have been taken. Up to 380 is an estimate of client companies, still under review. The up-to-7.13-million phishing message count is sent mail, not breached records. The service says it did not store credit-card numbers. Dates: the record is dated by ARARA's first report (Oct 29), with the Nov 6 third report as the latest figures; Nov 6 is a report date, not an access date. ARARA's first report put the access on Oct 28 and about 3.01M addresses; the second report widened this to about 77M and 97 customer-environment servers; the third report gave 81,329,467. SEGA's own notice (2,196,044 addresses) is a client record within the vendor total and is not added to it. Mercury/CoinTrade's 88,289 addresses are also a non-additive client slice, not people or a separate vendor intrusion. See exposure detail; do not combine with PointIncome development-backup records. Hoiku-is confirms 28 partial newsletter-body cases, so Kakaku's email-body exclusion must not be generalized. Hoiku-is, Fanplus/Ticketplus and BIRD MEMBERS are non-additive ARARA client scopes; BIRD MEMBERS overlaps Fanplus. JAL ABC maximum ~450,000 email-address records are another non-additive client slice; its email-only and body exclusions are client-specific. Paycloud's 34,285,087 email-only/47,044,380 email-plus-attributes split is provisional within the unchanged 81,329,467 total, not extra people/records or uniform field coverage. Environment B is already included and belongs to the same access period. Paydon's primary Nov 10 notice resolves the prior count uncertainty to 125,972 affected records, superseding maximum 257,639; do not add the client figure to ARARA or equate it to people.",
       "disclosureDate": "2026-10-29",
       "detail": {
         "whatHappened": "ARARA and Paycloud say unauthorized access occurred in the ARARA Message email-delivery system, which was abused to send phishing email impersonating card companies. The Nov 6 third report says the incident scope proved substantially larger than in earlier reports. ARARA stopped all service on Oct 31. Environment B contributed 3,249,492 email-only records within the deduplicated total, taken during the same Oct 28-31 incident, not a new attack. Paycloud also confirms some text information in the shared-environment data; client-specific body exclusions cannot be generalized.",
-        "exposure": "Paycloud's Nov 6 table splits the unchanged 81,329,467 deduplicated email-address total into 34,285,087 email-only and 47,044,380 email-plus-attribute-information/etc. records; the footnote says this split remains under examination. These are addresses, not people or extra records, and do not mean all 47,044,380 share the same fields. Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers. Ceres' Nov 6 notice confirms Mercury/CoinTrade's 88,289 deduplicated email addresses from Oct 8-29 mailings leaked via repica/ARARA; addresses may include former/noncurrent customers. Email only, not names, bodies or passwords; no Mercury core-system intrusion, incident-linked unauthorized login or asset loss was observed as of notice. Mercury was informed Nov 2 and received the list Nov 4. This is a non-additive client slice, separate from PointIncome's development incident. Hoiku-is' Nov 10 third report confirms 107,867 individual-member records, 56 corporate-customer records and partial newsletter-body leakage in 28 cases. These are different units, not a people sum; 28 body cases are not extra victims. No own-system intrusion/leak is confirmed. Fanplus/Ticketplus' Nov 6 report estimates about 4.43M email-address records by matching the ARARA list; not unique people, with no other fields or own-service intrusion/leak confirmed. Japan Badminton's Nov 9 BIRD MEMBERS notice covers paid/free newsletter addresses registered as of Oct 31, email only and count unknown; it overlaps Fanplus scope and is not additive. JAL ABC confirms up to about 450,000 MyPage-member email-address records leaked via ARARA. This is email only, not verified unique people or an addition to the vendor total. Its names, addresses, phones, cards, passwords and email subjects/bodies, including inserted names, are excluded for this client only.",
-        "fix": "ARARA says it stopped the service on Oct 31 and is contacting potentially affected clients, working with police and relevant privacy/communications authorities, and investigating with external specialists. Restart timing is undecided pending remediation, independent security confirmation and client credential resets.",
+        "exposure": "Paycloud's Nov 6 table splits the unchanged 81,329,467 deduplicated email-address total into 34,285,087 email-only and 47,044,380 email-plus-attribute-information/etc. records; the footnote says this split remains under examination. These are addresses, not people or extra records, and do not mean all 47,044,380 share the same fields. Kakaku.com's Nov 5 issuer notice gives about 5.7M client records: Tabelog ~4.19M emails; Kakaku.com ~1.37M emails, including ~650,000 with birth date/sex; Sumaity ~140,000 emails; Job Box 142 emails; icotto four emails, including two with user ID. Email bodies are excluded. These are records, not unique people or a new access incident. PLM's Nov 6 notice reports 13,711 ARARA-delivery email records across five clubs: Fighters 3,575, Eagles 1,165, Lions 2,693, Marines 2,618 and Hawks 3,660. These client slices belong within ARARA's aggregate; do not add them or Kakaku's figures to the 81,329,467 vendor total. PLM separately discloses direct Chiba Lotte website access, tracked as a distinct event; overlap is unknown. The companies report 81,329,467 deduplicated email addresses across the service, including addresses feared to have been taken. This is an address count, not a number of people. Depending on the customer, other leaked or potentially leaked data may include names, sex, dates of birth, phone numbers, membership numbers and addresses. The companies estimate up to about 380 client companies may be implicated, still under review. Separately, up to approximately 7.13 million phishing emails were sent Oct 28–30; this is not an exfiltrated-record count. ARARA says it did not hold credit-card numbers. Ceres' Nov 6 notice confirms Mercury/CoinTrade's 88,289 deduplicated email addresses from Oct 8-29 mailings leaked via repica/ARARA; addresses may include former/noncurrent customers. Email only, not names, bodies or passwords; no Mercury core-system intrusion, incident-linked unauthorized login or asset loss was observed as of notice. Mercury was informed Nov 2 and received the list Nov 4. This is a non-additive client slice, separate from PointIncome's development incident. Hoiku-is' Nov 10 third report confirms 107,867 individual-member records, 56 corporate-customer records and partial newsletter-body leakage in 28 cases. These are different units, not a people sum; 28 body cases are not extra victims. No own-system intrusion/leak is confirmed. Fanplus/Ticketplus' Nov 6 report estimates about 4.43M email-address records by matching the ARARA list; not unique people, with no other fields or own-service intrusion/leak confirmed. Japan Badminton's Nov 9 BIRD MEMBERS notice covers paid/free newsletter addresses registered as of Oct 31, email only and count unknown; it overlaps Fanplus scope and is not additive. JAL ABC confirms up to about 450,000 MyPage-member email-address records leaked via ARARA. This is email only, not verified unique people or an addition to the vendor total. Its names, addresses, phones, cards, passwords and email subjects/bodies, including inserted names, are excluded for this client only. Paydon's Nov 10 joint-bank notice says subsequent ARARA investigation established 125,972 affected email-address records, replacing its prior maximum 257,639. This is another non-additive ARARA client subset, not unique people or a separate intrusion.",
+        "fix": "ARARA says it stopped the service on Oct 31 and is contacting potentially affected clients, working with police and relevant privacy/communications authorities, and investigating with external specialists. Restart timing is undecided pending remediation, independent security confirmation and client credential resets. Paydon plans to change away from ARARA and abolish specified user payment/transfer, charge/refund/voucher-purchase and point-award email notifications; other notifications, including merchant notices, are unchanged. Its notice aims to restart remaining email notices and new-user registration around Nov 10 at 17:00 JST; completion is not verified.",
         "remaining": "Kakaku and PLM client counts are non-additive slices, with cross-client overlap unstated. PLM direct-site email overlap is also unknown. The source says the cause, full impact and exact leakage counts remain under investigation. The stated 81,329,467 includes addresses feared taken, and the estimate of client companies is still being checked. The up-to-7.13-million phishing count refers to messages sent, not people or exposed records. Mercury mailings paused with provider shutdown; individual notices follow restart, with authority reporting and provider/security review continuing. Hoiku-is individual notices and PPC coordination are planned, with no misuse confirmed at Nov 10. BIRD MEMBERS switched to a new mail system; vendor investigation continues. Client scopes do not resolve a vendor-wide unique-person total. JAL ABC reports no observed misuse as of Nov 10; its exclusions must not be generalized to other ARARA clients."
       }
     },
