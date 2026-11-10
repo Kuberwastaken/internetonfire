@@ -5071,15 +5071,17 @@
     },
     {
       "id": "mirae-asset-global-investments-data-leak",
-      "name": "Mirae Asset Global Investments: internal-system data leaked",
+      "name": "Mirae Asset Global Investments: Pool and MGIS employee data leaked",
       "subject": "Mirae Asset Global Investments",
-      "summary": "Mirae Asset Global Investments said unauthorized external access to some web systems led to information from internal work systems being viewed and leaked. It said the affected systems did not serve individual customers and that general-customer/investor data, unique identifiers, sensitive information and personal credit data were not exposed. The reports do not specify the leaked fields or a count. The company said it blocked access and was investigating with an external cybersecurity firm.",
+      "summary": "Nov 10 reporting by Seoul Economic Daily and CBS NoCut cites Mirae Asset Global Investments' incident filing obtained from the FSS via a legislator. It describes Pool-site access starting Oct 22 around 19:11 KST, 307 member accounts accessed using stolen password hashes Oct 24, and IDs, names, emails and encrypted passwords leaked for 331 corporate employees. About 960 MB of internal files, including fund-return records, was downloaded Oct 23-24. Separately, Oct 23 MGIS access involved 17 external accounts, super-admin rights and about 280 MB of files; 2,281 employees were affected there, comprising 1,715 at 31 overseas subsidiaries and 566 at headquarters.",
       "status": "reported",
-      "severity": "medium",
-      "date": null,
-      "dateLabel": "Reported 28 Oct 2026",
+      "severity": "high",
+      "date": "2026-10-22",
+      "dateLabel": "Reported Pool access Oct 22-24 and MGIS access Oct 23-24, 2026; detected Oct 26; first retained disclosure Oct 28; filing details reported Nov 10",
       "tags": [
         "breach",
+        "data-leak",
+        "credentials",
         "finance"
       ],
       "sources": [
@@ -5094,9 +5096,27 @@
           "url": "https://www.fnnews.com/news/202610281029211054",
           "kind": "report",
           "date": "2026-10-28"
+        },
+        {
+          "label": "Seoul Economic Daily · Filing-based Pool and MGIS scope report (Korean)",
+          "url": "https://www.sedaily.com/article/20112348",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "Seoul Economic Daily · English version of filing-based report",
+          "url": "https://en.sedaily.com/market/2026/11/10/hackers-targeted-koreas-pension-fund-pool-site-at-mirae",
+          "kind": "report",
+          "date": "2026-11-10"
+        },
+        {
+          "label": "CBS NoCut News · Reporting on incident filing obtained from FSS",
+          "url": "https://www.nocutnews.co.kr/news/6604310",
+          "kind": "report",
+          "date": "2026-11-10"
         }
       ],
-      "correction": "Separate from Mirae Asset Securities. The cited reports attribute the scope and excluded-data statements to Mirae Asset Global Investments; they do not identify the specific exposed fields or a record count. Do not combine this incident with attacks reported at other group affiliates.",
+      "correction": "Secondary filing-based reporting, not a directly retrieved FSS/company filing. Counts have different scopes: 307 accounts are not 331 people; overlap between the 331 Pool employees and 2,281 MGIS employees is unestablished, so no unique-person sum. File volumes are not stolen fund assets. Reports place Oct 26 detection around noon for Pool and 14:00 for MGIS, followed by overseas-access blocks, function restrictions and password resets. No unique-identification, personal-credit or individual-customer-data leak or financial damage was confirmed per the reported filing; this is not a blanket no-personal-information claim. The Nov 10 details supersede the earlier no-fields/count account; disclosureDate remains Oct 28. No shared-attacker inference across affiliates.",
       "disclosureDate": "2026-10-28"
     },
     {
