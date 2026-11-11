@@ -2,6 +2,111 @@
   "updated": "2026-11-11",
   "incidents": [
     {
+      "id": "hanlai-foods-cyberbiz-client-disclosure-2026",
+      "name": "Han-Lai Foods: CYBERBIZ order-data access disclosure reported",
+      "subject": "Han-Lai Foods",
+      "status": "reported",
+      "severity": "medium",
+      "date": null,
+      "disclosureDate": "2026-11-10",
+      "dateLabel": "Client notification/disclosure Nov 10, 2026 per disclosure mirror; CNA report Nov 11; intrusion onset unknown",
+      "tags": [
+        "breach",
+        "privacy",
+        "retail"
+      ],
+      "summary": "CNA via Economic Daily and a disclosure mirror report Han-Lai Foods was notified Nov 10 by CYBERBIZ of unauthorized abnormal access to some vendor database data involving some online-store consumer order information. Count, fields, intrusion onset and confirmed downloading or dissemination are not supplied. Han-Lai says it sent SMS/email notices and requested vendor security review/improvements while tracking progress. Same-vendor overlap with Nobeller's separately reported disclosure is unresolved; this is a client disclosure, not proof of a separate attack or an aggregate vendor incident.",
+      "correction": "Secondary/disclosure-mirror evidence, not a retrieved direct issuer/exchange filing or vendor incident notice. Nov 10 is client notification/disclosure, not attack onset. Unauthorized database access involving some order data does not establish downloaded/disseminated records. No count or field list supplied. Do not sum client populations or infer same event/actor as Nobeller on vendor name alone; no confirmed independent new attack is claimed. Generic CYBERBIZ anti-fraud material is not incident confirmation.",
+      "detail": {
+        "whatHappened": "Han-Lai reportedly received CYBERBIZ notification Nov 10 that some database data had unauthorized abnormal access involving some consumer order information. Technical cause, access time and event overlap with other customer disclosures are unresolved.",
+        "exposure": "Some online-store order data implicated by supplier notification; no count, fields, confirmed downloading or dissemination supplied. This is not an affected-person total or a final vendor scope.",
+        "fix": "Client says it activated response procedures, sent affected consumers SMS/email notices, requested vendor security review and strengthening, and will follow improvement progress. No-material-financial/business-impact is its current assessment, not data-safety proof or completed recovery.",
+        "remaining": "Direct issuer/exchange source, exact data impact, onset, count, fields, vendor investigation findings and relation to other client disclosures remain unresolved. This record tracks the client disclosure only and must not be counted as an independently established attack."
+      },
+      "sources": [
+        {
+          "label": "CNA via Economic Daily · Nov 11 Han-Lai supplier-access notification report",
+          "url": "https://money.udn.com/money/story/5612/9870848",
+          "kind": "report",
+          "date": "2026-11-11"
+        },
+        {
+          "label": "1458 disclosure mirror · Nov 10 Han-Lai notification and client response",
+          "url": "https://www.1458.com.tw/newsD583897.html",
+          "kind": "report",
+          "date": "2026-11-10"
+        }
+      ]
+    },
+    {
+      "id": "biccamera-corporate-inquiry-form-leak-2026",
+      "name": "Bic Camera: corporate inquiry-form leak reported at 133,039 records",
+      "subject": "Bic Camera corporate inquiry form",
+      "status": "reported",
+      "severity": "high",
+      "date": "2026-11-05",
+      "disclosureDate": "2026-11-10",
+      "dateLabel": "Secondary reports access/leak Nov 5-6, 2026 and disclosure Nov 10; finer timeline awaits primary-body verification",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy"
+      ],
+      "summary": "NHK's accessible Nov 11 report confirms Bic Camera announced unauthorized access to its corporate-customer inquiry form and more than 133,000 corporate-information records leaked. Full secondary Security Measures Lab reports 133,039 records, varying company, department, contact name and email fields, access Nov 5-6 and form closure/configuration correction Nov 6 at 14:15 JST. These are records, not people or companies. Primary PDF existence/link is verified but its body was not retrieved; finer details remain secondary-attributed. Distinct from Bic Camera's ARARA email-client incident, not an additional ARARA population or proven shared attacker.",
+      "correction": "Reported own corporate-form event, not the ARARA email-vendor client event. NHK partial accessible body supports unauthorized access and more than 133,000 leaked records only; exact 133,039, dates, fields and response details come from full secondary Security Measures Lab, not a read primary PDF. Record units are not deduplicated people/companies and cannot be added to ARARA counts. Specific attack technique/CVE and actor are not established.",
+      "detail": {
+        "whatHappened": "Security Measures Lab reports access targeting a latent corporate-inquiry-form configuration problem Nov 5-6 and closure/correction Nov 6 at 14:15 JST. NHK independently reports the corporate-form unauthorized access/leak at headline/intro level. Primary notice PDF link exists, but its body remains unretrieved; do not imply primary verification of finer facts.",
+        "exposure": "Full secondary reports 133,039 records with all or some company name, department, contact person name and email fields. Not all fields for every record, not unique companies/people. It reports transaction histories, amounts, bank accounts and other transaction information excluded; general consumer e-commerce intrusion/impact not confirmed. These are secondary-reported bounded company findings, not universal exclusions or an independent all-clear.",
+        "fix": "Secondary reports Nov 6 at 14:15 JST form closure and configuration correction, PPC report and external-expert consultation. Individual corporate-client notices including affected counts/fields are planned, not completed. Reported closure of the known route is not independent containment certification.",
+        "remaining": "Primary PDF body, exact technical misconfiguration and attacker identity remain unverified. Do not infer SQL injection, authentication bypass or another named vector. General-consumer and ARARA events are separate scopes; no cross-event actor attribution or additive victim count. Final scope/notification completion and independent resolution are not established."
+      },
+      "sources": [
+        {
+          "label": "NHK · Nov 11 accessible partial report, corporate-form access and more than 133,000 records",
+          "url": "https://news.web.nhk/newsweb/na/nd-20261111de74257",
+          "kind": "report",
+          "date": "2026-11-11"
+        },
+        {
+          "label": "Security Measures Lab · Nov 10 full secondary exact count, fields and timeline",
+          "url": "https://rocket-boys.co.jp/security-measures-lab/20261110_biccamera_b2b_contact_form_133039_data_breach/",
+          "kind": "report",
+          "date": "2026-11-10"
+        }
+      ]
+    },
+    {
+      "id": "idemitsu-car-maintenance-booking-access-2026",
+      "name": "Idemitsu: car-maintenance booking intrusion may expose customer data",
+      "subject": "Idemitsu car-maintenance booking",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "disclosureDate": "2026-11-10",
+      "dateLabel": "Anomalous access detected Nov 7, 2026; intrusion/external retrievability confirmed Nov 9; suspended/disclosed Nov 10; onset unknown",
+      "tags": [
+        "breach",
+        "privacy",
+        "outage"
+      ],
+      "summary": "Idemitsu confirms unauthorized access to its car-maintenance booking service, formerly PIT in plus, but only possible personal-data leakage. Anomalous access was detected Nov 7; investigation confirmed unauthorized access and customer information externally retrievable Nov 9. The service was suspended Nov 10. Actual leakage, affected customers and full scope remain under investigation; no count or field list is supplied. This is explicitly distinct from the Oct 9 data-misdisplay incident. Reservations, changes and cancellations through the service are unavailable; customers must contact their booked store. Individual contacts and restart communication are future work, not completed recovery.",
+      "correction": "Confirmed intrusion and externally retrievable data are not confirmed exfiltration. No affected count, field inventory or exact intrusion onset is given. Nov 7 is detection and Nov 9 confirmation, not established onset. Separate from the Oct 9 misdisplay event; no shared contractor, actor or vendor linkage is established. Suspension and future safety checks do not prove containment or recovery.",
+      "detail": {
+        "whatHappened": "Unusual access detected Nov 7 prompted investigation. Nov 9 findings confirmed unauthorized access and customer information externally retrievable. Service stopped Nov 10 to protect information and limit harm. Initial intrusion time, technical cause and actor remain unknown.",
+        "exposure": "Possible personal-data leakage only; actual leakage, affected customers and impact scope are still being checked. The first report supplies no count or field list, so do not infer cards, passwords or specific customer fields.",
+        "fix": "Service suspended Nov 10. Booking, booking changes and cancellations through it are unavailable; customers needing changes/cancellation must contact their booked store directly. Individual customer contact is planned after identification. Restart timing will be announced after safety confirmation, not a current restoration date.",
+        "remaining": "Actual data acquisition, final population, fields, cause, onset and restart timing remain unresolved. Explicitly a different event from the Oct 9 customer-data misdisplay notice; no independent all-clear is established."
+      },
+      "sources": [
+        {
+          "label": "Idemitsu · Nov 10 first primary car-maintenance booking intrusion/possible-leak notice",
+          "url": "https://www.idemitsu.com/jp/information/2026/261110.pdf",
+          "kind": "primary",
+          "date": "2026-11-10"
+        }
+      ]
+    },
+    {
       "id": "landmark-shukran-customer-unauthorized-access-2026",
       "name": "Landmark / Shukran: customer names, contacts and birthdates accessed",
       "subject": "Landmark Group / Shukran",
@@ -270,12 +375,24 @@
           "url": "https://www.pilot.co.jp/information/01/2026/11/11/post_243.html",
           "kind": "primary",
           "date": "2026-11-11"
+        },
+        {
+          "label": "Mynet · Nov 11 possible limited-service impact and 25 supplied shipment records",
+          "url": "https://www.mynet.co.jp/news/info/251111",
+          "kind": "primary",
+          "date": "2026-11-11"
+        },
+        {
+          "label": "HUMAN MADE · Nov 11 primary CURRY UP possible shipping-data scope and vendor-attributed findings",
+          "url": "https://contents.xj-storage.jp/xcontents/AS04974/93fc877c/948d/4c8a/a030/965616aef2e3/140120261111574117.pdf",
+          "kind": "primary",
+          "date": "2026-11-11"
         }
       ],
-      "correction": "Confirmed vendor data theft does not establish that all SKIYAKI/Bitfan users or supplied records were affected. Client population/fields/count remain under review; this is one vendor event with a possible client slice, not two incidents. Apr 8-Nov 8 is the shipping-request population window, not attack duration. Nov 8-9 is the stated access window; exact initial access time is not supplied. No misuse/secondary harm confirmed as of Nov 11 is not proof none occurred. No link to ARARA, Blastmail, J-MOTTO or a shared attacker is established. PILOT Nov 11 says some PILABOT product purchasers during Apr 8-Nov 8 may have customer information leaked via OPENLOGI: possible names, addresses, phones and emails if registered, excluding cards. Client population and count are still being checked and affected-customer contacts are future work once details are known. This is a possible client slice of the confirmed vendor incident, not confirmed client-specific exfiltration, an additional vendor total or a separate intrusion. The purchase-population window is not an attack window.",
+      "correction": "Confirmed vendor data theft does not establish that all SKIYAKI/Bitfan users or supplied records were affected. Client population/fields/count remain under review; this is one vendor event with a possible client slice, not two incidents. Apr 8-Nov 8 is the shipping-request population window, not attack duration. Nov 8-9 is the stated access window; exact initial access time is not supplied. No misuse/secondary harm confirmed as of Nov 11 is not proof none occurred. No link to ARARA, Blastmail, J-MOTTO or a shared attacker is established. PILOT Nov 11 says some PILABOT product purchasers during Apr 8-Nov 8 may have customer information leaked via OPENLOGI: possible names, addresses, phones and emails if registered, excluding cards. Client population and count are still being checked and affected-customer contacts are future work once details are known. This is a possible client slice of the confirmed vendor incident, not confirmed client-specific exfiltration, an additional vendor total or a separate intrusion. The purchase-population window is not an attack window. Mynet Nov 11 says some group services use OPENLOGI and may be affected; it cumulatively supplied 25 shipment-data items containing names, addresses and phones. Cards are excluded. These are supplied shipment records, not 25 confirmed leaked people, all-service impact or an addition to vendor totals. Exact affected count and scope remain under review; no completed notification or recovery is established. The notice is dated 2026-11-11 despite its /251111 URL suffix. HUMAN MADE Nov 11 primary says CURRY UP EC shipping data for Apr 8-Nov 8 may have leaked: recipient names, addresses, phones, emails and product names/quantities. Cards excluded because OPENLOGI did not hold them. Client population/count remain unknown; purchase/shipping window is not attack duration. Other HUMAN MADE brands are excluded and own-system access is not confirmed per company, not a universal safety finding. It relays OPENLOGI's Nov 9 attack-source blocking, foreign-access restrictions and all-session reset, with no new access or concrete secondary harm confirmed as of Nov 11; these dated vendor findings are not independent containment or proof of no harm. This is a non-additive possible client slice, not another intrusion or confirmed client exfiltration.",
       "detail": {
         "whatHappened": "OPENLOGI confirms unauthorized access during Nov 8-9 and external taking of some stored shipping data. It says it blocked the currently known route Nov 9; attack vector and actor remain unknown.",
-        "exposure": "Shipping requests Apr 8-Nov 8, 2026 include recipients' names, addresses, phone numbers, emails if registered, and product names/quantities. Final scope/count are unknown. Card numbers were not held and are excluded. SKIYAKI says its Bitfan shipping data supplied to OPENLOGI may be affected, not confirmed all client users/records; it is checking population, fields and counts. PILOT Nov 11 says some PILABOT product purchasers during Apr 8-Nov 8 may have customer information leaked via OPENLOGI: possible names, addresses, phones and emails if registered, excluding cards. Client population and count are still being checked and affected-customer contacts are future work once details are known. This is a possible client slice of the confirmed vendor incident, not confirmed client-specific exfiltration, an additional vendor total or a separate intrusion. The purchase-population window is not an attack window.",
+        "exposure": "Shipping requests Apr 8-Nov 8, 2026 include recipients' names, addresses, phone numbers, emails if registered, and product names/quantities. Final scope/count are unknown. Card numbers were not held and are excluded. SKIYAKI says its Bitfan shipping data supplied to OPENLOGI may be affected, not confirmed all client users/records; it is checking population, fields and counts. PILOT Nov 11 says some PILABOT product purchasers during Apr 8-Nov 8 may have customer information leaked via OPENLOGI: possible names, addresses, phones and emails if registered, excluding cards. Client population and count are still being checked and affected-customer contacts are future work once details are known. This is a possible client slice of the confirmed vendor incident, not confirmed client-specific exfiltration, an additional vendor total or a separate intrusion. The purchase-population window is not an attack window. Mynet Nov 11 says some group services use OPENLOGI and may be affected; it cumulatively supplied 25 shipment-data items containing names, addresses and phones. Cards are excluded. These are supplied shipment records, not 25 confirmed leaked people, all-service impact or an addition to vendor totals. Exact affected count and scope remain under review; no completed notification or recovery is established. The notice is dated 2026-11-11 despite its /251111 URL suffix. HUMAN MADE Nov 11 primary says CURRY UP EC shipping data for Apr 8-Nov 8 may have leaked: recipient names, addresses, phones, emails and product names/quantities. Cards excluded because OPENLOGI did not hold them. Client population/count remain unknown; purchase/shipping window is not attack duration. Other HUMAN MADE brands are excluded and own-system access is not confirmed per company, not a universal safety finding. It relays OPENLOGI's Nov 9 attack-source blocking, foreign-access restrictions and all-session reset, with no new access or concrete secondary harm confirmed as of Nov 11; these dated vendor findings are not independent containment or proof of no harm. This is a non-additive possible client slice, not another intrusion or confirmed client exfiltration.",
         "fix": "The vendor reports blocking the known route, no new access confirmed since and ongoing emergency maintenance/security checks. Warehouse receiving/shipping operates normally except some system-operation effects. External specialists are investigating cause, path and scope. PPC reporting/police consultation are being pursued, not established completed.",
         "remaining": "Count, final affected shipping population and full cause/path remain under investigation. No misuse/secondary harm confirmed as of Nov 11 is a dated finding. Warehouse operation and reported route blocking do not establish full restoration or independently verified containment; no completed all-customer notification is established."
       }
@@ -414,7 +531,7 @@
       "id": "tradewaltz-production-training-intrusion-2026",
       "name": "TradeWaltz: 130 trade documents leaked; production and training halted",
       "subject": "TradeWaltz",
-      "summary": "TradeWaltz's Nov 11 sixth report says an attack on an external contractor's server led to misuse of TradeWaltz system-administration access keys stored there; it determined this at 10:40 JST. The contractor is unnamed and has no capital relationship with TradeWaltz. Some registered data was acquired by a third party; 130 leaked trade documents are confirmed, not people, customers or a final affected-record total. Fields, customer total and full scope remain under investigation. Production/training remain stopped; Grain Importers and Export Documentary remain outside the stated scope. Customer contacts are planned after files are identified. The Nov 11 16:00 JST sixth report says restarting during Nov 11-13 is difficult while security measures are implemented and validated; no restart date is set.",
+      "summary": "TradeWaltz's Nov 11 seventh report says an attack on an external contractor's server led to misuse of TradeWaltz system-administration access keys stored there; it determined this at 10:40 JST. The contractor is unnamed and has no capital relationship with TradeWaltz. Some registered data was acquired by a third party; 130 leaked trade documents are confirmed, not people, customers or a final affected-record total. Fields, customer total and full scope remain under investigation. Production/training remain stopped; Grain Importers and Export Documentary remain outside the stated scope. Customer contacts are planned after files are identified. The Nov 11 16:00 JST seventh report says restarting during Nov 11-13 is difficult while security measures are implemented and validated; no restart date is set. The Nov 11 20:00 JST seventh report commits to announcing the outlook for Nov 14-or-later resumption by Nov 13 at 17:00 JST, not a Nov 14 restart promise.",
       "status": "confirmed",
       "severity": "high",
       "date": null,
@@ -428,18 +545,18 @@
       ],
       "sources": [
         {
-          "label": "TradeWaltz · Nov 11 sixth report at 16:00 JST, preserving earlier reports",
+          "label": "TradeWaltz · Nov 11 seventh report at 20:00 JST, preserving earlier reports",
           "url": "https://www.tradewaltz.com/news/13816/",
           "kind": "primary",
           "date": "2026-11-11"
         }
       ],
-      "correction": "The fifth report attributes access to misuse of TradeWaltz administration keys stored on an attacked external contractor server. The contractor has no capital relationship with TradeWaltz and is unnamed; do not infer another tracked vendor, a shared attacker or a separate counted incident. The fourth report confirms data acquisition and 130 leaked trade documents as of Nov 11 at 08:00 JST, superseding the third report's possible-only exposure. Documents are not people, customers or a complete affected-record total. Fields, customer count and full scope remain unknown. Detection at about Nov 10 10:00 JST is not intrusion onset. The vendor says shutdown prevents further unauthorized access; this is its assessment, not an independently verified all-clear or recovery. Grain Importers/Export Documentary exclusions are service-specific. Planned affected-customer contacts are not completed notification. The sixth report says Nov 11-13 resumption is difficult, not a promised restart immediately afterward.",
+      "correction": "The fifth report attributes access to misuse of TradeWaltz administration keys stored on an attacked external contractor server. The contractor has no capital relationship with TradeWaltz and is unnamed; do not infer another tracked vendor, a shared attacker or a separate counted incident. The fourth report confirms data acquisition and 130 leaked trade documents as of Nov 11 at 08:00 JST, superseding the third report's possible-only exposure. Documents are not people, customers or a complete affected-record total. Fields, customer count and full scope remain unknown. Detection at about Nov 10 10:00 JST is not intrusion onset. The vendor says shutdown prevents further unauthorized access; this is its assessment, not an independently verified all-clear or recovery. Grain Importers/Export Documentary exclusions are service-specific. Planned affected-customer contacts are not completed notification. The seventh report says Nov 11-13 resumption is difficult, not a promised restart immediately afterward. By Nov 13 at 17:00 JST it will announce the outlook for restarting Nov 14 or later; this is a reporting deadline, not a restoration commitment.",
       "detail": {
         "whatHappened": "TradeWaltz detected unauthorized external access Nov 10 around 10:00 JST, established its response headquarters at 14:00 and stopped production/training at 14:30. Log analysis confirmed intrusion into both environments at 15:10. It confirmed leakage of some customer trade documents Nov 11 at 03:30 JST and reported 130 leaked documents as of 08:00. At Nov 11 10:40 JST, the vendor determined that an external contractor's server was attacked and TradeWaltz system-administration access keys stored there were misused. The unnamed contractor has no capital relationship with TradeWaltz; no link to another tracked vendor is established.",
         "exposure": "Third-party acquisition of some registered data and leakage of 130 trade documents are confirmed by the vendor as of Nov 11 at 08:00 JST. The unit is documents, not people or customers, and this is not a final count of all affected records. Data fields, affected-customer count and full scope remain under investigation. TradeWaltz for Grain Importers and TradeWaltz for Export Documentary are stated to be outside scope and operating normally.",
-        "fix": "The provider says it deleted accounts confirmed misused or created illegitimately Nov 10 at 14:45, restricted source IPs at 14:55 and began log extraction/analysis then. Production and training remain halted as of the Nov 11 16:00 JST sixth report; restart will follow safety checks. It plans to contact affected customers once leaked files are identified, not completed notification. The vendor says resumption during Nov 11-13 is difficult because implementation and validation of security measures need time; this is not a Nov 14 restart promise.",
-        "remaining": "The contractor/key misuse chain is now vendor-reported, but the contractor identity, deeper attack details, intrusion onset, data fields, affected-customer total, full leakage scope and restart ETA remain unknown; investigation continues. The vendor asserts the Nov 10 14:30 shutdown prevents further unauthorized access, not an independent containment finding. Its next update is planned Nov 11 at 20:00 JST; that is a reporting plan, not a restoration deadline."
+        "fix": "The provider says it deleted accounts confirmed misused or created illegitimately Nov 10 at 14:45, restricted source IPs at 14:55 and began log extraction/analysis then. Production and training remain halted as of the Nov 11 20:00 JST seventh report; restart will follow safety checks. It plans to contact affected customers once leaked files are identified, not completed notification. The vendor says resumption during Nov 11-13 is difficult because implementation and validation of security measures need time; this is not a Nov 14 restart promise.",
+        "remaining": "The contractor/key misuse chain is now vendor-reported, but the contractor identity, deeper attack details, intrusion onset, data fields, affected-customer total, full leakage scope and restart ETA remain unknown; investigation continues. The vendor asserts the Nov 10 14:30 shutdown prevents further unauthorized access, not an independent containment finding. Its seventh report commits to announcing the outlook for Nov 14-or-later restart by Nov 13 at 17:00 JST, not a restart promise. Next routine update is Nov 12 at 12:00 JST, also not a restoration deadline."
       }
     },
     {
