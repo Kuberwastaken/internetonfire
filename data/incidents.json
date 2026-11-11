@@ -5,11 +5,11 @@
       "id": "tradewaltz-production-training-intrusion-2026",
       "name": "TradeWaltz: 130 trade documents leaked; production and training halted",
       "subject": "TradeWaltz",
-      "summary": "TradeWaltz now confirms third-party acquisition of some registered data and leakage of 130 trade documents as of Nov 11 at 08:00 JST. This is a document count, not people, customers or all affected records; fields, customer count and full scope remain under investigation. It confirmed document leakage at 03:30 JST. Production and training remain stopped following the Nov 10 14:30 shutdown. TradeWaltz for Grain Importers and Export Documentary are outside the stated scope and continue normally. Customer contacts are planned once affected files are identified; restart timing is unknown.",
+      "summary": "TradeWaltz's Nov 11 12:00 JST fifth report says an attack on an external contractor's server led to misuse of TradeWaltz system-administration access keys stored there; it determined this at 10:40 JST. The contractor is unnamed and has no capital relationship with TradeWaltz. Some registered data was acquired by a third party; 130 leaked trade documents are confirmed, not people, customers or a final affected-record total. Fields, customer total and full scope remain under investigation. Production/training remain stopped; Grain Importers and Export Documentary remain outside the stated scope. Customer contacts are planned after files are identified; restart timing is unknown.",
       "status": "confirmed",
       "severity": "high",
       "date": null,
-      "dateLabel": "Intrusion onset unknown; detected Nov 10, 2026 around 10:00 JST; first disclosed Nov 10; document leakage confirmed Nov 11 at 03:30, 130 documents reported at 08:00 JST",
+      "dateLabel": "Intrusion onset unknown; detected Nov 10, 2026 around 10:00 JST; first disclosed Nov 10; leakage confirmed Nov 11 at 03:30; 130 documents at 08:00; contractor/key chain determined at 10:40, reported at 12:00 JST",
       "disclosureDate": "2026-11-10",
       "tags": [
         "breach",
@@ -19,18 +19,18 @@
       ],
       "sources": [
         {
-          "label": "TradeWaltz · Nov 11 fourth report at 08:00 JST, preserving Nov 10 reports",
+          "label": "TradeWaltz · Nov 11 fifth report at 12:00 JST, preserving earlier reports",
           "url": "https://www.tradewaltz.com/news/13816/",
           "kind": "primary",
           "date": "2026-11-11"
         }
       ],
-      "correction": "The fourth report confirms data acquisition and 130 leaked trade documents as of Nov 11 at 08:00 JST, superseding the third report's possible-only exposure. Documents are not people, customers or a complete affected-record total. Fields, customer count and full scope remain unknown. Detection at about Nov 10 10:00 JST is not intrusion onset. The vendor says shutdown prevents further unauthorized access; this is its assessment, not an independently verified all-clear or recovery. Grain Importers/Export Documentary exclusions are service-specific. Planned affected-customer contacts are not completed notification.",
+      "correction": "The fifth report attributes access to misuse of TradeWaltz administration keys stored on an attacked external contractor server. The contractor has no capital relationship with TradeWaltz and is unnamed; do not infer another tracked vendor, a shared attacker or a separate counted incident. The fourth report confirms data acquisition and 130 leaked trade documents as of Nov 11 at 08:00 JST, superseding the third report's possible-only exposure. Documents are not people, customers or a complete affected-record total. Fields, customer count and full scope remain unknown. Detection at about Nov 10 10:00 JST is not intrusion onset. The vendor says shutdown prevents further unauthorized access; this is its assessment, not an independently verified all-clear or recovery. Grain Importers/Export Documentary exclusions are service-specific. Planned affected-customer contacts are not completed notification.",
       "detail": {
-        "whatHappened": "TradeWaltz detected unauthorized external access Nov 10 around 10:00 JST, established its response headquarters at 14:00 and stopped production/training at 14:30. Log analysis confirmed intrusion into both environments at 15:10. It confirmed leakage of some customer trade documents Nov 11 at 03:30 JST and reported 130 leaked documents as of 08:00.",
+        "whatHappened": "TradeWaltz detected unauthorized external access Nov 10 around 10:00 JST, established its response headquarters at 14:00 and stopped production/training at 14:30. Log analysis confirmed intrusion into both environments at 15:10. It confirmed leakage of some customer trade documents Nov 11 at 03:30 JST and reported 130 leaked documents as of 08:00. At Nov 11 10:40 JST, the vendor determined that an external contractor's server was attacked and TradeWaltz system-administration access keys stored there were misused. The unnamed contractor has no capital relationship with TradeWaltz; no link to another tracked vendor is established.",
         "exposure": "Third-party acquisition of some registered data and leakage of 130 trade documents are confirmed by the vendor as of Nov 11 at 08:00 JST. The unit is documents, not people or customers, and this is not a final count of all affected records. Data fields, affected-customer count and full scope remain under investigation. TradeWaltz for Grain Importers and TradeWaltz for Export Documentary are stated to be outside scope and operating normally.",
-        "fix": "The provider says it deleted accounts confirmed misused or created illegitimately Nov 10 at 14:45, restricted source IPs at 14:55 and began log extraction/analysis then. Production and training remain halted as of the Nov 11 08:00 JST fourth report; restart will follow safety checks. It plans to contact affected customers once leaked files are identified, not completed notification.",
-        "remaining": "Cause, intrusion onset, data fields, affected-customer total, full leakage scope and restart ETA remain unknown; investigation continues. The vendor asserts the Nov 10 14:30 shutdown prevents further unauthorized access, not an independent containment finding. Its next update is planned Nov 11 at 12:00 JST; that is a reporting plan, not a restoration deadline."
+        "fix": "The provider says it deleted accounts confirmed misused or created illegitimately Nov 10 at 14:45, restricted source IPs at 14:55 and began log extraction/analysis then. Production and training remain halted as of the Nov 11 12:00 JST fifth report; restart will follow safety checks. It plans to contact affected customers once leaked files are identified, not completed notification.",
+        "remaining": "The contractor/key misuse chain is now vendor-reported, but the contractor identity, deeper attack details, intrusion onset, data fields, affected-customer total, full leakage scope and restart ETA remain unknown; investigation continues. The vendor asserts the Nov 10 14:30 shutdown prevents further unauthorized access, not an independent containment finding. Its next update is planned Nov 11 at 16:00 JST; that is a reporting plan, not a restoration deadline."
       }
     },
     {
