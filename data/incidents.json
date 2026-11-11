@@ -624,11 +624,11 @@
       "id": "vanderbilt-university-cyber-incident-2026",
       "name": "Vanderbilt University: cyber incident restricts systems and cloud services",
       "subject": "Vanderbilt University",
-      "summary": "Vanderbilt University confirms an ongoing cybersecurity incident. Its Nov 10 09:00 local update restores campus Wi-Fi, Okta with MFA, Outlook on university/personal devices, Brightspace, Zoom and YES; sophomore registration proceeds. University devices may be used again, with newly observed suspicious activity reported to IT. All other systems and applications remain restricted, explicitly CampusPrint. Government/partner response continues, not full recovery or confirmed containment. Separately, Vanderbilt Health's Nov 9 notice says its own systems had so far not been impacted and patient care continued.",
+      "summary": "Vanderbilt University confirms an ongoing cybersecurity incident. Its Nov 10 18:00 America/Chicago update lists CampusPrint as available alongside campus Wi-Fi, Okta with MFA, Outlook, Brightspace, Zoom and YES; all course registration proceeds as scheduled. University devices may be used, with new abnormal activity reported to IT. All other university systems/apps remain restricted. Containment and investigation of what data, if any, was accessed continue. Full normal operations may take multiple weeks, an estimate rather than a promise. Separately, Vanderbilt Health's Nov 9 notice said its systems had so far not been impacted and patient care continued.",
       "status": "confirmed",
       "severity": "high",
       "date": null,
-      "dateLabel": "Occurrence date unknown; first university notices Nov 9, 2026; latest service/device guidance Nov 10 at 09:00 local (America/Chicago)",
+      "dateLabel": "Occurrence date unknown; first university notices Nov 9, 2026; latest service/device guidance Nov 10 at 18:00 local (America/Chicago)",
       "disclosureDate": "2026-11-09",
       "tags": [
         "outage",
@@ -637,7 +637,7 @@
       ],
       "sources": [
         {
-          "label": "Vanderbilt University · Active incident notice, updated Nov 10 at 09:00 local",
+          "label": "Vanderbilt University · Active incident notice, updated Nov 10 at 18:00 America/Chicago",
           "url": "https://news.vanderbilt.edu/2026/11/09/nov-9-active-cybersecurity-incident-updates/",
           "kind": "primary",
           "date": "2026-11-10"
@@ -655,12 +655,12 @@
           "date": "2026-11-09"
         }
       ],
-      "correction": "Confirmed status covers the university incident and disruption, not ransomware attribution or data theft. BleepingComputer reports BYOD claims of encryption, stolen student/employee/research data and over one million SSNs; Vanderbilt has not confirmed the actor, encryption, theft or count. Those are attacker claims, not verified affected-person totals. Nov 10 named-service restoration and permission to resume university devices supersede the initial blanket device-shutdown guidance, but do not establish full recovery or containment. All other systems/apps, including CampusPrint, remain restricted. Vanderbilt Health is separate; its so-far-unaffected assessment is dated to Nov 9, not a guarantee of later status.",
+      "correction": "Confirmed status covers the university incident and disruption, not ransomware attribution or data theft. BleepingComputer reports BYOD claims of encryption, stolen student/employee/research data and over one million SSNs; Vanderbilt has not confirmed the actor, encryption, theft or count. Those are attacker claims, not verified affected-person totals. Nov 10 named-service restoration and permission to resume university devices supersede the initial blanket device-shutdown guidance, but do not establish full recovery or containment. The Nov 10 18:00 update supersedes the morning CampusPrint restriction: CampusPrint is now available; all other systems/apps outside the named available list remain restricted. Multiple weeks for full normal operations is a university estimate, not a promised restoration date. Vanderbilt Health is separate; its so-far-unaffected assessment is dated to Nov 9, not a guarantee of later status.",
       "detail": {
-        "whatHappened": "Vanderbilt continues to describe an active cybersecurity hacking incident affecting university devices, systems and cloud services. It is working with government agencies and other partners; full cause, actor and access onset remain unconfirmed.",
+        "whatHappened": "Vanderbilt continues responding to an ongoing cybersecurity incident affecting university devices, systems and cloud services. At Nov 10 18:00 America/Chicago, it says containment measures are progressing while it investigates what data, if any, may have been accessed. This is not confirmed containment; cause, actor and intrusion onset remain unconfirmed.",
         "exposure": "The university has not confirmed ransomware attribution, data theft or a victim total. BleepingComputer reports BYOD claims of encryption, student/employee/research data theft and over one million SSNs; these remain attacker claims, not verified counts. Vanderbilt Health is separate and its Nov 9 unaffected-system/patient-care statement is not a later university-wide all-clear.",
-        "fix": "At Nov 10 09:00 local, campus Wi-Fi, Okta with continued MFA, Outlook on university and personal devices, Brightspace, Zoom and YES are available; sophomore registration proceeds. Students, faculty and staff may resume Vanderbilt devices and should report new abnormal/suspicious activity to IT. All other university systems/apps remain restricted, explicitly CampusPrint.",
-        "remaining": "Incident response and containment work continue. Named-service availability and device permission are partial restoration, not full recovery or confirmed containment. University data theft, attribution and counts remain unconfirmed. Vanderbilt Health's separate Nov 9 assessment is dated and has not been upgraded by this university update."
+        "fix": "At Nov 10 18:00 America/Chicago, CampusPrint, campus Wi-Fi, Okta with continued MFA, Outlook on university and personal devices, Brightspace, Zoom and YES are available; all course registration proceeds as scheduled. University devices may be used; newly observed abnormal or suspicious activity should be reported to VUIT. All other university systems/apps remain restricted. Systems will be restored deliberately as response progresses.",
+        "remaining": "Containment and investigation of what data, if any, may have been accessed continue. Named-service availability and device permission are partial restoration, not full recovery or confirmed containment. The university anticipates multiple weeks for full normal operations, an estimate not a promise. Theft, attribution and counts remain unconfirmed. The next community update is anticipated by 10:00 Nov 11 America/Chicago, a reporting plan not a restoration deadline. Vanderbilt Health's separate Nov 9 assessment remains dated."
       }
     },
     {
