@@ -2,6 +2,43 @@
   "updated": "2026-11-11",
   "incidents": [
     {
+      "id": "fullerton-health-pcp-server-access-2026",
+      "name": "Fullerton Health: PCP server accessed; migrant-worker data may be affected",
+      "subject": "Fullerton Health PCP",
+      "summary": "Fullerton Health confirms unauthorized access to a server supporting its Migrant Worker Primary Care Plan programme and says it became aware Oct 31. Its Nov 9 notice says migrant workers' names, FINs, birth dates, mobile numbers, emails and residential addresses may be affected; actual acquisition and count are not confirmed. Its current assessment limits the incident to a standalone PCP system, with no evidence other programmes, clients or patients were affected. It says no health/medical or personal financial information is in the affected data. Services remain operational; investigation and notification steps continue.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Intrusion onset unknown; provider became aware Oct 31, 2026; disclosed Nov 9; CNA reports PDPC investigation Nov 11",
+      "disclosureDate": "2026-11-09",
+      "tags": [
+        "breach",
+        "privacy",
+        "healthcare"
+      ],
+      "sources": [
+        {
+          "label": "Fullerton Health · Nov 9 PCP server incident and possible personal-data impact",
+          "url": "https://www.fullertonhealth.com/sg/data-security-incident-affecting-the-migrant-workers-primary-care-plan-pcp-portal/",
+          "kind": "primary",
+          "date": "2026-11-09"
+        },
+        {
+          "label": "CNA · Nov 11 report, PDPC confirms investigation",
+          "url": "https://www.channelnewsasia.com/singapore/fullerton-health-migrant-worker-care-plan-cybersecurity-incident-6541451",
+          "kind": "report",
+          "date": "2026-11-11"
+        }
+      ],
+      "correction": "Confirmed status refers to unauthorized server access, not confirmed data exfiltration. Oct 31 is awareness, not established intrusion onset; Nov 9 is disclosure. Possible fields and standalone-system/no-other-impact findings are preliminary provider assessments, not independently verified final scope. No affected-person count is given. Do not conflate this PCP incident with historical Fullerton/Agape cases or infer a common attacker. Notification steps in progress do not mean all affected workers have been notified; operating services do not establish incident resolution.",
+      "detail": {
+        "whatHappened": "Fullerton Health says it became aware Oct 31 of unauthorized access to a server supporting the MOM-administered Migrant Worker Primary Care Plan. It activated incident response and precautionary network measures; intrusion onset and attack method remain unknown.",
+        "exposure": "Preliminary investigations say migrant workers' full names, FINs, dates of birth, mobile numbers, email addresses and residential addresses may be affected. Actual acquisition and count are unconfirmed. The provider says the affected data contains no health/medical or personal financial information. Its current assessment is limited to a standalone PCP system, with no evidence of effects on other programmes, projects, clients or patients.",
+        "fix": "The provider says it notified PDPC, made a police report and contacted MOM. It is taking steps to notify affected workers and provide guidance, not completed notification. Managed care, healthcare services and facilities remain operational. CNA separately reports PDPC confirmed it is investigating.",
+        "remaining": "Investigation continues. Intrusion onset, actual data acquisition, affected-person count and final scope remain unknown. Preliminary no-other-system-impact findings are attributed, not a universal all-clear; services operating and precautionary measures do not establish full resolution."
+      }
+    },
+    {
       "id": "tradewaltz-production-training-intrusion-2026",
       "name": "TradeWaltz: 130 trade documents leaked; production and training halted",
       "subject": "TradeWaltz",
@@ -5508,11 +5545,11 @@
       "id": "chainalysis-security-incident-2026",
       "name": "Chainalysis: customer password hashes and live tokens exposed",
       "subject": "Chainalysis",
-      "summary": "Chainalysis says an external actor accessed its systems and internal tools. Its Nov 4 update said customer names, usernames, password hashes and live tokens for all Chainalysis users were exposed; it said it had no evidence investigation data was accessed or attribution data manipulated. Reactor, KYT (UI/API) and Address Screening returned online Nov 7 with enhanced security, and customers were asked to reconnect through specific instructions.",
+      "summary": "Chainalysis says an external actor accessed its systems and internal tools. Its Nov 4 update said customer names, usernames, password hashes and live tokens for all Chainalysis users were exposed; it said it had no evidence investigation data was accessed or attribution data manipulated. Reactor, KYT (UI/API) and Address Screening returned online Nov 7 with enhanced security, and customers were asked to reconnect through specific instructions. Its Nov 10 03:00 EST update says Data Solutions is back online, customer instruction emails were sent and customers are being brought back; this does not establish restored access for every customer or resolution of every incident effect.",
       "status": "confirmed",
       "severity": "critical",
       "date": "2026-10-30",
-      "dateLabel": "Incident disclosed Oct 30, 2026; customer password-hash/live-token exposure disclosed Nov 4; key products restored Nov 7",
+      "dateLabel": "Incident disclosed Oct 30, 2026; customer password-hash/live-token exposure disclosed Nov 4; key products restored Nov 7; Data Solutions back online Nov 10 at 03:00 EST",
       "tags": [
         "breach",
         "data-leak",
@@ -5521,13 +5558,13 @@
       ],
       "sources": [
         {
-          "label": "Chainalysis security incident information · Original source (updated Nov 7)",
+          "label": "Chainalysis security incident information · Original source, updated Nov 10 at 03:00 EST",
           "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
           "kind": "primary",
           "date": "2026-10-30"
         }
       ],
-      "correction": "Chainalysis’s Oct 30 update said there was no evidence of access to credentials or session tokens. Its later Nov 4 update reported that customer information including password hashes and live tokens for all users had been exposed; the later update supersedes the initial assessment on that point. The Nov 7 restoration is not proof that all incident effects are resolved.",
+      "correction": "Chainalysis’s Oct 30 update said there was no evidence of access to credentials or session tokens. Its later Nov 4 update reported that customer information including password hashes and live tokens for all users had been exposed; the later update supersedes the initial assessment on that point. The Nov 7 restoration is not proof that all incident effects are resolved. Nov 10 adds named Data Solutions restoration while customer return is ongoing; instruction emails sent do not mean every customer has regained access. Earlier trusted-IP allowlisting, required password resets and API-key rotation where applicable remain part of the stated reconnection process. No-evidence findings about investigation content or attribution manipulation remain provider-attributed and dated, not independent all-clear.",
       "disclosureDate": "2026-10-30"
     },
     {
