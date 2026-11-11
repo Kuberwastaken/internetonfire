@@ -9,6 +9,9 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble@sha256:f1e7e01021efd65dd1a2c56064be399f3e4de00fd021ac561325f2bfbb2b837a
+      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,12 +19,22 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Use official Ubuntu mirrors for browser dependencies
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify preinstalled browser dependencies
         run: |
-          if [ -f /etc/apt/apt-mirrors.txt ]; then
-            sudo sed -i '/azure\.archive\.ubuntu\.com/d' /etc/apt/apt-mirrors.txt
-          fi
-      - run: npx playwright install --with-deps chromium
+          node --input-type=module <<'JS'
+          import { chromium } from '@playwright/test';
+          import { createRequire } from 'node:module';
+          const require = createRequire(import.meta.url);
+          if (require('@playwright/test/package.json').version !== '1.56.1') {
+            throw new Error('Update the pinned Playwright container to match package-lock.json');
+          }
+          const browser = await chromium.launch();
+          await browser.close();
+          JS
+          python3 --version
       - run: npm test
       - run: npm run build
       - run: npm run test:browser
