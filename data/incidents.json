@@ -2,6 +2,38 @@
   "updated": "2026-11-11",
   "incidents": [
     {
+      "id": "dentsu-digital-tonariwa-access-2026",
+      "name": "TONARIWA: admin credentials misused; client data and LINE tokens at risk",
+      "subject": "Dentsu Digital TONARIWA",
+      "summary": "Dentsu Digital confirms unauthorized access and privilege escalation using leaked TONARIWA system-platform management credentials, verified Nov 10. It stopped the service. Some client end-user names, birth dates and contact attributes, plus administration information including LINE official-account integration tokens, may have leaked; actual data acquisition and counts remain unconfirmed. Payment/card/bank-account data is excluded by the provider's current investigation. No misuse is confirmed so far, but unauthorized LINE-message delivery risk cannot be ruled out. Token reissue/cutover is progressing where possible, not all completed; restart timing is unknown.",
+      "status": "confirmed",
+      "severity": "high",
+      "date": null,
+      "dateLabel": "Intrusion onset unknown; unauthorized access and privilege escalation confirmed Nov 10, 2026; disclosed Nov 11",
+      "disclosureDate": "2026-11-11",
+      "tags": [
+        "breach",
+        "credentials",
+        "privacy",
+        "outage"
+      ],
+      "sources": [
+        {
+          "label": "Dentsu Digital · Nov 11 TONARIWA access and possible data-leak notice",
+          "url": "https://www.dentsudigital.co.jp/news/updates/services/2026-1111-001111",
+          "kind": "primary",
+          "date": "2026-11-11"
+        }
+      ],
+      "correction": "Confirmed status covers unauthorized access and privilege escalation through leaked management credentials, not confirmed acquisition of end-user data or LINE tokens. Nov 10 is confirmation, not established intrusion onset. Affected clients, people/record counts and precise data fields remain under investigation. No misuse confirmed is a dated finding, not proof no risk; unauthorized LINE messages cannot be excluded. Token reissue/cutover is proceeding where Dentsu can act, with client-dependent steps handled individually, not every token already rotated. No link to OWNLY, another vendor or a common attacker is established.",
+      "detail": {
+        "whatHappened": "Dentsu Digital says it confirmed Nov 10 that a third party used leaked credentials for a TONARIWA system-platform management account to gain unauthorized access and escalate privileges. It suspended the marketing platform; intrusion onset and how the credentials leaked remain unknown.",
+        "exposure": "Possible external leakage concerns some clients' end-user names, birth dates and contact attributes, and TONARIWA administration information including LINE official-account integration access tokens. The provider says payment-related data, including cards and bank accounts, is not in scope based on investigation so far. Affected-client counts, people/record totals and precise fields are unknown; actual acquisition remains possible rather than confirmed. No misuse is confirmed so far, but unauthorized LINE-message delivery risk cannot be ruled out.",
+        "fix": "The provider says it immediately invalidated credentials used for access, blocked the route and stopped all servers to isolate the system. It is selecting a forensic firm and analyzing logs, coordinating with clients toward regulatory reports, explaining individual situations and requesting safety measures. LINE token reissue/cutover is sequential where it can act after checking dependencies and authority; client-required steps receive individual guidance, not all completed.",
+        "remaining": "Cause investigation and scope identification continue. Service restart has no announced date and depends on external safety verification and needed measures. Regulatory-report coordination is not proof every report has been filed; server isolation and credential invalidation are provider-reported actions, not independently verified resolution. No final all-clear or completed token cutover is established."
+      }
+    },
+    {
       "id": "fullerton-health-pcp-server-access-2026",
       "name": "Fullerton Health: PCP server accessed; migrant-worker data may be affected",
       "subject": "Fullerton Health PCP",
