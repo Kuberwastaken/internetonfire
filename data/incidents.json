@@ -2,6 +2,62 @@
   "updated": "2026-11-11",
   "incidents": [
     {
+      "id": "allunited-membership-database-copying-2026",
+      "name": "AllUnited: club registration-form flaw exposes membership databases and passwords",
+      "subject": "AllUnited",
+      "status": "confirmed",
+      "severity": "high",
+      "date": "2026-11-09",
+      "disclosureDate": "2026-11-10",
+      "dateLabel": "Vendor/KNBB explicitly date attack to Nov 9, 2026 evening; discovered and flaw closed Nov 10; RTL first published Nov 10, updated Nov 11; KNLTB relative wording conflicts",
+      "tags": [
+        "breach",
+        "data-leak",
+        "privacy",
+        "finance"
+      ],
+      "summary": "AllUnited says an outsider exploited a software flaw through a club website's registration form on Nov 9, reached a server and copied database information for all clubs/federations using AllUnited. It discovered the incident Nov 10 and closed the flaw that day. Stored fields vary by record: member/contact data, IBANs, free notes, administrative login information and temporary passwords may be involved. Encrypted passwords were not directly readable, but the vendor warns that stolen information about the encryption could allow recovery with sufficient resources; unchanged temporary passwords were stored readably. Password invalidation/deletion and next-login reset are described, not proven completed. No exact record, person or affected-club count is supplied.",
+      "correction": "Explicit vendor/KNBB Nov 9 evening attack and Nov 10 discovery/closure dates are used. KNLTB's dated Nov 11 notice instead says 'yesterday evening'; that relative wording conflicts and is not used to shift onset to Nov 10. Vendor page has no visible publication date. RTL header gives Nov 10 publication and Nov 11 update, supporting Nov 10 first retrieved public disclosure; its rolling relative wording is not used to date the attack/discovery. The vendor says all clubs/federations in AllUnited's database, not every marketing partner or all national sport members: do not turn 35 partner federations or 2,500 communities into verified affected totals. NL Times/ANP quotes AP on more than 350 club breach reports as of Nov 11, expected to rise; this counts regulator reports, not unique clubs/people or the final affected population. Field coverage depends on stored information; child data is specifically included where stored per KNBB. Encryption is the vendor's term, not hashing; temporary unchanged passwords were readable. Invalidation/deletion/reset are described ongoing actions, not verified completed remediation. Vendor AP report made/police report planned differs from KNBB's completed reports to both. No named actor, specific CVE or confirmed secondary misuse is established. Club/member notification is not proven universally completed.",
+      "detail": {
+        "whatHappened": "An outsider exploited an AllUnited software flaw through a club website registration form on Monday evening Nov 9, gained access to a server and copied database data, per the vendor. It says this covers all clubs and federations in AllUnited. KNBB corroborates Nov 9 attack and Nov 10 discovery/flaw closure. KNLTB's Nov 11 'yesterday evening' wording conflicts with those explicit dates; its impact assessment for some affiliated clubs using AllUnited continues. No separate client intrusion or common actor with other incidents is inferred.",
+        "exposure": "AllUnited lists administrative users' names, emails, phones and encrypted passwords; members/former members/volunteers/other relations' names, addresses, birthdates, phones, emails, IBANs, other stored fields, free notes and temporary passwords; website registrations' names, emails, phones, birthdates and IBANs. KNBB also lists birthplace, member number, team/function/comments and child data where stored. This is a varying field union, not every field for every person. The vendor says the attacker also took information about how encryption works and could recover passwords with enough time/computing; it does not call them hashes. Temporary passwords not changed by members were readable. No exact records/unique people/affected clubs total is provided. More than 350 AP club breach reports in secondary ANP/NL Times is a notification count, not a population count; marketing partner/community numbers are not exposure totals.",
+        "fix": "AllUnited says the flaw was closed Nov 10. It describes invalidating all passwords, deleting unchanged readable temporary passwords and requiring a new password through forgotten-password flow at next login; full completion is not established. It says AP was notified and police reporting is planned. KNBB says its own AP and police reports were made. KNLTB says affected clubs received vendor emails/example member-notice text and that it is assessing impact; clubs are responsible for their own reporting and member warnings. These bounded actions do not establish universal notification or full recovery.",
+        "remaining": "Exact record/person/club counts, final client scope, per-record field coverage and completed password reset/notification remain unestablished. Public notices warn about targeted phishing/payment requests, not evidence that illustrative scam messages actually occurred. Encrypted credentials are not assured safe, and closure of the exploited flaw is not an independent all-clear. Do not infer all partner federations were directly affected: using AllUnited for some clubs differs from a federation's own membership system. No named attacker or precise CVE is established."
+      },
+      "sources": [
+        {
+          "label": "AllUnited · Security incident notice · Original source (publication date unstated)",
+          "url": "https://support.allunited.nl/support/solutions/articles/103000425650-beveiligingsincident-bij-allunited",
+          "kind": "primary",
+          "date": null
+        },
+        {
+          "label": "KNBB · Nov 11 member-data/credential notice · Original source",
+          "url": "https://www.knbb.nl/belangrijk-je-gegevens-bij-koninklijke-nederlandse-biljartbond-knbb-zijn-mogelijk-in-verkeerde-handen-gevallen-door-een-hack-bij-onze-dienstverlener-allunited/",
+          "kind": "primary",
+          "date": "2026-11-11"
+        },
+        {
+          "label": "KNLTB · Nov 11 limited club scope and response · Original source",
+          "url": "https://www.knltb.nl/nieuws/2026/11/datalek-bij-allunited-wat-betekent-dit-voor-verenigingen-en-spelers/",
+          "kind": "primary",
+          "date": "2026-11-11"
+        },
+        {
+          "label": "NL Times / ANP · Nov 11 AP report-count coverage",
+          "url": "https://nltimes.nl/2026/11/11/hundreds-dutch-sports-clubs-report-cyberattack-exposing-members-personal-data",
+          "kind": "report",
+          "date": "2026-11-11"
+        },
+        {
+          "label": "RTL Nieuws · Nov 10 public report, updated Nov 11 (rolling body)",
+          "url": "https://www.rtl.nl/nieuws/binnenland/artikel/5664394/datalek-allunited-gegevens-sporters-buitgemaakt",
+          "kind": "report",
+          "date": "2026-11-10"
+        }
+      ]
+    },
+    {
       "id": "minmed-standalone-teleconsult-screening-incident-2026",
       "name": "Minmed: malicious incident affects standalone teleconsultation and screening system",
       "subject": "Minmed Group",
@@ -2026,9 +2082,15 @@
           "url": "https://www.aig.co.jp/sonpo/company/news/2026/20261109-01",
           "kind": "primary",
           "date": "2026-11-09"
+        },
+        {
+          "label": "J:COM · Nov 11 possible bicycle-roadside customer exposure · Original source",
+          "url": "https://notices.jcom.co.jp/notice/95259.html",
+          "kind": "primary",
+          "date": "2026-11-11"
         }
       ],
-      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notices are reference translations of the Japanese originals, which prevail. The Nov 6 second report confirmed credit card numbers in 3 exfiltrated records from a portion of the system's call intake records (vendor-wide scope); issuers were notified and no misuse is confirmed. This card finding does not extend to client-specific records (e.g. Mitsui Sumitomo Insurance, whose own notice states no card or bank account information) - do not propagate it into them without evidence. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records whose field scopes are narrower - do not bleed this field list or count into them. Other PCS client notices (Sompo Japan ~65,000 potential records, Nissan Financial Services up to ~236,000 potential records, SBI Insurance impact under investigation, Zurich Japan historical cases with count unknown, Panasonic Automotive 173 potential records, 2Rinkan, BMW Japan and Porsche Japan with scope unresolved, and others) belong to this same vendor incident: they are not separate intrusions, and their figures fall within the vendor-wide maximum - do not add them to the 5.5M. AIG Japan's Nov 9 notice confirms PCS reported leakage of some AIG roadside-service customers' information, with count/fields unknown. This is a non-additive PCS client qualifier, not AIG-system intrusion; vendor-wide card/bank fields are not extended to it. AIG reports no observed misuse and will notify confirmed affected customers following PCS specialist investigation.",
+      "correction": "5.5 million is the maximum potential record count including duplicates, not unique individuals, and the English notices are reference translations of the Japanese originals, which prevail. The Nov 6 second report confirmed credit card numbers in 3 exfiltrated records from a portion of the system's call intake records (vendor-wide scope); issuers were notified and no misuse is confirmed. This card finding does not extend to client-specific records (e.g. Mitsui Sumitomo Insurance, whose own notice states no card or bank account information) - do not propagate it into them without evidence. Partial bank account information applies to the vendor-wide maximum scope; client-specific confirmed impact is tracked in separate customer records whose field scopes are narrower - do not bleed this field list or count into them. Other PCS client notices (Sompo Japan ~65,000 potential records, Nissan Financial Services up to ~236,000 potential records, SBI Insurance impact under investigation, Zurich Japan historical cases with count unknown, Panasonic Automotive 173 potential records, 2Rinkan, BMW Japan and Porsche Japan with scope unresolved, and others) belong to this same vendor incident: they are not separate intrusions, and their figures fall within the vendor-wide maximum - do not add them to the 5.5M. AIG Japan's Nov 9 notice confirms PCS reported leakage of some AIG roadside-service customers' information, with count/fields unknown. This is a non-additive PCS client qualifier, not AIG-system intrusion; vendor-wide card/bank fields are not extended to it. AIG reports no observed misuse and will notify confirmed affected customers following PCS specialist investigation. J:COM's Nov 11 primary notice adds a possible bicycle-roadside client slice: JCOM/group Bicycle Life Support and Life Anshin Service / Cable Plus Telephone Flat-rate Anshin Pack bicycle plans, including partner cable-TV operators. JCOM outsources through KDDI and received KDDI's report Nov 4; this is client notification, not intrusion onset. Count and possible affected fields remain under investigation. JCOM says the PCS-held information for this slice excludes passwords, cards, bank accounts and identity-document information such as driver licences. Those are client-bounded exclusions, not a reversal of the vendor-wide three-card finding. Individual notices will follow scope identification, not completed; communications facilities/services are unaffected per JCOM. No related misuse confirmed as of its notice is not an all-clear. Non-additive to PCS maximum, not a new intrusion or all-JCOM customer impact.",
       "disclosureDate": "2026-11-02"
     },
     {
